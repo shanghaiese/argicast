@@ -1,0 +1,350 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AIS.UsefulFunctions.DerivedCalculations</name>
+    </assembly>
+    <members>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel">
+            <summary>
+            Model used in CornFlo, provided by ECM
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.Calculate(System.Double,Syngenta.AIS.ModelLibrary.GrowthMedia,Syngenta.AIS.ModelLibrary.SerieList{Syngenta.AIS.ModelLibrary.Serie})">
+            <summary>
+            Calculates the average soil temperature for several days
+            Creates a new serie in the list
+            </summary>
+            <param name="depth_mm">depth of calculation in mm</param>
+            <param name="viewData">Table containing the input parameters</param>
+            <param name="soil">soil description</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName">
+            <summary>
+            Class containing the series
+            </summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaRootZoneAvailableWaterCapacity">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaRootZoneAvailableWaterContentFraction">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaWaterEvaporationAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaWaterUsedForPlantTranspirationAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaMaximumWaterUsedForPlantTranspirationAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaWaterEvaporationClimaticPotentialFromCurrentDay">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaWaterUsedForPlantTranspirationClimaticPotentialFromCurrentDay">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaWaterConstraintOnStomatalConductance">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_WaterDemandAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_WaterDemandClimaticPotentialFromCurrentDay">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilWaterModel.SeriesName.S_GrowthMediaWaterDrainage">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel">
+            <summary>
+            Class doing a calculation for several days for soil water content
+            Provides 4 output (top soil and subsoil, available water and fraction of available water)
+            http://nadss.unl.edu/PDSIReport/pdsi/calculation.html
+            Abbreviations 
+            P	Precipitation 
+            PET	Potential Evapotranspiration 
+            PR	Potential Recharge 
+            PRO Potential Runoff 
+            PL	Potential Loss 
+            ET	Evapotranspiration 
+            R	Recharge 
+            RO	Runoff 
+            L	Loss 
+            AWC Available Water Holding Capacity 
+            Ss	Surface Soil Moisture Content 
+            Su	Underlying Soil Moisture Content
+            
+            Along with these four potential values (PET, PR, PRO, and PL), 
+            their actual values (ET, R, RO, and L) are also calculated. 
+            The rules for determining the values of these actual values are very complicated, 
+            depending on the relationship of precipitation (P), PET, and the soil moisture model. 
+            This is where the two-leveled model of the soil is most important. 
+            The topsoil is assumed to be able to hold 1.0 inches of moisture. 
+            This moisture is the first to be used up when demand is higher than supply, 
+            and the first to be recharged when there is a surplus. 
+            The lower level of the soil can then hold up to (AWC - 1.0) inches of moisture. 
+            When the top soil is depleted, only a fraction of the moisture in the lower level
+            can be removed at one time. 
+            There are several cases, sub cases, and sub-sub cases to consider to determine
+            how much moisture is gained or lost for each level of soil. 
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.Calculate(Syngenta.AIS.ModelLibrary.GrowthMedia,Syngenta.AIS.ModelLibrary.SerieList{Syngenta.AIS.ModelLibrary.Serie})">
+            <summary>
+            Calculates the average soil temperature for several days
+            Creates a new serie in the list
+            </summary>
+            <param name="viewData">Table containing the input parameters</param>
+            <param name="soil">Description of the soil</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.SeriesName">
+            <summary>
+            Class containing the series
+            </summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.SeriesName.S_TopSoilContent_mm">
+            <summary>
+            SerieName
+            </summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.SeriesName.S_SubSoilContent_mm">
+            <summary>
+            SerieName
+            </summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.SeriesName.S_TopSoilFraction">
+            <summary>
+            SerieName
+            </summary>
+        </member>
+        <member name="F:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureModel.SeriesName.S_SubSoilFraction">
+            <summary>
+            SerieName
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureDaily.#ctor(Syngenta.AIS.ModelLibrary.GrowthMedia)">
+            <summary>
+            Constructore + initialize
+            </summary>
+            <param name="growthMedia">soil description</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilMoistureDaily.BalanceCalculation(System.Double,System.Double)">
+            <summary>
+            Calculates the water balance
+            </summary>
+            <param name="waterIncome">daily water income (precip + irrigation) (mm)</param>
+            <param name="eto">daily eto (mm)</param>
+            <returns></returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.CropMoistureIndexModel">
+            <summary>
+            Class doing a calculation for several days for Crop Moisture Index
+            Water model, refer to documentation "Plant and Disease Growth Models"
+            using Thornthwaite heat index
+            Provides 5 output
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.CropMoistureIndexModel.Calculate(Syngenta.AIS.ModelLibrary.GrowthMedia,System.Double,System.Double,System.Double,Syngenta.AIS.ModelLibrary.SerieList{Syngenta.AIS.ModelLibrary.Serie})">
+            <summary>
+            Calculates the crop moisture index for the growth media
+            </summary>
+            <param name="soil">GrowthMedia (structure)</param>
+            <param name="latitude">latitude of the location</param>
+            <param name="BB"></param>
+            <param name="HE">Heat index from Thornthwaite </param>
+            <param name="viewData">weather data</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.CropMoistureIndexModel.Calculate(System.Double,System.Double,System.Double,System.Double,Syngenta.AIS.ModelLibrary.SerieList{Syngenta.AIS.ModelLibrary.Serie})">
+            <summary>
+            Calculates the crop moisture index for the growth media
+            </summary>
+            <param name="averageAvailableWaterContentAtFieldCapacityAtBulkDensity">average Available Water Content A tField Capacity At BulkDensity</param>
+            <param name="latitude">latitude of the location</param>
+            <param name="BB"></param>
+            <param name="HE">Heat index from Thornthwaite </param>
+            <param name="viewData">weather data</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.CropMoistureIndexModel.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.CropMoistureIndexModel.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:Syngenta.AIS.UsefulFunctions.DerivedCalculations.GDD">
+            <summary>
+            Class providing the generic GDD calculation
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.DerivedCalculations.GDD.Calculate(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculate the GDD for a day.
+            For a EU calculation, use Tmin=-1000, Tmax=1000, maximumGDD=1000.
+            For a US calculation, use Tmin=Tbase, Tmax=1000.
+            
+            Tmean = (Math.Max(dailyTmin, Tmin) + Math.Min(dailyTmax, Tmax)) / 2;
+            result = Math.Max(Tmean - Tbase, 0);
+            result = Math.Min(result, maximumGDD);
+            </summary>
+            <param name="airTemperatureMin">Min temperature of the day</param>
+            <param name="airTemperatureMax">Max temperature of the day</param>
+            <param name="temperatureMin">Min allowed air temprature (used for truncating)</param>
+            <param name="temperatureMax">Max allowed air temperature(used for truncating)</param>
+            <param name="temperatureBase">Base temperature for the calculation (reduces the number of GDD)</param>
+            <param name="maximumGDD">Maximum number of GDD per day. Set it to 1000 if this parameter is unnecessary</param>
+            <returns></returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.DerivedCalculations.GDD.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Crea5e the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.DerivedCalculations.GDD.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModel">
+            <summary>
+            Class doing a calculation for several days
+            R. McCann, M. J. McFarland, J. A. Witz. «Near Surface Bare Soil Temperature Model for Biophysical Models.» 
+            Transactions of the ASABE. 34(3) , 1991 : 0748-0755.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModel.GetSerieName(System.Double)">
+            <summary>
+            Returns the serie name, containing the depth in mm
+            </summary>
+            <param name="soilDepth_mm">depth in mm</param>
+            <returns>serie name</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModel.Calculate(System.Double,Syngenta.AIS.ModelLibrary.SerieList{Syngenta.AIS.ModelLibrary.Serie})">
+            <summary>
+            Calculates the average soil temperature for several days
+            Creates a new serie in the list
+            </summary>
+            <param name="viewData">Table containing the input parameters</param>
+            <param name="soilDepth_mm">depth of calculation in mm</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModel.CalculateOneDay(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculate the soil temperature of one of the previous days for later calculation of the current day.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModel.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModel.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModelCLR">
+            <summary>
+            Class doing a calculation for several days (CLR)
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModelCLR.CallCLRCalculation(System.DateTime,System.Int32,System.Double)">
+            <summary>
+            Get the value of the soil temperature for one day.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModelCLR.SelectViewDataIntoDataTable(System.Data.SqlClient.SqlConnection,System.Int32,System.DateTime,System.Data.DataTable)">
+            <summary>
+            Stores the weather data and calculated variables from the weather data in an accessible format for later use.
+            </summary>
+            <param name="connection">SQL connection to a database</param>
+            <param name="stationProviderID">Station ID</param>
+            <param name="ceilingDate">date of the calculation</param>
+            <param name="viewData">Data container</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.SoilTemperatureModelCLR.Version">
+            <summary>
+            Version 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:AIS.UsefulFunctions.DerivedCalculations.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:AIS.UsefulFunctions.DerivedCalculations.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

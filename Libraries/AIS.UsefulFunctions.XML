@@ -1,0 +1,542 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AIS.UsefulFunctions</name>
+    </assembly>
+    <members>
+        <member name="T:AIS.UsefulFunctions.EvapoTranspirationAfterTurc">
+            <summary>
+            Returns the Potential Evaporation in mm after Turc (1961)
+            based on Temperature, Global Radiation, Relative Humidity
+            
+            The formula returns the Potential Evaporation for a timeperiod. 
+            The goal of the formula is to get a good estimate on a monthly base, 
+            best case also on a daily base.
+            It does not take the short term plant-transpiration into account.
+            
+            See 
+            Klimatologie II, Geländeklimatologie und Mikrobiologie, 
+            Skript Sommersemester 2003
+            Werner Eugster
+            Geographisches Institut der Universität Bern
+            (-> David Oesch)
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.EvapoTranspirationAfterTurc.Calculate(System.Int32,System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates the evapotranspiration
+            </summary>
+            <param name="numberOfDays">number of days of the time period</param>
+            <param name="tempAir_dAvg_Avg">Average of the daily average Temperature in Celcius over a time period</param>
+            <param name="globalRadiation_dAvg_Avg">Average of the daily average Global Radiation in Whm2 over a time period</param>
+            <param name="relHumidity_dAvg_Avg">Average of the daily average Relative Humidity over the time period</param>
+            <returns>the cumulative evapotranspiration (mm)</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.EvapoTranspirationAfterTurc.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date</param>
+            <param name="endDate">End date</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="latitude">latitude of the point</param>
+            <param name="newStartDate">output Start date,</param>
+            <param name="newEndDate">output End date</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.EvapoTranspirationAfterTurc.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:Syngenta.AIS.UsefulFunctions.StandardizedReferenceEvapoTranspiration">
+            <summary>
+            Class providing the ETo calculation
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.StandardizedReferenceEvapoTranspiration.Calculate(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Int32,Syngenta.AIS.ModelLibrary.EnumCropHeightType)">
+            <summary>
+            Standardized Reference Evapotranspiration for a short or tall crop (similar to clipped, cool-season grass - 0.12m or full-cover alfalfa - 0.5m)
+            Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation
+            </summary>
+            <param name="maxAirTemperature">daily maximum air temperature at 2m (°C)</param>
+            <param name="minAirTemperature">daily minimum air temperature at 2m (°C)</param>
+            <param name="maxRelativeHumidity">daily maximum relative humidity at 2m (%)</param>
+            <param name="minRelativeHumidity">daily minimum relative humidity at 2m (%)</param>
+            <param name="avgWindSpeed">daily average wind speed at 10m (ms-1)</param>
+            <param name="globalRadiation">daily total global radiation (wh m-2)</param>
+            <param name="latitude">latitude of the feature response</param>
+            <param name="altitude">site elevation above sea level (m)</param>
+            <param name="julianDay">julian Day is the number of the day in the year between 1 (1 January) and 365 or 366 (31 December)</param>
+            <param name="cropHeightType">short crop = 0.12m (similar to clipped grass) and a tall crop = 0.50m (similar to full-cover alfalfa).</param>
+            <returns>ETsz = standardized reference crop evapotranspiration for short (ETos) or tall (ETrs) surfaces (mm d-1 for daily time steps)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.StandardizedReferenceEvapoTranspiration.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date</param>
+            <param name="endDate">End date</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="latitude">latitude of the point</param>
+            <param name="newStartDate">output Start date,</param>
+            <param name="newEndDate">output End date</param>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.StandardizedReferenceEvapoTranspiration.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:Syngenta.AIS.UsefulFunctions.Radiation">
+            <summary>
+            Class providing the usual radiation calculations
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Radiation.GetNetDailyRadiation(System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Calculates the net Daily Radiation. Net radiation (Rn) is the net amount of radiant energy available at a vegetation or soil surface for evaporating water, heating the air, or heating the surface.
+            </summary>
+            <param name="maximumAirTemperature">daily maximum air temperature at 2m (°C)</param>
+            <param name="minimumAirTemperature">daily minimum air temperature at 2m (°C)</param>
+            <param name="globalRadiation">daily incoming solar radiation (MJ m-2 d-1)</param>
+            <param name="actualVaporPressure">Actual vapour pressure (kPa)</param>
+            <param name="latitude">latitude (decimal)</param>
+            <param name="julianDays">Date(julian day)</param>
+            <param name="altitude">site elevation above sea level (m)</param>
+            <returns>net daily radiation (MJ m-2 d-1)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Radiation.GetNetLongWaveDailyRadiation(System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Int32)">
+            <summary>
+            Daily Net long-wave radiation, is the difference between upward long-wave radiation from the standardized surface (Rlu) and downward long-wave radiation from the sky (Rld)
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="maxAirTemperature">daily maximum air temperature at 2m (°C)</param>
+            <param name="minAirTemperature">daily minimum air temperature at 2m (°C)</param>
+            <param name="globalRadiation">daily incoming solar radiation (MJ m-2 d-1)</param>
+            <param name="actualVaporPressure">actual vapor pressure (kPa)</param>
+            <param name="latitude">latitude of the feature response</param>
+            <param name="altitude">site elevation above sea level (m)</param>
+            <param name="julianDay">julian Day is the number of the day in the year between 1 (1 January) and 365 or 366 (31 December)</param>
+            <returns>net long-wave radiation (MJ m-2 d-1)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Radiation.GetNetShortwaveRadiation(System.Double,System.Double)">
+            <summary>
+            Net short-wave radiation is the result from the balance between incoming and reflected solar radiation
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="globalRadiation">incoming solar radiation (MJ m-2 d-1) for daily and (MJ m-2 h-1) for hourly</param>
+            <param name="albedo">albedo or canopy reflection coefficient, is fixed at 0.23 for the standardized short and tall reference surfaces (dimensionless)</param>
+            <returns>net solar or short-wave radiation (MJ m-2 d-1) for daily and (MJ m-2 h-1) for hourly</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Radiation.GetClearSkySolarRadiation(System.Double,System.Int32,System.Int32)">
+            <summary>
+            Calculate the clear sky solar radiation for a date, a latitude and an altitude
+            </summary>
+            <param name="latitude">latitude of the point (decimal)</param>
+            <param name="julianDays">date of the day (julian day)</param>
+            <param name="altitude">altitude (m)</param>
+            <returns>Clear Sky solar radiation (MJ m-2 d-1)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Radiation.GetExtraterrestrialDailyRadiation(System.Double,System.Int32)">
+            <summary>
+            Calculate the Extraterrestrial daily radiation for a latitude and a day
+            </summary>
+            <param name="latitude">latitude of the point (decimal)</param>
+            <param name="julianDays">date of the day (julian day)</param>
+            <returns>Extraterrestrial radiation (MJ m-2 d-1)</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Get01Jan">
+            <summary>
+            Function to return the 1st January of the same year as the given date. 23-01-2012 returns 01-01-2012
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Get01Jan.Calculate(System.DateTime)">
+            <summary>
+            Floors one date to 1st January of that year
+            </summary>
+            <param name="date">The date to be floored.</param>
+            <returns>The floored date.</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Get01Jan.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Get01Jan.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Get01JanCLR">
+            <summary>
+            Common Language Runtime version of the above.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Get01JanCLR.Calculate(System.Data.SqlTypes.SqlDateTime)">
+            <summary>
+            Floors one date to 1st Januaryz of that year
+            </summary>
+            <param name="date">The date to be floored.</param>
+            <returns>The floored date.</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Get01JanCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:Syngenta.AIS.UsefulFunctions.Air">
+            <summary>
+            Class providing the usual calculations for Air (vapour pression, air pressure, wind speed)
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Air.GetDailyAverageSaturationVaporPressure(System.Double,System.Double)">
+            <summary>
+            The saturation vapor pressure (es) represents the capacity of the air to hold water vapor.
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="maxAirTemperature">daily maximum air temperature at 2m (°C)</param>
+            <param name="minAirTemperature">daily minimum air temperature at 2m (°C)</param>
+            <returns>saturation vapor pressure (kPa)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Air.GetDailyAverageActualVaporPressure(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Daily actual vapor pressure (ea) of air can be calculated from  RHmax and RHmin
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="maxAirTemperature">daily maximum air temperature at 2m (°C)</param>
+            <param name="minAirTemperature">daily minimum air temperature at 2m (°C)</param>
+            <param name="maxRelativeHumidity">daily maximum relative humidity at 2m (%)</param>
+            <param name="minRelativeHumidity">daily minimum relative humidity at 2m (%)</param>
+            <returns>Actual vapor pressure (ea) from  RHmax and RHmin (kPa)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Air.GetDailyAverageActualVaporPressure(System.Double,System.Double)">
+            <summary>
+            Daily actual vapor pressure (ea) of air can be calculated from  RHmax
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="minAirTemperature">daily minimum air temperature at 2m (°C)</param>
+            <param name="maxRelativeHumidity">daily maximum relative humidity at 2m (%)</param>
+            <returns>Actual vapor pressure (ea) from  RHmax (kPa)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Air.GetSaturationVaporPressureFunction(System.Double)">
+            <summary>
+            calculate saturation vapor pressure function
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="temperature">temperature</param>
+            <returns>saturation vapor pressure function (kPa)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Air.GetMeanAtmosphericPressure(System.Int32)">
+            <summary>
+            mean atmospheric pressure is predicted from site elevation using a simplified formulation of the Universal Gas Law
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="altitude">site elevation above sea level (m)</param>
+            <returns>mean atmospheric pressure at given elevation [kPa]</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Air.GetPsychrometricConstant(System.Double)">
+            <summary>
+            psychrometric constant is proportional to mean atmospheric pressure
+            </summary>
+            <remarks>Source: 2005, Allen, The ASCE standardized reference evapotranspiration equation</remarks>
+            <param name="meanAtmosphericPressure">mean atmospheric pressure at given elevation [kPa]</param>
+            <returns>Psychrometric Constant (γ) (kPa °C-1)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.UsefulFunctions.Air.GetWindSpeedAt2m(System.Double,System.Int32)">
+            <summary>
+            wind speed at 2 meters above the surface is required
+            </summary>
+            <remarks>Wind speed varies with height above the ground surface. This method adjust wind speed data to the 2m height.</remarks>
+            <param name="windSpeed">wind speed at z m above ground surface (m s-1)</param>
+            <param name="height">height of wind measurement above ground surface (m)</param>
+            <returns>wind speed at 2 m above ground surface (m s-1)</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.GetSunriseSunset">
+            <summary>
+            Function to calculate sunrise or sunset on a given day in a given location
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.GetSunriseSunset.Calculate(System.DateTime,System.Decimal,System.Decimal,System.String)">
+            <summary>
+            Calculate one sunrise or sunet value for one given latitude and longitude on a given day.
+            </summary>
+            <param name="date">The date the sunrise or sunset.</param>
+            <param name="latitude">The latitude to calculate the sunrise or sunset at.</param>
+            <param name="longitude">The longitude to calculate the sunrise of sunset at.</param>
+            <param name="sunriseOrSunset">A string to present whether to calculate sunrise or sunset.</param>
+            <returns>A DateTime</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.GetSunriseSunset.ConvertToRadians(System.Double)">
+            <summary>
+            Convert a value to radians.
+            </summary>
+            <param name="degrees">A value in degrees</param>
+            <returns>The value in radians</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.GetSunriseSunset.ConvertToDegrees(System.Double)">
+            <summary>
+            Convert a value to degrees
+            </summary>
+            <param name="radians">The value in radians.</param>
+            <returns>The value in degrees</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.GetSunriseSunset.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.GetSunriseSunset.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.GetSunriseSunsetCLR">
+            <summary>
+            Common Language Runtime version of the above function
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.GetSunriseSunsetCLR.Calculate(System.Data.SqlTypes.SqlDateTime,System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlString)">
+            <summary>
+            Calculate one sunrise or sunet value for one given latitude and longitude on a given day.
+            </summary>
+            <param name="date">The date to calculate the sunrise or sunset for.</param>
+            <param name="latitude">The latitude to calculate the sunrise or sunet for.</param>
+            <param name="longitude">The longitude to calculate the sunrise of sunset for.</param>
+            <param name="sunriseOrSunset">A string to specify whether to calculate sunrise or sunset.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.GetSunriseSunsetCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.FlooringDate">
+            <summary>
+            Function to floor the date.
+            e.g. 12.01.2012 at 16:37:47 will return 2012-01-12
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.FlooringDate.Calculate(System.DateTime)">
+            <summary>
+            Takes the value of the date passed and returns this date at midnight.
+            </summary>
+            <param name="expression">The date to be floored</param>
+            <returns>The floored date</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.FlooringDate.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.FlooringDate.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.FlooringDateCLR">
+            <summary>
+            Function to floor the date.
+            e,g, 12.01.2012 at 16:37:47 will return 2012-01-12
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.FlooringDateCLR.Calculate(System.Data.SqlTypes.SqlDateTime)">
+            <summary>
+            Takes the value of the date passed and returns this date at midnight.
+            </summary>
+            <param name="expression">The date to be floored</param>
+            <returns>The floored date</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.FlooringDateCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DeltaT">
+            <summary>
+            Function to calculate ???
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DeltaT.Calculate(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculate one value of DeltaT
+            </summary>
+            <param name="temperature">The temperature</param>
+            <param name="pressure">The pressure</param>
+            <param name="dew">The dew point</param>
+            <returns>The value of DeltaT</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DeltaT.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DeltaT.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DeltaTCLR">
+            <summary>
+            Common language runtime version of the above function
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DeltaTCLR.Calculate(System.Data.SqlTypes.SqlDouble,System.Data.SqlTypes.SqlDouble,System.Data.SqlTypes.SqlDouble)">
+            <summary>
+            Calculates one value of DeltaT
+            </summary>
+            <param name="temperature">The temperature</param>
+            <param name="pressure">The pressure</param>
+            <param name="dew">The dew point</param>
+            <returns>The value of DeltaT</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DeltaTCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.LeafWetness">
+            <summary>
+            Calculates the leaf weetness from rel_humidity, act_Temperature,windspeed
+            
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.LeafWetness.Calculate(System.Double,System.Double,System.Double,System.Nullable{System.Double})">
+            <summary>
+            Returns a boolean value for leaf is wet
+            </summary>
+            <param name="humidity">Relative Humidity [%]</param>
+            <param name="temperature">Air Temperature [°C]</param>
+            <param name="windSpeed">Wind Speed [m/sec]</param>
+            <param name="dewPoint">Optional: Dewpoint [°C]</param>
+            <returns>boolean Leaf Is Wet</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.LeafWetness.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.LeafWetness.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.WetBulb">
+            <summary>
+            Calculate the Wet Bulb Temperature. The lowest temperature that can be reached by the evaporation of water only
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.WetBulb.Calculate(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates a Wet Bulb temperature
+            </summary>
+            <param name="temperature">The value of the temperature</param>
+            <param name="pressure">The value of the pressure</param>
+            <param name="dew">The value of the dew point</param>
+            <returns>The Wet Bulb Temperature</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.WetBulb.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.WetBulb.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.WetBulbCLR">
+            <summary>
+            Common Language Runtime version of the above function.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.WetBulbCLR.Calculate(System.Data.SqlTypes.SqlDouble,System.Data.SqlTypes.SqlDouble,System.Data.SqlTypes.SqlDouble)">
+            <summary>
+            Calculates a Wet Bulb temperature
+            </summary>
+            <param name="temperature">The temperature</param>
+            <param name="pressure">The pressure</param>
+            <param name="dew">The dew point</param>
+            <returns>The Wet Bulb temperature</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.WetBulbCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DewPoint">
+            <summary>
+            Calculating the Dewpoint in dependency of the Humidity and Temperature
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DewPoint.Calculate(System.Double,System.Double)">
+            <summary>
+            Calculates the Dewpoint for certain Humidity and Temperature
+            </summary>
+            <param name="relativeHumidity">Relative Humidity [%]</param>
+            <param name="airTemperature">Air Temperature [°C]</param>
+            <returns>returns the Dewpoint [°C] as a double</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DewPoint.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+    </members>
+</doc>

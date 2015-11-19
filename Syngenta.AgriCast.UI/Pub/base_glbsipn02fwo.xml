@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<services>
+	<servicePage name="weathercast_n3" trnsTag="All_TabWeatherCast" defaultPage="true">
+		<pageSettings  allowFavorites="false" allowPrintPage="true" allowEmail="true" allowExportToExcel="false" allowFeedback="true" >
+		</pageSettings>
+		<nearbyDataPoint name="NearbyDataPoint_n3" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+		</nearbyDataPoint>
+		<icon name="iconsDaily_n3" plotColumnHeader="false" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="8Hourly" imageSetName="" transparency="60" width="25" height="25">
+			<series>
+				<serie name="TempAir_C" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Cloudcover_Pct" trnsTag="" aggregationFunction="avg"/>
+				<serie name="ThunderstormProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationType" trnsTag="" aggregationFunction="avg"/>
+				<serie name="PrecipAmount_mm" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Winddirection_Deg" trnsTag="" aggregationFunction="dev"/>
+				<serie name="WindSpeed_ms" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Visibility_km" trnsTag="" aggregationFunction="min"/>
+			</series>
+		</icon>
+		<chart name="Fiveinone_n3" trnsTag="vew_fiveinone" width="450" height="367" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="8Hourly" labelstep="8" watermark="SyngentaLogo.gif" TodayMarker="true" plotShades="true">
+			<PrimaryAxis trnsTag="precipitation" scaleType="fixed" minValue="-2" maxValue="10" minValueImperial="0" maxValueImperial="2"/>
+			<SecondaryAxis trnsTag="temperaturet" scaleType="fixed" minValue="-20" maxValue="50" minValueImperial="-20" maxValueImperial="120"/>
+
+			<series>
+				<serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" gallery="bar" stacked="true" color="#004392" markertype="" axisposition="primary" />
+				<serie name="TempAir_C" trnsTag="temperature_max" aggregationFunction="max" gallery="line" stacked="true" color="#FF4600" markertype="circle" axisposition="secondary" />
+				<serie name="TempAir_C" trnsTag="temperature_min" aggregationFunction="min" gallery="line" stacked="true" color="#FF8E00" markertype="circle" axisposition="secondary" />
+			</series>
+		</chart>
+
+		<windIcon name="WindIcons_n3" trnsTag="vew_windicons" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="8Hourly" width="450" height="367" feedback="false">
+			<series>
+				<serie name="RelHumidity_pct" trnsTag="relhumidity" aggregationFunction="avg" />
+				<serie name="WindDirection_Deg" trnsTag="ResWindDirection" aggregationFunction="avg" />
+				<serie name="Windspeed_kph" trnsTag="we_wind_kmh" aggregationFunction="avg" />
+			</series>
+		</windIcon>
+   
+		<tblSeriesRows name="vew_daily_n3" trnsTag="All_TabDetailWeather" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="8Hourly" ruleset="" colorPaletteName="" feedback="false">
+			<series>
+				<serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName="pal_sip_rain_8hour"/>
+				<serie name="PrecipProbability_Pct" trnsTag="dd_precipitation_risk" aggregationFunction="max" colorPaletteName="pal_sip_rain_risk"/>
+				<serie name="TempAir_C" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName="pal_sip_temperature"/>
+				<serie name="TempAir_C" trnsTag="temperature_min" aggregationFunction="min" colorPaletteName="pal_sip_temperature"/>
+				<serie name="RelHumidity_pct" trnsTag="relhumidity" aggregationFunction="avg" colorPaletteName="pal_sip_humid"/>
+				<serie name="WindDirection_Deg" trnsTag="ResWindDirection" aggregationFunction="avg" colorPaletteName=""/>
+				<serie name="Windspeed_kph" trnsTag="we_wind_kmh" aggregationFunction="avg" colorPaletteName="pal_winspeedkmh"/>
+			</series>
+		</tblSeriesRows>
+    <legend name="Banner" trnsTag="All_Banner" htmlPath="banners\Advertisementbanner.htm" />
+		<tblDaysRows name="vew_spraygrnd_n3" trnsTag="ResSprayGround" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="Hourly" ruleset="SW_GroundSprayGeneric" colorPaletteName="pal_sip_window" feedback="false">
+      <series>
+        <serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName=""  />
+        <serie name="RelHumidity" trnsTag="relhumidity" aggregationFunction="avg"  colorPaletteName="" />
+        <serie name="WindSpeedMax_ms" trnsTag="relhumidity" aggregationFunction="max"  colorPaletteName="" />
+        <serie name="WindSpeed_ms" trnsTag="relhumidity" aggregationFunction="max" colorPaletteName=""  />
+        <serie name="TempAir_C" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName=""  />
+        <legend name="SprayingrestrictionsLegend" trnsTag="SprayingrestrictionsLegend" htmlPath="legends\SparayWindowGroundSprayingRestrictions.htm" />
+        <legend name="SprayingcoloursLegend" trnsTag="Spraying.SIPcoloursLegend" htmlPath="legends\GroundSprayingColoursLegend.htm" />
+      </series>
+    </tblDaysRows>
+	</servicePage>
+	<servicePage name="weathercast_n5" trnsTag="All_TabWeatherCast" defaultPage="false">
+		<pageSettings  allowFavorites="false" allowPrintPage="true" allowEmail="true" allowExportToExcel="false" allowFeedback="true" >
+		</pageSettings>
+		<nearbyDataPoint name="NearbyDataPoint_n5" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+		</nearbyDataPoint>
+		<icon name="iconsDaily_n5" plotColumnHeader="false" dataSource="glbStnFcst" startDate="0" endDate="5" temporalAggregation="Daily" imageSetName="" transparency="60" width="25" height="25">
+			<series>
+				<serie name="TempAir_C" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Cloudcover_Pct" trnsTag="" aggregationFunction="avg"/>
+				<serie name="ThunderstormProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationType" trnsTag="" aggregationFunction="avg"/>
+				<serie name="PrecipAmount_mm" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Winddirection_Deg" trnsTag="" aggregationFunction="dev"/>
+				<serie name="WindSpeed_ms" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Visibility_km" trnsTag="" aggregationFunction="min"/>
+			</series>
+		</icon>
+		
+		<chart name="Fiveinone_n5" trnsTag="vew_fiveinone" width="450" height="367" dataSource="glbStnFcst" startDate="0" endDate="5" temporalAggregation="Daily" labelstep="24" watermark="SyngentaLogo.gif" TodayMarker="true" plotShades="true">
+			<PrimaryAxis trnsTag="precipitation" scaleType="fixed" minValue="-2" maxValue="5" minValueImperial="0" maxValueImperial="2"/>
+			<SecondaryAxis trnsTag="temperaturet" scaleType="fixed" minValue="-20" maxValue="50" minValueImperial="-20" maxValueImperial="120"/>
+
+			<series>
+				<serie name="PrecipAmount_mm_dailySum" trnsTag="precipitation" aggregationFunction="sum" gallery="bar" stacked="true" color="#004392" markertype="" axisposition="primary" />
+				<serie name="TempAir_C_DaytimeMax" trnsTag="temperature_max" aggregationFunction="max" gallery="line" stacked="true" color="#FF4600" markertype="circle" axisposition="secondary" />
+				<serie name="TempAir_C_NighttimeMin" trnsTag="temperature_min" aggregationFunction="min" gallery="line" stacked="true" color="#FF8E00" markertype="circle" axisposition="secondary" />
+			</series>
+		</chart>
+
+		<windIcon name="WindIcons_n5" trnsTag="vew_windicons" dataSource="glbStnFcst" startDate="0" endDate="5" temporalAggregation="Daily" width="450" height="367" feedback="false">
+			<series>
+				<serie name="RelHumidity_dailyavg" trnsTag="relhumidity" aggregationFunction="avg" />
+				<serie name="WindDirection_Deg_DailyAvg" trnsTag="ResWindDirection" aggregationFunction="avg" />
+				<serie name="Windspeed_kph_dailyavg" trnsTag="we_wind_kmh" aggregationFunction="avg" />
+			</series>
+		</windIcon>
+		<tblSeriesRows name="vew_daily_n5" trnsTag="All_TabDetailWeather" dataSource="glbStnFcst" startDate="0" endDate="5" temporalAggregation="Daily" ruleset="" colorPaletteName="" feedback="false">
+			<series>
+				<serie name="PrecipAmount_mm_dailySum" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName="pal_sip_rain_8hour"/>
+				<serie name="PrecipProbability_h_dailymax" trnsTag="dd_precipitation_risk" aggregationFunction="max" colorPaletteName="pal_sip_rain_risk"/>
+				<serie name="TempAir_C_DaytimeMax" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName="pal_sip_temperature"/>
+				<serie name="TempAir_C_NighttimeMin" trnsTag="temperature_min" aggregationFunction="min" colorPaletteName="pal_sip_temperature"/>
+				<serie name="RelHumidity_dailyavg" trnsTag="relhumidity" aggregationFunction="avg" colorPaletteName="pal_sip_humid"/>
+				<!--<serie name="WindDirection_Deg_DailyAvg" trnsTag="ResWindDirection" aggregationFunction="avg" colorPaletteName=""/>
+				--><serie name="Windspeed_kph_dailyavg" trnsTag="we_wind_kmh" aggregationFunction="avg" colorPaletteName="pal_winspeedkmh"/>
+			</series>
+		</tblSeriesRows>
+    <legend name="Banner" trnsTag="All_Banner" htmlPath="banners\Advertisementbanner.htm" />
+		<tblDaysRows name="vew_spraygrnd_n5" trnsTag="ResSprayGround" dataSource="glbStnFcst" startDate="0" endDate="5" temporalAggregation="Hourly" ruleset="SW_GroundSprayGeneric" colorPaletteName="pal_sip_window" feedback="false">
+      <series>
+        <serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName=""  />
+        <serie name="RelHumidity" trnsTag="relhumidity" aggregationFunction="avg"  colorPaletteName="" />
+        <serie name="WindSpeedMax_ms" trnsTag="relhumidity" aggregationFunction="max"  colorPaletteName="" />
+        <serie name="WindSpeed_ms" trnsTag="relhumidity" aggregationFunction="max" colorPaletteName=""  />
+        <serie name="TempAir_C" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName=""  />
+        <legend name="SprayingrestrictionsLegend" trnsTag="SprayingrestrictionsLegend" htmlPath="legends\SparayWindowGroundSprayingRestrictions.htm" />
+        <legend name="SprayingcoloursLegend" trnsTag="Spraying.SIPcoloursLegend" htmlPath="legends\GroundSprayingColoursLegend.htm" />
+      </series>
+    </tblDaysRows>
+	</servicePage>
+</services>

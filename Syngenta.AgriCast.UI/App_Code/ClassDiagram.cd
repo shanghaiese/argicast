@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AgriCastHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AHKCLAGJBAAAAKMIATAFAAAggAFASIROIAAEABDPBBg=</HashCode>
+      <FileName>App_Code\AgriCastHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProfileCommon" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAA=</HashCode>
+      <FileName>C:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\syngenta.agricast.ui\7ce42a2e\c3a2bfb1\Sources_App_Code\profile.cdcab7d2.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.Agricast.UserManagement.CustomProfile" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAACkABAAAAAAAIIAAQQAAAEAAAIAACAIAABAEAAAw=</HashCode>
+      <FileName>App_Code\CustomProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.Agricast.UserManagement.Subscription" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAIAAAAAgAAAAAIACAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>App_Code\CustomProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.Agricast.UserManagement.Favorite" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAMQgAADFAAgAAQAaAIgAAgCIAAAAACAAAEBEAABBQ=</HashCode>
+      <FileName>App_Code\CustomProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Mobile.Presenter.MobilePresenter" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AFRApAAQM0AEAAAgEEJgBEyCEQAghRAAAJAhgACQQBQ=</HashCode>
+      <FileName>App_Code\MobilePresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="variables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="variable" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="variable">
+    <xs:complexType>
+
+      <xs:attribute name="name" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="TempAir"></xs:enumeration>
+            <xs:enumeration value="Dewpoint"></xs:enumeration>
+            <xs:enumeration value="HumidityRel"></xs:enumeration>
+            <xs:enumeration value="SunDuration_hSum"></xs:enumeration>
+            <xs:enumeration value="CloudcoverAll"></xs:enumeration>
+            <xs:enumeration value="WindSpeed"></xs:enumeration>
+            <xs:enumeration value="WindDirection"></xs:enumeration>
+            <xs:enumeration value="WindGustSpeed_hMax"></xs:enumeration>
+            <xs:enumeration value="PrecipProbability_h"></xs:enumeration>
+            <xs:enumeration value="PrecipQuantity_hSum"></xs:enumeration>
+            <xs:enumeration value="PrecipType"></xs:enumeration>
+            <xs:enumeration value="ShowerProbability_h"></xs:enumeration>
+            <xs:enumeration value="ThunderstormProbability_h"></xs:enumeration>
+            <xs:enumeration value="Airpressure"></xs:enumeration>
+            <xs:enumeration value="GlobalRadiation_hAvg"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
+      <xs:attribute name="aggregationFunction" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="max"></xs:enumeration>
+            <xs:enumeration value="min"></xs:enumeration>
+            <xs:enumeration value="sum"></xs:enumeration>
+            <xs:enumeration value="avg"></xs:enumeration>
+            <xs:enumeration value=""></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

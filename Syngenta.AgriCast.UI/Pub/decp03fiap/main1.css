@@ -1,0 +1,41 @@
+﻿@import '../base_CSSstandardP.css';
+
+#greeting {display:none}
+#tools select {display:none}
+
+
+.SPRHeading {
+margin:15px 0px 8px 0px;
+float: left;
+color:#968877;
+font-size:25px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight:500;
+line-height:28px;
+}
+.SPRLabel {
+color:#666666;
+font-size:11px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight:700;
+margin-bottom:8px; 
+}
+
+#tblhumidlegend
+ {
+ 	display:none;
+ }
+
+#tblwinddirectionlegend1
+{
+	border-bottom:none;
+}
+
+/* IM01771162 - [DD 21th Apr]bug in sprayweather */
+#chrtDiv img.show
+{    
+    height: -106px\9;
+	_height: -106px;
+	*height: -106px;
+}
+/* IM01771162 - [DD 21th Apr]bug in sprayweather */

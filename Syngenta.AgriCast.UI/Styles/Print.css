@@ -1,0 +1,126 @@
+﻿
+/*Common*/
+.page
+{
+    width:100%;
+}
+.mainMoss
+{
+    width:100%;
+}
+DIV.rateit DIV.rateit-range
+{
+    display:none;
+}
+div#tools 
+{
+    display:none;
+}
+#divSearch
+{
+    display:none;
+}
+DIV.menu UL LI
+{
+    display: none;
+}
+#lnkMobile
+{
+    display:none;
+}
+#lblPrintHeader
+{
+    display:block;
+    vertical-align:middle;
+    font-weight:bold;
+    background-color: rgb(239, 237, 234);
+    width:70%;
+    float:left;
+    padding-left:5px;
+}
+#agricastLogo
+{
+width:12%;
+float:left;
+height:100%;
+}
+#divPrint
+{
+    display:block;
+    height: 30px;
+	width: 100%;
+	border: 1px solid rgb(239, 237, 234);
+	 background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	margin: 5px 0px 10px 0px;
+	z-index: 15;
+	font-size:12px;
+	
+}
+#slidemenu1
+{
+    display:none;
+}
+#pageMenu
+{
+    padding:0px; 
+   width: 100%;
+   height:22px;
+   margin-top:0px;
+   margin-left:0px;
+   background-color:rgb(150, 136, 119);
+   display:block;
+
+}
+#pageMenu UL LI
+{
+    display: none;
+}
+/*Details*/
+#Welcome
+{
+    display:none;
+}
+
+IMG[id^="img1"]
+{
+    /* for IM01246228 - New Agricast - Print is not working - Jerrey - Start*/
+    /*display:none;*/
+    display: block;
+    /* for IM01246228 - New Agricast - Print is not working - Jerrey - End*/
+}
+.jqueryslidemenu
+{
+    display:none;
+}
+
+/*agriinfo*/
+
+DIV.menu UL LI
+{
+    display: none;
+}
+div#tools
+{
+    display:none;
+}
+div#greeting
+{
+    display:none;
+}
+div#WeatherMenu
+{
+    display:none;
+}
+.footer
+{
+    display:none;
+}
+
+/*This style is added to IconsDiv only on Print Page*/
+.iconDivClass
+{
+    top:90px !important;
+}
+

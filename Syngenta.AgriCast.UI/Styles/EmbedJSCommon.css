@@ -1,0 +1,1128 @@
+﻿
+/* LocationSearch   
+----------------------------------------------------------*/
+
+#ag_tag #ag_ChangeLoc
+{
+	width:100%;
+}
+
+#ag_tag #ag_close
+{
+	float:right;
+	clear:none;
+}
+
+#ag_tag #ag_close img
+{
+float:right;
+
+}
+
+#ag_tag .container, #ag_tag #ag_divStations, #ag_tag #ag_divStationDetails, #ag_tag #ag_divLocation
+{
+	height: auto;
+	width: 100%;
+	border: 1px solid rgb(239, 237, 234);
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	margin: 0px 0px 10px 0px;
+	z-index: 15 !ie ; 
+} 
+#ag_tag .label100 
+{ 
+	width: 100px; 
+	margin-top: 5px; 
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+}
+#ag_tag .lblDataPt
+{ 
+	width: 100px;	 
+	padding-top: 10px;
+	float: left;
+}
+#ag_tag .label150
+{
+	width: 150px;
+	margin-top: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+}
+#ag_tag .label50
+{
+	margin-top: 5px;
+	width: 50px;
+	text-align: center;
+	font-weight: 700;
+	float: left;
+	padding-top: 5px;
+}
+#ag_tag .label110
+{
+	width: 110px;
+	margin-top: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+	display: none;
+}
+#ag_tag .dropDown
+{
+	width: auto;
+	float: left;
+	margin-right: 5px;
+}
+
+#ag_tag .searchbox
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+	padding-top: 0px;
+}
+#ag_tag .searchInput
+{
+	width: 245px;
+}
+/*input[type=text] {
+	width: 245px;	
+	}*/
+
+#ag_ddlCountry 
+{
+	height:18px;
+	border:1px solid rgb(239, 237, 234) 
+	color: #666;   
+    	font-size: 12px;
+    	font-weight:normal;
+	width:99%;
+}
+#ag_txtPlace 
+{
+	height:16px;
+	border:1px solid rgb(239, 237, 234) 
+	color: #666;   
+    	font-size: 12px;
+    	font-weight:normal;
+	width:98%;
+}
+	
+	
+#ag_tag #divStnName .split
+{
+	box-sizing: border-box;
+	float: left;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	width: 20%;
+	text-align: right;
+}
+#ag_tag #divStnName #ag_stnName
+{
+	text-align: left;
+	width: 78%;
+}
+
+#ag_tag #divStnName
+{
+	width:100%;
+	float:left;
+	}
+#ag_tag #mapImage
+{
+	height: 350px;	
+	width:100%;	
+}
+
+#ag_tag .loading
+{
+	/*width:15px;*/
+	background: white url("~/../../Images/vsli1.gif") right center no-repeat;
+	/*background-size: 7%;*/
+}
+#ag_tag #ddlCountry, #ag_tag #ddlCulture, #ag_tag #ddlUnits
+{
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+}
+#ag_tag #gvStations,#ag_tag  #gvLocation,#ag_tag  #gvFavorites
+{
+	margin-left: 10px;
+	font-size: 12px;
+}
+#ag_tag .smallFont
+{
+    font-size:9px;
+}
+
+#ag_tag #ag_divLocation, #ag_tag #ag_divStations {
+	height: auto;
+	width: 100%;
+	border: 1px solid rgb(181, 171, 157);
+	float: left;
+	position: relative;
+	border-radius: 1em;
+	/*box-shadow: -3px -3px 5px #888;
+	-moz-box-shadow: -3px -3px #888;
+	-webkit-box-shadow: -3px -3px #888;*/
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	/* behavior: url(ie-css3.htc); */
+	margin-bottom: 10px;
+}
+
+table#ag_gvLocation, table#ag_gvStations
+{
+	margin:10px;
+	border-collapse: collapse;
+}
+
+table#ag_gvLocation td, table#ag_gvLocation th, table#ag_gvStations td, table#ag_gvStations th
+{
+	padding:2px;
+}
+
+#MainContent_lbl_Banner
+{display: none;} 
+
+/*Autosuggest
+--------------------------------------------------------------*/
+
+#ag_tag .ac_input
+{
+	width: 200px;
+}
+#ag_tag .ac_results
+{
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	position: absolute;
+	overflow: hidden;
+	z-index:100;
+}
+
+#ag_tag .ac_results ul
+{
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	
+}
+
+#ag_tag .ac_results iframe
+{
+	display: none; /*sorry for IE5*/
+	display: /**/ block; /*sorry for IE5*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: mask();
+	width: 3000px;
+	height: 3000px;
+}
+
+#ag_tag .ac_results li
+{
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+}
+#ag_tag .ac_loading
+{
+	background: white url('~/../../images/vsli1.gif') right center no-repeat;
+	background-size: 7%;
+}
+
+#ag_tag .ac_odd
+{
+	background-color: #eee;
+}
+
+#ag_tag .ac_over
+{
+	background-color: #0A246A;
+	color: white;
+}
+
+/* Common   
+----------------------------------------------------------*/
+#ag_tag{
+font-family:"Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+color: #666;
+font-size: 12px;
+height:auto;
+}
+select{
+font-size:12px;
+font-family:"Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+}
+#ag_tag .show
+{
+	display: block;
+}
+#ag_tag .hide
+{
+	display: none;
+	margin: 0px;
+	padding: 0px;
+}
+#ag_tag .split
+{
+	box-sizing: border-box;	 
+	float: left;
+	padding-top:10px;
+}
+
+#ag_tag .box
+{
+	padding: 0px 0px 0px 0px;
+}
+
+#ag_tag .labelCustom 
+{
+	margin-top: 7px;
+	width: 30px;
+	text-align: center;
+	float: left;
+	padding-top: 5px;
+	padding-right: 5px;
+	color: Black;
+}
+#ag_tag .DropdownCustom
+{
+	width: auto;
+	margin-top: 10px;
+}
+#ag_tag #tools,#ag_tag  .Right
+{
+	float: right;
+}
+
+#ag_tag div #tools .dropDown
+{
+	width: 100px;
+	float: left;
+	margin-right: 5px;
+}
+
+#ag_tag .textBox
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+	margin-top: 5px;
+	margin-left: 15px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-color: #d4d0c8;
+}
+
+#ag_tag .textBox:hover
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+	margin-top: 5px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-color: black;
+}
+
+div #ag_tag  #email, #ag_tag  #favorites, #ag_tag  #divStations, #ag_tag #divLocation, #ag_tag #feedback
+{
+	height: auto;
+	width: 100%;
+	border: 1px solid rgb(181, 171, 157);
+	float: left;
+	margin: 5px;
+	position: relative;
+	border-radius: 1em;
+	box-shadow: -3px -3px 5px #888;
+	-moz-box-shadow: -3px -3px #888;
+	-webkit-box-shadow: -3px -3px #888;
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	 behavior: url(ie-css3.htc); 
+}
+
+
+#ag_tag #ToolBar
+{
+	float: left !ie;
+}
+
+#ag_tag #email .textBox
+{
+	width: 300px;
+	padding-right: 10px;
+	float: none;
+}
+
+#ag_tag #feedback .textBox
+{
+	width: 300px;
+	padding-right: 10px;
+	float: none;
+}
+
+#ag_tag .close
+{
+	width: 7px;
+	height: 7px;
+	float: right;
+	position: relative;
+	border-radius: 1em;
+	font-size: 0;
+	font-weight: bolder; /*box-shadow: 1px 1px 2px black;*/ /*background-color:rgb(245,49,44);*/
+	color: White;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
+	background-image: url('~/../../images/close.png');
+}
+
+/*img
+{
+	cursor: pointer;
+}*/
+/*to get pointer on icons*/
+#ag_tag .iconColumnClass img
+{
+    cursor: default;
+}
+#ag_tag .imgArrow
+{
+	cursor: default;
+	float:left;
+	padding-bottom:10px;
+}
+#ag_tag .DetailsRating img,#ag_tag  #ag_btnSearch
+{
+	cursor:pointer;
+}
+#ag_tag .button
+{
+	/*height: 29px; 	text-align: center; 	border-radius: .5em; 	border: 1px solid rgba(0,0,0,0.1); 	position: relative; 	font-size: 11px; 	font-weight: 700; 	margin: 0 5px 0 5px;*/
+	width: auto;
+	height: 21px;
+	color: #fff !important; 
+	padding: 0px 5px;
+	font-family: Helvetica !important;
+	font-size: 10px !important;
+	font-weight: bold !important;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-image: url("~/../../images/button.gif") !important;
+	background-repeat: repeat-x !important;
+	background-color: transparent !important;
+}
+
+/*.avoidscroll
+{
+	overflow-x:hidden;
+	overflow-y:auto;	
+}*/
+
+#ag_tag #gvStations ,#ag_tag #gvLocation ,#ag_tag #gvFavorites
+{
+	float:left;
+}
+
+#ag_tag .floatleft
+{
+	float:left;
+}
+#ag_tag .comments
+{
+	max-height: 300px;
+	max-width: 500px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+#ag_tag .highlight:hover :last-child
+{
+	background-color: white;
+}
+
+/*div table tr:hover
+{
+	background-color: LightGrey;
+	cursor: pointer;
+}*/
+
+#ag_tag #ag_gvLocation tr:hover, #ag_tag #ag_gvStations tr:hover
+{
+    background-color: LightGrey;
+	cursor: pointer;
+}
+
+#ag_tag #ag_gvStations tr th, #ag_tag #ag_gvLocation tr th
+{
+	background-color: #EFEDEA;
+}
+
+/*div table tr:first-child
+{
+	background-color: #ffffff;
+}*/
+
+#ag_tag #Im1
+{
+	margin-left: 168px;
+}
+/* ERROR MESSAGE 
+----------------------------------------------------------*/
+#ag_tag .Error
+{
+	font-size: 14px;
+	font-weight: 600;
+	color: Red;
+}
+#ag_tag .Success
+{
+	font-size: 14px;
+	font-weight: 600;
+	color: Green;
+}
+
+#ag_divModMaster
+{
+	clear:both;
+}
+
+#ag_divModules
+{
+	clear:both;
+	 position: relative;
+}
+
+#ag_tag div.iconDivClass#divIcon
+{
+	position:absolute;
+	top:40px;
+}
+
+/* Charting   
+----------------------------------------------------------*/
+#ag_tag #divFcChart
+{
+	width: auto;
+	height: auto;
+	margin-left: 107px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+/* Detailed Weather   
+----------------------------------------------------------*/
+
+#ag_tag .tables
+{
+	clear: both;
+	height: auto;
+	width: 100%;
+	border: 2px solid #d7d2cc;
+	background-color: White;
+	position: relative;
+	padding: 3px 3px 3px 3px;
+	margin: 5px;
+	font-size: 11px;
+	text-align: center;
+}
+
+#ag_tag .tableRow
+{
+	text-align: center;
+	width: 37px;
+}
+#ag_tag .tableRowHourly
+{
+	text-align: center;
+	width: 24px;
+}
+
+#ag_tag .tables tr th:first-child
+{
+	width: 135px;
+	border: 1px solid #d7d2cc;
+}
+#ag_tag .tables tr td:first-child
+{
+	text-align: left;
+}
+#ag_tag .tables tr th
+{
+	background-color: rgb(239, 237, 234);
+	border: 1px solid #d7d2cc;
+}
+
+#ag_tag .tables tbody tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+#ag_tag .tables tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+#ag_tag .tablesGap
+{
+	clear: both;
+	height: auto;
+	width: auto;
+	border: 2px solid #d7d2cc;
+	background-color: White;
+	position: relative;
+	padding: 3px 3px 3px 3px;
+	margin: 5px;
+	font-size: 11px;
+	text-align: center;
+}
+#ag_tag .tabRight
+{
+  float: right;
+  margin-bottom:11px;  
+}
+#ag_tag .DetailsRating
+{
+	width: 100%;
+	float: left;
+}
+#ag_tag .Left
+{
+  float: left;
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+#ag_tag .tablesGap tr th:first-child
+{
+	width: 135px;
+	border: 1px solid #d7d2cc;
+}
+#ag_tag .tablesGap tr td:first-child
+{
+	text-align: left;
+	border: 1px solid #d7d2cc;
+}
+#ag_tag .tablesGap tr th
+{
+	background-color: rgb(239, 237, 234);
+	border: 1px solid #d7d2cc;
+}
+
+
+#ag_tag .tablesGap tbody tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+#ag_tag .tablesGap tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+#ag_tag .restrictTable tr:hover, #ag_tag .iconHeaderTableClass tr:hover, #ag_tag .tables tr:hover, th:hover,#ag_tag .tablesGap tr:hover,#ag_tag  #gvFavorites tr:hover
+{
+	background: none;
+	cursor: default;
+}
+
+#ag_tag .label250
+{
+	width: 250px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px; /*float: left;	*/
+	font-size: 10px;
+	font-family: Verdana;
+}
+
+/*Details Minimise issue*/
+
+/*.DetailsRating
+{
+	width: 100%;
+	float: left;
+}*/
+/* Agri Info   
+----------------------------------------------------------*/
+
+/*.labelPlain
+{
+	width: 95px;
+	margin-top: 5px;
+	padding-left: 4px;
+	padding-top: 0px;
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+.tree
+{
+	width: 95%;
+	height: auto;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	padding-right: 0px;
+	padding-left: 4px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+
+.treeContainer
+{
+	width: 260px;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.textBoxTree
+{
+	width: 100px;
+	_float: left;
+	padding-right: 10px;
+	margin-top: 0px;
+}
+.labelTreeH1
+{
+	width: 90%;
+	margin-top: 5px;
+	font-weight: 700;
+	padding-left: -2px;
+	padding-top: 5px;
+	margin-right: 0px;
+	float: left;
+}
+.dropDownTree
+{
+	width: 115px;
+	_float: left;
+	margin-right: 5px;
+}
+.chartDiv
+{
+	float:left;
+	*float:right;
+
+}
+.buttonTree
+{
+	margin-top: 5px;
+	padding-left: -2px;
+	padding-top: 7px;
+	margin-right: 0px;
+	padding-right: 4px;
+	float: left;
+	cursor:pointer;
+}
+.divHide
+{
+	display: none;
+}
+.divShow
+{
+	visibility: visible;
+}
+
+#divAgICharts
+{
+	width: 65%;
+	float: left;
+	*width: 70%;
+}
+#divClose
+{
+	min-height: 350px;
+}
+div.tree ul li
+{
+	float: next;
+	list-style-type: none;
+}
+#ag_tag div.tree ul li label
+{
+	margin-right: 10px;
+}
+#ag_tag div.tree ul
+{
+	float: left;
+	list-style-type: none;
+	padding: 0px;
+	width: 100%;
+}
+#ag_tag a.trigger
+{
+	text-decoration: none;
+	top: 0px;
+	left: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 2px;
+	padding-right: 10px;
+	background: #efedea url(images/BackArrow.png) 85% 55% no-repeat;
+	display: block;
+	width: 1%;
+	float: left; /*border-bottom-right-radius:20px; border-top-right-radius:20px; -moz-border-radius-topright: 20px; -webkit-border-top-right-radius: 20px; -moz-border-radius-bottomright: 20px; -webkit-border-bottom-right-radius: 20px; -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px;*/
+}
+
+
+/*#ag_tag a.trigger:hover
+{
+	text-decoration: none;
+	top: 80px;
+	left: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 2px;
+	padding-right: 10px;
+	background: #bbbbbb url(images/BackArrow.png) 85% 55% no-repeat; /*border-bottom-right-radius:20px; border-top-right-radius:20px; -moz-border-radius-topright: 20px; -webkit-border-top-right-radius: 20px; -moz-border-radius-bottomright: 20px; -webkit-border-bottom-right-radius: 20px; -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px;*/
+	/*display: block;
+}
+
+#ag_tag a.active.trigger
+{
+	background: #efedea url(images/NextArrow.png) 85% 55% no-repeat;
+	color: #fff;
+}
+
+#ag_tag a.ApplyToChart
+{*/
+	/*background: rgb(239, 237, 234) url(images/chart.png) 95% 35% no-repeat; 	background-size: 25%;*/
+	/*color: #696969;
+	width: 30px;
+	text-decoration: none;
+	padding: 12px 35px 10px 10px;
+	font-size: 12px;
+	font-weight: 700;
+}
+#ag_tag a.Cancel
+{*/
+	/*background: rgb(239, 237, 234) url(images/btn_cancel_big.png) 85% 25% no-repeat;*/
+	/*width: 40px;
+	text-decoration: none;
+	color: #696969;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 12px;
+	font-weight: 700;
+}*/
+
+#ag_tag .iconHeaderTableClass
+{
+	width: 570px;
+	/*border: 0.5px solid black;*/
+}
+
+#ag_tag .iconColumnClass
+{
+	text-align: center;
+	font-weight: 700;
+	font-size: 12px;
+}
+
+
+#ag_tag .iconDivClass
+{
+	margin-left: 135px;
+	text-align: center;
+	width: 570px;
+}
+
+/*Legend
+--------------------------------------------------------------*/
+
+#ag_tag #restrictLegend
+{
+	margin: 3px 0 0 0;
+	padding-left: 0;
+	width: 100%;
+}
+#ag_tag table.restrictTable
+{
+	border: 1px solid #d7d2cc;
+	font-size: x-small;
+	width: 100%;
+	margin-left: 7px;
+}
+#ag_tag table.restrictTable th
+{
+	padding: 4px;
+	text-align: left;
+}
+#ag_tag table.restrictTable td
+{
+	padding: 2px 5px 2px 5px;
+}
+#ag_tag table.restrictTable td, #ag_tag table.restrictTable th
+{
+	border-right: 1px solid #c5c5a1;
+}
+#ag_tag .legendColourCell
+{
+	text-align: center;
+}
+#ag_tag .legendLetterCell
+{
+	text-align: center;
+	width: auto;
+}
+#ag_tag .legendTableHeader, #ag_tag th:hover
+{
+	background: rgb(239, 237, 234);
+	font-weight: 700;
+	border-top: none;
+}
+#ag_tag .legendColourCell img 
+{
+	cursor: default;
+}
+#ag_tag .Legend
+{
+    width:100%;
+    float:left;
+     padding-top:15px;
+}
+
+/*********Styles for Widget************/
+
+#ag_tag .widgetForecastText
+{
+    font-family: Arial;
+    font-style: normal;
+    font-size: 12px;
+    color: #666;
+}
+#ag_tag .widgetForecastLocation
+{
+    font-family: Arial;
+     font-weight:bold;
+    font-size: 12px;
+    color: #666;
+}
+
+#ag_tag .div_days
+{
+    float:left;
+    margin-right:10px;
+}
+
+#ag_tag .divLocationContainer
+{
+    margin:5px 5px 5px 5px;
+    font-family: Arial, Helvetica, Verdana, sans-serif !important;
+    color: #666 !important;
+    font-size:12px;
+}
+
+#ag_tag .wid_tdDaysofWeek
+{
+    text-align:center;
+}
+
+#ag_tag .wid_tdWeatherIcons
+{
+    text-align:center;
+}
+
+#ag_tag .divwidgetContainer
+{
+    font-family: Arial, Helvetica, Verdana, sans-serif !important;
+    color: #666 !important;
+    font-size:12px;
+	display:inline-block;
+}
+
+#ag_tag .wid_tdTemp
+{
+    float:left;
+    margin-top:5px;
+	width:100%;
+}
+
+
+#ag_tag .wid_divTempMax
+{
+    float:left;
+    border-right:#666 1px solid;
+	padding-right: 4px;
+	text-align: right;
+	width: 40px;
+}
+
+#ag_tag .wid_divTempMin
+{
+    float:left;
+	padding-left: 3px;
+	text-align: left;
+	width: 40px;
+}
+
+
+/*Loc Grid alignment for widget. copied the same attrivutes as in class .container and modified the width.*/
+#ag_tag .widgetContainer
+{
+    height: auto;
+	width: 100%;
+	border: 1px solid rgb(239, 237, 234);
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	margin: 5px 0px 10px 0px;
+	z-index: 15 !ie ; 
+	padding-left:2px;
+}
+
+#ag_tag .widgetDivLocation
+{
+    clear:both;
+}
+
+#ag_tag .widgetHide
+{
+   display: none;
+    margin-left:1%;
+	padding: 0px;
+}
+
+#ag_tag .widgetShow
+{
+   display: block;
+}
+
+#ag_tag .widgetTblwidget
+{
+    width:100%;
+    clear:both;
+}
+#ag_tag #cngLoc:Link,#ag_tag #cngLoc:Active,#ag_tag #cngLoc:Hover 
+{
+    color:#666;
+}
+
+#ag_tag #cngStat:Link,#ag_tag #cngStat:Active,#ag_tag #cngStat:Hover 
+{
+    color:#666;
+}
+
+#ag_tag  #ag_btnSearch
+{
+    position:relative;
+    top:5px;
+    margin-left:2px;
+}
+
+/*WIND ICONS for Embed Js- BEGIN*/
+.float-icon-legend {
+    clear: both;
+    color: #666;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: -382px;
+    margin-left: 5px;
+	overflow: hidden;
+    position: relative;
+    top: -377px;
+    width: 100%;
+   
+}
+.float-icon-legend table tr:hover {
+	background: none;
+}
+.float-icon-legend table tr td {
+    text-align: center;
+	font-size: 11px;
+}
+
+.float-icon-legend .chart-float-icons {
+    float: left;
+    font-size:10px;
+    margin-left: 37px; 
+    /* margin-top: 230px; */
+    margin-top: 215px; /* for published */
+    line-height:1em;
+}
+.float-icon-legend .chart-float-icons strong {
+    color: #333;
+    font-weight: 900;	
+}
+.float-icon-legend .chart-float-icons table.incomplete-data {
+	position: relative;
+	top: -13px;
+}
+
+.float-icon-legend .chart-float-legend {
+    float: left;
+    border-color: #d7d2cc;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    height: 365px;
+	/*margin-left: 1px\0/IE9;  for IE9 */
+	width: 102px;
+}
+.float-icon-legend .chart-float-legend table {
+	height: 100%;
+	width: 100%;
+}
+
+:root .float-icon-legend .chart-float-legend {
+    margin-left: 1px\0/IE9;
+}  
+/*Wind icons for embedjs - END*/
+
+/*Below styles are mandatory for all publications*/
+/*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/
+/*This style is needed for aligning the table cells wrt to chart*/
+/*Header cell width is calculated as below
+headercell width = (chart width - 85px)/number of days for which the tables arec onfigured
+in ths pub, header cell width = (465-85)/3 = 154px*/
+/*CSS classnames are format is "tblSeriesHeaderStyles_{numberofdays for tables}. this will be used when we have tbls configured in two diff service pages*/
+
+.tblSeriesHeaderStyles_5
+{
+     text-align:center;
+     width:154px;
+         
+}
+
+.tblWidth_5
+{
+     width:912px;
+}
+.tablesGap tr th:first-child
+{
+	width: 134px;
+	border: 1px solid #d7d2cc;
+}
+
+
+.btnclose
+{
+	background-image:url("/../Images/minus.png");
+	width:20px;
+	height:20px;
+}
+ /*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/

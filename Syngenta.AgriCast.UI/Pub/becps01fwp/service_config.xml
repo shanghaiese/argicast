@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>becps01fwp</name>
+	<extNavigation>FR</extNavigation>
+	<secured>true</secured>
+	<allowedRoles>glbsip03p,internal,becps01fwp</allowedRoles>
+	<emailSettings>
+		<senderName>SyngentaAIS-becps01fwp</senderName>
+		<senderAddress>support@syngenta-ais.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>becps01fwp Feedback</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="nl-NL" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>			
+			<culture code="nl-NL">Netherlands (NL)		</culture>
+			<!-- Netherlands -->			
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric,imperial</Units>
+		<custom>
+			<Wind>kmh,mph</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="false" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="BE">Belgium</area>			
+			<area code="FR">France</area>
+			<area code="NL">Netherlands</area>
+      <area code="ZA">South Africa</area>
+		</allowedCountries>
+	</locationSearch>
+
+	<servicePages file="../base_glbsips03fwp.xml" />
+
+
+</service>
+
+
+

@@ -1,0 +1,395 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WaterModel</name>
+    </assembly>
+    <members>
+        <member name="T:WaterModel.WaterModel">
+            <summary>
+            Water Model
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModel.#ctor">
+            <summary>
+            Public constructor
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModel.Initialize">
+            <summary>
+            Function to initialise the water model
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModel.LoopCopy">
+            <summary>
+            Function to copy the new output values for passing back into the function as inputs.
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModel.Calculate">
+            <summary>
+            Water Model calculated from root depth, stone content of soil, precipitation, irrigation,
+            evapotranspiration and drainage.
+            
+            Calculates the water model for one day.
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModel.Output2ListItem(System.Data.DataRow)">
+            <summary>
+            converts the daiyl output of the model in a new item of the output list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WaterModel.WaterModel.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Crea5e the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:WaterModel.WaterModel.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="P:WaterModel.WaterModel.Arguments">
+            <summary>
+            Arguments of the model (input/output)
+            </summary>
+        </member>
+        <member name="T:WaterModel.WaterModelArgumentsInput">
+            <summary>
+            All possible input arguments for the water model. No initialisation takes place here.
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModelArgumentsInput.#ctor">
+            <summary>
+            Public Constructor
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.Today">
+            <summary>
+            Date for when we run the model for (used for the FromCurrentDay)
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.Time">
+            <summary>
+            Calculated day
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.DerivateRootDepthToday">
+            <summary>
+            Todays change in root depth.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.DerivateRootDepthYesterday">
+            <summary>
+            Yesterday change in root depth.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.RootDepth">
+            <summary>
+            Current root depth. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.GrowthMediaWaterConstraintOnStomatalConductanceThreshold">
+            <summary>
+            Variety related coefficient for calculating constraint on transpiration. Input only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.StoneContent">
+            <summary>
+            Stone content of the soil in percentage of volume. Input only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.PotentialAvailableWater">
+            <summary>
+            Water holding vapacity of the doil in mm. Input only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.IrrigationYesterday">
+            <summary>
+            Irrigation yesterday. Input only. (mm)
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.IrrigationToday">
+            <summary>
+            Irrigation today. Input only. (mm)
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.LightInterceptionEfficiency">
+            <summary>
+            Photosynthetic efficiency. Input only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.LightInterceptionEfficiencyClimaticPotentialFromCurrentDay">
+            <summary>
+            Photosynthetic efficiency. Input only. in case of future potential model
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.RainfallYesterday">
+            <summary>
+            Yesterdays precipitation. Input only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.RainfallToday">
+            <summary>
+            Todays precipitation. Input only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.StandardEvapoTranspiration">
+            <summary>
+            Standard evapotranspiration per grassland. Input only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.TotalTranspirableSoilWater">
+            <summary>
+            Total water content of the soil. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.AvailableTranspirableSoilWater">
+            <summary>
+            Available water content of the soil. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.FractionTranspirableSoilWater">
+            <summary>
+            Percentage of available water. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.Transpiration">
+            <summary>
+            Transpiration. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.Evaporation">
+            <summary>
+            Evaporation. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.TranspirationClimaticPotentialFromCurrentDay">
+            <summary>
+            Transpiration. Input and output. in case of future potential model
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.EvaporationClimaticPotentialFromCurrentDay">
+            <summary>
+            Evaporation. Input and output. in case of future potential model
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.Drainage">
+            <summary>
+            Drainage. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.DayWithoutWaterOrigin">
+            <summary>
+            Days without water. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.PreviousDaysWithWater">
+            <summary>
+            >Water. Input and output
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.MaximumTotalIrrigationEventsConstraint">
+            <summary>
+            Maximum number of irrigation events - constraints
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.MaximumIrrigationAmountPerEventConstraint">
+            <summary>
+            Maximum amount of irrigation per irrigation event - Constraint (mm)
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.TimeForSpraying10mmConstraint">
+            <summary>
+            Number of hour to do one irrigation round, spraying 10 mm 
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.IrrigationThresholdOnFractionTranspirableSoilWater">
+            <summary>
+            Value for the FractionTranspirableSoilWater where we start an irrigation
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.IsFieldIrrigated">
+            <summary>
+            Indicates if the field is equiped with an irrigation system, and if the irrigation plan has to be calculated
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsInput.ComputePastIrrigation">
+            <summary>
+            indicates if the irrigation plan has to be calculated even for past days.
+            </summary>
+        </member>
+        <member name="T:WaterModel.WaterModelArgumentsOutput">
+            <summary>
+            All possible output arguments for the water model. No returned values here.
+            </summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaRootZoneAvailableWaterCapacity">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaRootZoneAvailableWaterContentFraction">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaWaterEvaporationAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaWaterUsedForPlantTranspirationAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaMaximumWaterUsedForPlantTranspirationAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaWaterEvaporationClimaticPotentialFromCurrentDay">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaWaterUsedForPlantTranspirationClimaticPotentialFromCurrentDay">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaWaterConstraintOnStomatalConductance">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_WaterDemandAgroClimaticPotential">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_WaterDemandClimaticPotentialFromCurrentDay">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_GrowthMediaWaterDrainage">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="F:WaterModel.WaterModelArgumentsOutput.S_IrrigationYesterday">
+            <summary>Serie Name</summary>
+        </member>
+        <member name="M:WaterModel.WaterModelArgumentsOutput.CreateSeriesList(Syngenta.AIS.ModelLibrary.SerieList{Syngenta.AIS.ModelLibrary.Serie})">
+            <summary>
+            Create the series into an already instanciated serielist
+            </summary>
+            <param name="dailyData">already instanciated serielist</param>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.AvailableTranspirableSoilWater">
+            <summary>
+            Available water content of the soil. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.FractionTranspirableSoilWater">
+            <summary>
+            Percentage of available water. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.TotalTranspirableSoilWater">
+            <summary>
+            Total water content of the soil. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.Transpiration">
+            <summary>
+            Transpiration. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.Evaporation">
+            <summary>
+            Evaporation. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.TranspirationClimaticPotentialFromCurrentDay">
+            <summary>
+            Transpiration. Input and output. in case of future potential model
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.TranspirationMaximum">
+            <summary>
+            Maximum Transpiration. Output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.EvaporationClimaticPotentialFromCurrentDay">
+            <summary>
+            Evaporation. Input and output. in case of future potential model
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.Drainage">
+            <summary>
+            Drainage. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.DayWithoutWaterOrigin">
+            <summary>
+            Days without water. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.PreviousDaysWithWater">
+            <summary>
+            Days without water. Input and output.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.GrowthMediaWaterConstraintOnStomatalConductanceCurrent">
+            <summary>
+            Constraint on transpiration. Output only.
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.WaterRequirement">
+            <summary>
+            Daily water need
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.WaterRequirementClimaticPotentialFromCurrentDay">
+            <summary>
+            Daily water need in case of future potential model
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArgumentsOutput.IrrigationYesterday">
+            <summary>
+            Irrigation the day before
+            </summary>
+        </member>
+        <member name="T:WaterModel.WaterModelArguments">
+            <summary>
+            Model arguments (input and outut)
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModelArguments.#ctor">
+            <summary>
+            Public constructor
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArguments.Input">
+            <summary>
+            Model input
+            </summary>
+        </member>
+        <member name="P:WaterModel.WaterModelArguments.Output">
+            <summary>
+            Model output
+            </summary>
+        </member>
+        <member name="T:WaterModel.WaterModelArgumentsDependencies">
+            <summary>
+            gets the version string of this module
+            </summary>
+        </member>
+        <member name="M:WaterModel.WaterModelArgumentsDependencies.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Crea5e the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:WaterModel.WaterModelArgumentsDependencies.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+    </members>
+</doc>

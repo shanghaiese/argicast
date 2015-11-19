@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="series">
+    <xs:complexType>
+      <xs:sequence >
+        <xs:element maxOccurs="unbounded" name="serie">
+          <xs:complexType>
+            <xs:all>
+              <xs:element name="name" type="xs:string" />
+              <xs:element name="aggregationFunction" type="xs:string"/>
+              <xs:element name="altitudeAdjustment" type="xs:boolean" />
+              <xs:element name="trend">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="TrendLTA"/>
+                    <xs:enumeration value="TrendMax"/>
+                    <xs:enumeration value="TrendMin"/>
+                    <xs:enumeration value="TrendStDev"/>
+					<xs:enumeration value="TrendRepYear"/>
+                    <xs:enumeration value=""/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

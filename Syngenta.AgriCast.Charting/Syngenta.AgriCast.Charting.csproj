@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0A736F77-3E83-4B1E-A45A-5A250F8B969A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Syngenta.AgriCast.Charting</RootNamespace>
+    <AssemblyName>Syngenta.AgriCast.Charting</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AIS.UsefulFunctions.DerivedCalculations">
+      <HintPath>..\Libraries\AIS.UsefulFunctions.DerivedCalculations.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WebForms, Version=7.0.4259.29043, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Syngenta.AgriCast.UI\Bin\ChartFX.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WebForms.Adornments, Version=7.0.4259.29005, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Syngenta.AgriCast.UI\Bin\ChartFX.WebForms.Adornments.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WebForms.Annotation, Version=7.0.4259.29142, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Syngenta.AgriCast.UI\Bin\ChartFX.WebForms.Annotation.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WebForms.Base, Version=7.0.4259.28993, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Syngenta.AgriCast.UI\Bin\ChartFX.WebForms.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WebForms.Data, Version=7.0.4259.29092, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Syngenta.AgriCast.UI\Bin\ChartFX.WebForms.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="ChartFX.WebForms.Dhtml, Version=7.0.4259.29020, Culture=neutral, PublicKeyToken=a1878e2052c08dce, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Syngenta.AgriCast.UI\Bin\ChartFX.WebForms.Dhtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="syngenta.agricast1.AgriInfo_35">
+      <HintPath>..\packages\Agricast1.AgriInfo.1.0.0\lib\syngenta.agricast1.AgriInfo_35.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Presenter\ChartIconsPresenter.cs" />
+    <Compile Include="Service\ChartIconsService.cs" />
+    <Compile Include="Service\TableData.cs" />
+    <Compile Include="View\IChartIcons.cs" />
+    <Compile Include="WebChartIcons.ascx.cs">
+      <DependentUpon>WebChartIcons.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebChartIcons.ascx.designer.cs">
+      <DependentUpon>WebChartIcons.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ChartDb.cs" />
+    <Compile Include="DTO\DTOchart.cs" />
+    <Compile Include="DTO\ResultSeries.cs" />
+    <Compile Include="Presenter\ChartPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ChartService.cs" />
+    <Compile Include="View\IChart.cs" />
+    <Compile Include="WebChart.ascx.cs">
+      <DependentUpon>WebChart.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebChart.ascx.designer.cs">
+      <DependentUpon>WebChart.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Charting.cd" />
+    <None Include="ClassDiagram1.cd" />
+    <Content Include="web.config" />
+    <Content Include="packages.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ChartFX.WebForms.Adornments.dll" />
+    <Content Include="bin\Debug\ChartFX.WebForms.Annotation.dll" />
+    <Content Include="bin\Debug\ChartFX.WebForms.Base.dll" />
+    <Content Include="bin\Debug\ChartFX.WebForms.Data.dll" />
+    <Content Include="bin\Debug\ChartFX.WebForms.Dhtml.dll" />
+    <Content Include="bin\Debug\ChartFX.WebForms.dll" />
+    <Content Include="bin\log4net.dll" />
+    <Content Include="bin\log4net.pdb" />
+    <Content Include="bin\log4net.xml" />
+    <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="bin\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="bin\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="bin\Microsoft.Practices.Unity.dll" />
+    <Content Include="bin\Microsoft.Practices.Unity.Interception.dll" />
+    <Content Include="bin\Release\ChartFX.WebForms.Adornments.dll" />
+    <Content Include="bin\Release\ChartFX.WebForms.Annotation.dll" />
+    <Content Include="bin\Release\ChartFX.WebForms.Base.dll" />
+    <Content Include="bin\Release\ChartFX.WebForms.Data.dll" />
+    <Content Include="bin\Release\ChartFX.WebForms.Dhtml.dll" />
+    <Content Include="bin\Release\ChartFX.WebForms.dll" />
+    <Content Include="bin\Release\log4net.dll" />
+    <Content Include="bin\Release\log4net.pdb" />
+    <Content Include="bin\Release\log4net.xml" />
+    <Content Include="bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+    <Content Include="bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.pdb" />
+    <Content Include="bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.xml" />
+    <Content Include="bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+    <Content Include="bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.pdb" />
+    <Content Include="bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.xml" />
+    <Content Include="bin\Release\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="bin\Release\Microsoft.Practices.ServiceLocation.pdb" />
+    <Content Include="bin\Release\Microsoft.Practices.Unity.dll" />
+    <Content Include="bin\Release\Microsoft.Practices.Unity.Interception.dll" />
+    <Content Include="bin\Release\Microsoft.Practices.Unity.Interception.pdb" />
+    <Content Include="bin\Release\Microsoft.Practices.Unity.pdb" />
+    <Content Include="bin\Release\Syngenta.AgriCast.Charting.dll" />
+    <Content Include="bin\Release\Syngenta.AgriCast.Charting.pdb" />
+    <Content Include="bin\Release\Syngenta.AgriCast.Common.dll" />
+    <Content Include="bin\Release\Syngenta.AgriCast.Common.pdb" />
+    <Content Include="bin\Release\Syngenta.AgriCast.ExceptionLogger.dll" />
+    <Content Include="bin\Release\Syngenta.AgriCast.ExceptionLogger.pdb" />
+    <Content Include="bin\Release\Syngenta.Data.Access.dll" />
+    <Content Include="bin\Syngenta.AgriCast.Common.dll" />
+    <Content Include="bin\Syngenta.AgriCast.Common.pdb" />
+    <Content Include="bin\Syngenta.AgriCast.ExceptionLogger.dll" />
+    <Content Include="bin\Syngenta.AgriCast.ExceptionLogger.pdb" />
+    <Content Include="bin\Syngenta.Data.Access.dll" />
+    <Content Include="bin\Syngenta.Data.Access.pdb" />
+    <Content Include="WebChartIcons.ascx" />
+    <Content Include="WebChart.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Syngenta.AgriCast.Common\Syngenta.AgriCast.Common.csproj">
+      <Project>{42A1092D-8754-47F8-8566-FCE9D7D99F99}</Project>
+      <Name>Syngenta.AgriCast.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Syngenta.AgriCast.ExceptionLogger\Syngenta.AgriCast.ExceptionLogger.csproj">
+      <Project>{49CEBC23-5A69-42AA-9BC0-81FBBA3CB0FD}</Project>
+      <Name>Syngenta.AgriCast.ExceptionLogger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Syngenta.Data.Access\Syngenta.Data.Access.csproj">
+      <Project>{9921FA6C-899C-4254-9807-B990A5280FD8}</Project>
+      <Name>Syngenta.Data.Access</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Syngenta.Agricast.Modals\Syngenta.Agricast.Modals.csproj">
+      <Project>{07A30B8A-E034-4E44-AD44-AF090B581A55}</Project>
+      <Name>Syngenta.Agricast.Modals</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54775</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(ProjectDir)WebChart.ascx" "$(SolutionDir)Syngenta.AgriCast.UI\UserControls\" /y
+xcopy "$(ProjectDir)WebChartIcons.ascx" "$(SolutionDir)Syngenta.AgriCast.UI\UserControls\" /y
+</PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

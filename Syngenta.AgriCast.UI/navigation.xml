@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SiteMap>
+  <SiteMapNode homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/ABOUT-SYNGENTA/Pages/about-syngenta.aspx" title="About Syngenta">
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/about-syngenta/Pages/Strategy.aspx" title="Strategy" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/ABOUT-SYNGENTA/GOVERNANCE/Pages/corporate-governance.aspx" title="Governance" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/about-syngenta/corporate-responsibility/Pages/corporate-responsibility.aspx" title="Corporate Responsibility" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/about-syngenta/Pages/company-history.aspx" title="Company History" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/about-syngenta/Pages/syngenta-ventures.aspx" title="Syngenta Ventures" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/about-syngenta/Pages/syngenta-foundation.aspx" title="Syngenta Foundation" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/about-syngenta/Pages/publications.aspx" title="Publications" />
+  </SiteMapNode>
+  <SiteMapNode homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/PRODUCTS-AND-INNOVATION/Pages/products-and-innovation.aspx" title="Crops and Innovation">
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/PRODUCTS-AND-INNOVATION/KEY-CROPS/Pages/key-crops.aspx" title="Key Crops" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/PRODUCTS-AND-INNOVATION/PRODUCT-BRANDS/Pages/product-brands.aspx" title="Product Brands" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/PRODUCTS-AND-INNOVATION/RESEARCH-AND-DEVELOPMENT/Pages/research-and-development.aspx" title="Research and Development" />
+  </SiteMapNode>
+  <SiteMapNode homeUrl="http://syngenta.com/global/corporate/en/grow-more-from-less/Pages/grow-more-from-less.aspx" title="Grow more from less">
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/grow-more-from-less/Pages/choices-on-the-farm.aspx" title="Choices on the Farm" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/grow-more-from-less/Pages/preserving-the-land-we-grow-on.aspx" title="Preserving the land" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/grow-more-from-less/Pages/the-high-stakes-for-water.aspx" title="The high stakes for water" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/grow-more-from-less/Pages/the-vitality-of-biodiversity.aspx" title="The vitality of biodiversity" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/grow-more-from-less/Pages/rural-communities.aspx" title="The importance of rural economies" />
+  </SiteMapNode>
+  <SiteMapNode homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/INVESTOR-RELATIONS/Pages/investor-relations.aspx" title="Investor Relations">
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/INVESTOR-RELATIONS/COMPANY-PROFILE/Pages/company-profile.aspx" title="Company Profile" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/investor-relations/Pages/stock-information.aspx" title="Stock Information" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/investor-relations/financial-information-and-presentations/Pages/financial-information.aspx" title="Financial Information and Presentations" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/investor-relations/Pages/investor-calendar.aspx" title="Investor Calendar" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/INVESTOR-RELATIONS/BOND-INVESTOR-INFORMATION/Pages/capital-structure.aspx" title="Bond Investor Information" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/INVESTOR-RELATIONS/ESG-SRI-INFORMATION/Pages/esg.aspx" title="ESG/SRI Information" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/INVESTOR-RELATIONS/GENERAL-SHAREHOLDER-INFORMATION/Pages/general-shareholder-information.aspx" title="General Shareholder Information" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/investor-relations/Pages/investors-faqs.aspx" title="Investors FAQs" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/investor-relations/Pages/contacts-investor-relations.aspx" title="Contact us" />
+  </SiteMapNode>
+  <SiteMapNode homeUrl="http://syngenta.com/global/corporate/en/news-center/Pages/home.aspx" title="News Center">
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/company-profile/Pages/company-profile.aspx" title="Company Profile" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/news-releases/Pages/news-releases.aspx" title="News Releases" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/features/Pages/features.aspx" title="Features" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/events-and-presentations/Pages/events-and-presentations.aspx" title="Events and Presentations" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/Pages/syngenta-in-the-media.aspx" title="Syngenta in the Media" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/Pages/what-syngenta-thinks-about.aspx" title="What Syngenta thinks about" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/image-gallery/Pages/image-gallery.aspx" title="Image Gallery" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/multimedia-downloads/Pages/multimedia-downloads.aspx" title="Multimedia Downloads" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/news-center/for-journalists/Pages/contact-media-relations.aspx" title="For Journalists" />
+  </SiteMapNode>
+  <SiteMapNode homeUrl="http://syngenta.com/global/corporate/en/careers/Pages/careers.aspx" title="Careers">
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/careers/why-syngenta/Pages/why-syngenta.aspx" title="Why Syngenta" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/careers/careers-for-professionals/Pages/careers-for-professionals.aspx" title="Careers for Professionals" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/careers/careers-for-graduates/Pages/careers-for-graduates.aspx" title="Careers for Graduates" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/careers/Pages/current-vacancies.aspx" title="Current Vacancies" />
+    <SiteMapNodeChild homeUrl="http://syngenta.com/global/corporate/en/careers/Pages/contact-us.aspx" title="Contact Us" />
+  </SiteMapNode>
+  <SiteMapNode homeUrl="http://syngenta.com/GLOBAL/CORPORATE/EN/CONTACTS/Pages/contacts.aspx" title="Contact" />
+</SiteMap>

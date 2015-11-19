@@ -1,0 +1,135 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="<%=System.Threading.Thread.CurrentThread.CurrentUICulture%>" dir="<%=System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft?"rtl":"ltr"%>">
+<head runat="server">
+    <meta http-equiv="refresh" content="1800; url=SessionExpired.aspx" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title></title>
+    <link id="dynamicCss" rel="stylesheet" type="text/css" runat="server" />
+    <link id="siteCss" rel="stylesheet" type="text/css" runat="server" />
+    <link type="text/css" rel="stylesheet" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.6/themes/Overcast/jquery-ui.css" />
+    <link href="../../Styles/RateIt.css" rel="stylesheet" type="text/css" />
+    <link href="../../Styles/tableSort.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <%--  <style type="text/css">
+    #divSearch
+    {
+        background-color: #CCCC99;
+    }
+    </style>--%>
+    <script type="text/javascript">
+        function delcookie(name) {
+
+            document.cookie = name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+
+            if (!is_mobile()) {
+                createCookie(name, '1', 1);
+            }
+        }
+
+        function is_mobile() {
+
+            var agents = ['android', 'iphone', 'ipad', 'ipod', 'blackberry', 'symbian',
+                          'webos', 'opera mini', 'iemobile', 'meego', 'Dolphin',
+                          'SonyEricsson', 'Samsung', 'nokia', 'Vodafone', 'HTC'];
+            for (i in agents) {
+                if (navigator.userAgent.match(new RegExp(agents[i], "i"))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name + "=" + value + expires + ";";
+        }
+    </script>
+</head>
+<body>
+    <form runat="server">
+    <div id="container">
+        <div id="global" style="padding: 0px 0px;">
+            <div class="pageheader">
+                <%-- <div style="display: block; position: relative;">
+                    <a href="http://www.syngenta.com" style="text-decoration: none;">
+                        <img id="logo" src="../../images/Syngenta.gif" alt="SyngentaLogo" style="float: right;
+                            right: 5px; position: relative; height: 32px; border: 0px; bottom:1px;" />
+                    </a>
+                </div>--%>
+                <div id="IdSynHeader" class="section section-logos clearfix">
+                    <span id="lblMySyngenta1" class="mySyngenta1">my</span> <span id="lblMySyngenta2"
+                        class="mySyngenta2">Syngenta&nbsp;&nbsp;</span> <a href="http://www.syngenta.com"><span
+                            id="lblSiteName" class="SiteName">Agricast</span>
+                            <img id="ctl00_SyngentaHeader_imgSyngentaLogo" class="logo-syngenta" alt="Syngenta"
+                                src="images/logo-syngenta.png" style="border-width: 0px;" /></a>
+                </div>
+                <div id="IdSynHeaderLink" class="section section-nav-meta clearfix" style="z-index: 0;
+                    margin: 0px; align: left; border-bottom: 1.5px solid #A0A0A0; padding-bottom:2px;width:100%; margin-bottom:15px">
+                    <a target="_self" href="http://cms/SP2010-Info/en/Pages/HomePage.aspx" class="info">
+                        Info</a>
+                    <ul class="inline">
+                        <li><a target="_self" href="http://mysyngenta/Home/Default.aspx">mySyngenta home</a></li><li>
+                            <a target="_self" href="http://mysyngenta/Directory/Location Finder">Location Finder</a></li><li>
+                                <a target="_self" href="http://mysyngenta/Directory/Default.aspx">Syngenta Directory</a></li><li>
+                                    <a target="_self" href="JavaScript:fnFeedBack('/_layouts/Syngenta.Intranet.CMS/AppPages/FeedbackForm.aspx')">
+                                        Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="menuTop">
+                    <asp:ContentPlaceHolder ID="ph_MenuTabsTop" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="page" runat="server">
+                <asp:ScriptManager ID="SM1" runat="server">
+                </asp:ScriptManager>
+                <div id="pageMenu" class="menu" runat="server">
+                    <ul class="clear">
+                        <asp:ContentPlaceHolder ID="ph_MenuTabs" runat="server">
+                            This is a placeholder
+                        </asp:ContentPlaceHolder>
+                    </ul>
+                </div>
+                <div id="PageContent" class="main" runat="server">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="PageFooter" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="footer" id="footer">
+        <div style="display: inline; float: left;">
+            <%--<hr style="width: 960px; float: right; height: 1px; color: silver;" />
+                    <ul style="list-style-type: none">
+                <li style="float: left"><span class="first" id="spnSyngenta" runat="server" clientidmode="Static">
+                    © 2012 Syngenta </span></li>
+                <li style="float: left"><a id="lnkTnC" target="_blank" clientidmode="Static" runat="server"
+                    href="http://www.syngenta.com"></a></li>
+                <li style="float: left"><a id="lnkPrivPolicy" target="_blank" clientidmode="Static"
+                    runat="server" href="http://www.syngenta.com"></a></li>
+                <li style="float: left"><a id="lnkContacts" class="last" target="_blank" clientidmode="Static"
+                    runat="server" href="http://www.syngenta.com"></a></li>
+                <%--   <li style="float: left"><a id="lnkMobile" runat="server" clientidmode="Static" href="Default.aspx"
+                    class="last"  onclick="delcookie('fullsite');"></a></li>
+            </ul>--%>
+            <hr class="footerline" />
+            <div class="footerTextDiv">
+                © 2012 Syngenta International AG, Basel, Switzerland
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

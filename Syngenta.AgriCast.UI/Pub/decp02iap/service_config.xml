@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+   <name>decp02iap</name>
+   <extNavigation>DE</extNavigation>
+   <secured>true</secured>
+   <allowedRoles>decp02iap,AIS</allowedRoles>
+   <emailSettings>
+      <senderName>SyngentaAIS - decp02iap</senderName>
+      <senderAddress>support@syngenta-ais.com</senderAddress>
+      <!--This should be a combination of translation tag and variable name to be substituded at runtime-->       
+	  <subject>Agri-Cast (decp02iap) Feedback</subject>
+      <defaultBody></defaultBody>
+   </emailSettings>
+   <cultureSettings default="de-DE" useIPCulture="true" useBrowserLang="true">
+      <allowedCultureCodes>
+         <culture code="de-DE">Deutsch (DE)</culture>        
+      </allowedCultureCodes>
+   </cultureSettings>
+   <unitsSettings>
+      <Units>metric</Units>
+      <custom>
+         <Wind>kmh</Wind>
+      </custom>
+   </unitsSettings>
+   <locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+      <allowedCountries>
+         <area code="DE">Germany</area>
+      </allowedCountries>
+   </locationSearch>
+
+  <servicePage name="HistoryData_ECMWF" trnsTag="All_historicdata_ECMWF" defaultPage="true">
+		<pageSettings  allowFavorites="true" allowPrintPage="true" allowEmail="true" allowExportToExcel="true" allowFeedback="true" >
+		</pageSettings>
+		<nearbyDataPoint name="NearbyDataPoint" defaultDataSource="glb25ECMWF" maxAllowedDistance="1200" maxAllowedAltitude="1200" resultCount="10" >
+		</nearbyDataPoint>
+		<agriInfo name="AgriInfo" defaultStartDate="01-01" defaultEndDate="31-12" defaultTemporalAggregation="daily">
+			<chart name="daily" trnsTag="vew_fiveinone" width="650" height="300" dataSource="glb25ECMWF" watermark="SyngentaLogo.gif">
+				<PrimaryAxis trnsTag="precipitation" scaleType="Auto" minValue="-2" maxValue="10" />
+				<SecondaryAxis trnsTag="temperaturet" scaleType="Auto" minValue="-20" maxValue="50" />
+			</chart>
+			<weather name="weather" trnTag="Weather">
+				<node id="node0" trnsTag="we_precipitation">
+					<series>
+						<serie name="PrecipAmount_mm_DailySum" trnsTag="precipitation" aggregationFunction="sum" isChecked="false" gallery="bar" stacked="false" color="Darkblue" markertype="Diamond" axisposition="primary" advancedOption="true" labelText="precipitation">
+							<advancedOption>
+								<allowedAggregationFunction>sum</allowedAggregationFunction>
+								<!--allowed aggregation function and first one being default-->
+								<!--<allowAccumalation>true</allowAccumalation>-->
+								<!--true or false-->
+								<minComparisonYear>2001</minComparisonYear>
+								<!--With this tag the comparison year will be enabled and the ddl will contain years from minComparisonYear till date-->
+								<trend>TrendLTA,TrendMax,TrendMin</trend>
+								<!--enum TrendLTA,TrendMax, TrendMin-->
+								<!--<altitudeAdjustment>true</altitudeAdjustment>-->
+								<!--true or false-->
+							</advancedOption>
+						</serie>
+						<serie name="TempAir_C_DaytimeMax" trnsTag="temperature_max" aggregationFunction="max" isChecked="false" gallery="line" stacked="false" color="red" markertype="none" axisposition="primary" advancedOption="true" labelText="temperature_max">
+							<advancedOption>
+								<allowedAggregationFunction>max,min,sum,avg</allowedAggregationFunction>
+								<!--<allowAccumalation>true</allowAccumalation>-->
+								<minComparisonYear>2001</minComparisonYear>
+								<trend>TrendLTA,TrendMax,TrendMin</trend>
+								<altitudeAdjustment>true</altitudeAdjustment>
+							</advancedOption>
+						</serie>
+						
+						<serie name="TempAir_C_NighttimeMin" trnsTag="temperature_min" aggregationFunction="min" isChecked="false" gallery="line" stacked="false" color="blue" markertype="Diamond" axisposition="primary" advancedOption="true" labelText="temperature_min">
+							<advancedOption>
+								<allowedAggregationFunction>max,min,sum,avg</allowedAggregationFunction>
+								<!--<allowAccumalation>true</allowAccumalation>-->
+								<minComparisonYear>2001</minComparisonYear>
+								<trend>TrendLTA,TrendMax,TrendMin</trend>
+								<altitudeAdjustment>true</altitudeAdjustment>
+							</advancedOption>
+						</serie>
+					</series>
+				</node>
+
+			</weather>
+
+		</agriInfo>
+	</servicePage>
+
+
+  <servicePage name="WaterModel" trnsTag="BorderWaterModel">
+    <pageSettings allowFavorites="true" allowPrintPage="true" allowEmail="true" allowExportToExcel="true" allowFeedback="true" >
+    </pageSettings>
+    <nearbyDataPoint name="NearbyDataPoint" defaultDataSource="glb25ECMWF" maxAllowedDistance="1200" maxAllowedAltitude="1200" resultCount="10" >
+    </nearbyDataPoint>
+    <agriInfo name="AgriInfo" defaultStartDate="01-01" defaultEndDate="31-12" defaultTemporalAggregation="daily">
+      <chart name="daily" trnsTag="vew_fiveinone" width="650" height="380" dataSource="EU_25" watermark="SyngentaLogo.gif">
+        <PrimaryAxis trnsTag="precipitation" scaleType="Auto" minValue="-2" maxValue="10" />
+        <SecondaryAxis trnsTag="temperaturet" scaleType="Auto" minValue="-20" maxValue="50" />
+      </chart>
+      <weather name="weather" trnTag="Weather">
+        <node id="node0" trnsTag="we_precipitation">
+          <series>
+            <serie name="PrecipAmount_mm_DailySum" trnsTag="precipitation" aggregationFunction="sum" isChecked="false" gallery="bar" stacked="false" color="Darkblue" markertype="Diamond" axisposition="primary" advancedOption="true" labelText="precipitation">
+              <advancedOption>
+                <allowedAggregationFunction>sum</allowedAggregationFunction>
+                <!--allowed aggregation function and first one being default-->
+                <allowAccumalation>true</allowAccumalation>
+                <!--true or false-->
+                <minComparisonYear>2001</minComparisonYear>
+                <!--With this tag the comparison year will be enabled and the ddl will contain years from minComparisonYear till date-->
+                <trend>TrendLTA,TrendMax,TrendMin</trend>
+                <!--enum TrendLTA,TrendMax, TrendMin-->
+                <altitudeAdjustment>true</altitudeAdjustment>
+                <!--true or false-->
+              </advancedOption>
+            </serie>
+          </series>
+        </node>
+        <node id="node1" trnsTag="we_temp_max">
+          <series>
+            <serie name="TempAir_C_DaytimeMax" trnsTag="temperature_max" aggregationFunction="max" isChecked="false" gallery="line" stacked="false" color="red" markertype="none" axisposition="primary" advancedOption="true" labelText="temperature_max">
+              <advancedOption>
+                <allowedAggregationFunction>max,min,sum,avg</allowedAggregationFunction>
+                <allowAccumalation>true</allowAccumalation>
+                <minComparisonYear>2001</minComparisonYear>
+                <trend>TrendLTA,TrendMax,TrendMin</trend>
+                <altitudeAdjustment>true</altitudeAdjustment>
+              </advancedOption>
+            </serie>
+          </series>
+        </node>
+        <node id="node2" trnsTag="we_temp_min">
+          <series>
+            <serie name="TempAir_C_NighttimeMin" trnsTag="temperature_min" aggregationFunction="min" isChecked="false" gallery="line" stacked="false" color="blue" markertype="Diamond" axisposition="primary" advancedOption="true" labelText="temperature_min">
+              <advancedOption>
+                <allowedAggregationFunction>max,min,sum,avg</allowedAggregationFunction>
+                <allowAccumalation>true</allowAccumalation>
+                <minComparisonYear>2001</minComparisonYear>
+                <trend>TrendLTA,TrendMax,TrendMin</trend>
+                <altitudeAdjustment>true</altitudeAdjustment>
+              </advancedOption>
+            </serie>
+          </series>
+        </node>
+      </weather>
+      <gdd name="WaterModel" trnTag="WaterModel" defaultMethod="EU" defaultBase="6" defaultCap="1000">
+        <series>
+          <serie name="WaterModel" trnsTag="WaterModel" axisposition="primary" advancedOption="false">
+            <advancedOption>
+              <method>EU,US</method>
+              <base>2</base>
+              <cap>100</cap>
+            </advancedOption>
+          </serie>
+        </series>
+      </gdd>
+    </agriInfo>
+    <legend name="BWMLegend" trnsTag="BWMLegend" htmlPath="legends/BWMLegend.htm" />
+  </servicePage>
+
+</service>
+
+
+

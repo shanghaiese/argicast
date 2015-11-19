@@ -1,0 +1,6 @@
+﻿@import '../base_CSSstandard.css';
+#imgFB, #imgEmail
+{
+	display: none;
+}
+

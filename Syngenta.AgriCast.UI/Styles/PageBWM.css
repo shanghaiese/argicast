@@ -1,0 +1,151 @@
+﻿body
+{
+    color: #666666;
+    font-size: 12px;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+a
+{
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: underline;
+}
+/* table style */
+.x-table
+{
+    width: 100%;
+}
+.x-table tr td
+{
+    text-align: left;
+    padding: 0px 5px;
+}
+.x-table tr.btn-header td
+{
+    text-align: center;
+}
+.x-table tr.row-header td, .x-table tr.btn-header td
+{
+    padding: 3px 5px;
+}
+/* text style */
+.txt-color
+{
+    color: RGB(58, 170, 217);
+}
+.txt-weight
+{
+    font-weight: bold;
+}
+/* icon style */
+.icon
+{
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: block;
+    height: 10px;
+    text-indent: -9999px;
+    width: 10px;
+}
+.icon-button
+{
+    padding-right: 20px;
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+a.icon:hover
+{
+    text-decoration: none;
+}
+.plus
+{
+    background-image: url(../Images/boxplus.gif);
+}
+.minus
+{
+    background-image: url(../Images/boxminus.gif);
+}
+.asc
+{
+    background-image: url(../Images/asc.gif);
+}
+.desc
+{
+    background-image: url(../Images/desc.gif);
+}
+.map
+{
+    background-image: url(../Images/map.jpg);
+}
+.list
+{
+    background-image: url(../Images/list.jpg);
+}
+/* tab style */
+.tabs
+{
+    margin: 10px 5px 5px;
+}
+.tabs-header
+{
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.tabs-header li
+{
+    border-color: #CCCCCC;
+    border-style: solid;
+    border-width: 1px 1px 0 1px;
+    border-bottom:1px solid #FFFFFF;
+    float: left;
+    list-style-type: none;
+    margin: 0 3px;
+}
+.tabs-header li a
+{
+    color: #666666;
+    padding: 5px 5px 5px 25px;
+    background-position: center left;
+    background-repeat: no-repeat;
+    display: block;
+    margin-left:3px;
+    text-decoration:none; 
+}
+.tabs-header li:hover, .tabs-header li.current {
+    background-color: #EFEDEA;
+}
+.tabs-body
+{
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+    position:relative; 
+	top:-1px;
+}
+
+.btnSearch
+{
+    background: url(../Images/button.gif) left top repeat-x;
+    color: #FFFFFF;
+    display: block;
+    height: 18px;
+    padding: 3px 5px 0;
+    width: 40px;
+}
+a.btnSearch:hover
+{
+    text-decoration: none;
+}
+
+.bing-map
+{
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 400px;
+}

@@ -1,0 +1,641 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+/* * 
+{	margin:0px;
+	padding:0px; 	
+}
+
+ html
+ {
+ 	height:100%;
+ 	margin:0px;
+ 	padding:0px;
+ }
+ body   
+{ 
+   font-family:"Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+   
+    font-size: 62.5%;
+    font-family:Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px; 
+    padding: 0px;
+    color: #666;
+    height:100%; 
+    overflow-x:hidden;
+} */
+
+
+/*img, img a
+{
+	border:0px none currentColor;	
+	border:0px;
+	cursor:pointer;	
+}*/
+	
+/*substitution for img,img a*/
+
+.ag_tag 
+{
+    padding-top:0px;
+    width:100%;
+    float:left;
+}
+.ag_tag .iconColumnClass,.ag_tag #imgEmail,.ag_tag #btnExcel,.ag_tag #imgFB,.ag_tag #imgFav,.ag_tag .buttonTree,.ag_tag #logo
+{
+    
+	border:0px none currentColor;	
+	border:0px;
+	cursor:pointer;	
+}
+.ag_tag #imgChart
+{
+    cursor:none;
+}
+
+
+.ag_tag .ag_close img
+{
+    cursor:pointer;	
+}
+/*a:link, a:visited
+{
+    color:  #0093cf;
+} 
+
+a:hover
+{
+    color: #0093cf;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #0093cf;
+}*/
+
+/*substitute for a:link,a:hover,a:active*/
+.ag_tag #hApply:link,.ag_tag #hCancel:link,.ag_tag #hNearByPoint:link,.ag_tag .tree a:link,.ag_tag #lnkMobile:link
+{
+     color:  #0093cf;
+}
+
+.ag_tag #hApply:hover,.ag_tag #hCancel:hover,.ag_tag #hNearByPoint:hover,.ag_tag .tree a:hover,.ag_tag #lnkMobile:hover
+{
+     color:  #0093cf;
+}
+.ag_tag #hApply:active,.ag_tag #hCancel:active,.ag_tag #hNearByPoint:active,.ag_tag .tree a:active,.ag_tag #lnkMobile:active
+{
+     color:  #0093cf;
+}
+
+/*p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+*/
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+/*h1, h2, h3, h4, h5, h6
+{
+    font-size: 1.5em;
+    color: #666666; 
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+h1
+{
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2
+{
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3
+{
+    font-size: 1.2em;
+}
+
+h4
+{
+    font-size: 1.1em;
+}
+
+h5, h6
+{
+    font-size: 1em;
+}*/
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.ag_tag .rightColumn > h1, .ag_tag .rightColumn > h2, .ag_tag .leftColumn > h1, .ag_tag .leftColumn > h2
+{
+    margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+/*#container
+{
+	width:980px;
+	font-size:1.1em;
+	margin:0px auto;
+	padding:0px;
+	background-image:none;
+	background-attachment:scroll;
+	background-position: 0% 0%;
+	background-repeat:repeat;
+	background-size: auto;	 
+	background-clip:border-box;	
+	background-origin:padding-box;
+	background-color:#fff;	
+	display:block;
+}
+.page
+{
+    background-color: #ffffff;    
+    /*border: 1px solid #496077;*/
+    /*padding-bottom: 0;*/
+   /* width: 960px;
+    min-height:100%;
+    margin:0px;        
+    float:left;  
+    padding:0px;
+    font-size:1.1em;
+}
+
+.pageheader
+{
+     width:100%; 
+    padding: 0px 0px 10px 0px;
+    margin: 0px 0px 5px 0px;
+    float:right;
+    display:block; 
+    
+}
+
+.header h1
+{
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px 0px 0px 10px;
+    color: #f9f9f9;
+    border: none;
+    line-height: 2em;
+    font-size: 2em;
+}
+
+.main
+{   
+    padding-right:5px;
+    padding-top:0px;
+    margin: 0px 8px 0px 0px;
+    min-height: 420px;      
+    width:960px;   
+    float:left;
+     
+}
+.mainMoss
+{
+    padding: 0px;
+    margin: 0px;
+    min-height: 420px;
+    float:left;
+    width: 780px;  
+    font-size:1.1em;        
+}*/
+
+.ag_tag .leftCol
+{
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.ag_tag .footer
+{
+    
+    height: 25px; 
+    width: 960px;
+    /*background-color: #fff; 
+	 color: #4e5766;
+	line-height: normal;    
+	*/
+    padding-top: 0px;
+    margin: 17px auto 20px 0px;
+    text-align: center; 
+     font-size: 1.1em;
+     float: left;
+}
+
+/*div {
+	padding: 5px 0px 0px 0px;
+}*/
+/*.labelRate {
+	width: 100px; 
+	margin-top:5px; 
+	font-weight: bold;
+	padding-left: 500px; 
+	padding-top: 5px;	  
+}*/
+/* TAB MENU   
+----------------------------------------------------------*/
+
+/*div.menu
+{
+   /* padding: 4px 0px 4px 8px;    */
+  /* padding:0px; 
+   width: 960px;
+   height:22px;
+   /*background-color:#3a4f63; */
+ /*  margin-top:0px;
+   margin-left:0px;
+   background-color:rgb(150, 136, 119);
+   display:block;
+   font-size: 11px;
+}
+
+div.menu ul
+{
+    list-style: none;  
+      position:relative;
+      display:block;
+     /* right:40px;   */
+}
+
+/*div.menu ul li a, div.menu ul li a:visited
+{     
+    border-right: 1px #ffffff solid;
+    color: #ffffff;/*#0093cf;*/
+   /* display: block;
+    line-height: 1em;
+    padding:5px 10px;
+    text-decoration: none;    
+    white-space: nowrap; 
+    display:block;
+    
+} 
+
+div.menu ul li
+{      
+    float:left;
+    text-align:center; 
+    display:block;      
+}
+
+
+div.menu ul li a:hover
+{
+    background-color: #d7d2cc;
+    text-decoration: none;
+    display:block;
+}
+
+div.menu ul li a:active,div.menu ul li.active a
+{
+    background-color: #d7d2cc;
+    text-decoration: none;
+    font-weight:700;
+    display:block;
+}
+/*moss menu*/
+/*div.menuMoss ul li
+{
+    width: 125px; 
+    float:left;
+    text-align:left;
+    margin-right:2px;    
+    display:block; 
+}
+div.menuMoss
+{
+   /* padding: 4px 0px 4px 8px;    */
+  /* padding:0px; 
+   width: 125px;
+   height:auto;
+   /*background-color:#3a4f63; */
+  /* margin:0px;
+   margin-left:25px;
+   float:left;
+   margin-right:10px;
+   display:block;
+}
+
+div.menuMoss ul
+{
+    list-style: none;  
+      position:relative;
+      right:35px;     
+      display:block;  
+}
+
+div.menuMoss ul li a, div.menuMoss ul li a:visited
+{
+    background-color: #968877;
+    border: 1px #fff solid;
+    color: #fff;/*#0093cf;*/
+   /* display: block;
+    line-height: 11px;
+    padding:4px 10px;
+    text-decoration: none;
+    font-weight:700;
+    white-space: nowrap; 
+    font-size:11px;  
+ font-family: Arial;/*, Helvetica, Verdana, sans-serif;*/
+/*width: 110%; /*width of sub menus*/
+/*display:block;
+    
+} 
+
+#slide
+{
+    padding:16px;
+}
+
+div.menuMoss ul li a:hover
+{
+    background-color: #d7d2cb;
+    color: #fff;
+    font-weight:700;
+    text-decoration: underline;
+    display:block;
+}
+
+div.menuMoss ul li a:active,div.menuMoss ul li.active a
+{
+    background-color: #d7d2cb;
+    color: #fff;
+    text-decoration: none;
+    display:block;
+}*/
+
+/* Tabs
+
+---------------------------------------------------------*/
+ 
+
+/*.tab
+{
+   /* padding: 4px 0px 4px 8px;    */
+  /* padding:0px; 
+   width: 95%;
+   height:30px;
+   /*background-color:#3a4f63; */
+  /* margin: 5px 0px 0px 5px;
+   padding-left:10px;
+   float:left;
+}
+
+div.tab ul
+{
+    list-style: none;  
+     
+}
+
+
+div.tab ul li,div.tab ul li:visited
+{
+    width: auto; 
+    float:left;
+    text-align:center;
+   /* color:#d7d2cc;*/
+   /* display:block;
+    height:20px;
+    position:relative;
+    border: 1px solid  #abadb3; 
+    margin:2px;
+    margin-bottom:0px;
+    border-bottom:0px;
+    border-top-left-radius: 4px;    
+    border-top-right-radius: 4px;
+    padding:2px 4px;
+    cursor: pointer;
+}
+
+
+div.tab ul li:hover
+{    
+     background-color: #efedea;
+    
+}
+div.tab ul li span
+{
+    vertical-align:top;
+}*/
+
+.ag_tag .selected
+{
+    background-color: #bfcbd6;
+}
+/* FORM ELEMENTS   
+----------------------------------------------------------*/
+
+/*fieldset
+{
+    margin: 1em 0px;
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+fieldset p 
+{
+    margin: 2px 12px 10px 10px;
+}
+
+fieldset.login label, fieldset.register label, fieldset.changePassword label
+{
+    display: block;
+}
+
+fieldset label.inline 
+{
+    display: inline;
+}
+
+legend 
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 8px 4px;
+}
+
+input.textEntry 
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry 
+{
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+    width: 42%;
+}*/
+
+/* MISC  
+----------------------------------------------------------*/
+
+/*.clear
+{
+    clear: both;
+}
+
+.title
+{
+    display: block;
+     background: #4b6c9e;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay
+{
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: White;
+}
+
+.loginDisplay a:link
+{
+    color: white;
+}
+
+.loginDisplay a:visited
+{
+    color: white;
+}
+
+.loginDisplay a:hover
+{
+    color: white;
+}
+
+.failureNotification
+{
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.submitButton
+{
+    text-align: right;
+    padding-right: 10px;
+}
+*/
+.ag_tag .LegendPadding
+{
+   
+    width:100%;
+    float:left;
+}
+.ag_tag .divOuter
+{
+    padding-top:0px;
+    width:100%;
+    float:left;
+}
+
+ 
+.ag_tag .tablesGap tr th, .ag_tag .tablesGap tr td,
+.ag_tag .tables tr th, .ag_tag .tables tr td,
+.ag_tag .restrictTable tr th, .ag_tag .restrictTable tr td {
+    padding: 5px 3px;
+	font-family: Arial, Helvetica, Verdana, sans-serif !important;
+    color: #666;
+}
+.ag_tag .rateit {
+	margin-bottom: 10px;
+}
+.ag_tag .tabright {
+	margin-bottom: 0px;
+}
+.ag_tag table.restricttable {
+	margin-top: 10px;
+}
+/*.ag_tag .divOuter {
+	width: 960px;
+}*/
+
+.ag_tag .tablesgap tr td:first-child {
+    width: 143px;
+}
+.ag_tag .iconHeaderTableClass
+{
+    
+	width: 780px;
+}
+.ag_tag .iconDivClass {
+    left: 3px;
+    position: relative;
+    top: 100px;   
+}
+.ag_tag .StationDetails
+{
+   
+    font-family: Arial, Helvetica, Verdana, sans-serif !important;
+    color: #666 !important;
+    font-size:13px;
+    margin-top:10px;
+    /* height:30px;
+    margin-top:15px;
+    margin-bottom:-30px;*/
+}
+.ag_tag .label250 
+{
+    color:#666 !important;
+}
+.ag_tag .div_days_1
+{
+   
+    float: left;
+    position: relative;
+    
+   
+}
+.ag_tag .div_days_2
+{
+   
+    float: left;
+    position: relative;
+    
+   
+}
+.ag_tag .div_days_3
+{
+   
+    float: left;
+    position: relative;
+  
+   
+}
+.ag_tag .div_days_4
+{
+    
+    float: left;
+    position: relative;
+  
+   
+}

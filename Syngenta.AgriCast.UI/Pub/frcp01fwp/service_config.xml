@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>frcp01fwp</name>
+   <extNavigation>FR</extNavigation>
+	<secured>true</secured>
+	<allowedRoles>AIS</allowedRoles>
+	<emailSettings>
+		<senderName>SyngentaAIS-frcp01fwp</senderName>
+		<senderAddress>support@syngenta-ais.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Agri-Cast (Template Cast Open) Feedback frcp01fwp </subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="fr-FR" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="fr-FR">Français (FR)			</culture>
+			<!-- Français -->
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric</Units>
+		<custom>
+			<Wind>kmh,beaufort</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="FR">France</area>
+		</allowedCountries>
+	</locationSearch>
+
+	
+	<servicePage name="dialy" trnsTag="daily" defaultPage="true">
+		<pageSettings  allowFavorites="false" allowPrintPage="true" allowEmail="false" allowExportToExcel="false" allowFeedback="false" >
+		</pageSettings>
+		<nearbyDataPoint name="NearbyDataPoint" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+		</nearbyDataPoint>
+		
+		<icon name="iconsDaily" plotColumnHeader="false" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="daily" imageSetName="" transparency="60" width="70" height="70">
+			<series>
+				<serie name="TempAir_C" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Cloudcover_Pct" trnsTag="" aggregationFunction="avg"/>
+				<serie name="ThunderstormProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationType" trnsTag="" aggregationFunction="avg"/>
+				<serie name="PrecipAmount_mm" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Winddirection_Deg" trnsTag="" aggregationFunction="dev"/>
+				<serie name="WindSpeed_ms" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Visibility_km" trnsTag="" aggregationFunction="min"/>
+			</series>
+		</icon>
+		
+		<tblDaysRows name="dailytabledata" trnsTag="" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="daily" ruleset="" colorPaletteName="" feedback="true">
+		  <series>
+			<serie name="TempAir_C_DaytimeMax" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName="pal_sip_temperature"/>
+			<serie name="TempAir_C_NighttimeMin" trnsTag="temperature_min" aggregationFunction="min" colorPaletteName="pal_sip_temperature"/>
+			<serie name="TempAir_C_DailyAvg" trnsTag="temperature_avg" aggregationFunction="avg" colorPaletteName="pal_sip_temperature"/>
+			<serie name="PrecipAmount_mm_dailySum" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName="pal_sip_rain"/>
+			<serie name="TempAir5cm_DailyMin" trnsTag="dd_temp_min5" aggregationFunction="min" colorPaletteName="pal_sip_temperature"/>
+		  </series>
+		</tblDaysRows>
+		
+		<!--<tblDaysRows name="dailytablefrost" trnsTag="dd_frosttitle" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="daily" ruleset="RS_FrostText" colorPaletteName="pal_temperature" feedback="true">
+		  <series>
+			<serie name="TempAir5cm_DailyMin" trnsTag="dd_frost" aggregationFunction="min" colorPaletteName=""/>
+		  </series>
+		</tblDaysRows>-->
+	</servicePage>
+	
+	<servicePage name="8hourly" trnsTag="8hourly" >
+		<pageSettings  allowFavorites="false" allowPrintPage="true" allowEmail="false" allowExportToExcel="false" allowFeedback="false" >
+		</pageSettings>
+		<nearbyDataPoint name="NearbyDataPoint" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+		</nearbyDataPoint>
+		
+		<icon name="icons8hourly" plotColumnHeader="false" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="8hourly" imageSetName="" transparency="60" width="45" height="45">
+			<series>
+				<serie name="TempAir_C" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Cloudcover_Pct" trnsTag="" aggregationFunction="avg"/>
+				<serie name="ThunderstormProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationType" trnsTag="" aggregationFunction="avg"/>
+				<serie name="PrecipAmount_mm" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Winddirection_Deg" trnsTag="" aggregationFunction="dev"/>
+				<serie name="WindSpeed_ms" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Visibility_km" trnsTag="" aggregationFunction="min"/>
+			</series>
+		</icon>
+		
+		<tblDaysRows name="8hourlytabledata" trnsTag="" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="8hourly" ruleset="" colorPaletteName="" feedback="true">
+		  <series>
+			<serie name="TempAir_C" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName="pal_sip_temperature"/>
+			<serie name="TempAir_C" trnsTag="temperature_min" aggregationFunction="min" colorPaletteName="pal_sip_temperature"/>
+			<serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName="pal_sip_rain"/>
+			<serie name="PrecipProbability_Pct" trnsTag="dd_precipitation_risk" aggregationFunction="max" colorPaletteName="pal_sip_rain_risk"/>
+			<serie name="RelHumidity_pct" trnsTag="relhumidity" aggregationFunction="avg" colorPaletteName="pal_sip_humid"/>
+			<serie name="WindDirection_Deg" trnsTag="ResWindDirection" aggregationFunction="avg" colorPaletteName=""/>
+			<serie name="Windspeed_kph" trnsTag="we_wind_kmh" aggregationFunction="avg" colorPaletteName="pal_winspeedkmh"/>
+        </series>
+		</tblDaysRows>
+	</servicePage>
+	
+	<servicePage name="hourly" trnsTag="hourly" defaultPage="true">
+		<pageSettings  allowFavorites="false" allowPrintPage="true" allowEmail="false" allowExportToExcel="false" allowFeedback="false" >
+		</pageSettings>
+		<nearbyDataPoint name="NearbyDataPoint" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+		</nearbyDataPoint>
+		
+		<icon name="iconsHourly" plotColumnHeader="false" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="Hourly" imageSetName="" transparency="60" width="45" height="45">
+			<series>
+				<serie name="TempAir_C" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Cloudcover_Pct" trnsTag="" aggregationFunction="avg"/>
+				<serie name="ThunderstormProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationProbability_Pct" trnsTag="" aggregationFunction="max"/>
+				<serie name="PrecipitationType" trnsTag="" aggregationFunction="avg"/>
+				<serie name="PrecipAmount_mm" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Winddirection_Deg" trnsTag="" aggregationFunction="dev"/>
+				<serie name="WindSpeed_ms" trnsTag="" aggregationFunction="avg"/>
+				<serie name="Visibility_km" trnsTag="" aggregationFunction="min"/>
+			</series>
+		</icon>
+		
+		
+		<tblDaysRows name="hourlytabledata" trnsTag="" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="Hourly" ruleset="" colorPaletteName="" feedback="true">
+		  <series>
+			<serie name="TempAir_C" trnsTag="temperaturet" aggregationFunction="max" colorPaletteName="pal_sip_temperature"/>
+			<serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName="pal_sip_rain"/>
+			<serie name="PrecipitationProbability_Pct" trnsTag="precipitation_risk" aggregationFunction="max" colorPaletteName="pal_sip_rain"/>
+			<serie name="ThunderstormProbability_Pct" trnsTag="thunderstormprob" aggregationFunction="max" colorPaletteName="pal_combinedrisk"/>
+			<serie name="RelHumidity" trnsTag="relhumidity" aggregationFunction="avg" colorPaletteName="pal_sip_humid"/>
+			<serie name="Winddirection_Deg" trnsTag="ResWindDirection" aggregationFunction="max" colorPaletteName=""/>
+			<serie name="Windspeed_kph" trnsTag="we_wind_kmh" aggregationFunction="avg" colorPaletteName="pal_winspeedkmh"/>
+		  </series>
+		</tblDaysRows>
+		
+		<tblDaysRows name="vew_spraygrnd" trnsTag="ResSprayGround" dataSource="glbStnFcst" startDate="0" endDate="7" temporalAggregation="Hourly" ruleset="SW_ground_frcp01" colorPaletteName="pal_sip_window" feedback="true">
+		  <series>
+			<serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName=""  />
+			<serie name="RelHumidity" trnsTag="relhumidity" aggregationFunction="avg"  colorPaletteName="" />
+			<serie name="WindSpeedMax_ms" trnsTag="relhumidity" aggregationFunction="max"  colorPaletteName="" />
+			<serie name="WindSpeed_ms" trnsTag="relhumidity" aggregationFunction="max" colorPaletteName=""  />
+			<serie name="TempAir_C" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName=""  />
+			<legend name="SprayingrestrictionsLegend" trnsTag="SprayingrestrictionsLegend" htmlPath="legends\SparayWindowGroundSprayingRestrictions.htm" />
+			<legend name="SprayingcoloursLegend" trnsTag="Spraying.SIPcoloursLegend" htmlPath="legends\GroundSprayingColoursLegend.htm" />
+		  </series>
+		</tblDaysRows>
+	</servicePage>
+</service>
+
+
+

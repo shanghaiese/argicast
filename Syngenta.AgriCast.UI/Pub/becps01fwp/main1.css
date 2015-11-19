@@ -1,0 +1,81 @@
+﻿@import '../base_CSSstandardP.css';
+#tools select {display:block}
+/*
+#greeting {display:none}
+#tools select {display:none}
+
+
+#imgEmail, #imgFav, #imgFB , #imgPrint {float:right}
+
+.iconHeaderTableClass {
+width: 580px;
+}
+
+.tblWidth_5 {
+width: auto;
+}
+#btnExcel {
+float: right;
+}
+
+.float-icon-legend {
+width: 760px;
+}
+  moss menu region
+
+.jqueryslidemenu ul li a {
+
+border-right: 0px solid #fff;
+
+}
+
+.chartDiv { padding-left: 0; }
+
+.mainMoss
+{
+    width:765px;
+}
+
+#divPrint #agricastLogo
+{
+    display: none;
+}
+
+
+table.restrictTable
+{
+	
+	margin-left: 0px;
+}
+.SPRHeading {
+margin:15px 0px 8px 0px;
+float: left;
+color:#968877;
+font-size:25px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight:500;
+line-height:28px;
+}
+.SPRLabel {
+color:#666666;
+font-size:11px;
+font-family: Arial, Helvetica, sans-serif;
+font-weight:700;
+margin-bottom:8px; 
+}
+
+#tblwindicons strong {
+color: #004392;
+font-size:small;
+}
+    
+ #tblhumidlegend
+ {
+ 	display:none;
+ }
+ 
+#tblwinddirectionlegend1
+{
+	border-bottom:none;
+}
+*/

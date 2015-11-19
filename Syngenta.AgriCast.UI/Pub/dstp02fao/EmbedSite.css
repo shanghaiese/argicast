@@ -1,0 +1,226 @@
+﻿
+/*-----css for multiple instance---------*/
+.ag_tag
+{
+    font-family: Helvetica, Arial, Verdana, sans-serif !important;
+    
+    color: #fff !important;
+    width: 157px;
+    height: 150px;
+    padding: 3px 0px 5px 8px;
+   
+}
+.ag_tag .cngLoc:Link, .ag_tag .cngLoc:Active, .ag_tag .cngLoc:Hover, .ag_tag .cngStat:Link, .ag_tag .cngStat:Active, .ag_tag .cngStat:Hover
+{
+    color: rgb(35,124,178);
+    font-size: 13px;
+    display: none;
+}
+.ag_tag .divwidgetContainer
+{
+    color: #fff !important;
+}
+.ag_tag .widgetForecastText
+{
+    color: #fff;
+    font-size: 10px;
+    display: none;
+}
+.ag_tag .widgetForecastLocation
+{
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+
+.ag_tag .wid_tdDaysofWeek
+{
+    height: 15px;
+    font-size: 9px;
+    text-align: center;
+    border-bottom: 1px solid #6d6d6e;
+    font-weight: normal;
+}
+
+.ag_tag .wid_tdWeatherIcons
+{
+    text-align: center;
+}
+
+.ag_tag .wid_imgWeatherIcons
+{
+    margin: 3px 0 0 0;
+    width: 35px;
+    height: 35px;
+}
+.ag_tag .divLocationContainer
+{
+    margin: 0 0 18px 0;
+}
+
+
+.ag_tag .wid_tdTemp
+{
+    float: none;
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    text-align: center;
+}
+.ag_tag .widgetContainer, .ag_tag #ag_txtPlace, .ag_tag .ag_ddlCountry
+{
+    color: #fff !important;
+    font-weight: normal;
+}
+.ag_tag .iconHeaderTableClass
+{
+    width: 570px;
+}
+.ag_tag .iconsContainer table, .ag_tag .tables
+{
+    font-size: 12px;
+}
+.ag_tag .float-icon-legend table
+{
+    font-size: 12px;
+}
+
+.ag_tag .wid_divTempMax
+{
+    border-right: none;
+    float: none;
+    margin-right: 0px;
+    padding-left: 0px;
+}
+
+.ag_tag .wid_divTempMin
+{
+    display: none;
+    float: left;
+}
+.ag_tag .widgetColon
+{
+    display: none;
+}
+
+.ag_tag .ag_txtPlace
+{
+    height: 13px;
+    width: 145px;
+}
+
+.ag_tag .tablesGap
+{
+    width: 760px;
+}
+
+.ag_tag .ag_ddlCountry
+{
+    width: 150px;
+}
+.ag_tag .ag_lblCountry, .ag_tag .ag_lblFor
+{
+    margin: 5px;
+}
+.tblSeriesHeaderStyles_5
+{
+    width: 120px;
+}
+
+/* CSS Changes for dstp02fao - 18th April - begin */
+.ag_tag .widgetTblwidget
+{
+    width: 100%;
+    clear: both;
+}
+.ag_tag .div_days_1
+{
+	margin-right: 0px;
+    float: none;
+    position: relative;
+    top:0px
+}
+.ag_tag .div_days_2
+{
+    margin-right: 2px;
+    float: left;
+    position: relative;
+    top:-60px;
+   
+}
+.ag_tag .div_days_3
+{
+    margin-right: 2px;
+    float: left;
+    position: relative;
+    top:-60px;
+    
+}
+.ag_tag .div_days_4
+{
+    margin-right: 2px;
+    float: left;
+    position: relative;
+    top:-60px;
+   
+}
+.widgetForecastText
+{
+    display: none;
+}
+
+.widgetColon
+{
+    display: none;
+}
+.div_days_1 .wid_tdDaysofWeek
+{
+    display: none;
+}
+
+.div_days_1 .wid_tdWeatherIcons
+{
+    position: relative;
+    text-align:left;
+    left:90px;
+    top:-50px;
+}
+
+.div_days_1 .wid_tdWeatherIcons img
+{
+    height:40px;
+    width:40px;
+}
+
+.div_days_1 .wid_tdTemp
+{
+    position: relative;
+    text-align:left;
+    font-size:25px;
+    top:-90px;
+}
+
+.wid_divTempMin
+{
+    display: none;
+    float: left;
+}
+.wid_divTempMax
+{
+   
+    border-right: none;
+    margin-left: 5px;
+}
+.widgetForecastLocation
+{
+    position:relative;
+    left:5px;
+    top:20px;
+}
+.ag_tag .imgSettings
+{
+	font-size: 12px;
+	display:none;
+}
+/* CSS Changes for dstp02fao - 18th April - end*/

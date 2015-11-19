@@ -1,0 +1,74 @@
+﻿#container
+{
+	width: 975px;
+}
+.container
+{
+	width:100%;
+}
+#container, .container
+{
+	height: auto;
+	/*width: 960px;*/
+	/*border: 1px solid rgb(239, 237, 234);
+	background-color: rgb(239, 237, 234);
+	float: left;
+	margin: auto;*/	
+	position: relative;
+	z-index: 15 !ie; 
+	border: 0px;
+} 
+.main, .page, .footer
+{
+	width: 975px;
+	border:0px;
+	padding:0px;
+}
+#greeting {display:none}
+/*#tools select {display:none}*/
+.iconDivClass
+{
+	 /*Maps issue in chrome and fiefox*/
+	margin-left: 235px; /* 135px originally */
+	text-align: center;
+	width: 480px;
+	height:80px;
+	position: relative;	
+    top:70px;
+	z-index:1000;
+	
+	
+}
+/*tool bar width adjustment*/
+#tools
+{
+    width:auto;
+}
+
+/*For Iframe*/
+.pageheader 
+{
+display: none;
+}
+
+.footer 
+{
+display: none;
+}
+.float-icon-legend .chart-float-icons {
+
+margin-top: 230px;
+
+}
+div.menu 
+{
+display: block;
+}
+.mainMoss
+{
+	width:995px;
+}
+div.menu 
+{
+display: none;
+}

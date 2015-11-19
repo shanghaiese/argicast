@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <name>plcp03fao</name>
+  <extNavigation></extNavigation>
+  <secured>false</secured>
+  <allowedRoles>AIS</allowedRoles>
+  <emailSettings>
+    <senderName>Uwagi na temat Agricast</senderName>
+    <senderAddress>Syngenta.Serwisy@syngenta.com</senderAddress>
+    <!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+    <subject>Prognoza pogody Syngenta</subject>
+    <defaultBody></defaultBody>
+  </emailSettings>
+  <cultureSettings default="pl-PL" useIPCulture="true" useBrowserLang="true">
+    <allowedCultureCodes>
+      <culture code="pl-PL">Polski (PL)			</culture>
+      <!-- Polski -->
+      <culture code="en-GB">English (UK)			</culture>
+      <!-- English (GB) -->
+      <culture code="de-DE">Deutsch (DE)			</culture>
+      <!-- Deutsch -->
+    </allowedCultureCodes>
+  </cultureSettings>
+  <unitsSettings>
+    <Units>metric</Units>
+    <custom>
+      <Wind>kmh,beaufort</Wind>
+    </custom>
+  </unitsSettings>
+  <locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+    <allowedCountries>
+      <area code="PL">Polska</area>
+    </allowedCountries>
+  </locationSearch>
+  <servicePages file="../base_glbsips02fwo.xml" />
+
+
+</service>
+
+
+

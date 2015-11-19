@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:simpleType name="LocationSearchProvider">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AIS" />
+      <xs:enumeration value="Geonames" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DataSources">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="glbStnFcst" />
+      <xs:enumeration value="glb25ECMWF" />
+      <xs:enumeration value="glb25Obs" />
+      <xs:enumeration value="glbStnObsExt" />
+      <xs:enumeration value="glbStnObsSyn" />
+      <xs:enumeration value="us04Nexrad" />
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:element name="service">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name" type="xs:string"  />
+				<xs:element name="extNavigation" type="xs:string"/>
+				<xs:element name="secured" type="xs:boolean" />
+				<xs:element name="encryptKey" type="xs:string" minOccurs="0"/>
+				<xs:element name="mossReturnUrl" type="xs:string" minOccurs="0"/>
+				<xs:element name="allowedRoles" type="xs:string" />
+				<xs:element name="emailSettings">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="senderName" type="xs:string" />
+							<xs:element name="senderAddress" type="xs:string" />
+							<xs:element name="subject" type="xs:string"/>
+							<xs:element name="defaultBody" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="cultureSettings">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="allowedCultureCodes">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="culture" minOccurs="1">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="code" type="xs:string" use="required" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="default" type="xs:string" use="required" />
+						<xs:attribute name="useIPCulture" type="xs:boolean" use="required" />
+						<xs:attribute name="useBrowserLang" type="xs:boolean" use="required" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="unitsSettings">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Units" type="xs:string" />
+							<xs:element name="custom">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Wind" type="xs:string" />
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="locationSearch">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="allowedCountries">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element maxOccurs="unbounded" name="area" minOccurs="1">
+											<xs:complexType>
+												<xs:simpleContent>
+													<xs:extension base="xs:string">
+														<xs:attribute name="code" type="xs:string" use="required" />
+													</xs:extension>
+												</xs:simpleContent>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="defaultLocation" type="xs:string" use="required" />
+						<xs:attribute name="useIPLocation" type="xs:boolean" use="required" />
+            <xs:attribute name="provider" type="LocationSearchProvider" use="required"/>
+						<xs:attribute name="resultCount" type="xs:unsignedByte" use="required" />
+						<xs:attribute name="showMap" type="xs:boolean" use="optional" />
+					</xs:complexType>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" name="servicePage" minOccurs="1">
+					<xs:complexType>
+						<!-- This is required for the application to work-->
+						<xs:choice maxOccurs="unbounded">
+							<!-- This is required for while generating the classes from XSD-->
+							<!--<xs:sequence>-->
+							<xs:element minOccurs="0" name="pageSettings">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="allowFavorites" type="xs:string" use="required" />
+											<xs:attribute name="allowPrintPage" type="xs:string" use="required" />
+											<xs:attribute name="allowEmail" type="xs:string" use="required" />
+											<xs:attribute name="allowExportToExcel" type="xs:string" use="required" />
+											<xs:attribute name="allowFeedback" type="xs:string" use="required" />
+
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="nearbyDataPoint">
+								<xs:complexType>
+									<xs:simpleContent>
+										<xs:extension base="xs:string">
+											<xs:attribute name="name" type="xs:string" use="required" />
+											<xs:attribute name="defaultDataSource" type="DataSources" use="required" />
+											<xs:attribute name="maxAllowedDistance" type="xs:unsignedShort" use="required" />
+											<xs:attribute name="maxAllowedAltitude" type="xs:unsignedShort" use="required" />
+											<xs:attribute name="resultCount" type="xs:unsignedShort" use="required" />
+										</xs:extension>
+									</xs:simpleContent>
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" name="agriInfo">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="chart">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="PrimaryAxis">
+														<xs:complexType>
+															<xs:attribute name="trnsTag" type="xs:string" use="required" />
+															<xs:attribute name="scaleType" type="xs:string" use="required" />
+															<xs:attribute name="minValue" type="xs:byte" use="required" />
+															<xs:attribute name="maxValue" type="xs:byte" use="required" />
+															<xs:attribute name="minValueImperial" type="xs:byte" use="optional" />
+															<xs:attribute name="maxValueImperial" type="xs:byte" use="optional" />
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="SecondaryAxis">
+														<xs:complexType>
+															<xs:attribute name="trnsTag" type="xs:string" use="required" />
+															<xs:attribute name="scaleType" type="xs:string" use="required" />
+															<xs:attribute name="minValue" type="xs:byte" use="required" />
+															<xs:attribute name="maxValue" type="xs:byte" use="required" />
+															<xs:attribute name="minValueImperial" type="xs:byte" use="optional" />
+															<xs:attribute name="maxValueImperial" type="xs:byte" use="optional" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:string" use="required" />
+												<xs:attribute name="trnsTag" type="xs:string" use="optional" />
+												<xs:attribute name="width" type="xs:unsignedShort" use="required" />
+												<xs:attribute name="height" type="xs:unsignedShort" use="required" />
+												<xs:attribute name="dataSource" type="xs:string" use="required" />
+												<xs:attribute name="watermark" type="xs:string" use="optional" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="weather">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="node" minOccurs="1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="series">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element maxOccurs="unbounded" name="serie" minOccurs="1">
+																				<xs:complexType>
+																					<xs:sequence minOccurs="0">
+																						<xs:element name="advancedOption">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="allowedAggregationFunction" type="xs:string" minOccurs="0"/>
+																									<xs:element name="allowAccumalation" type="xs:string" minOccurs="0"/>
+																									<xs:element name="minComparisonYear" type="xs:unsignedShort" minOccurs="0"/>
+																									<xs:element name="trend" type="xs:string" minOccurs="0"/>
+																									<xs:element name="altitudeAdjustment" type="xs:string" minOccurs="0"/>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																					<xs:attribute name="name" type="xs:string" use="required" />
+																					<xs:attribute name="trnsTag" type="xs:string" use="required" />
+																					<xs:attribute name="aggregationFunction" type="xs:string" use="optional" />
+																					<xs:attribute name="isChecked" type="xs:boolean" use="optional" />
+																					<xs:attribute name="gallery" type="xs:string" use="optional" />
+																					<xs:attribute name="stacked" type="xs:boolean" use="optional" />
+																					<xs:attribute name="color" type="xs:string" use="optional" />
+																					<xs:attribute name="markertype" type="xs:string" use="optional" />
+																					<xs:attribute name="axisposition" type="xs:string" use="optional" />
+																					<xs:attribute name="advancedOption" type="xs:boolean" use="optional" />
+																					<xs:attribute name="labelText" type="xs:string" use="optional" />
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="id" type="xs:string" use="required" />
+															<xs:attribute name="trnsTag" type="xs:string" use="optional" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:string" use="required" />
+												<xs:attribute name="trnTag" type="xs:string" use="required" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element minOccurs="0" name="gdd">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="series">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element maxOccurs="unbounded" name="serie" minOccurs="1">
+																	<xs:complexType>
+																		<xs:sequence minOccurs="0">
+																			<xs:element name="advancedOption">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="method" type="xs:string" minOccurs="0"/>
+																						<xs:element name="base" type="xs:string" minOccurs="0"/>
+																						<xs:element name="cap" type="xs:string" minOccurs="0"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute name="name" type="xs:string" use="required" />
+																		<xs:attribute name="trnsTag" type="xs:string" use="required" />
+																		<xs:attribute name="axisposition" type="xs:string" use="required" />
+																		<xs:attribute name="aggregationFunction" type="xs:string" use="optional" />
+																		<xs:attribute name="advancedOption" type="xs:boolean" use="optional" />
+																		<xs:attribute name="gallery" type="xs:string" use="optional" />
+																		<xs:attribute name="colorPaletteName" type="xs:string" use="optional" />
+																		<xs:attribute name="stacked" type="xs:boolean" use="optional" />
+																		<xs:attribute name="textColor" type="xs:string" use="optional" />
+																		<xs:attribute name="labelText" type="xs:string" use="optional" />
+																		<xs:attribute name="color" type="xs:string" use="optional" />
+																		<xs:attribute name="markertype" type="xs:string" use="optional" />
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="name" type="xs:string" use="required" />
+												<xs:attribute name="trnTag" type="xs:string" use="required" />
+												<xs:attribute name="defaultMethod" type="xs:string" use="required" />
+												<xs:attribute name="defaultBase" type="xs:unsignedShort" use="required" />
+												<xs:attribute name="defaultCap" type="xs:unsignedShort" use="required" />
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="defaultStartDate" type="xs:string" use="required" />
+									<xs:attribute name="defaultEndDate" type="xs:string" use="required" />
+									<xs:attribute name="defaultTemporalAggregation" type="xs:string" use="required" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="tblDaysRows">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="series">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:choice maxOccurs="unbounded">
+														<xs:element maxOccurs="unbounded" name="serie" minOccurs="1">
+															<xs:complexType>
+																<xs:attribute name="name" type="xs:string" use="required" />
+																<xs:attribute name="trnsTag" type="xs:string" use="required" />
+																<xs:attribute name="aggregationFunction" type="xs:string" use="required" />
+																<xs:attribute name="colorPaletteName" type="xs:string" use="required" />
+																<xs:attribute name="ruleset" type="xs:string" use="optional" />
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="legend">
+															<xs:complexType>
+																<xs:attribute name="name" type="xs:string" use="required" />
+																<xs:attribute name="trnsTag" type="xs:string" use="required" />
+																<xs:attribute name="htmlPath" type="xs:string" use="required" />
+																<xs:attribute name="collapsible" type="xs:boolean" use="optional" />
+															</xs:complexType>
+														</xs:element>
+													</xs:choice>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="trnsTag" type="xs:string" use="required" />
+									<xs:attribute name="collapsible" type="xs:boolean" use="optional" />
+									<xs:attribute name="dataSource" type="xs:string" use="required" />
+									<xs:attribute name="startDate" type="xs:byte" use="required" />
+									<xs:attribute name="endDate" type="xs:byte" use="required" />
+									<xs:attribute name="temporalAggregation" type="xs:string" use="required" />
+									<xs:attribute name="ruleset" type="xs:string" use="required" />
+									<xs:attribute name="colorPaletteName" type="xs:string" use="required" />
+									<xs:attribute name="feedback" type="xs:boolean" use="optional" />
+                  <xs:attribute name="displayAMPM" type="xs:boolean" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="icon">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="series">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="serie" minOccurs="1">
+														<xs:complexType>
+															<xs:attribute name="name" type="xs:string" use="required" />
+															<xs:attribute name="trnsTag" type="xs:string" use="required" />
+															<xs:attribute name="aggregationFunction" type="xs:string" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="plotColumnHeader" type="xs:boolean" use="optional" />
+									<xs:attribute name="dataSource" type="xs:string" use="required" />
+									<xs:attribute name="startDate" type="xs:byte" use="required" />
+									<xs:attribute name="endDate" type="xs:byte" use="required" />
+									<xs:attribute name="temporalAggregation" type="xs:string" use="required" />
+									<xs:attribute name="imageSetName" type="xs:string" use="required" />
+									<xs:attribute name="transparency" type="xs:unsignedByte" use="required" />
+									<xs:attribute name="width" type="xs:unsignedByte" use="required" />
+									<xs:attribute name="height" type="xs:unsignedByte" use="required" />
+									<xs:attribute name="feedback" type="xs:boolean" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="chart">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="PrimaryAxis">
+											<xs:complexType>
+												<xs:attribute name="trnsTag" type="xs:string" use="required" />
+												<xs:attribute name="scaleType" type="xs:string" use="required" />
+												<xs:attribute name="minValue" type="xs:byte" use="required" />
+												<xs:attribute name="maxValue" type="xs:byte" use="required" />
+												<xs:attribute name="minValueImperial" type="xs:byte" use="optional" />
+												<xs:attribute name="maxValueImperial" type="xs:byte" use="optional" />
+												<xs:attribute name="textColor" type="xs:string" use="optional" />
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="SecondaryAxis">
+											<xs:complexType>
+												<xs:attribute name="trnsTag" type="xs:string" use="required" />
+												<xs:attribute name="scaleType" type="xs:string" use="required" />
+												<xs:attribute name="minValue" type="xs:byte" use="required" />
+												<xs:attribute name="maxValue" type="xs:byte" use="required" />
+												<xs:attribute name="minValueImperial" type="xs:byte" use="optional" />
+												<xs:attribute name="maxValueImperial" type="xs:byte" use="optional" />
+												<xs:attribute name="textColor" type="xs:string" use="optional" />
+                        <!--Add for IM01977477:AIS - Modify kecp01fao publication - 20140802 - start-->
+                        <xs:attribute name="isInvisible" type="xs:boolean" use="optional" />
+                        <!--Add for IM01977477:AIS - Modify kecp01fao publication - 20140802 - end-->
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="series">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="serie" minOccurs="1">
+														<xs:complexType>
+															<xs:attribute name="name" type="xs:string" use="required" />
+															<xs:attribute name="trnsTag" type="xs:string" use="required" />
+															<xs:attribute name="aggregationFunction" type="xs:string" use="required" />
+															<xs:attribute name="gallery" type="xs:string" use="required" />
+															<xs:attribute name="stacked" type="xs:boolean" use="required" />
+															<xs:attribute name="color" type="xs:string" use="required" />
+															<xs:attribute name="markertype" type="xs:string" use="required" />
+															<xs:attribute name="axisposition" type="xs:string" use="required" />
+															<xs:attribute name="inverted" type="xs:boolean" use="optional" />
+                              <!--Add for IM01977477:AIS - Modify kecp01fao publication - 20140802 - start-->
+                              <xs:attribute name="isInvisible" type="xs:boolean" use="optional" />
+                              <!--Add for IM01977477:AIS - Modify kecp01fao publication - 20140802 - end-->
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="trnsTag" type="xs:string" use="required" />
+									<xs:attribute name="width" type="xs:unsignedShort" use="required" />
+									<xs:attribute name="height" type="xs:unsignedShort" use="required" />
+									<xs:attribute name="dataSource" type="xs:string" use="required" />
+									<xs:attribute name="startDate" type="xs:byte" use="required" />
+									<xs:attribute name="endDate" type="xs:byte" use="required" />
+									<xs:attribute name="temporalAggregation" type="xs:string" use="required" />
+									<xs:attribute name="labelstep" type="xs:unsignedByte" use="optional" />
+									<xs:attribute name="watermark" type="xs:string" use="required" />
+									<xs:attribute name="TodayMarker" type="xs:boolean" use="required" />
+									<xs:attribute name="plotShades" type="xs:string" use="optional" />
+									<xs:attribute name="feedback" type="xs:boolean" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="legend">
+								<xs:complexType>
+									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="trnsTag" type="xs:string" use="required" />
+									<xs:attribute name="htmlPath" type="xs:string" use="required" />
+									<xs:attribute name="collapsible" type="xs:boolean" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="tblSeriesRows">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="series">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:choice maxOccurs="unbounded">
+														<xs:element maxOccurs="unbounded" name="serie" minOccurs="1">
+															<xs:complexType>
+																<xs:attribute name="name" type="xs:string" use="required" />
+																<xs:attribute name="trnsTag" type="xs:string" use="required" />
+																<xs:attribute name="aggregationFunction" type="xs:string" use="required" />
+																<xs:attribute name="colorPaletteName" type="xs:string" use="optional" />
+																<xs:attribute name="ruleset" type="xs:string" use="optional" />
+																<xs:attribute name="feedback" type="xs:boolean" use="optional" />
+                                <!--Add for IM01977477:AIS - Modify kecp01fao publication - 20140802 - start-->
+                                <xs:attribute name="isInvisible" type="xs:boolean" use="optional" />
+                                <!--Add for IM01977477:AIS - Modify kecp01fao publication - 20140802 - end-->
+															</xs:complexType>
+														</xs:element>
+														<xs:element name="legend">
+															<xs:complexType>
+																<xs:attribute name="name" type="xs:string" use="required" />
+																<xs:attribute name="trnsTag" type="xs:string" use="required" />
+																<xs:attribute name="htmlPath" type="xs:string" use="required" />
+																<xs:attribute name="collapsible" type="xs:boolean" use="optional" />
+															</xs:complexType>
+														</xs:element>
+													</xs:choice>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="trnsTag" type="xs:string" use="required" />
+									<xs:attribute name="plotColumnHeader" type="xs:string" use="optional" />
+									<xs:attribute name="dataSource" type="xs:string" use="required" />
+									<xs:attribute name="collapsible" type="xs:boolean" use="optional" />
+									<xs:attribute name="startDate" type="xs:byte" use="required" />
+									<xs:attribute name="endDate" type="xs:byte" use="required" />
+									<xs:attribute name="temporalAggregation" type="xs:string" use="required" />
+									<xs:attribute name="feedback" type="xs:boolean" use="optional" />
+									<xs:attribute name="ruleset" type="xs:string" use="optional" />
+									<xs:attribute name="colorPaletteName" type="xs:string" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<xs:element minOccurs="0" maxOccurs="unbounded" name="windIcon">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="series">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element maxOccurs="unbounded" name="serie" minOccurs="1">
+														<xs:complexType>
+															<xs:attribute name="name" type="xs:string" use="required" />
+															<xs:attribute name="trnsTag" type="xs:string" use="required" />
+															<xs:attribute name="aggregationFunction" type="xs:string" use="required" />
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="name" type="xs:string" use="required" />
+									<xs:attribute name="trnsTag" type="xs:string" use="required" />
+									<xs:attribute name="plotColumnHeader" type="xs:boolean" use="optional" />
+									<xs:attribute name="dataSource" type="xs:string" use="required" />
+									<xs:attribute name="startDate" type="xs:byte" use="required" />
+									<xs:attribute name="endDate" type="xs:byte" use="required" />
+									<xs:attribute name="temporalAggregation" type="xs:string" use="required" />
+									<xs:attribute name="width" type="xs:unsignedShort" use="required" />
+									<xs:attribute name="height" type="xs:unsignedShort" use="required" />
+									<xs:attribute name="feedback" type="xs:boolean" use="optional" />
+								</xs:complexType>
+							</xs:element>
+							<!--</xs:sequence>-->
+						</xs:choice>
+						<xs:attribute name="name" type="xs:string" use="required" />
+						<xs:attribute name="trnsTag" type="xs:string" use="required" />
+						<xs:attribute name="defaultPage" type="xs:boolean" use="optional" />
+						<xs:attribute name="template" type="xs:string" use="optional" />
+						<xs:attribute name="widgetOnly" type="xs:boolean" use="optional" />
+					</xs:complexType>
+
+				</xs:element>
+
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

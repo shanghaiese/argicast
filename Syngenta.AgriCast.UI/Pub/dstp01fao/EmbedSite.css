@@ -1,0 +1,128 @@
+﻿body
+{
+font-family:"Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+color: #666;
+
+}
+
+ /*-----css for multiple instance---------*/
+ .ag_tag .cngLoc:Link, .ag_tag .cngLoc:Active, .ag_tag .cngLoc:Hover, .ag_tag .cngStat:Link, .ag_tag .cngStat:Active, .ag_tag .cngStat:Hover
+{
+    
+    color:rgb(35,124,178);
+    font-size:13px;
+   
+}
+.ag_tag .widgetForecastText
+{
+    color: #666;
+    font-size: 10px;
+   display:none;
+}
+.ag_tag .widgetForecastLocation
+{
+    color: #666;
+    font-weight: bold;
+    font-size: 10px;
+    
+}
+
+
+.ag_tag .wid_tdDaysofWeek
+{
+    height: 15px;
+    font-size: 9px;
+    text-align: center;
+    border-bottom: 1px solid rgb(221,222,222);
+    font-weight:normal;
+    
+}
+
+.ag_tag .wid_tdWeatherIcons
+{
+    text-align: center;
+}
+
+.ag_tag .wid_imgWeatherIcons
+{
+    margin: 3px 0 0 0;
+    width: 35px;
+    height: 35px;
+}
+.ag_tag .divLocationContainer {
+text-align: center;
+}
+
+
+.ag_tag .wid_tdTemp
+{
+    float: none;
+    margin: 2px 0 0 0;
+    font-size: 11px;
+    text-align: center;
+}
+.ag_tag .widgetContainer, .ag_tag #ag_txtPlace, .ag_tag .ag_ddlCountry
+{
+    color: #666;   
+    
+    font-weight:normal;
+
+}
+.ag_tag .iconHeaderTableClass
+{
+    
+	width: 570px;
+}
+.ag_tag  .iconsContainer table, .ag_tag .tables
+{    
+	font-size: 12px;
+}
+.ag_tag  .float-icon-legend table 
+{    
+	font-size: 12px;
+}
+
+.ag_tag .wid_divTempMax {
+    border-right: none;
+    float: none;
+    margin-right: 0px;
+    padding-left: 0px;
+}
+.ag_tag .wid_divTempMin {
+    display: none;
+    float: left;
+}
+.ag_tag .widgetColon{
+    display: none;
+}
+
+.ag_tag .ag_txtPlace {
+height: 13px;
+width:145px;
+}
+ 
+ .ag_tag .tablesGap
+{	
+	width: 760px;
+	
+}
+
+.ag_tag .ag_ddlCountry
+{
+	width:150px;
+}
+.ag_tag .ag_lblCountry, .ag_tag .ag_lblFor
+{
+	margin:5px;
+}
+.tblSeriesHeaderStyles_5
+{
+    width:120px;
+		
+         
+}
+.ag_tag .imgSettings
+{
+	font-size: 12px;
+	display:none;
+}

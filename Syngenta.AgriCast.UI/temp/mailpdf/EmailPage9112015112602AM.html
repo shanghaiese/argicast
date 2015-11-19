@@ -1,0 +1,3641 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en-GB" dir="ltr">
+
+<head><meta http-equiv="refresh" content="36000; url=SessionExpired.aspx" /><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=Edge" /><title>
+	Agricast-Weather Services
+</title><link id="ctl00_dynamicCss" rel="stylesheet" type="text/css" href="http://localhost:27196/Syngenta.AgriCast.UI/Styles/Common.css" /><link id="ctl00_siteCss" rel="stylesheet" type="text/css" href="http://localhost:27196/Syngenta.AgriCast.UI/Styles/Site.css" /><link type="text/css" rel="stylesheet" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.6/themes/Overcast/jquery-ui.css" /><link href="http://localhost:27196/Syngenta.AgriCast.UI/Styles/RateIt.css" rel="stylesheet" type="text/css" /><link href="http://localhost:27196/Syngenta.AgriCast.UI/Styles/tableSort.css" rel="stylesheet" type="text/css" />
+   
+
+    <link href="http://localhost:27196/Syngenta.AgriCast.UI/Styles/jqueryslidemenu.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/Common.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.6&amp;sensor=false"></script>
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/GoogleMaps.js"></script>
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jquery.blockUI.js" ></script>
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jquery.autocomplete.js"></script>
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jquery.datepick.lang.js"></script>
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/spin.min.js"></script>
+    <script src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jqueryslidemenu.js" type="text/javascript"></script>
+    <script src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jquery.tablesorter.js" type="text/javascript"></script>    
+    <style type="text/css">
+        
+/* LocationSearch   
+----------------------------------------------------------*/
+
+.container
+{
+	height: auto;
+	width: 100%;
+	border: 1px solid rgb(239, 237, 234);
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	margin: 5px 0px 10px 0px;
+	z-index: 15 !ie; 
+} 
+.label100 
+{ 
+	width: 100px; 
+	margin-top: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+}
+
+.label150
+{
+	width: 150px;
+	margin-top: 5px;
+	font-weight: 700;
+	font-size: 12px;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+}
+.label50
+{
+	margin-top: 5px; 
+	width: 50px;
+	text-align: center;
+	font-weight: 700;
+	float: left;
+	padding-top: 5px;
+}
+.label110
+{
+	width: 110px;
+	margin-top: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+	display: none;
+}
+.dropDown
+{
+	width: auto;
+	float: left;
+	margin-right: 5px;
+}
+
+.searchbox
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+	padding-top: 0px;
+}
+.searchInput
+{
+	width: 245px;
+} 
+ 
+#divStnName .split
+{
+	box-sizing: border-box;
+	float: left;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	width: 20%;
+	text-align: right;
+	margin-right:5px;
+}
+#divStnName #StnName
+{
+	text-align: left;
+	width: 77%;
+}
+
+#divStnName
+{
+	width:100%;
+	float:left;
+	}
+#mapImage
+{
+	height: 350px;	
+	width:98%;	
+	margin:10px;
+}
+
+.loading
+{
+	background: white url("~/../../Images/vsli1.gif") right center no-repeat;
+	background-size: 7%;
+}
+#ddlCountry, #ddlCulture, #ddlUnits
+{
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	
+}
+#gvStations, #gvLocation, #gvFavorites
+{
+	float:left;
+	margin-left: 10px;
+	font-size: 12px;
+	border: 1px solid #d7d2cc; 
+	
+}
+#gvStations
+{
+	margin-bottom:10px;
+	
+}
+.smallFont
+{
+    font-size:9px;
+}
+
+/*Autosuggest
+--------------------------------------------------------------*/
+
+.ac_input
+{
+	width: 200px;
+}
+.ac_results
+{
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	position: absolute;
+	overflow: hidden;
+	/*IM01135146 - Location Search - Cant select from auto suggest option - Begin */
+	z-index:5000;/*changed to 5000 from 100
+	/*IM01135146 - Location Search - Cant select from auto suggest option - End*/
+}
+
+.ac_results ul
+{
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	
+}
+
+.ac_results iframe
+{
+	display: none; /*sorry for IE5*/
+	display: /**/ block; /*sorry for IE5*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: mask();
+	width: 3000px;
+	height: 3000px;
+}
+
+.ac_results li
+{
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+}
+.ac_loading
+{
+	background: white url('~/../../images/vsli1.gif') right center no-repeat;
+	background-size: 7%;
+}
+
+.ac_odd
+{
+	background-color: #eee;
+}
+
+.ac_over
+{
+	background-color: #0A246A;
+	color: white;
+}
+
+/* Common   
+----------------------------------------------------------*/
+
+.show
+{
+	display: block;
+}
+.hide
+{
+	display: none;
+	margin: 0px;
+	padding: 4px;
+}
+.split
+{
+	box-sizing: border-box;
+	/*-moz-box-sizing: border-box;  
+	 -webkit-box-sizing: border-box; */
+	float: left;
+}
+
+.box
+{
+	padding: 0px 5px 10px 5px;
+}
+
+.labelCustom
+{
+	margin-top: 7px;
+	width: 30px;
+	text-align: center;
+	float: left;
+	padding-top: 5px;
+	padding-right: 5px;
+	color: Black;
+}
+.DropdownCustom
+{
+	width: auto;
+	margin-top: 10px;
+}
+#tools, .Right
+{
+	float: right;
+
+}
+/* Fix chrome issue - controls not aligned in a row*/
+#tools
+{
+	width:44%; 
+}
+.tabRight
+{
+  float: right;
+  margin-bottom:11px;  
+}
+.Left
+{
+  float: left;
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+div #tools .dropDown
+{
+	width: 100px;
+	float: left;
+	margin-right: 5px;
+}
+
+.textBox
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+
+	margin-left: 15px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-color: #d4d0c8;
+}
+
+.textBox:hover
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+	/*margin-top: 5px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-color: black;*/
+}
+
+div #email, #favorites, #divStations, #divLocation, #feedback
+{
+	height: auto;
+	width: 100%;
+	border: 1px solid #d7d2cc;
+	float: left;
+	/* IM01246268 - New Agricast - horizontal alignement of the tool boxes - Begin */
+	margin: 5px 5px 5px 0px;
+	/* IM01246268 - New Agricast - horizontal alignement of the tool boxes - END */
+	position: relative;
+	border-radius: 1em;
+	/*box-shadow: -3px -3px 5px #888;
+	-moz-box-shadow: -3px -3px #888;
+	-webkit-box-shadow: -3px -3px #888;*/
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	/* behavior: url(ie-css3.htc); */
+	/* Cannot input the email - Begin */
+	z-index: 9999;
+    /* Cannot input the email - End */
+}
+
+
+#ToolBar
+{
+	float: left !ie;
+}
+
+#email .textBox
+{
+	width: 300px;
+	padding-right: 10px;
+	float: none;
+}
+
+#feedback .textBox
+{
+	width: 300px;
+	padding-right: 10px;
+	float: none;
+}
+
+.close
+{
+	width: 7px;
+	height: 7px;
+	float: right;
+	position: relative;
+	border-radius: 1em;
+	font-size: 0;
+	font-weight: bolder; /*box-shadow: 1px 1px 2px black;*/ /*background-color:rgb(245,49,44);*/
+	color: White;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
+	background-image: url('~/../../images/close.png');
+}
+
+img
+{
+	cursor: pointer;
+}
+.imgArrow
+{
+	cursor: default;
+	float:left;
+	padding-bottom:10px;
+}
+
+.button
+{
+	/*height: 29px; 	text-align: center; 	border-radius: .5em; 	border: 1px solid rgba(0,0,0,0.1); 	position: relative; 	font-size: 11px; 	font-weight: 700; 	margin: 0 5px 0 5px;*/
+	width: auto;
+	height: 21px;
+	color: #fff !important; 
+	padding: 0px 5px;
+	font-family: Helvetica !important;
+	font-size: 10px !important;
+	font-weight: bold !important;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-image: url("~/../../images/button.gif") !important;
+	background-repeat: repeat-x !important;
+	background-color: transparent !important;
+}
+#btnSearch
+{
+	height: 19px !important;
+	margin-left: 5px !important; 
+}
+/*.avoidscroll
+{
+	overflow-x:hidden;
+	overflow-y:auto;	
+}*/
+
+#gvStations tbody tr td,#gvLocation tbody tr td,#gvFavorites tbody tr td
+{
+	padding-left:5px;
+}
+
+.floatleft
+{
+	float:left;
+}
+.comments
+{
+	max-height: 300px;
+	max-width: 500px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.highlight:hover :last-child
+{
+	background-color: white;
+}
+
+div table tr:hover
+{
+	background-color: LightGrey;
+	cursor: pointer;
+}
+
+/*div table tr:first-child
+{
+	background-color: #ffffff;
+}*/
+
+/*#Im1
+{
+	margin-left: 168px;
+}*/
+/* ERROR MESSAGE 
+----------------------------------------------------------*/
+.Error
+{
+	font-size: 14px;
+	font-weight: 600;
+	color: Red;
+}
+.Success
+{
+	font-size: 14px;
+	font-weight: 600;
+	color: Green;
+}
+
+
+
+/* Charting   
+----------------------------------------------------------*/
+#divFcChart
+{
+	width: auto;
+	height: auto;
+	margin-left: 107px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+/* Detailed Weather   
+----------------------------------------------------------*/
+
+.tables
+{
+	clear: both;
+	height: auto;
+	width: 100%;
+	border: 1px solid #d7d2cc;
+	background-color: White;
+	position: relative;
+	padding: 3px 3px 3px 3px;
+	
+	font-size: 11px;
+	text-align: center;
+}
+
+.tableRow
+{
+	text-align: center;
+	/* width: 37px; */ /* jerrey: alignment issue */
+}
+.tableRowHourly
+{
+	text-align: center;
+	width: 24px;
+}
+
+.tables tr th:first-child
+{
+	width: 135px;
+	border: 1px solid #d7d2cc;
+}
+.tables tr td:first-child
+{
+	text-align: left;
+}
+.tables tr th
+{
+	background-color: rgb(239, 237, 234);
+	border: 1px solid #d7d2cc;
+}
+
+.tables tbody tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.tables tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.tablesGap
+{
+	clear: both;
+	height: auto;
+	width: auto;
+	border: 1px solid #d7d2cc;
+	background-color: White;
+	position: relative;
+	padding: 3px 3px 3px 3px;
+	
+	font-size: 11px;
+	text-align: center;
+}
+
+
+.tablesGap tr th:first-child
+{
+	width: 138px;
+	border: 1px solid #d7d2cc;
+}
+.tablesGap tr td:first-child
+{
+	text-align: left;
+	border: 1px solid #d7d2cc;
+}
+.tablesGap tr th
+{
+	background-color: rgb(239, 237, 234);
+	border: 1px solid #d7d2cc;
+}
+
+
+.tablesGap tbody tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.tablesGap tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.restrictTable tr:hover, .iconHeaderTableClass tr:hover, .tables tr:hover, th:hover, .tablesGap tr:hover, #gvFavorites tr:hover,.iconColumnClass img,.legendColourCell img
+{
+	background: none;
+	cursor: default;
+}
+
+.label250
+{
+	width: 250px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px; /*float: left;	*/
+	font-size: 12px;
+	font-family: Verdana;
+}
+
+/*Details Minimise issue*/
+
+.DetailsRating
+{
+	width: 100%;
+	float: left;
+}
+/* Agri Info   
+----------------------------------------------------------*/
+
+.labelPlain
+{
+	width: 95px;
+	margin-top: 5px;
+	padding-left: 4px;
+	padding-top: 0px;
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+.tree
+{
+	width: 95%;
+	height: auto;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	padding-right: 0px;
+	padding-left: 4px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+
+.treeContainer
+{
+	width: 260px;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.textBoxTree
+{
+	width: 100px;
+	_float: left;
+	padding-right: 10px;
+	margin-top: 0px;
+}
+.labelTreeH1
+{
+	width: 90%;
+	margin-top: 5px;
+	font-weight: 700;
+	/*padding-left: -2px;*/
+	padding-top: 5px;
+	margin-right: 0px;
+	float: left;
+}
+.dropDownTree
+{
+	width: 115px;
+	_float: left;
+	margin-right: 5px;
+}
+.chartDiv
+{
+	float:left; 
+	/* UAT Tracker - 521 - glbsip03 - 5-in-1 chart still not to big enough*/
+	/*padding-left: 108px;*/
+	/*Issue reporte by Sandy : Fri 10/26/2012 5:44 PM*/
+    padding-left: 103px;
+    
+    /*IE-7 chart alignment issue*/
+    *margin-top:-100px;
+}
+.buttonTree
+{
+	margin-top: 5px;
+	/* padding-left: -2px; */
+	padding-top: 7px;
+	margin-right: 0px;
+	padding-right: 4px;
+	float: left;
+}
+.divHide
+{
+	display: none;
+}
+.divShow
+{
+	visibility: visible;
+}
+
+#divAgICharts
+{
+	width: 65%;
+	float: left;
+	*width: 70%;
+}
+/*#divClose
+{
+	min-height: 350px;
+}*/
+div.tree ul li
+{
+	float: next;
+	list-style-type: none;
+}
+div.tree ul li label
+{
+	margin-right: 10px;
+}
+div.tree ul
+{
+	float: left;
+	list-style-type: none;
+	padding: 0px;
+	width: 100%;
+}
+a.trigger
+{
+	text-decoration: none;
+	top: 0px;
+	left: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 2px;
+	padding-right: 10px;
+	background: #efedea url(images/BackArrow.png) 85% 55% no-repeat;
+	display: block;
+	width: 1%;
+	float: left; /*border-bottom-right-radius:20px; border-top-right-radius:20px; -moz-border-radius-topright: 20px; -webkit-border-top-right-radius: 20px; -moz-border-radius-bottomright: 20px; -webkit-border-bottom-right-radius: 20px; -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px;*/
+}
+
+
+a.trigger:hover
+{
+	text-decoration: none;
+	top: 80px;
+	left: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 2px;
+	padding-right: 10px;
+	background: #bbbbbb url(images/BackArrow.png) 85% 55% no-repeat; /*border-bottom-right-radius:20px; border-top-right-radius:20px; -moz-border-radius-topright: 20px; -webkit-border-top-right-radius: 20px; -moz-border-radius-bottomright: 20px; -webkit-border-bottom-right-radius: 20px; -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px;*/
+	display: block;
+}
+
+a.active.trigger
+{
+	background: #efedea url(images/NextArrow.png) 85% 55% no-repeat;
+	color: #fff;
+}
+
+a.ApplyToChart
+{
+	/*background: rgb(239, 237, 234) url(images/chart.png) 95% 35% no-repeat; 	background-size: 25%;*/
+	color: #696969;
+	width: 30px;
+	text-decoration: none;
+	padding: 0px 0px 0px 5px;
+	font-size: 12px;
+	font-weight: 700;
+}
+a.Cancel
+{
+	/*background: rgb(239, 237, 234) url(images/btn_cancel_big.png) 85% 25% no-repeat;*/
+	width: 40px;
+	text-decoration: none;
+	color: #696969;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.iconHeaderTableClass
+{
+        /*chrome - map view issue*/
+    margin-left: -90px; /* 10px originally */
+ /*end of change*/
+ 
+	width: 770px;
+	/*border: 0.5px solid black;*/
+}
+
+.iconColumnClass
+{
+	text-align: center;
+	font-weight: 700;
+	font-size: 12px;
+	cursor:default;
+}
+
+
+.iconDivClass
+{
+	margin-left: 135px;
+	text-align: center;
+	width: 570px;
+}
+
+.DivAltitude
+{
+	
+	height: auto;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	padding-right: 0px;
+	padding-left: 4px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+/*Legend
+--------------------------------------------------------------*/
+
+#restrictLegend
+{
+	margin: 3px 0 0 0;
+	padding-left: 0;
+	width: 100%;
+}
+table.restrictTable
+{
+	border: 1px solid #d7d2cc;
+	font-size: x-small;
+	width: 100%;
+	
+}
+table.restrictTable th
+{
+	padding: 4px;
+	text-align: left;
+}
+table.restrictTable td 
+{
+	padding: 2px 5px 2px 5px;
+}
+table.restrictTable td, table.restrictTable th
+{
+	border-right: 1px solid #c5c5a1;
+}
+.legendColourCell
+{
+	text-align: center;
+}
+.legendLetterCell
+{
+	text-align: center;
+	width: auto;
+}
+.legendTableHeader, th:hover
+{
+	background: rgb(239, 237, 234);
+	font-weight: 700;
+	border-top: none;
+}
+.legendColourCell img
+{
+	cursor: default;
+}
+.Legend
+{
+    width:100%;
+    float:left;
+    padding-top:0px;
+}
+.NewtdLeft
+{
+     width:150px;  
+     margin-left: 5px;
+}
+.Newtd
+{
+     margin-left: 5px;
+}
+#tblEmail tr:hover, #tblFavorites tr:hover, #tblFeedback tr:hover
+{
+	background: none;
+	cursor: default;
+}
+#PageFooter_footNav li
+{
+    padding-top:10px;
+    float:left;
+    width:100%;
+    padding-bottom:10px;
+}
+.tablesGap tr td, .tablesGap tr th
+{
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left: 5px;
+}
+.tables tr td, .tables tr th
+{
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left: 5px;
+}
+
+/* Agricast CR - R6 - Add wind icons and legend for Humidity - Begin */
+.float-icon-legend {
+    color: #666;
+    cursor: pointer;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: -382px;
+   
+	overflow: hidden;
+    position: relative;
+    top: -382px;
+    width: 100%;
+}
+.float-icon-legend table tr:hover {
+	background: none;
+}
+.float-icon-legend table tr td {
+    text-align: center;
+}
+
+.float-icon-legend .chart-float-icons {
+    float: left;
+    font-size:10px;
+    margin-left: 37px; 
+    /* margin-top: 230px; */
+    margin-top: 215px; /* for published */
+    line-height:1em;
+}
+.float-icon-legend .chart-float-icons strong {
+    color: #333;
+    font-weight: 900;	
+}
+.float-icon-legend .chart-float-icons table.incomplete-data {
+	position: relative;
+	top: -13px;
+}
+
+.float-icon-legend .chart-float-legend {
+    float: left;
+    border-color: #d7d2cc;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    height: 360px;
+	/*margin-left: 1px\0/IE9;  for IE9 */
+	width: 102px;
+}
+.float-icon-legend .chart-float-legend table {
+	height: 100%;
+	width: 100%;
+}
+
+:root .float-icon-legend .chart-float-legend {
+    margin-left: 1px\0/IE9;
+}    
+/* Agricast CR - R6 - Add wind icons and legend for Humidity - End */
+
+/* Alignment issue - Start */
+.alignToChart {
+	/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - Begin */
+	left: -1px;
+	/*top: -6px;*/
+	
+	/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - End */
+	width: 912px;
+}
+/* Alignment issue - End */
+
+/* UAT Tracker - 517 ui-datepicker-div is visible on Chrome - Begin */
+#ui-datepicker-div {
+    display:none;
+}
+/* UAT Tracker - 517 ui-datepicker-div is visible on Chrome - End */
+
+/*Login Page IE 7 issue*/
+.input-ie7 
+{
+    *margin-left: -100px;
+}
+/* alignment issue for agriInfo chart - jerrey - Start */
+.paddingLeftFixed {
+    padding-left: 15px;
+}
+/* alignment issue for agriInfo chart - jerrey - End */
+
+/*Below styles are mandatory for all publications*/
+/*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/
+/*This style is needed for aligning the table cells wrt to chart*/
+/*Header cell width is calculated as below
+headercell width = (chart width - 85px)/number of days for which the tables arec onfigured
+in ths pub, header cell width = (465-85)/3 = 154px*/
+/*CSS classnames are format is "tblSeriesHeaderStyles_{numberofdays for tables}. this will be used when we have tbls configured in two diff service pages*/
+
+.tblSeriesHeaderStyles_5
+{
+     text-align:center;
+     width:154px;
+         
+}
+
+.tblWidth_5
+{
+     width:912px;
+}
+ /*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/
+ 
+ /*IM01246263 - New Agricast - Add a new translation tag  - BEGIN*/
+ #range
+ {
+     margin-left:15px;
+ }
+ /*IM01246263 - New Agricast - Add a new translation tag - END*/
+ /* BWM - Jerrey - Start */
+ .legend-table  
+ {
+     /*margin-left:120px; */ /* IM01321106 ;- NEw Agricast - BWM (decp02iap)- centering the legend below the chart - Jerrey */
+     margin: 0px auto;
+     position: relative; top: -30px; 
+ }
+ .legend-table tr:hover { background: none; cursor:default;}
+ .legend-table td { padding:3px; }
+ .legend-table td.legend-icon-cell { text-align:right;}
+ .legend-table td.legend-text-cell { text-align:left;}
+ /* BWM - Jerrey - End */
+ 
+ /*IM01289946-New Agricast - Add a * on mandatory fields-BEGIN*/
+ .mandatory
+ {
+     color:Red;
+     font-size:medium;
+ }
+ .favName
+ {
+     width:50px;
+ }
+ #tblwindicons
+ {
+ 	font-size:12px;
+ }
+ /*IM01289946-New Agricast - Add a * on mandatory fields-ENd*/
+ 
+ #tblwinddirectionlegend1
+ {
+ 	border-spacing: 1px; 
+ 	width: 100%; 
+ 	border-top: 1px solid #d7d2cc;
+    border-bottom: 1px solid #d7d2cc;
+ }
+/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - Begin */
+.alignTableToChart
+{
+	border: 1px solid #d7d2cc;
+	padding: 0px;
+	clear:right;
+	height:auto;
+	/*height: 224px;
+	height: 212px\9;
+	_height: 224px;
+	*height: 224px;*/
+}
+	.alignTableToChart div
+	{
+		padding: 0px;
+	}
+@media \0screen { .alignTableToChart {height: auto;} }
+/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - End */
+ #MainContent_lbl_Banner
+{display: none;}
+ /* IM01915009 - New Agricast - Label for advertisement banner is now displayed - 20140620 - Start */
+ #ctl00_MainContent_lbl_Banner
+{display: none;}
+ /* IM01915009 - New Agricast - Label for advertisement banner is now displayed - 20140620 - End */
+#ads
+{
+	padding: 0px;
+}
+#ads div
+{
+	padding: 0px;
+}
+
+/* IM01769909 - New Agricast - "Loading" sign not stylable - Shery - 20140410 - Start */
+.blockUI {
+    
+}
+
+
+.blockOverlay  {
+
+}
+
+.blockPage {
+
+    
+}
+
+.blockMsg  {
+ 
+}
+/* IM01769909 - New Agricast - "Loading" sign not stylable - Shery - 20140410 - End */
+.jqueryslidemenu{
+/*font:bold 12px Verdana;*/
+/*background: #414141;*/
+width: 960px;
+font-family: Arial, Helvetica, Verdana, sans-serif;
+color: #666;
+font-size:11px;
+float:left;
+margin-left:0px;
+background:#968877;
+height: 19px;
+margin-top:15px;
+}
+
+.jqueryslidemenu ul{
+padding:0px;
+list-style-type: none;
+margin-right: 150px; 
+height:auto; 
+margin:0px;
+float:left;
+margin-top:-5px;
+}
+
+/*Top level list items*/
+.jqueryslidemenu ul li{
+position: relative;
+display: inline;
+float: left;
+
+}
+
+/*Top level menu link items style*/
+.jqueryslidemenu ul li a{
+display: block;
+background: #968877 ; /*background of tabs (default state)*/
+color: #fff;
+padding: 1px 10px 1px 10px;
+border-right: 1px solid #fff; 
+text-decoration: none;
+margin:0px;
+line-height:22px;
+}
+
+* html .jqueryslidemenu ul li a{ /*IE6 hack to get sub menu links to behave correctly*/
+display: inline-block;
+}
+
+.jqueryslidemenu ul li a:link, .jqueryslidemenu ul li a:visited{
+color: #fff;
+}
+
+.jqueryslidemenu ul li a:hover{
+background: #d7d2cb; /*tab link background during hover state*/
+color: #fff;
+text-decoration: underline;
+/*font-weight:700;*/
+}
+
+.jqueryslidemenu ul li a:active{
+background: #d7d2cb; /*tab link background during hover state*/
+color: #fff;
+text-decoration: underline;
+/*font-weight:700;*/
+}
+	
+/*1st sub level menu*/
+.jqueryslidemenu ul li ul{
+position: absolute;
+left: 0;
+display: block;
+visibility: hidden;
+margin:0px;
+}
+
+/*Sub level menu list items (undo style from Top level List Items)*/
+.jqueryslidemenu ul li ul li{
+display: list-item;
+float: none;
+ width: 150px;
+}
+
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.jqueryslidemenu ul li ul li ul{
+top: 0;
+}
+#ph_MenuTabsTop_tab_mresult_Last
+{
+    background: #968877;
+    width: 22%;
+    float:left;
+    height: 29px;
+}
+/* Sub level menu links style */
+.jqueryslidemenu ul li ul li a{
+/*font-size:.95em;
+ font-family: Arial, Helvetica, Verdana, sans-serif;*/
+width: 150px; /*width of sub menus*/
+padding: 5px;
+margin: 0;
+border-top-width: 0;
+border-bottom: 1px solid #fff;
+color:#fff;
+text-decoration:none;
+line-height:17px;
+}
+
+.jqueryslidemenuz ul li ul li a:hover{ /*sub menus hover style*/
+background: #d7d2cb;
+color: #fff;
+text-decoration:none;
+}
+
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass{
+position: absolute;
+top: 12px;
+right: 7px; 
+} 
+
+.rightarrowclass{
+position: absolute;
+top: 6px;
+right: 5px;
+}
+div.rateit
+{
+    display: -moz-inline-box;
+    display: inline-block;
+    position: relative;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    padding: 0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-range
+{
+    position: relative;
+    display: -moz-inline-box;
+    display: inline-block;
+    background: url(~/../../Images/star.gif);
+    height: 16px;
+     padding:0px 0px 0px 0px;
+     margin-top:8px;
+}
+
+/* for IE 6 */
+* html div.rateit, * html div.rateit div.rateit-range
+{
+    display: inline;
+     padding:0px 0px 0px 0px;
+}
+
+/* for IE 7 */
+* + html div.rateit, * + html div.rateit div.rateit-range
+{
+    display: inline;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-hover, div.rateit div.rateit-selected
+{
+    position: absolute;
+    left: 0px;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-hover-rtl, div.rateit div.rateit-selected-rtl
+{
+    left: auto;
+    right: 0px;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-hover
+{
+    background: url(~/../../Images/star.gif) left -32px;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-hover-rtl
+{
+    background-position: right -32px;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-selected
+{
+    background: url(~/../../Images/star.gif) left -16px;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-selected-rtl
+{
+    background-position: right -16px;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-preset
+{
+    background: url(~/../../Images/star.gif) left -48px;
+     padding:0px 0px 0px 0px;
+}
+
+div.rateit div.rateit-preset-rtl
+{
+    background: url(~/../../Images/star.gif) left -48px;
+     padding:0px 0px 0px 0px;
+}
+
+/*div.rateit div.rateit-reset
+{
+    background: url(~/../../Images/delete.gif) 0 0;
+    width: 16px;
+    height: 16px;
+    display: -moz-inline-box;
+    display: inline-block;
+    float: left;
+    
+}
+
+div.rateit div.rateit-reset:hover
+{
+    background-position: 0 -16px;
+}*/
+/* DEFAULTS
+----------------------------------------------------------*/
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+html
+{
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+} 
+body
+{
+	/*background: #b6b7bc;*/
+	font-size: 62.5%;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	margin: 0px; 
+	padding: 0px;
+	color: #666;
+    height:auto; 
+}
+
+
+img, img a
+{
+	border: 0px none currentColor;
+	border: 0px;
+	cursor: pointer;
+}
+a:link, a:visited
+{
+	color: #0093cf;
+}
+
+a:hover
+{
+	color: #0093cf;
+	text-decoration: none;
+}
+
+a:active
+{
+	color: #0093cf;
+}
+
+p
+{
+	margin-bottom: 10px;
+	line-height: 1.6em;
+}
+
+
+/* HEADINGS   
+----------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6
+{
+	font-size: 1.5em;
+	color: #666666;
+	font-variant: small-caps;
+	text-transform: none;
+	font-weight: 200;
+	margin-bottom: 0px;
+}
+
+h1
+{
+	font-size: 1.6em;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+h2
+{
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
+h3
+{
+	font-size: 1.2em;
+}
+
+h4
+{
+	font-size: 1.1em;
+}
+
+h5, h6
+{
+	font-size: 1em;
+}
+
+/* this rule styles <h1> and <h2> tags that are the 
+first child of the left and right table columns */
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2
+{
+	margin-top: 0px;
+}
+
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+#container
+{
+	width: 980px;
+	font-size: 1.1em;
+	margin: 0px auto;
+	padding: 0px;
+	background-image: none;
+	background-attachment: scroll;
+	background-position: 0% 0%;
+	background-repeat: repeat;
+	background-size: auto;
+	background-clip: border-box;
+	background-origin: padding-box;
+	background-color: #fff;
+	display: block;
+}
+.page
+{
+	background-color: #ffffff; /*border: 1px solid #496077;*/ /*padding-bottom: 0;*/
+	width: 960px;
+	min-height: 100%;
+	margin: 0px;
+	float: left;
+	padding: 0px;
+	font-size: 1.1em;
+}
+
+.pageheader
+{
+	width: 100%;
+	padding: 0px 0px 10px 0px;
+	margin: 0px 0px 5px 0px;
+	float: right;
+	display: block;
+}
+
+.header h1
+{
+	font-weight: 700;
+	margin: 0px;
+	padding: 0px 0px 0px 10px;
+	color: #f9f9f9;
+	border: none;
+	line-height: 2em;
+	font-size: 2em;
+}
+
+.main
+{
+	padding-right: 5px;
+	padding-top: 0px;
+	margin: 0px 8px 0px 0px;
+	min-height: 420px;
+	width: 960px;
+	float: left;
+}
+.mainMoss
+{
+	padding: 0px;
+	margin: 0px;
+	min-height: 420px;
+	float: left;
+	width: 765px;
+	font-size: 1.1em;
+}
+
+.leftCol
+{
+	padding: 6px 0px;
+	margin: 12px 8px 8px 8px;
+	width: 200px;
+	min-height: 200px;
+}
+
+.footer
+{
+	width: 960px;/*height: 25px; */ /*background-color: #fff;  	 color: #4e5766; 	line-height: normal;     	*/
+	padding-top: 0px;
+	margin: 17px auto 0px auto;
+	text-align: center;
+	font-size: 11px;
+}
+
+
+#footer UL
+{
+	padding-right: 10px;
+	padding-left: 10px;
+	font-size: 11px;
+	float: left;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	list-style-type: none;
+}
+#footer UL LI
+{
+	display: inline;
+}
+#footer UL LI A
+{
+	border-right: #968877 1px solid;
+	padding-right: 7px;
+	display: inline;
+	padding-left: 7px;
+	float: left;
+	padding-bottom: 0px;
+	color: #968877;
+	line-height: 100%;
+	padding-top: 0px;
+	text-decoration: none;
+}
+#footer UL LI SPAN
+{
+	border-right: #968877 1px solid;
+	padding-right: 7px;
+	display: inline;
+	padding-left: 7px;
+	float: left;
+	padding-bottom: 0px;
+	color: #968877;
+	line-height: 100%;
+	padding-top: 0px;
+	text-decoration: none;
+}
+#footer UL LI A:hover
+{
+	color: #0093cf;
+	text-decoration: underline;
+}
+
+#footer UL LI A.last
+{
+	padding-right: 7px;
+	padding-left: 7px;
+	padding-bottom: 0px;
+	padding-top: 0px;
+	border-right-width: 0px;
+}
+
+#footer UL LI SPAN.first
+{
+	border-right: #968877 1px solid;
+	padding-right: 7px;
+	padding-left: 0px;
+	float: left;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+#footer UL LI A:hover
+{
+	color: #0093cf;
+	text-decoration: underline;
+}
+
+.footerLinks
+{
+	clear:both;
+	border-right-width: 1px;
+	border-right-style: solid;
+	padding-left: 7px;
+	padding-right: 7px;
+	text-decoration: none;
+}
+.footerLinkLast
+{
+	clear:both;
+	padding-left: 7px;
+	padding-right: 7px;
+	text-decoration: none;
+}
+
+div
+{
+	padding: 5px 0px 0px 0px;
+}
+.labelRate
+{
+	width: 100px;
+	margin-top: 5px;
+	font-weight: bold;
+	padding-left: 500px;
+	padding-top: 5px;
+}
+/* TAB MENU   
+----------------------------------------------------------*/
+
+div.menu
+{
+	/* padding: 4px 0px 4px 8px;    */
+	padding: 0px;
+	width: 960px;
+	height: 24px; /*background-color:#3a4f63; */
+	margin-top: 0px;
+	margin-left: 0px;
+	background-color: rgb(150, 136, 119);
+	display: block;
+	font-size: 11px;
+}
+
+div.menu ul
+{
+	list-style: none;
+	position: relative;
+	display: block; /* right:40px;   */
+	height: 24px; 
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+	border-right: 1px #ffffff solid;
+	color: #ffffff; /*#0093cf;*/
+	display: block;
+	line-height: 14px;
+	padding: 5px 10px;
+	text-decoration: none;
+	white-space: nowrap;
+	display: block;
+	text-align:left;
+	height: 14px; 
+	font-weight: 400;
+}
+
+div.menu ul li
+{
+	float: left;
+	text-align: center;
+	display: block;
+	height: 24px; 
+}
+
+
+div.menu ul li a:hover
+{
+	background-color: #d7d2cc;
+	text-decoration: underline;
+	display: block;
+	text-align:left;
+	font-weight: 400;
+}
+
+div.menu ul li a:active 
+{
+	background-color: #d7d2cc;
+	text-decoration: underline;
+	font-weight: 500;
+	display: block;
+	text-align:left;
+	height: 14px; 
+	
+}
+  div.menu ul li.active a
+{
+	background-color: #d7d2cc;
+	text-decoration: none;
+	font-weight: bold;
+	display: block;
+	text-align:left;
+	height: 14px; 
+}
+div.menu ul li.active a:hover
+{
+	background-color: #d7d2cc;
+	text-decoration: underline;
+	font-weight: bold;
+	display: block;
+	text-align:left;
+	height: 14px; 
+}
+/****mossmenu
+---------------------------------------------------------*/
+
+
+div.menuMoss ul li
+{float: left;
+width: 170px;
+list-style: none;
+font-size: 1em;
+display: block;
+}
+div.menuMoss
+{
+float: left;
+margin: 0 0 15px 0;
+/*padding-bottom: 25px;*/
+width: 170px;
+background: #968877;
+border-bottom: 3px solid #d7d2cc;
+font-family: Arial, Helvetica, Verdana, sans-serif;
+font-size: 11px;
+padding-top: 0px;
+display: block;
+margin-right: 10px;
+}
+
+div.menuMoss ul
+{
+float: left;
+width: 170px;
+list-style: none;
+border-top: 1px solid #d6d1ca;
+margin-top: 0;
+display: block;
+}
+
+div.menuMoss ul li a
+{
+	padding: 3px 10px;
+	color: #fff!important;
+	float: left;
+	width: 150px;
+	border-bottom: 1px solid #d6d1ca;
+	text-decoration:none;
+	display: block;
+	white-space: nowrap;
+}
+div.menuMoss ul li a:visited
+{
+	list-style: none;
+	text-decoration:none;
+	display: block;
+	white-space: nowrap;
+}
+div.menuMoss ul li a:hover
+{
+	text-decoration: underline;
+	list-style: none;
+	display: block;
+}
+
+div.menuMoss ul li.active a
+{
+	
+	color: #fff;
+	padding: 0;
+	background: #b7ada2;
+	border-bottom: 1px solid #d6d1ca;
+	padding: 3px 10px;
+	border: 0;
+	width:150px;
+	font-weight: bold;
+	text-decoration:none;
+	display: block;
+	
+}
+
+/* Tabs
+
+---------------------------------------------------------*/
+
+
+.tab
+{
+	/* padding: 4px 0px 4px 8px;    */
+	padding: 0px;
+	width: 95%;
+	height: 30px; /*background-color:#3a4f63; */
+	margin: 5px 0px 0px 5px;
+	padding-left: 10px;
+	float: left;
+}
+
+div.tab ul
+{
+	list-style: none;
+}
+
+
+div.tab ul li, div.tab ul li:visited
+{
+	width: auto;
+	float: left;
+	text-align: center; /* color:#d7d2cc;*/
+	display: block;
+	height: 20px;
+	position: relative;
+	border: 1px solid #abadb3;
+	margin: 2px;
+	margin-bottom: 0px;
+	border-bottom: 0px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	padding: 2px 4px;
+	cursor: pointer;
+}
+
+
+div.tab ul li:hover
+{
+	background-color: #efedea;
+}
+div.tab ul li span
+{
+	vertical-align: top;
+}
+
+.selected
+{
+	background-color: #bfcbd6;
+} 
+/*FORM ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+	margin: 1em 0px;
+	padding: 10px;
+	border: 1px solid #ccc;	 
+    margin-left: 100px;
+}
+
+fieldset p
+{
+	margin: 2px 12px 10px 10px;
+}
+
+.logindiv
+{
+	width: 500px; 
+	padding-top: 40px; 
+	margin-left: 250px;
+} 
+.logindiv h1
+{
+	margin-left: 100px;
+    width: 350px;
+}
+legend
+{
+	font-size: 1.1em;
+	font-weight: 600;
+	padding: 2px 4px 8px 4px;
+	
+}
+
+input.textEntry
+{
+	width: 320px;
+	border: 1px solid #ccc;
+}
+
+input.passwordEntry
+{
+	width: 320px;
+	border: 1px solid #ccc;
+}
+
+div.accountInfo
+{
+	width: 42%;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+
+.clear
+{
+	clear: both;
+}
+
+.title
+{
+	display: block;
+	background: #4b6c9e;
+	text-align: left;
+	width: auto;
+}
+
+.loginDisplay
+{
+	font-size: 1.1em;
+	display: block;
+	text-align: right;
+	padding: 10px;
+	color: White;
+}
+
+.loginDisplay a:link
+{
+	color: white;
+}
+
+.loginDisplay a:visited
+{
+	color: white;
+}
+
+.loginDisplay a:hover
+{
+	color: white;
+}
+
+.failureNotification
+{
+	font-size: 1.2em;
+	color: Red;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+.submitButton
+{
+	text-align: right;
+	padding-right: 10px;
+}
+
+div.aspNetHidden
+{
+    padding:4px 0px 0px 0px;
+}
+
+.LegendPadding
+{
+    padding-top:15px;
+    width:100%;
+    float:left;
+}
+.divOuter
+{
+    padding-top:0px;
+    width:100%;
+    float:left;
+}/*
+ * jQuery UI CSS Framework 1.8.17
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden { display: none; }
+.ui-helper-hidden-accessible { position: absolute !important; clip: rect(1px 1px 1px 1px); clip: rect(1px,1px,1px,1px); }
+.ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+.ui-helper-clearfix:before, .ui-helper-clearfix:after { content: ""; display: table; }
+.ui-helper-clearfix:after { clear: both; }
+.ui-helper-clearfix { zoom: 1; }
+.ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled { cursor: default !important; }
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+/*
+ * jQuery UI CSS Framework 1.8.17
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS,%20Tahoma,%20Verdana,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=4px&bgColorHeader=f6a828&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=35&borderColorHeader=e78f08&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=eeeeee&bgTextureContent=03_highlight_soft.png&bgImgOpacityContent=100&borderColorContent=dddddd&fcContent=333333&iconColorContent=222222&bgColorDefault=f6f6f6&bgTextureDefault=02_glass.png&bgImgOpacityDefault=100&borderColorDefault=cccccc&fcDefault=1c94c4&iconColorDefault=ef8c08&bgColorHover=fdf5ce&bgTextureHover=02_glass.png&bgImgOpacityHover=100&borderColorHover=fbcb09&fcHover=c77405&iconColorHover=ef8c08&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=fbd850&fcActive=eb8f00&iconColorActive=ef8c08&bgColorHighlight=ffe45c&bgTextureHighlight=03_highlight_soft.png&bgImgOpacityHighlight=75&borderColorHighlight=fed22f&fcHighlight=363636&iconColorHighlight=228ef1&bgColorError=b81900&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=18&borderColorError=cd0a0a&fcError=ffffff&iconColorError=ffd27a&bgColorOverlay=666666&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=20&opacityOverlay=50&bgColorShadow=000000&bgTextureShadow=01_flat.png&bgImgOpacityShadow=10&opacityShadow=20&thicknessShadow=5px&offsetTopShadow=-5px&offsetLeftShadow=-5px&cornerRadiusShadow=5px
+ */
+
+
+/* Component containers
+----------------------------------*/
+.ui-widget { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: 1.1em; }
+.ui-widget .ui-widget { font-size: 1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif; font-size: 1em; }
+.ui-widget-content { border: 1px solid #dddddd; background: #eeeeee url(images/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x; color: #333333; }
+.ui-widget-content a { color: #333333; }
+.ui-widget-header { border: 1px solid #e78f08; background: #f6a828 url(images/ui-bg_gloss-wave_35_f6a828_500x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.ui-widget-header a { color: #ffffff; }
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #cccccc; background: #f6f6f6 url(images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #1c94c4; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #1c94c4; text-decoration: none; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #fbcb09; background: #fdf5ce url(images/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #c77405; }
+.ui-state-hover a, .ui-state-hover a:hover { color: #c77405; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #fbd850; background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #eb8f00; }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #eb8f00; text-decoration: none; }
+.ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #fed22f; background: #ffe45c url(images/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x; color: #363636; }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #b81900 url(images/ui-bg_diagonals-thick_18_b81900_40x40.png) 50% 50% repeat; color: #ffffff; }
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #ffffff; }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #ffffff; }
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity: .35; filter:Alpha(Opacity=35); background-image: none; }
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_222222_256x240.png); }
+.ui-widget-content .ui-icon {background-image: url(images/ui-icons_222222_256x240.png); }
+.ui-widget-header .ui-icon {background-image: url(images/ui-icons_ffffff_256x240.png); }
+.ui-state-default .ui-icon { background-image: url(images/ui-icons_ef8c08_256x240.png); }
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/ui-icons_ef8c08_256x240.png); }
+.ui-state-active .ui-icon {background-image: url(images/ui-icons_ef8c08_256x240.png); }
+.ui-state-highlight .ui-icon {background-image: url(images/ui-icons_228ef1_256x240.png); }
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(images/ui-icons_ffd27a_256x240.png); }
+
+/* positioning */
+.ui-icon-carat-1-n { background-position: 0 0; }
+.ui-icon-carat-1-ne { background-position: -16px 0; }
+.ui-icon-carat-1-e { background-position: -32px 0; }
+.ui-icon-carat-1-se { background-position: -48px 0; }
+.ui-icon-carat-1-s { background-position: -64px 0; }
+.ui-icon-carat-1-sw { background-position: -80px 0; }
+.ui-icon-carat-1-w { background-position: -96px 0; }
+.ui-icon-carat-1-nw { background-position: -112px 0; }
+.ui-icon-carat-2-n-s { background-position: -128px 0; }
+.ui-icon-carat-2-e-w { background-position: -144px 0; }
+.ui-icon-triangle-1-n { background-position: 0 -16px; }
+.ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.ui-icon-triangle-1-e { background-position: -32px -16px; }
+.ui-icon-triangle-1-se { background-position: -48px -16px; }
+.ui-icon-triangle-1-s { background-position: -64px -16px; }
+.ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.ui-icon-triangle-1-w { background-position: -96px -16px; }
+.ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.ui-icon-arrow-1-n { background-position: 0 -32px; }
+.ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.ui-icon-arrow-1-e { background-position: -32px -32px; }
+.ui-icon-arrow-1-se { background-position: -48px -32px; }
+.ui-icon-arrow-1-s { background-position: -64px -32px; }
+.ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.ui-icon-arrow-1-w { background-position: -96px -32px; }
+.ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.ui-icon-arrow-4 { background-position: 0 -80px; }
+.ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.ui-icon-extlink { background-position: -32px -80px; }
+.ui-icon-newwin { background-position: -48px -80px; }
+.ui-icon-refresh { background-position: -64px -80px; }
+.ui-icon-shuffle { background-position: -80px -80px; }
+.ui-icon-transfer-e-w { background-position: -96px -80px; }
+.ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.ui-icon-folder-collapsed { background-position: 0 -96px; }
+.ui-icon-folder-open { background-position: -16px -96px; }
+.ui-icon-document { background-position: -32px -96px; }
+.ui-icon-document-b { background-position: -48px -96px; }
+.ui-icon-note { background-position: -64px -96px; }
+.ui-icon-mail-closed { background-position: -80px -96px; }
+.ui-icon-mail-open { background-position: -96px -96px; }
+.ui-icon-suitcase { background-position: -112px -96px; }
+.ui-icon-comment { background-position: -128px -96px; }
+.ui-icon-person { background-position: -144px -96px; }
+.ui-icon-print { background-position: -160px -96px; }
+.ui-icon-trash { background-position: -176px -96px; }
+.ui-icon-locked { background-position: -192px -96px; }
+.ui-icon-unlocked { background-position: -208px -96px; }
+.ui-icon-bookmark { background-position: -224px -96px; }
+.ui-icon-tag { background-position: -240px -96px; }
+.ui-icon-home { background-position: 0 -112px; }
+.ui-icon-flag { background-position: -16px -112px; }
+.ui-icon-calendar { background-position: -32px -112px; }
+.ui-icon-cart { background-position: -48px -112px; }
+.ui-icon-pencil { background-position: -64px -112px; }
+.ui-icon-clock { background-position: -80px -112px; }
+.ui-icon-disk { background-position: -96px -112px; }
+.ui-icon-calculator { background-position: -112px -112px; }
+.ui-icon-zoomin { background-position: -128px -112px; }
+.ui-icon-zoomout { background-position: -144px -112px; }
+.ui-icon-search { background-position: -160px -112px; }
+.ui-icon-wrench { background-position: -176px -112px; }
+.ui-icon-gear { background-position: -192px -112px; }
+.ui-icon-heart { background-position: -208px -112px; }
+.ui-icon-star { background-position: -224px -112px; }
+.ui-icon-link { background-position: -240px -112px; }
+.ui-icon-cancel { background-position: 0 -128px; }
+.ui-icon-plus { background-position: -16px -128px; }
+.ui-icon-plusthick { background-position: -32px -128px; }
+.ui-icon-minus { background-position: -48px -128px; }
+.ui-icon-minusthick { background-position: -64px -128px; }
+.ui-icon-close { background-position: -80px -128px; }
+.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-key { background-position: -112px -128px; }
+.ui-icon-lightbulb { background-position: -128px -128px; }
+.ui-icon-scissors { background-position: -144px -128px; }
+.ui-icon-clipboard { background-position: -160px -128px; }
+.ui-icon-copy { background-position: -176px -128px; }
+.ui-icon-contact { background-position: -192px -128px; }
+.ui-icon-image { background-position: -208px -128px; }
+.ui-icon-video { background-position: -224px -128px; }
+.ui-icon-script { background-position: -240px -128px; }
+.ui-icon-alert { background-position: 0 -144px; }
+.ui-icon-info { background-position: -16px -144px; }
+.ui-icon-notice { background-position: -32px -144px; }
+.ui-icon-help { background-position: -48px -144px; }
+.ui-icon-check { background-position: -64px -144px; }
+.ui-icon-bullet { background-position: -80px -144px; }
+.ui-icon-radio-off { background-position: -96px -144px; }
+.ui-icon-radio-on { background-position: -112px -144px; }
+.ui-icon-pin-w { background-position: -128px -144px; }
+.ui-icon-pin-s { background-position: -144px -144px; }
+.ui-icon-play { background-position: 0 -160px; }
+.ui-icon-pause { background-position: -16px -160px; }
+.ui-icon-seek-next { background-position: -32px -160px; }
+.ui-icon-seek-prev { background-position: -48px -160px; }
+.ui-icon-seek-end { background-position: -64px -160px; }
+.ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.ui-icon-seek-first { background-position: -80px -160px; }
+.ui-icon-stop { background-position: -96px -160px; }
+.ui-icon-eject { background-position: -112px -160px; }
+.ui-icon-volume-off { background-position: -128px -160px; }
+.ui-icon-volume-on { background-position: -144px -160px; }
+.ui-icon-power { background-position: 0 -176px; }
+.ui-icon-signal-diag { background-position: -16px -176px; }
+.ui-icon-signal { background-position: -32px -176px; }
+.ui-icon-battery-0 { background-position: -48px -176px; }
+.ui-icon-battery-1 { background-position: -64px -176px; }
+.ui-icon-battery-2 { background-position: -80px -176px; }
+.ui-icon-battery-3 { background-position: -96px -176px; }
+.ui-icon-circle-plus { background-position: 0 -192px; }
+.ui-icon-circle-minus { background-position: -16px -192px; }
+.ui-icon-circle-close { background-position: -32px -192px; }
+.ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.ui-icon-circle-zoomin { background-position: -176px -192px; }
+.ui-icon-circle-zoomout { background-position: -192px -192px; }
+.ui-icon-circle-check { background-position: -208px -192px; }
+.ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.ui-icon-circlesmall-close { background-position: -32px -208px; }
+.ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.ui-icon-squaresmall-close { background-position: -80px -208px; }
+.ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; -khtml-border-top-left-radius: 4px; border-top-left-radius: 4px; }
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; -khtml-border-top-right-radius: 4px; border-top-right-radius: 4px; }
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; -khtml-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; -khtml-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+
+/* Overlays */
+.ui-widget-overlay { background: #666666 url(images/ui-bg_diagonals-thick_20_666666_40x40.png) 50% 50% repeat; opacity: .50;filter:Alpha(Opacity=50); }
+.ui-widget-shadow { margin: -5px 0 0 -5px; padding: 5px; background: #000000 url(images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x; opacity: .20;filter:Alpha(Opacity=20); -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }/*
+ * jQuery UI Autocomplete 1.8.17
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete#theming
+ */
+.ui-autocomplete { position: absolute; cursor: default; }	
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/*
+ * jQuery UI Menu 1.8.17
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+	float: left;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+
+/*Common*/
+.page
+{
+    width:100%;
+}
+.mainMoss
+{
+    width:100%;
+}
+DIV.rateit DIV.rateit-range
+{
+    display:none;
+}
+div#tools 
+{
+    display:none;
+}
+#divSearch
+{
+    display:none;
+}
+DIV.menu UL LI
+{
+    display: none;
+}
+#lnkMobile
+{
+    display:none;
+}
+#lblPrintHeader
+{
+    display:block;
+    vertical-align:middle;
+    font-weight:bold;
+    background-color: rgb(239, 237, 234);
+    width:70%;
+    float:left;
+    padding-left:5px;
+}
+#agricastLogo
+{
+width:12%;
+float:left;
+height:100%;
+}
+#divPrint
+{
+    display:block;
+    height: 30px;
+	width: 100%;
+	border: 1px solid rgb(239, 237, 234);
+	 background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	margin: 5px 0px 10px 0px;
+	z-index: 15;
+	font-size:12px;
+	
+}
+#slidemenu1
+{
+    display:none;
+}
+#pageMenu
+{
+    padding:0px; 
+   width: 100%;
+   height:22px;
+   margin-top:0px;
+   margin-left:0px;
+   background-color:rgb(150, 136, 119);
+   display:block;
+
+}
+#pageMenu UL LI
+{
+    display: none;
+}
+/*Details*/
+#Welcome
+{
+    display:none;
+}
+
+IMG[id^="img1"]
+{
+    /* for IM01246228 - New Agricast - Print is not working - Jerrey - Start*/
+    /*display:none;*/
+    display: block;
+    /* for IM01246228 - New Agricast - Print is not working - Jerrey - End*/
+}
+.jqueryslidemenu
+{
+    display:none;
+}
+
+/*agriinfo*/
+
+DIV.menu UL LI
+{
+    display: none;
+}
+div#tools
+{
+    display:none;
+}
+div#greeting
+{
+    display:none;
+}
+div#WeatherMenu
+{
+    display:none;
+}
+.footer
+{
+    display:none;
+}
+
+/*This style is added to IconsDiv only on Print Page*/
+.iconDivClass
+{
+    top:90px !important;
+}
+
+@import '../base_EmbedCSSwide.css'@import '../base_CSSwide.css';
+#tools select {display:block}</style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.blockUI.defaults.message = $('#blockui-animated-content');
+            $.blockUI.defaults.css.width = '250px';
+            $.blockUI.defaults.css.top = '30%';
+            $('#btnSearch').click(function () {
+                $.blockUI();
+                var opts =
+               {
+                   lines: 13, // The number of lines to draw
+                   length: 15, // The length of each line
+                   width: 10, // The line thickness
+                   radius: 20, // The radius of the inner circle
+                   corners: 1, // Corner roundness (0..1)
+                   rotate: 50, // The rotation offset
+                   direction: 1, // 1: clockwise, -1: counterclockwise
+                   color: '#000', // #rgb or #rrggbb or array of colors
+                   speed: 0.8, // Rounds per second
+                   trail: 42, // Afterglow percentage
+                   shadow: false, // Whether to render a shadow
+                   hwaccel: false, // Whether to use hardware acceleration
+                   className: 'spinner', // The CSS class to assign to the spinner
+                   zIndex: 2e9, // The z-index (defaults to 2000000000)
+                   top: 'auto', // Top position relative to parent in px
+                   left: 'auto' // Left position relative to parent in px
+               };
+                var target = document.getElementById('preview');
+                var spinner = new Spinner(opts).spin(target);
+
+            });
+            $('#pageMenu ul li a').click(function () {
+                $.blockUI();
+                var opts =
+               {
+                   lines: 13, // The number of lines to draw
+                   length: 15, // The length of each line
+                   width: 10, // The line thickness
+                   radius: 20, // The radius of the inner circle
+                   corners: 1, // Corner roundness (0..1)
+                   rotate: 50, // The rotation offset
+                   direction: 1, // 1: clockwise, -1: counterclockwise
+                   color: '#000', // #rgb or #rrggbb or array of colors
+                   speed: 0.8, // Rounds per second
+                   trail: 42, // Afterglow percentage
+                   shadow: false, // Whether to render a shadow
+                   hwaccel: false, // Whether to use hardware acceleration
+                   className: 'spinner', // The CSS class to assign to the spinner
+                   zIndex: 2e9, // The z-index (defaults to 2000000000)
+                   top: 'auto', // Top position relative to parent in px
+                   left: 'auto' // Left position relative to parent in px
+               };
+                var target = document.getElementById('preview');
+                var spinner = new Spinner(opts).spin(target);
+
+            }); 
+        }); 
+       
+
+        var locs;
+        function pageLoad() {
+            common();
+        }
+
+        function fnPrintPage() {
+
+            printpage = window.open('print.aspx', 'printpage', 'resizable=1,scrollbars=1,height=700,width=950'); //'location=0,status=0,scrollbars=1'
+            printpage.focus();
+            printpage.moveTo(0, 0);
+            return false;
+        }
+
+
+        function fnTrigHdnBtnAdvancedOption(path) {
+            link = path;
+
+            $("#btnHiddenAdvOptions").click();
+        }
+
+        function openMore() {
+            var url = link;
+            var windowName = "Advanced_Options";
+            var windowSize = "top=300,left=500,height=250,width=400,status=yes,toolbar=no,menubar=no,location=no,resize=yes"
+            window.open(url, windowName, windowSize);
+
+        }
+
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-190910-32', 'auto');
+        ga('send', 'pageview');
+
+        
+        $(function () {
+            // click to display zoomed chart image
+            $('#float-icon-legend').click(function () {
+                var $chart = $('#imgChart');
+                if ($chart.length > 0)
+                    $chart.trigger('click');
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        function delcookie(name) { 
+
+            document.cookie = name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+
+            if (!is_mobile()) {
+                createCookie(name, '1', 1);
+            }
+        }
+
+        function is_mobile() {
+           
+            var agents = ['android', 'iphone', 'ipad', 'ipod', 'blackberry', 'symbian',
+                          'webos', 'opera mini', 'iemobile', 'meego', 'Dolphin',
+                          'SonyEricsson', 'Samsung', 'nokia', 'Vodafone', 'HTC'];
+            for (i in agents) {
+                if (navigator.userAgent.match(new RegExp(agents[i], "i"))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name + "=" + value + expires + ";";
+        }
+        function resizeMe() {
+            if (document.location.href.indexOf("syngenta.com") != -1) {
+                document.domain = "syngenta.com";
+            }
+            localdomain = self.document.domain
+            localHref = self.document.location.href
+            //we are not in an iframe => return
+            if (self == top) return
+
+            var par = self.parent
+            var pardomain = ""
+            try {
+                pardomain = par.document.domain
+            }
+            catch (err) {
+                pardomain = ""
+            }
+            //we are not in the same domain => return
+            if (pardomain != localdomain) return
+
+            var tabiframe = par.document.getElementsByTagName("iframe")
+            for (i = 0; i < tabiframe.length; i++) {
+                var oDoc = tabiframe[i].contentWindow || tabiframe[i].contentDocument;
+
+                if (self === oDoc) {
+                    tabiframe[i].height = "10px"
+
+                    var iframeWin = tabiframe[i].contentWindow || iframe.contentDocument.parentWindow;
+                    if (iframeWin.document.body) {
+                        var newHeight = Math.max(iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight, iframeWin.document.body.clientHeight || iframeWin.document.documentElement.clientHeight) + 40;
+                        tabiframe[i].height = newHeight + "px"
+                    }
+                }
+            }
+
+        }
+       
+    </script>   
+<link type="text/css" href="http://localhost:27196/Syngenta.AgriCast.UI/pub/glbsip02o/EmbedSite.css" rel="stylesheet"></link><link type="text/css" href="http://localhost:27196/Syngenta.AgriCast.UI/pub/glbsip02o/StyleSheet.css" rel="stylesheet"></link></head>
+<body onload="resizeMe()">
+    <form method="post" action="Default2.aspx" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'btnDefault')" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/Syngenta.AgriCast.UI/WebResource.axd?d=uAHXnOlqSZEc3-QnDGRc9-th5TAFBYJroeR_ijVWRvKV3w4IHPF9sZ7ZEalsbXOH5K4peKqKgnTzQsrv8yyuAZQvwtQHBcysGdzMoPtPJLo1&amp;t=635145356180000000" type="text/javascript"></script>
+
+
+<script src="/Syngenta.AgriCast.UI/ScriptResource.axd?d=yz5oVNqE1jUsWZntbQx5-ft-WSXmUo0XIWXhFl_FL8_2S6Na4ZoNIAhpMPy-Rx_aJHR9fmOJ-n32YqVIl_MRXBLIbWWZLcQtFcy1Ghaax4oj5t-ntTGsCUIQuCFuSiL9fZXIOF-QaA3jws-NE53UIsvK-bsT5MXrTl7upSFHOvfssT-BsSfgTJ_IPwX9Bbhn0&amp;t=ca758f3" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/Syngenta.AgriCast.UI/ScriptResource.axd?d=gWhhGxNPCrbsJwvJi5wEM6D-safVgwT5tnLr4l33mSB1MaIvFOEqwGxNZeq8dyz-t4epenpFdDbg76V82VUjf9CbXGw3BeBPrW306534x44jnqOYVyRg33V6hUkY2GxlF4iwvQ57g4gRVFz27uvaQC8ug0zJt0EcQB5YCiNDYE-GLukngW6C0KK_eXXdgJTH0&amp;t=ca758f3" type="text/javascript"></script>
+    <div id="container">
+        <div id="global" style="padding: 0px 0px;">
+            <div class="pageheader">
+                <div style="display: block; position: relative;">
+                    <a href="http://www.syngenta.com" style="text-decoration: none;">
+                        <img id="logo" src="http://localhost:27196/Syngenta.AgriCast.UI/images/Syngenta.gif" alt="SyngentaLogo" style="float: right;
+                            right: 5px; position: relative; height: 32px; border: 0px; bottom:1px;" />
+                    </a>
+                </div>
+                <div class="menuTop">
+                    
+     <div id="blockui-animated-content" style="display: none;  padding: 65px">
+            <div id="preview" style="margin-right: 7px; vertical-align: middle; display: inline-block">
+               
+            </div>            
+        </div>
+    <div>
+        <div id="ctl00_ph_MenuTabsTop_slidemenu" class="hide">
+            <div id="slide">
+            </div>
+            <div id="slidemenu1" class="jqueryslidemenu">
+                
+            </div>
+        </div>
+    </div>
+
+                </div>
+            </div>
+            <div class="page">
+                <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$SM1', 'aspnetForm', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+                <div id="ctl00_pageMenu" class="menu">
+                    <ul class="clear">
+                        
+    <li id="ctl00_ph_MenuTabs_tab_mresult_weathercast" class="active"><a href="default2.aspx?module=weathercast">Weather Forecast</a></li>
+
+                    </ul>
+                </div>
+                <div id="ctl00_PageContent" class="main weathercast">
+                    
+    <div id="divPrint" class="hide">
+        
+        <span id="lblPrintHeader" class="hide">Selected nearby weather point: Shanghai AP ,7  m asl, 9 km NE  from <strong>Shanghai </strong></span>
+    </div>
+    <span id="lblError" class="Error" data-key="test"> </span>
+    
+<script type="text/javascript">
+<!--
+
+    /*IM01246233 :- New Agricast - missing translation tags - Begin */
+    function ValidateEMail(errorMsg) {
+
+        var obj = document.getElementById("Tomail");
+        if (obj != null) {
+            if (obj.value == "") {
+                //alert("Please enter an E-Mail ID");
+                alert(errorMsg);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function ValidateFavName(ErrorMsg) {
+        if ($('#txtFavName').val().trim() == "") {
+            alert(ErrorMsg);
+            return false;
+        }
+    }
+    /*IM01246233 :- New Agricast - missing translation tags - End */
+    /* IM01294335 - New Agricast - rating not sent - Jerrey - Begin */
+    $(function () {
+        var $hdnFeedbackRating = $('input[type=hidden][id$="hdnFeedbackRating"]');
+
+        $('#range').change(function () {
+
+            //$hdnFeedbackRating.val($(this).val());
+            $hdnFeedbackRating.val($(this).val() + " - " + $("select[id=range] option:selected").text());
+        });
+    });
+    /* IM01294335 - New Agricast - rating not sent - Jerrey - End */
+// -->
+</script>
+<div id="ToolBar" style="padding-top: 0px; width: 100%">
+    <div id="greeting" class="split">
+        <label id="Welcome">Welcome</label>
+        <a id="userName"></a>
+    </div>
+    <div id="tools" class="split">
+        <select name="ctl00$MainContent$ctl01$ddlCulture" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$MainContent$ctl01$ddlCulture\&#39;,\&#39;\&#39;)&#39;, 0)" id="ddlCulture" class="dropDown" style="width: 160pt">
+	<option value="ar-IQ">العربية (IQ)			</option>
+	<option value="cs-CZ">česky (CZ)			</option>
+	<option value="bg-BG">Bulgarian (BG)		</option>
+	<option value="da-DK">Dansk (DK)			</option>
+	<option value="de-CH">Deutsch (CH)			</option>
+	<option value="de-DE">Deutsch (DE)			</option>
+	<option value="el-GR">Ελληνικά (GR)			</option>
+	<option selected="selected" value="en-GB">English (UK)			</option>
+	<option value="en-US">English (US)			</option>
+	<option value="es-AR">Espa&#241;ol (AR)			</option>
+	<option value="es-CO">Espa&#241;ol (CO)			</option>
+	<option value="es-ES">Espa&#241;ol (ES)			</option>
+	<option value="fi-FI">suomen kieli (FI)		</option>
+	<option value="fo-FO">Faroese (FO)			</option>
+	<option value="fr-FR">Fran&#231;ais (FR)			</option>
+	<option value="he-IL">עברית  (IL)			</option>
+	<option value="hr-HR">hrvatski jezik (HR)	</option>
+	<option value="hu-HU">Magyar (HU)			</option>
+	<option value="it-CH">Italiano (CH)			</option>
+	<option value="it-IT">Italiano(IT)			</option>
+	<option value="ja-JP">日本語(EUC-JP)		</option>
+	<option value="ka-GE">ქართული ენა (GE)	</option>
+	<option value="nl-NL">Netherlands (NL)		</option>
+	<option value="pl-PL">Polski (PL)			</option>
+	<option value="pt-BR">Portugu&#234;s (BR)		</option>
+	<option value="pt-PT">Portugu&#234;s	(PT)		</option>
+	<option value="ro-RO">rom&#226;nă (RO)			</option>
+	<option value="ru-RU">Русский (RU)			</option>
+	<option value="sr-SP-Latn">Serbian Latin (RS)	</option>
+	<option value="sq-AL">Shqiptar (AL)</option>
+	<option value="sk-SK">slovenčina (SK)		</option>
+	<option value="sl-SI">slovenščina (SI)		</option>
+	<option value="sv-SE">Svenska (SE)			</option>
+	<option value="tr-TR">T&#252;rk&#231;e (TR)			</option>
+	<option value="uk-UA">українська мова (UA)	</option>
+	<option value="zh-CN">简体中文（统一码）	(CN)		</option>
+	<option value="ko-KR">한국어 (韓國語); 조선말 (朝鮮語)</option>
+	<option value="lt-LT">Lithuanian (LT)		</option>
+	<option value="nb-NO">Norwegian Bokm&#229;l		</option>
+	<option value="fa-IR">Farsi (FA)		</option>
+	<option value="th-TH">Thai (TH)		</option>
+
+</select>
+        <select name="ctl00$MainContent$ctl01$ddlUnits" id="ddlUnits" class="dropDown">
+	<option selected="selected" value="metric">Metric</option>
+	<option value="imperial">Imperial</option>
+	<option value="Custom...">Custom...</option>
+
+</select>
+        <div id="divCustom" class="hide">
+            <div class="box">
+                <div id="Wind" class="show">
+                    <label id="lblWind" class="labelCustom">Wind</label>
+                    <select name="ctl00$MainContent$ctl01$ddlWind" id="ddlWind" class="DropdownCustom">
+	<option selected="selected" value="kmh">kmh</option>
+	<option value="mph">{mph}</option>
+	<option value="beau  fort">{beau  fort}</option>
+
+</select>
+                </div>
+                <div id="Rain" class="hide">
+                    <label id="lblRain" class="labelCustom">
+                        Rain</label>
+                    <select name="ctl00$MainContent$ctl01$ddlRain" id="ddlRain" class="DropdownCustom">
+
+</select>
+                </div>
+                <div id="Temp" class="hide">
+                    <label id="lblTemp" class="labelCustom">
+                        Temperature</label>
+                    <select name="ctl00$MainContent$ctl01$ddlTemp" id="ddlTemp" class="DropdownCustom">
+
+</select>
+                </div>
+                <div>
+                    <input type="submit" name="ctl00$MainContent$ctl01$btnOK" value="Ok" id="btnOK" />
+                    <input type="submit" name="ctl00$MainContent$ctl01$btnCancel" value="{Cancel}" id="btnCancel" />
+                </div>
+            </div>
+        </div>
+        <input type="image" name="ctl00$MainContent$ctl01$imgPrint" id="imgPrint" title="Print Page" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/print.gif" alt="Print Page" />
+        <img src="http://localhost:27196/Syngenta.AgriCast.UI/Images/email.gif" id="imgEmail" alt="email" data-controls="email" data-activedescendant="favorites;feedback" title="E-mail" />
+        
+        
+        <img src="http://localhost:27196/Syngenta.AgriCast.UI/Images/fback.png" id="imgFB" alt="FeedBack" data-controls="feedback" data-activedescendant="favorites;email" title="FeedBack" />
+    </div>
+    <div id="email" class="hide">
+        <table id="tblEmail" style="width: 100%">
+	<tr>
+		<td class="NewtdLeft">
+                </td>
+		<td class="Newtd">
+                </td>
+		<td>
+                    <div id="divClose" class="close" data-controls="email">
+                        X
+                    </div>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="Fee_EmailAddress" class="label150" style="white-space: ">Recipient Email address<span class="mandatory"> * </span></label>
+                </td>
+		<td>
+                    
+                    <input name="ctl00$MainContent$ctl01$Tomail" type="text" id="Tomail" class="textBox" placeholder="Enter the email addresses ; seperated" />
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="tb_subject" class="label150">Subject</label>
+                </td>
+		<td>
+                    
+                    <input name="ctl00$MainContent$ctl01$Subject" type="text" id="Subject" class="textBox" data-controls="subject" placeholder="Enter the email subject." />
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="mailbody" class="label150">Mail body</label>
+                </td>
+		<td>
+                    
+                    <textarea name="ctl00$MainContent$ctl01$txtBody" id="txtBody" rows="4" cols="50" class="comments" onclick="return body_onclick()" placeholder="Enter the email subject."></textarea>
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <input type="submit" name="ctl00$MainContent$ctl01$EMailPage" value="E-Mail this page" onclick="Javascript:return ValidateEMail(&#39;Please enter an E-Mail ID.&#39;);" id="EMailPage" class="button" />
+                    
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+</table>
+
+        <div style="font-size:10px; padding-left:20px;"><br />Fields marked with * are mandatory.<br /><br /></div>
+    </div>
+    <div id="favorites" class="hide">
+        <table id="tblFavorites" style="width: 100%">
+	<tr>
+		<td>
+                </td>
+		<td class="Newtd">
+                </td>
+		<td>
+                    <div id="FavClose" class="close" data-controls="favorites">
+                        X</div>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    
+                    <div>
+                        <span>
+                            <label id="lblFavName">Name<span class="mandatory"> * </span></label>
+                        </span><span>
+                            <input name="ctl00$MainContent$ctl01$txtFavName" type="text" id="txtFavName" />
+                            <input type="submit" name="ctl00$MainContent$ctl01$Fav_AddToFavorites" value="Add to Favourites" id="Fav_AddToFavorites" class="button" />
+                        </span>
+                    </div>
+                    
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <div>
+			<table cellspacing="0" rules="all" border="1" id="gvFavorites" style="border-collapse:collapse;width:100%; padding-left:3px;">
+				<thead>
+					<tr>
+						<th scope="col">Name</th><th scope="col">Service</th><th scope="col">Location Name</th><th scope="col">Edit / Delete</th><th class="hide" scope="col">PlaceID</th><th class="hide" scope="col">PlaceName</th>
+					</tr>
+				</thead><tbody>
+					<tr>
+						<td style="width:200px;"><a href="javascript:__doPostBack(&#39;ctl00$MainContent$ctl01$gvFavorites$ctl02$ctl03&#39;,&#39;&#39;)">prees5</a></td><td style="width:150px;">{HistoryData_ECMWF}</td><td style="width:300px;">Preesgreen</td><td style="width:280px;"><input type="image" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/edit.gif" alt="Edit" onclick="javascript:__doPostBack(&#39;ctl00$MainContent$ctl01$gvFavorites&#39;,&#39;Edit$0&#39;);return false;" />&nbsp;<input type="image" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/delete.gif" alt="Delete" onclick="javascript:__doPostBack(&#39;ctl00$MainContent$ctl01$gvFavorites&#39;,&#39;Delete$0&#39;);return false;" /></td><td class="hide">3251683</td><td class="hide">Preesgreen</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+</table>
+
+    </div>
+    <div id="feedback" class="hide">
+        <table id="tblFeedback" style="width: 100%">
+	<tr>
+		<td class="NewtdLeft" colspan="2">
+                    <label id="lblFeedBackHeader" class="FeedBackHeader">FeedBack</label>
+                </td>
+		<td class="Newtd">
+                </td>
+		<td style="margin-left: 100px; margin-right: 100px;">
+                    <div id="feedbackClose" class="close" data-controls="feedback">
+                        X</div>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="lblName" class="label150">Subject<span class="mandatory"> * </span></label>
+                </td>
+		<td>
+                    <input name="ctl00$MainContent$ctl01$txtName" type="text" id="txtName" class="textBox" value="SyngentaAIS-glbsip02o" />
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="lblEmail" class="label150">E-mail<span class="mandatory"> * </span></label>
+                </td>
+		<td>
+                    <input name="ctl00$MainContent$ctl01$txtEmail" type="text" id="txtEmail" class="textBox" />
+                    <span id="lblEmailError"></span>
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="lblMessage" class="label150">Your comments<span class="mandatory"> * </span></label>
+                </td>
+		<td>
+                    <textarea name="ctl00$MainContent$ctl01$TextareaMessage" id="TextareaMessage" rows="4" cols="50" class="comments"></textarea>
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="lblRating" class="label150">Rate this site</label>
+                </td>
+		<td>
+                    <select name="ctl00$MainContent$ctl01$range" id="range">
+			<option selected="selected" value="">---</option>
+			<option value="0">insufficiently</option>
+			<option value="1">deficient</option>
+			<option value="2">sufficiently</option>
+			<option value="3">satisfactory</option>
+			<option value="4">good</option>
+			<option value="5">very well</option>
+
+		</select>
+                    
+                    <div id="rating" data-rateit-backingfld="select#range" style="padding-left: 15px">
+                    </div>
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                </td>
+		<td>
+                    <img id="Im1" alt="Captcha Text" src="http://localhost:27196/Syngenta.AgriCast.UI/UserControls/Captcha.aspx" style="padding-left: 15px" />
+                    <input type="image" name="ctl00$MainContent$ctl01$btnRefresh" id="btnRefresh" alt="Refresh" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/refresh_icon.png" />
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <label id="lblCaptcha" class="label150">Please enter the above text into the box below<span class="mandatory"> * </span></label>
+                </td>
+		<td>
+                    <input name="ctl00$MainContent$ctl01$txtCaptcha" type="text" id="txtCaptcha" class="textBox" />
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+	<tr>
+		<td>
+                    <input type="submit" name="ctl00$MainContent$ctl01$btnSendMsg" value="Send Message" id="btnSendMsg" class="button" style="margin-top: 10px" />
+                </td>
+		<td>
+                    <span id="LStatus"></span>
+                </td>
+		<td>
+                </td>
+		<td>
+                </td>
+	</tr>
+</table>
+
+        <div style="font-size:10px; padding-left:20px;"><br />Fields marked with * are mandatory.<br /><br /></div>
+    </div>
+    <input type="hidden" name="ctl00$MainContent$ctl01$hdnFeedbackRating" id="hdnFeedbackRating" />
+    <input type="hidden" name="ctl00$MainContent$ctl01$hdnGridFavoriteStatus" id="hdnGridFavoriteStatus" />
+    <input type="hidden" name="ctl00$MainContent$ctl01$hdnGridImages_Status" id="hdnGridImages_Status" value="show#email" />
+</div>
+
+    <div id="divSearch" class="container">
+    <table>
+        <tr style="background-color:rgb(239, 237, 234)">
+            <td >
+                <div class="label100" Style="width:auto;margin-right:10px;">
+                    <input type="submit" name="ctl00$MainContent$ctl00$btnDefault" value="" onclick="return false;" id="btnDefault" style="display: none" />
+                    <span id="searchIn" style="width: 50%; white-space:nowrap;">Search in</span>
+                </div>
+            </td><td>
+                <div class="dropDown" style="width:auto;">
+                    <select name="ctl00$MainContent$ctl00$ddlCountry" id="ddlCountry">
+	<option value="XX">--Select--</option>
+	<option value="AF">Afghanistan</option>
+	<option value="AX">&#197;land Islands</option>
+	<option value="AL">Albania</option>
+	<option value="DZ">Algeria</option>
+	<option value="AS">American Samoa</option>
+	<option value="AD">Andorra</option>
+	<option value="AO">Angola</option>
+	<option value="AI">Anguilla</option>
+	<option value="AQ">Antarctica</option>
+	<option value="AG">Antigua and Barbuda</option>
+	<option value="AR">Argentina</option>
+	<option value="AM">Armenia</option>
+	<option value="AW">Aruba</option>
+	<option value="AU">Australia</option>
+	<option value="AT">Austria</option>
+	<option value="AZ">Azerbaijan</option>
+	<option value="BS">Bahamas</option>
+	<option value="BH">Bahrain</option>
+	<option value="BD">Bangladesh</option>
+	<option value="BB">Barbados</option>
+	<option value="BY">Belarus</option>
+	<option value="BE">Belgium</option>
+	<option value="BZ">Belize</option>
+	<option value="BJ">Benin</option>
+	<option value="BM">Bermuda</option>
+	<option value="BT">Bhutan</option>
+	<option value="BO">Bolivia</option>
+	<option value="BA">Bosnia and Herzegovina</option>
+	<option value="BW">Botswana</option>
+	<option value="BV">Bouvet Island</option>
+	<option value="BR">Brazil</option>
+	<option value="IO">British Indian Ocean Territory</option>
+	<option value="BN">Brunei Darussalam</option>
+	<option value="BG">Bulgaria</option>
+	<option value="BF">Burkina Faso</option>
+	<option value="BI">Burundi</option>
+	<option value="KH">Cambodia</option>
+	<option value="CM">Cameroon</option>
+	<option value="CA">Canada</option>
+	<option value="CV">Cape Verde</option>
+	<option value="KY">Cayman Islands</option>
+	<option value="CF">Central African Republic</option>
+	<option value="TD">Chad</option>
+	<option value="CL">Chile</option>
+	<option selected="selected" value="CN">China</option>
+	<option value="CX">Christmas Island</option>
+	<option value="CC">Cocos (Keeling) Islands</option>
+	<option value="CO">Colombia</option>
+	<option value="KM">Comoros</option>
+	<option value="CG">Congo</option>
+	<option value="CD">Congo, the Democratic Republic of the</option>
+	<option value="CK">Cook Islands</option>
+	<option value="CR">Costa Rica</option>
+	<option value="CI">C&#244;te d&#39;Ivoire</option>
+	<option value="HR">Croatia</option>
+	<option value="CU">Cuba</option>
+	<option value="CY">Cyprus</option>
+	<option value="CZ">Czech Republic</option>
+	<option value="DK">Denmark</option>
+	<option value="DJ">Djibouti</option>
+	<option value="DM">Dominica</option>
+	<option value="DO">Dominican Republic</option>
+	<option value="EC">Ecuador</option>
+	<option value="EG">Egypt</option>
+	<option value="SV">El Salvador</option>
+	<option value="GQ">Equatorial Guinea</option>
+	<option value="ER">Eritrea</option>
+	<option value="EE">Estonia</option>
+	<option value="ET">Ethiopia</option>
+	<option value="FK">Falkland Islands (Malvinas)</option>
+	<option value="FO">Faroe Islands</option>
+	<option value="FJ">Fiji</option>
+	<option value="FI">Finland</option>
+	<option value="FR">France</option>
+	<option value="GF">French Guiana</option>
+	<option value="PF">French Polynesia</option>
+	<option value="TF">French Southern Territories</option>
+	<option value="GA">Gabon</option>
+	<option value="GM">Gambia</option>
+	<option value="GE">Georgia</option>
+	<option value="DE">Germany</option>
+	<option value="GH">Ghana</option>
+	<option value="GI">Gibraltar</option>
+	<option value="GR">Greece</option>
+	<option value="GL">Greenland</option>
+	<option value="GD">Grenada</option>
+	<option value="GP">Guadeloupe</option>
+	<option value="GU">Guam</option>
+	<option value="GT">Guatemala</option>
+	<option value="GG">Guernsey</option>
+	<option value="GN">Guinea</option>
+	<option value="GW">Guinea-Bissau</option>
+	<option value="GY">Guyana</option>
+	<option value="HT">Haiti</option>
+	<option value="HM">Heard Island and McDonald Islands</option>
+	<option value="VA">Holy See (Vatican City State)</option>
+	<option value="HN">Honduras</option>
+	<option value="HK">Hong Kong</option>
+	<option value="HU">Hungary</option>
+	<option value="IS">Iceland</option>
+	<option value="IN">India</option>
+	<option value="ID">Indonesia</option>
+	<option value="IR">Iran, Islamic Republic of</option>
+	<option value="IQ">Iraq</option>
+	<option value="IE">Ireland</option>
+	<option value="IM">Isle of Man</option>
+	<option value="IL">Israel</option>
+	<option value="IT">Italy</option>
+	<option value="JM">Jamaica</option>
+	<option value="JP">Japan</option>
+	<option value="JE">Jersey</option>
+	<option value="JO">Jordan</option>
+	<option value="KZ">Kazakhstan</option>
+	<option value="KE">Kenya</option>
+	<option value="KI">Kiribati</option>
+	<option value="KP">Korea, Democratic People&#39;s Republic of</option>
+	<option value="KR">Korea, Republic of</option>
+	<option value="KW">Kuwait</option>
+	<option value="KG">Kyrgyzstan</option>
+	<option value="LA">Lao People&#39;s Democratic Republic</option>
+	<option value="LV">Latvia</option>
+	<option value="LB">Lebanon</option>
+	<option value="LS">Lesotho</option>
+	<option value="LR">Liberia</option>
+	<option value="LY">Libyan Arab Jamahiriya</option>
+	<option value="LI">Liechtenstein</option>
+	<option value="LT">Lithuania</option>
+	<option value="LU">Luxembourg</option>
+	<option value="MO">Macao</option>
+	<option value="MK">Macedonia, the former Yugoslav Republic of</option>
+	<option value="MG">Madagascar</option>
+	<option value="MW">Malawi</option>
+	<option value="MY">Malaysia</option>
+	<option value="MV">Maldives</option>
+	<option value="ML">Mali</option>
+	<option value="MT">Malta</option>
+	<option value="MH">Marshall Islands</option>
+	<option value="MQ">Martinique</option>
+	<option value="MR">Mauritania</option>
+	<option value="MU">Mauritius</option>
+	<option value="YT">Mayotte</option>
+	<option value="MX">Mexico</option>
+	<option value="FM">Micronesia, Federated States of</option>
+	<option value="MD">Moldova, Republic of</option>
+	<option value="MC">Monaco</option>
+	<option value="MN">Mongolia</option>
+	<option value="MS">Montserrat</option>
+	<option value="MA">Morocco</option>
+	<option value="MZ">Mozambique</option>
+	<option value="MM">Myanmar</option>
+	<option value="NA">Namibia</option>
+	<option value="NR">Nauru</option>
+	<option value="NP">Nepal</option>
+	<option value="NL">Netherlands</option>
+	<option value="AN">Netherlands Antilles</option>
+	<option value="NC">New Caledonia</option>
+	<option value="NZ">New Zealand</option>
+	<option value="NI">Nicaragua</option>
+	<option value="NE">Niger</option>
+	<option value="NG">Nigeria</option>
+	<option value="NU">Niue</option>
+	<option value="NF">Norfolk Island</option>
+	<option value="MP">Northern Mariana Islands</option>
+	<option value="NO">Norway</option>
+	<option value="OM">Oman</option>
+	<option value="PK">Pakistan</option>
+	<option value="PW">Palau</option>
+	<option value="PS">Palestinian Territory, Occupied</option>
+	<option value="PA">Panama</option>
+	<option value="PG">Papua New Guinea</option>
+	<option value="PY">Paraguay</option>
+	<option value="PE">Peru</option>
+	<option value="PH">Philippines</option>
+	<option value="PN">Pitcairn</option>
+	<option value="PL">Poland</option>
+	<option value="PT">Portugal</option>
+	<option value="PR">Puerto Rico</option>
+	<option value="QA">Qatar</option>
+	<option value="RE">R&#233;union</option>
+	<option value="RO">Romania</option>
+	<option value="RU">Russian Federation</option>
+	<option value="RW">Rwanda</option>
+	<option value="SH">Saint Helena</option>
+	<option value="KN">Saint Kitts and Nevis</option>
+	<option value="LC">Saint Lucia</option>
+	<option value="PM">Saint Pierre and Miquelon</option>
+	<option value="VC">Saint Vincent and the Grenadines</option>
+	<option value="WS">Samoa</option>
+	<option value="SM">San Marino</option>
+	<option value="ST">Sao Tome and Principe</option>
+	<option value="SA">Saudi Arabia</option>
+	<option value="SN">Senegal</option>
+	<option value="RS">Serbia</option>
+	<option value="SC">Seychelles</option>
+	<option value="SL">Sierra Leone</option>
+	<option value="SG">Singapore</option>
+	<option value="SK">Slovakia</option>
+	<option value="SI">Slovenia</option>
+	<option value="SB">Solomon Islands</option>
+	<option value="SO">Somalia</option>
+	<option value="ZA">South Africa</option>
+	<option value="GS">South Georgia and the South Sandwich Islands</option>
+	<option value="ES">Spain</option>
+	<option value="LK">Sri Lanka</option>
+	<option value="SD">Sudan</option>
+	<option value="SR">Suriname</option>
+	<option value="SJ">Svalbard and Jan Mayen</option>
+	<option value="SZ">Swaziland</option>
+	<option value="SE">Sweden</option>
+	<option value="CH">Switzerland</option>
+	<option value="SY">Syrian Arab Republic</option>
+	<option value="TW">Taiwan, Province of China</option>
+	<option value="TJ">Tajikistan</option>
+	<option value="TZ">Tanzania, United Republic of</option>
+	<option value="TH">Thailand</option>
+	<option value="TL">Timor-Leste</option>
+	<option value="TG">Togo</option>
+	<option value="TK">Tokelau</option>
+	<option value="TO">Tonga</option>
+	<option value="TT">Trinidad and Tobago</option>
+	<option value="TN">Tunisia</option>
+	<option value="TR">Turkey</option>
+	<option value="TM">Turkmenistan</option>
+	<option value="TC">Turks and Caicos Islands</option>
+	<option value="TV">Tuvalu</option>
+	<option value="UG">Uganda</option>
+	<option value="UA">Ukraine</option>
+	<option value="AE">United Arab Emirates</option>
+	<option value="GB">United Kingdom</option>
+	<option value="US">United States</option>
+	<option value="UM">United States Minor Outlying Islands</option>
+	<option value="UY">Uruguay</option>
+	<option value="UZ">Uzbekistan</option>
+	<option value="VU">Vanuatu</option>
+	<option value="VE">Venezuela</option>
+	<option value="VN">Viet Nam</option>
+	<option value="VG">Virgin Islands, British</option>
+	<option value="VI">Virgin Islands, U.S.</option>
+	<option value="WF">Wallis and Futuna</option>
+	<option value="EH">Western Sahara</option>
+	<option value="YE">Yemen</option>
+	<option value="ZM">Zambia</option>
+	<option value="ZW">Zimbabwe</option>
+
+</select>
+                </div>
+            </td><td>
+                <div class="label50" Style="width:auto;margin-right:10px;">
+                    <span id="for" style="white-space:nowrap;">for</span>
+                </div>
+            </td><td Style="width:100%; padding-right:10px;">
+                <div class="searchbox" Style="width:100%">
+                    <div id="pnSearch" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;btnSearch&#39;)">
+	
+                        <input name="ctl00$MainContent$ctl00$searchbox" type="text" id="searchbox" class="seachInput" autofocus="autofocus" autocomplete="off" style="width: 100%;" placeholder="Enter the search criteria" value="Shanghai" />
+                            <input type="hidden" name="ctl00$MainContent$ctl00$searchboxLatLng" id="searchboxLatLng" />
+                    
+</div>
+                </div>
+            </td><td>
+  
+        <input type="submit" name="ctl00$MainContent$ctl00$btnSearch" value="Search" id="btnSearch" class="button" style="margin-top: 3px;margin-right:10px;float: right;white-space:nowrap;cursor:pointer" />
+            </td><td>
+         </tr>
+    </table>
+    <div id="divStnName">
+                    <div id="StnName" class="split">
+                        <span id="lblPointText">Forecast for</span>
+                        <label id="lblStnName">Shanghai AP</label>
+                        <label id="lblDistText">,7 m asl, 09km NE from <strong>Shanghai</strong></label>
+                    </div>
+                    <div class="split">
+                        <a id="hNearByPoint" class="show" style="cursor: pointer; text-decoration: underline;
+                            color: #0093cf;">Nearby Stations</a>
+                    </div>
+                </div>
+</div>
+<div id="list">
+</div>
+<div id="divLocation" class="hide">
+    <div class="tab">
+        <ul id="tabs">
+            <li id="liList">
+                <img id="imglist" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/list.jpg" alt="Places" data-controls="List" data-activedescendant="mapImage"
+                    title="List View" />
+                <span id="textlist" title="List View">List View</span></li>
+            <li id="liMap">
+                <img id="imgmap" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/map.jpg" alt="Map" data-controls="mapImage" data-activedescendant="List"
+                    title="Map View" />
+                <span id="textmap" title="Map View">Map View</span></li>
+        </ul>
+    </div>
+    <div id="LocClose" class="close" role="button" data-controls="divLocation">
+        X</div>
+    <div id="List">
+        <div id="LocList" class="avoidscroll">
+            
+            <div>
+
+</div>
+        </div>
+        <div id="stnList" class="avoidscroll">
+            <div>
+	<table class="tablesorter show" cellspacing="0" rules="all" border="1" id="gvStations" style="border-collapse:collapse;">
+		<thead>
+			<tr>
+				<th scope="col">Station Name</th><th class="hide" scope="col">Actual Distance</th><th class="hide" scope="col">Elevation</th><th class="hide" scope="col">Longitude</th><th class="hide" scope="col">Latitude</th><th scope="col">Distance</th><th class="hide" scope="col">Station ID</th><th class="hide" scope="col">BearingDegrees</th><th class="hide" scope="col">TimezoneOffset</th><th class="hide" scope="col">DstOn</th>
+			</tr>
+		</thead><tbody>
+			<tr onclick="javascript:setTimeout(&quot;__doPostBack(&#39;ctl00$MainContent$ctl00$gvStations$ctl02$ctl00&#39;,&#39;&#39;)&quot;,300)">
+				<td style="width:200px;">Shanghai AP</td><td class="hide">8.9</td><td class="hide">7</td><td class="hide">121.43300</td><td class="hide">31.16700</td><td style="width:550px;">,7 m asl, 09km NE from <strong>Shanghai</strong></td><td class="hide">38944</td><td class="hide">43</td><td class="hide">8</td><td class="hide">0</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+        </div>
+    </div>
+    <div id="mapImage" class="hide">
+        Map View under construction.
+    </div>
+    <div id="hdnStation">
+        <input type="hidden" name="ctl00$MainContent$ctl00$hdnLatLng" id="hdnLatLng" value="31.10944|121.36806|Shanghai| #StnList" />
+        <input type="hidden" name="ctl00$MainContent$ctl00$hdnGridStatus" id="hdnGridStatus" value="hide" />
+        <input type="hidden" name="ctl00$MainContent$ctl00$hdnLocSelected" id="hdnLocSelected" value="31.10944|121.36806|Shanghai" />
+    </div>
+</div>
+
+    <div id="divIcon" class="iconDivClass">
+
+    <table id="weathericontable" class="iconHeaderTableClass"><tr><td class="iconColumnClass"><table><tr><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_odf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td></tr></table></td><td class="iconColumnClass"><table><tr><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_odf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td></tr></table></td><td class="iconColumnClass"><table><tr><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_odf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td></tr></table></td><td class="iconColumnClass"><table><tr><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_odf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td></tr></table></td><td class="iconColumnClass"><table><tr><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_odf2.jpeg" alt=""/></td><td style="text-align:center;width:6%"><img title="" src="http://localhost:27196/Syngenta.AgriCast.UI/Images/Icons/40x40_onf2.jpeg" alt=""/></td></tr></table></td></tr></table>
+</div>
+
+<script type="text/javascript">
+    /*IM01166162 - AgriInfo UI Issues - Begin*/
+    //Added aditonal param "isAgriInfo"
+
+    function showBigImage(url, isAgriInfo) {
+       
+        var features = 'height=600px,width=1050,toolbar=0,status=0,resizable=1,location=0,menuBar=0';
+        //var features = 'height=600px,width=1050,toolbar=0,scrollbars=0,status=0,resizable=1,location=0,menuBar=0';
+        if (isAgriInfo.toLowerCase() == "true")
+            features = features + ",scrollbars=1"; // add scroll bars for agriInfo
+        else
+            features = features + ",scrollbars=0";
+        /*IM01166162 - AgriInfo UI Issues - End*/
+
+        window.open(url, 'name', features).focus();
+    }
+</script>
+
+<div id="divFcChart">
+    
+</div>
+<div id="chrtDiv" class="chartDiv" style="width: auto; *width: auto">
+    
+    <img src="http://localhost:27196/Syngenta.AgriCast.UI/temp/cfx/d688ceb3f2c34b86a1e4101468d48cdfShanghaiAP9112015112557AM.png" id="imgChart" alt="ChartImage" class="show imgArrow" style="cursor: pointer;" title="Click here to view bigger chart." onclick="showBigImage(&#39;http://localhost:27196/Syngenta.AgriCast.UI/pub/glbsip02o/ChartZoomedImage.aspx?img=%7e%2ftemp%2fcfx%2f61353b59343244a2b25517293329fc5dShanghaiAP9112015112558AM-bigger.png&#39;,&#39;False&#39;)" />
+    
+    
+    
+    
+</div>
+
+<div id="float-icon-legend" class="float-icon-legend">
+    <div class="chart-float-legend">
+        <table id="tblwinddirectionlegend">
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <span id="windIconsLabel">Wind Icons</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        0
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        15
+                    </td>
+                    <td style="text-align: left">
+                        <img id="img15" src="http://localhost:27196/Syngenta.AgriCast.UI/temp/icons/30x30_bft2-13_180.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        40
+                    </td>
+                    <td style="text-align: left">
+                        <img id="img40" src="http://localhost:27196/Syngenta.AgriCast.UI/temp/icons/30x30_bft3-17_180.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        75
+                    </td>
+                    <td style="text-align: left">
+                        <img id="img75" src="http://localhost:27196/Syngenta.AgriCast.UI/temp/icons/30x30_bft4-20.89_180.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right">
+                        120
+                    </td>
+                    <td style="text-align: left">
+                        <img id="img120" src="http://localhost:27196/Syngenta.AgriCast.UI/temp/icons/30x30_bft4-24.33_180.png" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span id="weatherLabel">avg</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <table id="tblwinddirectionlegend1">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="center">
+                                        <span id="northDir">N</span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="middle">
+                                        <span id="westDir">W</span>
+                                    </td>
+                                    <td>
+                                        <img id="imgDirection" src="http://localhost:27196/Syngenta.AgriCast.UI/temp/icons/30x30_bft4-20.89_225.png" />
+                                    </td>
+                                    <td valign="middle">
+                                        <span id="eastDir">E</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                    </td>
+                                    <td align="center">
+                                        <span id="southDir">S</span>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                    
+                    <table id="tblhumidlegend">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>XX%</strong>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span id="humidityLabel">Relative Humidity (%)</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="iconsContainer" class="chart-float-icons"><table id= "tblwindicons" class="incomplete-data" style="width:0px;"><tbody><tr></tr><tr></tr></tbody></table></div>
+</div>
+<div>
+
+</div>
+
+<div Class="divOuter"><div id="div_gv_9/11/2015" Class=" alignTableToChart "><div>
+	<table class="tablesGap alignToChart tblWidth_5" cellspacing="0" rules="all" border="1" id="gv_9/11/2015" style="border-collapse:collapse;">
+		<tr>
+			<td style="background-color:ffefedea;"></td><td class="tblSeriesHeaderStyles_5" colspan="3" style="background-color:ffefedea;">Friday</td><td class="tblSeriesHeaderStyles_5" colspan="3" style="background-color:ffefedea;">Saturday</td><td class="tblSeriesHeaderStyles_5" colspan="3" style="background-color:ffefedea;">Sunday</td><td class="tblSeriesHeaderStyles_5" colspan="3" style="background-color:ffefedea;">Monday</td><td class="tblSeriesHeaderStyles_5" colspan="3" style="background-color:ffefedea;">Tuesday</td>
+		</tr><tr>
+			<th scope="col">Hours of the Day:</th>
+		</tr><tr>
+			<td>Precipitation (mm)</td>
+		</tr><tr>
+			<td>Precipitation Risk (%)</td>
+		</tr><tr>
+			<td>Temperature max (°C)</td>
+		</tr><tr>
+			<td>Temperature min (°C)</td>
+		</tr><tr>
+			<td>Relative humidity (%)</td>
+		</tr><tr>
+			<td>Wind Direction</td>
+		</tr><tr>
+			<td>Wind Speed (km/h)</td>
+		</tr>
+	</table>
+</div></div></div>
+
+ 
+
+
+<div class="Legend"><span id="ctl00_MainContent_lbl_Banner" class="label250">{All_Banner}</span><div id="ctl00_MainContent_divLegend_Banner"><div id="ads">        <script src="http://service.syngenta-ais.com/ads/ais-glbsip/wide"></script>    </div></div></div><div>
+
+</div>
+
+<div Class="divOuter"><div id="div_gv_valuevew_spraygrnd" class="DetailsRating"><div><span class="label250">Ground Spraying</span></div><div>
+	<table class="tables" cellspacing="0" rules="all" border="1" id="gv_valuevew_spraygrnd" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">Hours of the Day:</th><th class="tableRowHourly" scope="col">0</th><th class="tableRowHourly" scope="col">1</th><th class="tableRowHourly" scope="col">2</th><th class="tableRowHourly" scope="col">3</th><th class="tableRowHourly" scope="col">4</th><th class="tableRowHourly" scope="col">5</th><th class="tableRowHourly" scope="col">6</th><th class="tableRowHourly" scope="col">7</th><th class="tableRowHourly" scope="col">8</th><th class="tableRowHourly" scope="col">9</th><th class="tableRowHourly" scope="col">10</th><th class="tableRowHourly" scope="col">11</th><th class="tableRowHourly" scope="col">12</th><th class="tableRowHourly" scope="col">13</th><th class="tableRowHourly" scope="col">14</th><th class="tableRowHourly" scope="col">15</th><th class="tableRowHourly" scope="col">16</th><th class="tableRowHourly" scope="col">17</th><th class="tableRowHourly" scope="col">18</th><th class="tableRowHourly" scope="col">19</th><th class="tableRowHourly" scope="col">20</th><th class="tableRowHourly" scope="col">21</th><th class="tableRowHourly" scope="col">22</th><th class="tableRowHourly" scope="col">23</th>
+		</tr><tr>
+			<td>Friday 11/09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr>
+			<td>Saturday 12/09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr>
+			<td>Sunday 13/09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr>
+			<td>Monday 14/09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr><tr>
+			<td>Tuesday 15/09</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+		</tr>
+	</table>
+</div></div></div><div Class="divOuter"><div Class="LegendPadding"><span id="lblRulesetL_SprayingrestrictionsLegend" class="label250">Spraying Restrictions Legend</span><div><div id="divRulesetL_SprayingrestrictionsLegend"><div id="SparayWindowGroundSprayingRestrictions"><table style="BORDER-COLLAPSE: collapse" class="restrictTable"  >		<tr>			<th class="legendTableHeader" colspan="9">Restrictions Legend</th>		</tr>		<tr>			<td class="legendLetterCell">A</td><td style="width:29%;">Leaf Surface too wet</td>			<td class="legendLetterCell">D</td><td style="width:29%;">Temperature too High</td>			<td class="legendLetterCell">F</td><td style="width:29%;">Evaporation Risk</td>		</tr>		<tr>			<td class="legendLetterCell">R</td><td style="width:29%;">Rain</td>			<td class="legendLetterCell">T</td><td style="width:29%;">Temperature too Low</td>			<td class="legendLetterCell">U</td><td style="width:29%;">Risk of Wind</td>		</tr>		<tr>			<td class="legendLetterCell">V</td><td style="width:29%;">Windy</td>			<td class="legendLetterCell">X</td><td style="width:29%;">Multiple Risks</td>			<td class="legendLetterCell">&nbsp;</td><td style="width:29%;">&nbsp;</td>		</tr>	</table>    </div></div></div></div></div><div Class="divOuter"><div Class="LegendPadding"><span id="lblRulesetL_SprayingcoloursLegend" class="label250">Spraying Colours Legend</span><div><div id="divRulesetL_SprayingcoloursLegend"><div id="GroundSprayingColoursLegend"><TABLE style="BORDER-COLLAPSE: collapse" class=restrictTable  ><TBODY><TR><TH class=legendTableHeader colSpan=9>Colours Legend</TH></TR><TR><TD class=legendColourCell>Night time</TD><TD class=legendColourCell>Day time</TD><TD class=legendColourCell></TD></TR><TR><TD class=legendColourCell><IMG  alt="" src="http://localhost:27196/Syngenta.AgriCast.UI/images/30x12_C2C76C.gif" width=30 height=12></TD><TD class=legendColourCell><IMG  alt="" src="http://localhost:27196/Syngenta.AgriCast.UI/images/30x12_AAB400.gif" width=30 height=12></TD><TD>Spraying Recommended</TD></TR><TR><TD class=legendColourCell><IMG  alt="" src="http://localhost:27196/Syngenta.AgriCast.UI/images/30x12_F2CD74.gif" width=30 height=12></TD><TD class=legendColourCell><IMG  alt="" src="http://localhost:27196/Syngenta.AgriCast.UI/images/30x12_FFB400.gif" width=30 height=12></TD><TD>Restricted Recommendation</TD></TR><TR><TD class=legendColourCell><IMG  alt="" src="http://localhost:27196/Syngenta.AgriCast.UI/images/30x12_E7B09C.gif" width=30 height=12></TD><TD class=legendColourCell><IMG  alt="" src="http://localhost:27196/Syngenta.AgriCast.UI/images/30x12_FB5438.gif" width=30 height=12></TD><TD>Not Recommended</TD></TR></TBODY></TABLE></div></div></div></div></div>
+
+ 
+
+
+
+    
+    <input type="hidden" name="ctl00$MainContent$hdnRate" id="hdnRate" />
+    <input type="submit" name="ctl00$MainContent$btnHiddenPrint" value="" id="btnHiddenPrint" class="hide" />
+    <input type="submit" name="ctl00$MainContent$btnHiddenAdvOptions" value="" onclick="openMore();" id="btnHiddenAdvOptions" class="hide" />
+    <script type="text/javascript" src="http://localhost:27196/Syngenta.AgriCast.UI/Scripts/jquery.rateit.js"></script>
+    <div id="divPrintPopup" class="hide">
+        <iframe src="" id="iframePrintPopup" style="width: 100%; height: 100%"></iframe>
+    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            
+    <ul id="ctl00_PageFooter_footNav" style="list-style-type: none; text-align: center;"><li>Disclaimer&nbsp;Forecast provided by <a href="http://www.wetteronline.de/" Target="_blank">www.wetteronline.de</a></li></ul>
+
+        </div>
+    </div>           
+    <div class="footer" id="footer">
+        <div>
+         <hr style="width: 960px; float: right; height: 1px; color: silver;"/> 
+            <ul style="list-style-type: none">
+                <li style="float: left"><span id="spnSyngenta" class="first">© 2011 Syngenta </span></li>
+                <li style="float: left"><a href="http://www.syngenta.com" id="lnkTnC" target="_blank">Terms and Conditions</a></li>
+                <li style="float: left"><a href="http://www.syngenta.com" id="lnkPrivPolicy" target="_blank">Privacy Policy</a></li>
+                <li style="float: left"><a href="http://www.syngenta.com" id="lnkContacts" target="_blank">Contacts</a></li>
+                <li style="float: left"><a href="http://localhost:27196/Syngenta.AgriCast.UI/Default.aspx" id="lnkMobile" class="last" onclick="delcookie(&#39;fullsite&#39;);">Mobile Site</a></li>
+            </ul>
+           
+        </div>
+       
+    </div>
+    
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+</div></form>
+</body>
+</html>

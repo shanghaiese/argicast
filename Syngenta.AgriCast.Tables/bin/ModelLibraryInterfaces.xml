@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ModelLibraryInterfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Syngenta.AIS.ModelLibrary.SerieListBase`1">
+            <summary>
+            Base generic class containing a datatable a list of metadata 
+            </summary>
+            <typeparam name="T">Any kind of metadata information</typeparam>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SerieListBase`1.EmptyValue">
+            <summary>
+            Index when a serie is not found
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.SerieListBase`1.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.SerieListBase`1.AddSerie(`0,System.Type)">
+            <summary>
+            Modifies the container to host a new serie of data.
+            Adds a new metadata and a new column in the datatable
+            </summary>
+            <param name="serie">Metadata of the serie</param>
+            <param name="type">.net type of the data of the serie</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.SerieListBase`1.GetRowForDate(System.DateTime)">
+            <summary>
+            Gets a row (the data of all series) coresponding to the input datetime
+            </summary>
+            <param name="date">time of the wanted data</param>
+            <returns>firts datarow for this datetime, containing the values of all the series</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.SerieListBase`1.GetRowForDate(System.DateTime,System.Boolean)">
+            <summary>
+            Gets a row (the data of all series) coresponding to the input datetime, or only date
+            </summary>
+            <param name="date">date or datetime</param>
+            <param name="timelessMatch">Should look also at the time, or only the date is enough</param>
+            <returns>firts datarow for this datetime, containing the values of all the series</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.SerieListBase`1.GetSerieIndex(System.String)">
+            <summary>
+            get the index of a serie in the list,by its name
+            </summary>
+            <param name="serieName">name of the serie</param>
+            <returns>the index of the serie or EmptyValue is not found</returns>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.SerieListBase`1.Table">
+            <summary>
+            Datatable containign the time-related data 
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.SerieListBase`1.Series">
+            <summary>
+            List of metadata, in the same order as the columns in the datatable
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.ISerie">
+            <summary>
+            Interface of metadata describing a datacolumn 
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.ISerie.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.ISerie.Units">
+            <summary>
+            Units
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.ISerie.SeriesName">
+            <summary>
+            SeriesName
+            </summary>
+        </member>
+    </members>
+</doc>

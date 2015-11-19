@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>bdcpn01fao</name>
+	<extNavigation></extNavigation>
+	<secured>false</secured>
+	<allowedRoles></allowedRoles>
+	<emailSettings>
+		<senderName>SyngentaAIS-bdcpn01fao</senderName>
+		<senderAddress>support@syngenta-ais.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Agri-Cast (Template Cast Open) Feedback</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="en-GB" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+      <culture code="en-US">English (US)			</culture>
+    </allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric</Units>
+		<custom>
+			<Wind>kmh</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="false" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+      <area code="BD">Bangladesh</area>
+		</allowedCountries>
+	</locationSearch>
+
+	<servicePages file="../base_glbsipn02fwo.xml" />
+
+
+</service>
+
+
+

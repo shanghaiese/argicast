@@ -1,0 +1,17 @@
+@import 'base_CSSstandard.css';
+
+div.menu 
+{
+display: block;
+}
+
+.main, .pageheader, .page, #container, .footer {width: 960px;}
+
+#imgFav {float:right;}
+#tools {width: auto;}
+
+#divAgICharts #chrtDiv
+{
+	margin-top:0px;
+	padding-left: 0;
+}

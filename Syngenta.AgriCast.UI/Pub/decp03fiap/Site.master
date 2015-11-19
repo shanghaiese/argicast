@@ -1,0 +1,151 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="<%=System.Threading.Thread.CurrentThread.CurrentUICulture%>" dir="<%=System.Threading.Thread.CurrentThread.CurrentUICulture.TextInfo.IsRightToLeft?"rtl":"ltr"%>">
+<head runat="server">
+    <meta http-equiv="refresh" content="21600; url=SessionExpired.aspx" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title></title>
+    <link id="dynamicCss" rel="stylesheet" type="text/css" runat="server" />
+    <link id="siteCss" rel="stylesheet" type="text/css" runat="server" />
+    <link type="text/css" rel="stylesheet" href="http://ajax.microsoft.com/ajax/jquery.ui/1.8.6/themes/Overcast/jquery-ui.css" />
+    <link href="../../Styles/RateIt.css" rel="stylesheet" type="text/css" />
+    <link href="../../Styles/tableSort.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <%-- <style type="text/css">
+    #divSearch
+    {
+        background-color: #CCCC99;
+    }
+    </style>--%>
+    <script type="text/javascript">
+        function delcookie(name) {
+
+            document.cookie = name + '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+
+            if (!is_mobile()) {
+                createCookie(name, '1', 1);
+            }
+        }
+
+        function is_mobile() {
+
+            var agents = ['android', 'iphone', 'ipad', 'ipod', 'blackberry', 'symbian',
+                          'webos', 'opera mini', 'iemobile', 'meego', 'Dolphin',
+                          'SonyEricsson', 'Samsung', 'nokia', 'Vodafone', 'HTC'];
+            for (i in agents) {
+                if (navigator.userAgent.match(new RegExp(agents[i], "i"))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function createCookie(name, value, days) {
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                var expires = "; expires=" + date.toGMTString();
+            }
+            else var expires = "";
+            document.cookie = name + "=" + value + expires + ";";
+        }
+
+        function resizeMe() {
+            if (document.location.href.indexOf("syngenta.com") != -1) {
+                document.domain = "syngenta.com";
+            }
+            localdomain = self.document.domain
+            localHref = self.document.location.href
+            //we are not in an iframe => return
+            if (self == top) return
+
+            var par = self.parent
+            var pardomain = ""
+            try {
+                pardomain = par.document.domain
+            }
+            catch (err) {
+                pardomain = ""
+            }
+            //we are not in the same domain => return
+            if (pardomain != localdomain) return
+
+            var tabiframe = par.document.getElementsByTagName("iframe")
+            for (i = 0; i < tabiframe.length; i++) {
+                var oDoc = tabiframe[i].contentWindow || tabiframe[i].contentDocument;
+
+                if (self === oDoc) {
+                    tabiframe[i].height = "10px"
+
+                    var iframeWin = tabiframe[i].contentWindow || iframe.contentDocument.parentWindow;
+                    if (iframeWin.document.body) {
+                        var newHeight = Math.max(iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight, iframeWin.document.body.clientHeight || iframeWin.document.documentElement.clientHeight) + 40;
+                        tabiframe[i].height = newHeight + "px"
+                    }
+                }
+            }
+
+        }
+    </script>
+</head>
+<body onload="resizeMe()">
+    <form runat="server">
+    <div id="container">
+        <div id="global" style="padding: 0px 0px;">
+            <div class="pageheader">
+                <div style="display: block; position: relative;">
+                    <a href="http://www.syngenta.com" style="text-decoration: none;">
+                        <img id="logo" src="../../images/Syngenta.gif" alt="SyngentaLogo" style="float: right;
+                            right: 5px; position: relative; height: 32px; border: 0px; bottom: 1px;" />
+                    </a>
+                </div>
+                <div class="menuTop">
+                    <asp:ContentPlaceHolder ID="ph_MenuTabsTop" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+            <div class="page" runat="server">
+                <asp:ScriptManager ID="SM1" runat="server">
+                </asp:ScriptManager>
+                <div id="pageMenu" class="menu" runat="server">
+                    <ul class="clear">
+                        <asp:ContentPlaceHolder ID="ph_MenuTabs" runat="server">
+                            This is a placeholder
+                        </asp:ContentPlaceHolder>
+                    </ul>
+                </div>
+                <div id="PageContent" class="main" runat="server">
+                    <div>
+                        <img src="../../Images/Service_Spritzwetter_Banner.jpg" />
+                        <span id="ctl00_SPWebPartManager1_g_44fe98ab_014d_4843_96c5_47e4d7b88b0e_ctl00_lblHeading"
+                            class="SPRHeading">Spritzwetter</span>                               
+                         <div class="SPRLabel" style="clear:both;margin-bottom:10px;";>
+                                    Nutzen Sie anhand der regionalen 5-Tages-Vorhersage und des stundengenauen Spritzwetterplans
+                                    den optimalen Zeitpunkt Ihrer Pflanzenschutzausbringung.</div>
+                             
+                    </div>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="PageFooter" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <%--<div id="footer">
+        <ul>
+            <li><a href="http://www3.syngenta.com/country/de/de/unternehmen/Seiten/Kontakt.aspx" class="first ">Kontakt</a></li>
+            <li><a href="http://www3.syngenta.com/country/de/de/unternehmen/Seiten/Impressum.aspx" class="">Impressum</a></li>
+            <li><a href="http://www3.syngenta.com/country/de/de/unternehmen/Seiten/Geschaeftsbedingungen.aspx" class="">
+                Geschäftsbedingungen</a></li>
+            <li><a href="http://www3.syngenta.com/country/de/de/unternehmen/Seiten/Datenschutz.aspx" class="">Datenschutz</a></li>
+            <li><span class="last">© Syngenta 2012</span></li>
+        </ul>
+    </div>--%>
+    </form>
+</body>
+</html>

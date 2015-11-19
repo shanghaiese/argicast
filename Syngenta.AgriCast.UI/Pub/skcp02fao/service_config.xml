@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <name>skcp02fao</name>
+  <extNavigation></extNavigation>
+  <secured>false</secured>
+  <allowedRoles>AIS</allowedRoles>
+  <emailSettings>
+    <senderName>SyngentaAIS-skcp02fao</senderName>
+    <senderAddress>support@syngenta-ais.com</senderAddress>
+    <!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+    <subject>Syngenta Weather </subject>
+    <defaultBody></defaultBody>
+  </emailSettings>
+  <cultureSettings default="sk-SK" useIPCulture="true" useBrowserLang="true">
+    <allowedCultureCodes>
+      <culture code="sk-SK">Slovenčina (SK)		</culture>
+      <!-- slovenčina (SK) -->
+      <culture code="en-GB">English (UK)			</culture>
+      <!-- English (GB) -->
+      <culture code="de-DE">Deutsch (DE)			</culture>
+      <!-- Deutsch -->
+    </allowedCultureCodes>
+  </cultureSettings>
+  <unitsSettings>
+    <Units>metric</Units>
+    <custom>
+      <Wind>kmh,beaufort</Wind>
+    </custom>
+  </unitsSettings>
+  <locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+    <allowedCountries>
+      <area code="SK">Slovakia</area>
+    </allowedCountries>
+  </locationSearch>
+  <servicePages file="../base_glbsips02fwo.xml" />
+
+
+</service>
+
+
+

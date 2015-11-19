@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>trcp02fao</name>
+	<extNavigation></extNavigation>
+	<secured>true</secured>
+	<allowedRoles>trcp02fao</allowedRoles>
+	<emailSettings>
+		<senderName>Syngenta weather</senderName>
+		<senderAddress>Ferda.Balaban@syngenta.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject></subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="tr-TR" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="tr-TR">Türkçe (TR)			</culture>
+			<!-- Türkçe (TR) -->
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric,imperial</Units>
+		<custom>
+			<Wind>kmh,mph,beaufort</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="TR">Turkey</area>
+		</allowedCountries>
+	</locationSearch>
+
+	<servicePages file="../base_glbsips02fwo.xml" />
+
+
+</service>
+
+
+

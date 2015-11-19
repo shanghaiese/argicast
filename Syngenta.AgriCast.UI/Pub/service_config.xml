@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+   <name>glbsip03p</name>
+   <extNavigation>FR</extNavigation>
+   <secured>true</secured>
+   <allowedRoles>Demo,glbsip02o,glbsip03p,Agri-Info Restricted for Syngenta.Global.Intranet.External (intraus),Agri-Cast Open for bruchid (gpcp10i)</allowedRoles>
+   <emailSettings>
+      <senderName>SyngentaAIS - Glbsip03p</senderName>
+      <senderAddress>support@syngenta-ais.com</senderAddress>
+      <!--This should be a combination of translation tag and variable name to be substituded at runtime-->       
+	  <subject>Agri-Cast (Template Cast Open) Feedback</subject>
+      <defaultBody></defaultBody>
+   </emailSettings>
+   <cultureSettings default="en-GB" useIPCulture="true" useBrowserLang="true">
+      <allowedCultureCodes>      
+         <culture code="en-US">English (US)			</culture>          
+      </allowedCultureCodes>
+   </cultureSettings>
+   <unitsSettings>
+      <Units>metric,imperial</Units>
+      <custom>
+         <Wind>kmh,mph,beaufort</Wind>
+      </custom>
+   </unitsSettings>
+   <locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+      <allowedCountries>
+         <area code="AF">Afghanistan</area>
+      </allowedCountries>
+   </locationSearch>
+
+</service>
+
+
+

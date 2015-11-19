@@ -1,0 +1,1166 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ModelLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:Syngenta.AIS.ModelLibrary.Serie">
+            <summary>
+            describes a stanard list of time related numeric data
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.Serie.#ctor(System.String,System.String)">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="name">name of the serie</param>
+            <param name="units">unit of the serie</param>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.Serie.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.Serie.Units">
+            <summary>
+            Units
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.Serie.SeriesName">
+            <summary>
+            SeriesName
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.GrowthMedia">
+            <summary>
+            Object describing a growth media
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.GrowthMedia.EmptyValue">
+            <summary>
+            Constant used for an empty value
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.#ctor">
+            <summary>
+            public constructor
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.#ctor(System.Collections.Generic.IList{Syngenta.AIS.ModelLibrary.GrowthMediaLayer})">
+            <summary>
+            public constructor with an already instanciated layer list
+            </summary>
+            <param name="growthMediaLayer"></param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetAverageWaterContentAtFieldCapacityAtBulkDensityForADepth(System.Double)">
+            <summary>
+            Calculate the average WaterCapacity for a depth 
+            </summary>
+            <param name="depth_mm">depth in (mm)</param>
+            <returns>AvailableWaterCapacity (mm) per mm of soil</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetAverageAvailableWaterContentAtFieldCapacityAtBulkDensityForADepth(System.Double)">
+            <summary>
+            Calculate the average AvailableWaterCapacity for a depth (TTSW)
+            </summary>
+            <param name="depth_mm">depth in (mm)</param>
+            <returns>Available Water Content (mm) per mm of soil</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetAverageBulkDensityForADepth(System.Double)">
+            <summary>
+            Calculate the average BulkDensity for a depth 
+            </summary>
+            <param name="depth_mm">depth in (mm)</param>
+            <returns>average bulk density</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetAverageOrganicMatterContentForADepth(System.Double)">
+            <summary>
+            Calculate the average OrganicMatterContent for a depth 
+            </summary>
+            <param name="depth_mm">depth in (mm)</param>
+            <returns>Average Organic Matter Content (g/kg)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetAverageOrganicNitrogenContentForADepth(System.Double)">
+            <summary>
+            Calculate the average OrganicNitrogenContent for a depth 
+            </summary>
+            <param name="depth_mm">depth in (mm)</param>
+            <returns>Average Organic Nitrogen Content(g/kg)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetAverageCoarseFragmentForADepth(System.Double)">
+            <summary>
+            Calculate the average CoarseFragment for a depth 
+            </summary>
+            <param name="depth_mm">depth in (mm)</param>
+            <returns>average Corase fragment</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetCurrentAvailableWaterContentForADepth(System.Double,System.DateTime)">
+            <summary>
+            Calculates the total availiable water content for a depth
+            </summary>
+            <param name="depth_mm">depth in (mm) - positive value</param>
+            <param name="day">Date of the calculated day</param>
+            <returns>Total Available Water (mm)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetTotalMineralisedNitrogenContentForADepth(System.Double,System.DateTime)">
+            <summary>
+            Calculates the total Mineralised Nitrogen Content, from the surface to a depth, for a specific day
+            </summary>
+            <param name="depth_mm"></param>
+            <param name="day"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Crea5e the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMedia.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMedia.GrowthMediaLayer">
+            <summary>
+            List of layers
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMedia.GetTotalThickness_mm">
+            <summary>
+            Calculate the total tickness
+            </summary>
+            <returns>Total thickess in mm</returns>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.GrowthMediaLayer">
+            <summary>
+            describes one layer in a growthmedia
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.SetStaticValue(Syngenta.AgroModelPlatform.EntityModel.GroundMeasurementCategory,System.Double)">
+            <summary>
+            Sets one static values
+            </summary>
+            <param name="category">Category of the static value</param>
+            <param name="value">numeric value of the static value</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.GetStaticValue(Syngenta.AgroModelPlatform.EntityModel.GroundMeasurementCategory)">
+            <summary>
+            Get the value of a static value
+            </summary>
+            <param name="category">category of the static value</param>
+            <returns>numeric value</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.#ctor">
+            <summary>
+            Public constructor
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.#ctor(Syngenta.AIS.ModelLibrary.SerieList{Syngenta.AIS.ModelLibrary.Serie},System.Int32,System.Collections.Generic.Dictionary{Syngenta.AgroModelPlatform.EntityModel.GroundMeasurementCategory,System.Double})">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="periodValues">altready instanciated serie list</param>
+            <param name="rank">rank of this layer</param>
+            <param name="staticValues">already instanciated list of static values</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.#ctor(Syngenta.AIS.ModelLibrary.SoilTypes12Scale)">
+            <summary>
+            Public constructor with a 12 scale soil type
+            </summary>
+            <param name="soilType">Type of the soil, in a 12 scale range</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.#ctor(Syngenta.AIS.ModelLibrary.SoilTypes6Scale)">
+            <summary>
+            Public constructor with a 6 scale soil type
+            </summary>
+            <param name="soilType">Type of the soil, in a 6 scale range</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterAvailableContentAtADay(System.DateTime,System.Double,System.Double)">
+            <summary>
+            Calculate the available watercontent of a layer, from the aquaspy data
+            </summary>
+            <param name="day">Date whn we want the data for</param>
+            <param name="startingLayerDepth_mm">Starting depth of the layer - positive value (mm)</param>
+            <param name="maxDepth_mm">Max depth for which we should searh for sensor values - positive value (mm)</param>
+            <returns>number of mm of water (total) between the upper limit of the layer and  maxDepth</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.MineralisedNitrogenContentAtADay(System.DateTime,System.Double,System.Double)">
+            <summary>
+            Calculate the Mineralised Nitrogen Content of a layer
+            </summary>
+            <param name="day">Date whn we want the data for</param>
+            <param name="startingLayerDepth_mm">Starting depth of the layer - positive value (mm)</param>
+            <param name="maxDepth_mm">Max depth for which we should searh for sensor values - positive value (mm)</param>
+            <returns>number of mm of water (total) between the upper limit of the layer and  maxDepth</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.GetDepthFromName(System.String)">
+            <summary>
+            Extracts the depth (in mm) from th ename of the sensor serie name
+            </summary>
+            <param name="name">sensor serie name</param>
+            <returns>depth (in mm)</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculateAvailableWaterAtGivenCapacitanceScaledFrequency(System.Double)">
+            <summary>
+            nb of mm of water (per mm of soil) availiable for the plant for a given Capacitance Scale frequency
+            </summary>
+            <param name="givenCapacitanceScaledFrequency"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculateWaterContentAtMeasuredMoistureTensionAtBulkDensity(System.Double)">
+            <summary>
+            Calculates the Water Content, At Measured Moisture Tension, At Bulk Density
+            </summary>
+            <param name="measuredMoistureTension">measured Moisture Tension</param>
+            <returns>the Water Content, At Measured Moisture Tension, At Bulk Density</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculateWaterContentAtMeasuredMoistureTensionAtMatricDensity(System.Double)">
+            <summary>
+            Calculates the Water Content, At Measured Moisture Tension, At Matric Density
+            </summary>
+            <param name="measuredMoistureTension">measured Moisture Tension</param>
+            <returns>the Water Content, At Measured Moisture Tension, At Matric Density</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculateDrainageAtGivenWaterContentAtBulkDensity(System.Double)">
+            <summary>
+            Calculates the Drainage At Given Water Content, At Bulk Density
+            </summary>
+            <param name="givenWaterContentAtMatricDensity">given Water Content At MatricDensity</param>
+            <returns>Drainage At Given Water Content, At Bulk Density</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculateWaterContentAtGivenCapacitanceScaledFrequency(System.Double)">
+            <summary>
+            Calculates the Water Content, At Given Capacitance Scaled Frequency
+            </summary>
+            <param name="givenCapacitanceScaledFrequency">givenCapacitanceScaledFrequency</param>
+            <returns>the Water Content, At Given Capacitance Scaled Frequency</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculateWaterContentAtGivenMoistureTensionAtBulkDensity(System.Double)">
+            <summary>
+            Calculates the Water content from a given moisture Tension, at bulk density
+            </summary>
+            <param name="givenTension">moisture Tension</param>
+            <returns>The water content in mm</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculateSoiltypes">
+            <summary>
+            Calculate the soil types from the mineral fractions
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CompareGrowthMediaLayer(Syngenta.AIS.ModelLibrary.GrowthMediaLayer,Syngenta.AIS.ModelLibrary.GrowthMediaLayer)">
+            <summary>
+            Compares the order of growthmedia layers
+            </summary>
+            <param name="layer1">first growthmedia layers</param>
+            <param name="layer2">second growthmedia layers</param>
+            <returns>-1  if the first one is before the second one, 
+            0 if they are at the same rank
+            1 if the second one is before the first one</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CompareTo(Syngenta.AIS.ModelLibrary.GrowthMediaLayer)">
+            <summary>
+            Compares the order of growthmedia layers
+            </summary>
+            <param name="other">second growthmedia layers</param>
+            <returns>-1  if the first one is before the second one, or if the second one is null, or if the second one is not a growthmedia layers
+            0 if they are at the same rank
+            1 if the second one is before the first one</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CompareTo(System.Object)">
+            <summary>
+            Compares the order of growthmedia layers
+            </summary>
+            <param name="obj">second growthmedia layers</param>
+            <returns>-1  if the first one is before the second one, or if the second one is null, or if the second one is not a growthmedia layers
+            0 if they are at the same rank
+            1 if the second one is before the first one</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.op_Inequality(Syngenta.AIS.ModelLibrary.GrowthMediaLayer,Syngenta.AIS.ModelLibrary.GrowthMediaLayer)">
+            <summary>
+            Check the non equality of two gwothMedia layers
+            </summary>
+            <param name="object1">first growthmedia layer</param>
+            <param name="object2">second growthmedia layer</param>
+            <returns>true if the ranks are the different</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.op_LessThan(Syngenta.AIS.ModelLibrary.GrowthMediaLayer,Syngenta.AIS.ModelLibrary.GrowthMediaLayer)">
+            <summary>
+            Check the order of two gwothMedia layers
+            </summary>
+            <param name="object1">first growthmedia layer</param>
+            <param name="object2">second growthmedia layer</param>
+            <returns>true if the rank of the first one is below the rank of the second one</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.op_GreaterThan(Syngenta.AIS.ModelLibrary.GrowthMediaLayer,Syngenta.AIS.ModelLibrary.GrowthMediaLayer)">
+            <summary>
+            Check the order of two gwothMedia layers
+            </summary>
+            <param name="object1">first growthmedia layer</param>
+            <param name="object2">second growthmedia layer</param>
+            <returns>true if the rank of the first one is higher than the rank of the second one</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.op_Equality(Syngenta.AIS.ModelLibrary.GrowthMediaLayer,Syngenta.AIS.ModelLibrary.GrowthMediaLayer)">
+            <summary>
+            Check the equality of two gwothMedia layers ranks
+            </summary>
+            <param name="object1">first growthmedia layer</param>
+            <param name="object2">second growthmedia layer</param>
+            <returns>true if the rank of the first one is the same as the rank of the second one</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.Equals(System.Object)">
+            <summary>
+            Check the equality of two gwothMedia layers ranks
+            </summary>
+            <param name="obj">second growthmedia layer</param>
+            <returns>true if the rank of the first one is the same as the rank of the second one</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.GetHashCode">
+            <summary>
+            Calculate the hashcode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.SoilType12">
+            <summary>
+            Soil type, in a 12 scale range
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.SoilType6">
+            <summary>
+            Soil type, in a 6 scale range
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.ClayWeight">
+            <summary>
+            Clay fraction in the matric (in % of Weight)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.SandWeight">
+            <summary>
+            Sand fraction in the matric (in % of Weight)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.SiltWeight">
+            <summary>
+            Silt fraction in the matric (in % Weight)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.OrganicMatterWeight">
+            <summary>
+            Organic fraction of the overall soil (in % of Weight)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CoarseFragmentVolume">
+            <summary>
+            Coarse fragment fraction of the overall soil (in % of volume)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.BulkDensity">
+            <summary>
+            Density of the overall soil (including organic matter and coarse fragment)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.Thickness">
+            <summary>
+            thickness in mm
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.Rank">
+            <summary>
+            Rank of the layer in the growthMedia description
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.PeriodValues">
+            <summary>
+            List of timerelated data
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.CalculatedBulkDensity">
+            <summary>
+            Calculated density of the overall soil (including organic matter and coarse fragment)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsMatricDensityObserved">
+            <summary>
+            Is MatricDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.MatricDensity">
+            <summary>
+            Density of the matric (soil without coarse fragment)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAtSaturationAtMatricDensity">
+            <summary>
+            maximum number of mm of water contained in 1mm of matric (saturation means "no drainage possible")
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsWaterContentAtSaturationAtMatricDensityObserved">
+            <summary>
+            Is WaterContentAtSaturationAtMatricDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.ConductivityAtSaturationAtMatricDensity">
+            <summary>
+            electric conductivity of the matric at saturation (saturation means "no drainage possible")
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsConductivityAtSaturationAtMatricDensityObserved">
+            <summary>
+            Is ConductivityAtSaturationAtMatricDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAt10kPaAtMatricDensity">
+            <summary>
+            number of mm of water contained in 1mm of matric to getPsychrometricConstant a vapor pression of 10kPa
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsWaterContentAt10kPaAtMatricDensityObserved">
+            <summary>
+            Is WaterContentAt10kPaAtMatricDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAt33kPaAtMatricDensity">
+            <summary>
+            number of mm of water contained in 1mm of matric to getPsychrometricConstant a vapor pression of 33kPa
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsWaterContentAt33kPaAtMatricDensityObserved">
+            <summary>
+            Is WaterContentAt33kPaAtMatricDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAt1500kPaAtMatricDensity">
+            <summary>
+            number of mm of water contained in 1mm of matric to getPsychrometricConstant a vapor pression of 1500kPa
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsWaterContentAt1500kPaAtMatricDensityObserved">
+            <summary>
+            Is WaterContentAt1500kPaAtMatricDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAtNullConductivityAtMatricDensity">
+            <summary>
+            number of mm of water contained in 1mm of matric for giving a null electric conductivity
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsWaterContentAtNullConductivityAtMatricDensityObserved">
+            <summary>
+            Is WaterContentAtNullConductivityAtMatricDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAtSaturationAtBulkDensity">
+            <summary>
+            maximum number of mm of water contained in 1mm of soil at saturation (saturation means "no drainage possible")
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.IsWaterContentAtSaturationAtBulkDensityObserved">
+            <summary>
+            Is WaterContentAtSaturationAtBulkDensity Observed
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAtFieldCapacityAtBulkDensity">
+            <summary>
+            number of mm of water contained in 1mm of soil at Cn capacity (maximum after drainage)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAt10kPaAtBulkDensity">
+            <summary>
+            number of mm of water contained in 1mm of soil to getPsychrometricConstant a vapor pression of 10kPa
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAt33kPaAtBulkDensity">
+            <summary>
+            number of mm of water contained in 1mm of soil to getPsychrometricConstant a vapor pression of 33kPa
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.WaterContentAtWiltingPointAtBulkDensity">
+            <summary>
+            number of mm of water contained in 1mm of soil at the wilting point (1500kPa)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.AvailableWaterAtSaturationAtBulkDensity">
+            <summary>
+            number of mm of water (per mm of soil) avaliable for the plant when the soil is at saturation (down to the wilting point) 
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.AvailableWaterAtFieldCapacityAtBulkDensity">
+            <summary>
+            number of mm of water (per mm of soil) avaliable for the plant when the soil is at Cn level (down to the wilting point)
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.AvailableWaterAt10kPaAtBulkDensity">
+            <summary>
+            number of mm of water (per mm of soil) avaliable for the plant when the vapor pressure is 10kPa (down to the wilting point) 
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.AvailableWaterAt33kPaAtBulkDensity">
+            <summary>
+            number of mm of water (per mm of soil) avaliable for the plant when the vapor pressure is 33kPa (down to the wilting point) 
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.GrowthMediaLayer.AvailableWaterAtNoConductivityAtBulkDensity">
+            <summary>
+            number of mm of water (per mm of soil) avaliable for the plant when the electrical conductivity is null (down to the wilting point) 
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.SoilTypes6Scale">
+            <summary>
+            list of the USDA 6 soil types
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes6Scale.Clay">
+            <summary>
+            Clay
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes6Scale.ClayLaom">
+            <summary>
+            ClayLaom
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes6Scale.Silt">
+            <summary>
+            Silt
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes6Scale.Loam">
+            <summary>
+            Loam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes6Scale.SandyLoam">
+            <summary>
+            SandyLoam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes6Scale.Sand">
+            <summary>
+            Sand
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.SoilTypes12Scale">
+            <summary>
+            list of the USDA 12 soil types
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.Clay">
+            <summary>
+            Clay
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.SiltyClay">
+            <summary>
+            SiltyClay
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.SiltyClayLoam">
+            <summary>
+            SiltyClayLoam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.ClayLoam">
+            <summary>
+            ClayLoam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.SandyClay">
+            <summary>
+            SandyClay
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.SandClayLoam">
+            <summary>
+            SandClayLoam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.Silt">
+            <summary>
+            Silt
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.SlitLoam">
+            <summary>
+            SlitLoam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.Loam">
+            <summary>
+            Loam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.SandyLoam">
+            <summary>
+            SandyLoam
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.LoamySand">
+            <summary>
+            LoamySand
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SoilTypes12Scale.Sand">
+            <summary>
+            Sand
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData">
+            <summary>
+            Containier of weather information
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric">
+            <summary>
+            Serie with 
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric.#ctor(System.String,System.String,System.Nullable{Syngenta.AIS.ModelLibrary.EnumAggregationFunction})">
+            <summary>
+            Object containing a serie, but without altitude adjustement and trend
+            </summary>
+            <param name="name">Name</param>
+            <param name="units">Units</param>
+            <param name="aggregationFunction">AggregationFunction</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric.GetHashCode">
+            <summary>
+            provides an unique hash code for an Serie
+            </summary>
+            <returns>unique hash code</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric.ToSerie(System.Boolean,System.String)">
+            <summary>
+            Converts a seriegenereic into a serie
+            by adding the altitudeAdjustment and the trend 
+            </summary>
+            <param name="altitudeAdjustment">AltitudeAdjustment</param>
+            <param name="trend">AggregationFunction</param>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric.AggregationFunction">
+            <summary>
+            AggregationFunction
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection">
+            <summary>
+            List of SerieGenerics
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection.#ctor">
+            <summary>
+            Public constructor
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            protected constructor
+            </summary>
+            <param name="info">SerializationInfo</param>
+            <param name="context">StreamingContext</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection.ToSerieReadOnlyCollection(System.Boolean,System.String)">
+            <summary>
+            Converts a HashSet&lt;SerieGenericgt; into a ReadOnlyCollection&lt;Weatehrdata:Serie&gt;
+            by adding the altitudeAdjustment and the trend
+            </summary>
+            <param name="altitudeAdjustment">altitudeAdjustment to be amending all the series</param>
+            <param name="trend">trend to be amending all the series</param>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericEqualityComparer">
+            <summary>
+            Class ensuring the unicity of SerieGeneric in the SerieGenericHashSetCollection
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericEqualityComparer.Equals(Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric,Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric)">
+            <summary>
+            Check if two SerieGeneric are the same
+            </summary>
+            <param name="b1">frist SerieGeneric</param>
+            <param name="b2">second SerieGeneric</param>
+            <returns>true if they are equal</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericEqualityComparer.GetHashCode(Syngenta.AIS.ModelLibrary.WeatherData.SerieGeneric)">
+            <summary>
+            Hashcode of the SerieGeneric
+            </summary>
+            <param name="bx">SerieGeneric</param>
+            <returns>Hashcode of the SerieGeneric</returns>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.Serie">
+            <summary>
+            Specific metadata for weatehr serie
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.Serie.#ctor(System.String,System.String,System.Boolean,System.Nullable{Syngenta.AIS.ModelLibrary.EnumAggregationFunction},System.String)">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="name">Name</param>
+            <param name="units">Units</param>
+            <param name="altitudeAdjustment">AltitudeAdjustment</param>
+            <param name="aggregationFunction">AggregationFunction</param>
+            <param name="trend">Trend</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.Serie.ToString">
+            <summary>
+            Export the serie in XML string
+            </summary>
+            <returns>XML representationof the serie</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.Serie.GetHashCode">
+            <summary>
+            provides an unique hash code for an Serie
+            </summary>
+            <returns>unique hash code</returns>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.Serie.AltitudeAdjustment">
+            <summary>
+            AltitudeAdjustment
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.Serie.Trend">
+            <summary>
+            Trend
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest">
+            <summary>
+            Container for a weather request
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="latitude">Latitude</param>
+            <param name="longitude">Longitude</param>
+            <param name="altitude">Altitude</param>
+            <param name="maxAltitudeDiff">Maximum Altitude Difference</param>
+            <param name="maxDistanceDiff">Maximum Distance Difference</param>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest.Latitude">
+            <summary>
+            Latitude
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest.Longitude">
+            <summary>
+            Longitude
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest.Altitude">
+            <summary>
+            Altitude
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest.MaxAltitudeDiff">
+            <summary>
+            Maximum Altitude Difference
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest.MaxDistanceDiff">
+            <summary>
+            Maximum Distance Difference
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest">
+            <summary>
+            Container for the definition of the weather request data
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.#ctor(Syngenta.AIS.ModelLibrary.EnumDataSource,System.Boolean,Syngenta.AIS.ModelLibrary.WeatherData.FeatureRequest,System.DateTime,System.DateTime,Syngenta.AIS.ModelLibrary.EnumTemporalAggregation,System.Collections.ObjectModel.ReadOnlyCollection{Syngenta.AIS.ModelLibrary.WeatherData.Serie})">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="dataSource">Data source</param>
+            <param name="gapFillSource">Gap fill source</param>
+            <param name="featureRequest">FeatureRequest</param>
+            <param name="startDate">Start date</param>
+            <param name="endDate">End date</param>
+            <param name="temporalAggregation">Temporal Aggregation</param>
+            <param name="series">Series</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.FeatureRequestToXmlString">
+            <summary>
+            Exprts the featurerequest to XML (in order to call Geotroll)
+            </summary>
+            <returns>XML rendering or the FeatureRequest</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.SeriesToXmlString">
+            <summary>
+            Exprts the Series to XML (in order to call Geotroll)
+            </summary>
+            <returns>XML rendering or the Series</returns>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.DataSource">
+            <summary>
+            Data source
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.GapFillSource">
+            <summary>
+            Gap fill source
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.FeatureRequest">
+            <summary>
+            Latitude of location
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.StartDate">
+            <summary>
+            Start date
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.EndDate">
+            <summary>
+            End date
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.TemporalAggregation">
+            <summary>
+            Temporal Aggregation
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataRequest.Series">
+            <summary>
+            Trend
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse">
+            <summary>
+            container for the weatehr response
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse.#ctor(System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="featureResponseId">Data point ID</param>
+            <param name="latitude">Latitude</param>
+            <param name="longitude">Longitude</param>
+            <param name="altitude">Altitude</param>
+            <param name="distance">Distance</param>
+            <param name="bearingDegrees">Bearing degrees</param>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse.FeatureResponseId">
+            <summary>
+            Data point ID
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse.Latitude">
+            <summary>
+            Latitude
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse.Longitude">
+            <summary>
+            Longitude
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse.Altitude">
+            <summary>
+            Altitude
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse.Distance">
+            <summary>
+            Distance
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse.BearingDegrees">
+            <summary>
+            Bearing degrees
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse">
+            <summary>
+            Container for the weatehr response data
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.#ctor(Syngenta.AIS.ModelLibrary.WeatherData.FeatureResponse,System.Collections.Generic.List{Syngenta.AIS.ModelLibrary.WeatherData.Serie},System.Data.DataTable)">
+            <summary>
+            Public constructor
+            </summary>
+            <param name="featureResponse">Feature Response</param>
+            <param name="series">Series metadata</param>
+            <param name="weatherData">Series data</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.GetRowForDate(System.DateTime)">
+            <summary>
+            Gets a row (the data of all series) coresponding to the input datetime
+            </summary>
+            <param name="date">time of the wanted data</param>
+            <returns>firts datarow for this datetime, containing the values of all the series</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.GetRowForDate(System.DateTime,System.Boolean)">
+            <summary>
+            Gets a row (the data of all series) coresponding to the input datetime, or only date
+            </summary>
+            <param name="date">date or datetime</param>
+            <param name="timelessMatch">Should look also at the time, or only the date is enough</param>
+            <returns>firts datarow for this datetime, containing the values of all the series</returns>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.Version">
+            <summary>
+            gets the version string for this module
+            </summary>
+            <returns>Version string for this module</returns>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.FeatureResponse">
+            <summary>
+            FeatureResponse
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.Series">
+            <summary>
+            Series
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.WeatherData">
+            <summary>
+            Weather Data Table
+            </summary>
+        </member>
+        <member name="P:Syngenta.AIS.ModelLibrary.WeatherData.WeatherDataResponse.GetPeriodRange">
+            <summary>
+            Is used to calculate the minimum date and the maximum date
+            </summary>
+            <returns>a list of two items, the minimum date and the maximum date</returns>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.EnumDataSource">
+            <summary>
+            List of possible Data sources
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumDataSource.Glb25Obs">
+            <summary>
+            glb25Obs
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumDataSource.Glb25ECMWF">
+            <summary>
+            glb25ECMWF
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumDataSource.GlbStnFcst">
+            <summary>
+            glbStnFcst
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumDataSource.GlbStnObsSyn">
+            <summary>
+            glbStnObsSyn
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumDataSource.GlbStnObsExt">
+            <summary>
+            glbStnObsExt
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation">
+            <summary>
+            List of possible temporal aggregations
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation.Hourly">
+            <summary>
+            hourly
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation.EightHourly">
+             <summary>
+            EightHourly
+             </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation.TwelveHourly">
+            <summary>
+            TwelveHourly
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation.Daily">
+            <summary>
+            Daily
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation.Weekly">
+            <summary>
+            Weekly
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation.Decade">
+            <summary>
+            Decade
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTemporalAggregation.Monthly">
+            <summary>
+            Monthly
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.EnumAggregationFunction">
+            <summary>
+            List of possible temporal aggregationfunctions
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumAggregationFunction.Max">
+            <summary>
+            maximum
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumAggregationFunction.Min">
+            <summary>
+            minimum
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumAggregationFunction.Avg">
+            <summary>
+            average
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumAggregationFunction.Sum">
+            <summary>
+            sum
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.EnumTrend">
+            <summary>
+            List of possible trends
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTrend.TrendLTA">
+            <summary>
+            Long term average
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTrend.TrendMax">
+            <summary>
+            maximum year
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumTrend.TrendMin">
+            <summary>
+            minimum year
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.SeriesName">
+            <summary>
+            List of possible series names
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SeriesName.TempAir_C_NighttimeMin">
+            <summary>
+            Daily night minimum Temperature, in °C
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SeriesName.TempAir_C_DaytimeMax">
+            <summary>
+            Daily day maximum Temperature, in °C
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SeriesName.TempAir_C_DailyAvg">
+            <summary>
+            Daily average Temperature, in °C
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SeriesName.GlobalRadiation_Whm2_DailySum">
+            <summary>
+            Daily sum of the global radiation, in W/m2/d
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SeriesName.PrecipAmount_mm_DailySum">
+            <summary>
+            Daily sum of precipitation, in mm
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SeriesName.PotentialEvapoTranspiration_mm_DailySum">
+            <summary>
+            Daily sum of evapotranspiration, in mm
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.SeriesName.RelativeHumidity_DailyAvg">
+            <summary>
+            Daily average of relative Humidity
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.ModelDependantBase">
+            <summary>
+            IDependant Interface
+            Provides the static function to get the "Weather Requirement" and the "Version".
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.ModelDependantBase.CallDependentWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.Type[],System.DateTime@,System.DateTime@)">
+            <summary>
+            Updates the weather requirement, the srat date en end date depending on the dependencies
+            </summary>
+            <param name="dependencies">List of model it depends on</param>
+            <param name="series">List of current known series</param>
+            <param name="startDate">Current start date</param>
+            <param name="endDate">Current end date</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.ModelDependantBase.GetVersion(System.String,System.Type[])">
+            <summary>
+            Computes the version string from the version of the dependencies
+            </summary>
+            <param name="version">version string for this specific module</param>
+            <param name="dependencies">List of types it depends on</param>
+            <returns>computed string for this module</returns>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.Constants">
+            <summary>
+            Class containig some contants
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.Constants.EmptyValue">
+            <summary>
+            Empty value
+            </summary>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.SerieList`1">
+            <summary>
+            Base generic class containing a datatable a list of metadata 
+            </summary>
+            <typeparam name="T">Any kind of metadata information</typeparam>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.SerieList`1.#ctor">
+            <summary>
+            Public constructor
+            </summary>
+        </member>
+        <member name="M:Syngenta.AIS.ModelLibrary.SerieList`1.#ctor(System.Collections.Generic.List{`0},System.Data.DataTable)">
+            <summary>
+            Public constructor with parameters
+            </summary>
+            <param name="series">already instanciated serieList</param>
+            <param name="table">already instanciated datatable</param>
+        </member>
+        <member name="T:Syngenta.AIS.ModelLibrary.EnumCropHeightType">
+            <summary>
+            Enum containing the parameters for teh ETo calculation
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumCropHeightType.ShortCrop">
+            <summary>
+            Short Crop (turf)
+            </summary>
+        </member>
+        <member name="F:Syngenta.AIS.ModelLibrary.EnumCropHeightType.TallCrop">
+            <summary>
+            Tall crop (not turf)
+            </summary>
+        </member>
+    </members>
+</doc>

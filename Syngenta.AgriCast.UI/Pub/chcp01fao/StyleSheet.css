@@ -1,0 +1,10 @@
+﻿@import '../base_CSSstandard.css';
+
+#greeting {display:none}
+#tools select {display:none}
+
+#imgPrint {float:right}
+#imgFB, #imgEmail
+{
+	display: none;
+}

@@ -1,0 +1,18 @@
+﻿@import '../base_CSSwide.css';
+#tools select {display:block}
+#gv_valuevew_spraygrnd span
+{
+    display:none;
+}
+/*Add for IM02136646:Modification on weather forecast publication-remove humidity and wind information-see attached - 20140924 - start*/
+#chrtDiv
+{
+    padding-left:0px;
+}
+
+#weathericontable
+{
+    margin-left: -190px
+}
+/*Add for IM02136646:Modification on weather forecast publication-remove humidity and wind information-see attached - 20140924 - end*/
+

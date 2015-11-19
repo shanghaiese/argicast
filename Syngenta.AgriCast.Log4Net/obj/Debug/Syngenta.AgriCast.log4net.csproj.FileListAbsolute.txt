@@ -1,0 +1,6 @@
+c:\bin\net\1.0\debug\log4net.dll
+c:\bin\net\1.0\debug\log4net.pdb
+c:\bin\net\1.0\debug\log4net.xml
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.Log4Net\obj\Debug\Syngenta.AgriCast.log4net.csprojResolveAssemblyReference.cache
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.Log4Net\obj\Debug\log4net.dll
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.Log4Net\obj\Debug\log4net.pdb

@@ -1,0 +1,10 @@
+﻿@import '../base_CSSwide.css';
+
+#pageMenu, #ToolBar, #divSearch, #WeatherMenu,#ct100_pageMenu 
+{
+    display: none;
+}
+.Legend span[id$=BWMLegend] { display: none; }
+.chartDiv{
+    *margin-top:0 !important;
+}

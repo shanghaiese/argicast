@@ -1,0 +1,42 @@
+﻿@import '../base_CSSstandard.css';
+/*#tools select {display:block}
+div.footer {display:block;}*/
+/*.iconHeaderTableClass {
+    margin-left: -94px !important;
+}
+
+.float-icon-legend .chart-float-icons table.incomplete-data {
+    left: 5px;
+}*/
+
+/*Re Align Weather Icons*/
+.iconDivClass {
+    margin-left: 135px;
+}
+
+/*Wind icons alignment*/
+#iconsContainer {
+    margin-left: 35px;
+}
+
+.tblWidth_7 {
+    width: 100%;
+}
+
+.float-icon-legend .chart-float-icons {
+    margin-top: 228px;
+}
+
+#tblwindicons {
+    font-size: 9px;
+}
+
+    #tblwindicons img {
+        width: 24px;
+    }
+
+    /*Align Weather Icons*/
+.iconDivClass
+{
+    top:100px;
+}

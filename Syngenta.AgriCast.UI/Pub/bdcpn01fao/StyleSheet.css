@@ -1,0 +1,6 @@
+﻿@import '../base_CSSnarrow.css';
+
+#greeting {display:none}
+#tools select {display:none}
+
+#imgPrint {float:right}

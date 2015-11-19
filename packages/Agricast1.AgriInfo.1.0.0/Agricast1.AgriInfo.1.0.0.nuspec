@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Agricast1.AgriInfo</id>
+    <version>1.0.0</version>
+    <title>Syngenta Agronomics Services Agricast1.AgriInfo</title>
+    <authors>u525532</authors>
+    <owners>u525532</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package containing class for accessing old Agriinfo EU25 data</description>
+    <summary />
+    <releaseNotes>SVN revision 4723</releaseNotes>
+  </metadata>
+</package>

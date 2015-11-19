@@ -1,0 +1,30 @@
+﻿.container
+{
+	height: auto;
+	width: 100%;
+	border: 1px solid rgb(239, 237, 234);
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	margin: 5px 0px 10px 0px;
+	z-index: 15 !ie; 
+} 
+
+.iconDivClass
+{
+	/*Maps issue in chrome and fiefox*/
+	margin-left: 235px; /* 135px originally */
+	text-align: center;
+	width: 480px;
+	height:80px;
+	position: relative;	
+    top:70px;
+	z-index:1000;
+	
+	
+}
+/*tool bar width adjustment*/
+#tools
+{
+    width:36%;
+}

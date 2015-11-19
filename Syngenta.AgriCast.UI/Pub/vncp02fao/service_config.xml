@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <name>vncp02fao</name>
+  <extNavigation></extNavigation>
+  <secured>false</secured>
+  <mossReturnUrl>http://mysyngenta.com</mossReturnUrl>
+  <allowedRoles>vncp02fao,AIS</allowedRoles>
+  <emailSettings>
+    <senderName>Syngenta</senderName>
+    <senderAddress>noreply@syngenta.com</senderAddress>
+    <!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+    <subject>Syngenta Weather</subject>
+    <defaultBody></defaultBody>
+  </emailSettings>
+  <cultureSettings default="en-US" useIPCulture="true" useBrowserLang="true">
+    <allowedCultureCodes>
+      <culture code="en-US">English (US)			</culture>
+    </allowedCultureCodes>
+  </cultureSettings>
+  <unitsSettings>
+    <Units>metric,imperial</Units>
+    <custom>
+      <Wind>kmh,mph,beaufort</Wind>
+    </custom>
+  </unitsSettings>
+  <locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+    <allowedCountries>
+      <area code="VN">Viet Nam</area>
+    </allowedCountries>
+  </locationSearch>
+
+  <servicePage name="weathercast" trnsTag="All_Tabweathercast" defaultPage="true">
+    <pageSettings  allowFavorites="true"  allowPrintPage="true" allowEmail="True" allowExportToExcel="True" allowFeedback="true" >
+    </pageSettings>
+    <nearbyDataPoint name="NearbyDataPoint" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+    </nearbyDataPoint>
+    <icon name="iconsDaily" plotColumnHeader="false" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="daily" imageSetName="" transparency="60" width="45" height="45">
+      <series>
+        <serie name="TempAir_C" trnsTag="" aggregationFunction="avg"/>
+        <serie name="Cloudcover_Pct" trnsTag="" aggregationFunction="avg"/>
+        <serie name="ThunderstormProbability_Pct" trnsTag="" aggregationFunction="max"/>
+        <serie name="PrecipitationProbability_Pct" trnsTag="" aggregationFunction="max"/>
+        <serie name="PrecipitationType" trnsTag="" aggregationFunction="avg"/>
+        <serie name="PrecipAmount_mm" trnsTag="" aggregationFunction="avg"/>
+        <serie name="Winddirection_Deg" trnsTag="" aggregationFunction="dev"/>
+        <serie name="WindSpeed_ms" trnsTag="" aggregationFunction="avg"/>
+        <serie name="Visibility_km" trnsTag="" aggregationFunction="min"/>
+      </series>
+    </icon>
+    <tblSeriesRows name="vew_daily" trnsTag="All_TabDetailWeather" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="daily" ruleset="" colorPaletteName="" feedback="false">
+      <series>
+        <serie name="TempAir_C_DaytimeMax" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName="pal_sip_temperature"/>
+        <serie name="TempAir_C_NighttimeMin" trnsTag="temperature_min" aggregationFunction="min" colorPaletteName="pal_sip_temperature"/>
+      </series>
+    </tblSeriesRows>
+  </servicePage>
+</service>
+
+
+

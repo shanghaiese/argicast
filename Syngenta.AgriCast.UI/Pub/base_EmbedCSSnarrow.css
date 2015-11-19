@@ -1,0 +1,32 @@
+/*Weather Page*/
+#ag_tag div#divFcChart
+{
+	margin-left:83px;
+}
+#ag_tag .float-icon-legend .chart-float-legend
+{
+	width:78px;
+	font-weight: normal;
+}
+#ag_tag .float-icon-legend .chart-float-icons
+{
+	margin-top: 198px;
+}
+
+#ag_tag  div.iconDivClass
+{
+	width:360px;
+	margin-left: 115px;
+}
+
+#ag_tag table.tablesGap
+{
+width:100%
+}
+
+/*Widget*/
+.ag_tag .imgSettings
+{
+	font-size: 12px;
+	display:none;
+}

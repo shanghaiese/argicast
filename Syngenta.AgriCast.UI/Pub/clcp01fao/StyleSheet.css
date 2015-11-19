@@ -1,0 +1,11 @@
+﻿@import '../base_CSSstandard.css';
+#tools select {display:block;}
+div .Legend {display:none;}
+
+#tblwindicons {
+    padding-left: 6px;
+}
+
+#weathericontable img {
+    width: 35px;
+}

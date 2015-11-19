@@ -1,0 +1,100 @@
+#container, .container
+{
+	height: auto;
+	width: 765px;
+	position: relative;
+	
+	z-index: 15 !ie; 
+	border:0px;
+} 
+.main, .pageheader, .page, #container, .footer
+{
+	width: 765px;
+	border:0px;
+	padding:0px;
+}
+#greeting {display:none}
+#tools select {display:none}
+.iconHeaderTableClass 
+{
+	margin-left:0px;
+	width:100%;
+}
+
+.iconHeaderTableClass 
+{
+	width:100%
+	}
+
+#imgEmail,#imgFB , #imgPrint, #btnExcel {float:right}
+.iconDivClass
+{
+	 /*Maps issue in chrome and fiefox*/
+	/*margin-left: 235px;  135px originally */
+	text-align: center;
+	margin-left: 147px;
+	height:80px;
+	position: relative;	
+    top:70px;
+	z-index:1000;
+	clear:both;
+	width:560px;
+}
+.chartDiv
+{
+	float:left; 
+	/* UAT Tracker - 521 - glbsip03 - 5-in-1 chart still not to big enough*/
+	/*padding-left: 108px;*/
+	/*Issue reporte by Sandy : Fri 10/26/2012 5:44 PM*/
+   
+    margin-top:-80px;
+    /*IE-7 chart alignment issue*/
+    *margin-top:-100px;
+}
+
+/*tool bar width adjustment*/
+#tools
+{
+    width:auto;
+}
+
+
+
+/*Below styles are mandatory for all publications*/
+/*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/
+/*This style is needed for aligning the table cells wrt to chart*/
+/*Header cell width is calculated as below
+headercell width = (chart width - 85px)/number of days for which the tables arec onfigured
+in ths pub, header cell width = (465-85)/3 = 154px*/
+/*CSS classnames are format is "tblSeriesHeaderStyles_{numberofdays for tables}. this will be used when we have tbls configured in two diff service pages*/
+
+.tblSeriesHeaderStyles_5
+{
+     text-align:center;
+     width:76px;
+         
+}
+
+.tblWidth_5
+{
+     width:712px;
+}
+ /*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/
+
+.float-icon-legend .chart-float-icons {
+
+margin-top: 230px;
+
+
+}
+
+/*For Iframe*/
+.pageheader 
+{
+display: none;
+}
+div.menu 
+{
+display: none;
+}
+.footer{display: none;}

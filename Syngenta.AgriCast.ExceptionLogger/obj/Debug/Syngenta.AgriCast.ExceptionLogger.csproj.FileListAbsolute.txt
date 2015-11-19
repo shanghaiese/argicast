@@ -1,0 +1,9 @@
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\bin\Syngenta.AgriCast.ExceptionLogger.dll
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\bin\Syngenta.AgriCast.ExceptionLogger.pdb
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\bin\log4net.dll
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\bin\syngenta.agricast1.AgriInfo_35.dll
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\bin\log4net.pdb
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\bin\log4net.xml
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\obj\Debug\Syngenta.AgriCast.ExceptionLogger.csprojResolveAssemblyReference.cache
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\obj\Debug\Syngenta.AgriCast.ExceptionLogger.dll
+D:\weather newui\WebFramework\SourceCode\AISAgricast\Syngenta.AgriCast.ExceptionLogger\obj\Debug\Syngenta.AgriCast.ExceptionLogger.pdb

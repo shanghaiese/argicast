@@ -1,0 +1,10 @@
+﻿@import '../base_CSSstandard.css';
+
+
+#tblwindicons strong {
+color: #004392;
+font-size:small;
+}
+#tblhumidlegend{display:none;}
+#tblwinddirectionlegend1{border-bottom:none;}
+

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://agriweb.syngenta-ais.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://agriweb.syngenta-ais.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://agriweb.syngenta-ais.com/">
+      <s:element name="Encrypt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strEncryptionText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Decrypt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strEncryptedText" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DecryptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecryptResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSecurityKey">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSecurityKeyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSecurityKeyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EncryptSoapIn">
+    <wsdl:part name="parameters" element="tns:Encrypt" />
+  </wsdl:message>
+  <wsdl:message name="EncryptSoapOut">
+    <wsdl:part name="parameters" element="tns:EncryptResponse" />
+  </wsdl:message>
+  <wsdl:message name="DecryptSoapIn">
+    <wsdl:part name="parameters" element="tns:Decrypt" />
+  </wsdl:message>
+  <wsdl:message name="DecryptSoapOut">
+    <wsdl:part name="parameters" element="tns:DecryptResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityKeySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSecurityKey" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityKeySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSecurityKeyResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptHttpGetIn">
+    <wsdl:part name="strEncryptionText" type="s:string" />
+    <wsdl:part name="strKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHttpGetIn">
+    <wsdl:part name="strEncryptedText" type="s:string" />
+    <wsdl:part name="strKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityKeyHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityKeyHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptHttpPostIn">
+    <wsdl:part name="strEncryptionText" type="s:string" />
+    <wsdl:part name="strKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHttpPostIn">
+    <wsdl:part name="strEncryptedText" type="s:string" />
+    <wsdl:part name="strKey" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DecryptHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityKeyHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="userID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityKeyHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="SynCryptographySoap">
+    <wsdl:operation name="Encrypt">
+      <wsdl:input message="tns:EncryptSoapIn" />
+      <wsdl:output message="tns:EncryptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <wsdl:input message="tns:DecryptSoapIn" />
+      <wsdl:output message="tns:DecryptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityKey">
+      <wsdl:input message="tns:GetSecurityKeySoapIn" />
+      <wsdl:output message="tns:GetSecurityKeySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SynCryptographyHttpGet">
+    <wsdl:operation name="Encrypt">
+      <wsdl:input message="tns:EncryptHttpGetIn" />
+      <wsdl:output message="tns:EncryptHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <wsdl:input message="tns:DecryptHttpGetIn" />
+      <wsdl:output message="tns:DecryptHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityKey">
+      <wsdl:input message="tns:GetSecurityKeyHttpGetIn" />
+      <wsdl:output message="tns:GetSecurityKeyHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SynCryptographyHttpPost">
+    <wsdl:operation name="Encrypt">
+      <wsdl:input message="tns:EncryptHttpPostIn" />
+      <wsdl:output message="tns:EncryptHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <wsdl:input message="tns:DecryptHttpPostIn" />
+      <wsdl:output message="tns:DecryptHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityKey">
+      <wsdl:input message="tns:GetSecurityKeyHttpPostIn" />
+      <wsdl:output message="tns:GetSecurityKeyHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SynCryptographySoap" type="tns:SynCryptographySoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Encrypt">
+      <soap:operation soapAction="http://agriweb.syngenta-ais.com/Encrypt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <soap:operation soapAction="http://agriweb.syngenta-ais.com/Decrypt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityKey">
+      <soap:operation soapAction="http://agriweb.syngenta-ais.com/GetSecurityKey" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SynCryptographySoap12" type="tns:SynCryptographySoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Encrypt">
+      <soap12:operation soapAction="http://agriweb.syngenta-ais.com/Encrypt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <soap12:operation soapAction="http://agriweb.syngenta-ais.com/Decrypt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityKey">
+      <soap12:operation soapAction="http://agriweb.syngenta-ais.com/GetSecurityKey" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SynCryptographyHttpGet" type="tns:SynCryptographyHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="Encrypt">
+      <http:operation location="/Encrypt" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <http:operation location="/Decrypt" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityKey">
+      <http:operation location="/GetSecurityKey" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SynCryptographyHttpPost" type="tns:SynCryptographyHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="Encrypt">
+      <http:operation location="/Encrypt" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Decrypt">
+      <http:operation location="/Decrypt" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityKey">
+      <http:operation location="/GetSecurityKey" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SynCryptography">
+    <wsdl:port name="SynCryptographySoap" binding="tns:SynCryptographySoap">
+      <soap:address location="http://agriweb-stage.syngenta-ais.com/syncryptography.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SynCryptographySoap12" binding="tns:SynCryptographySoap12">
+      <soap12:address location="http://agriweb-stage.syngenta-ais.com/syncryptography.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SynCryptographyHttpGet" binding="tns:SynCryptographyHttpGet">
+      <http:address location="http://agriweb-stage.syngenta-ais.com/syncryptography.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SynCryptographyHttpPost" binding="tns:SynCryptographyHttpPost">
+      <http:address location="http://agriweb-stage.syngenta-ais.com/syncryptography.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,25 @@
+/*Weather Page*/
+#ag_tag div#divFcChart
+{
+	margin-left:105px;
+}
+#ag_tag .tableRow {
+width: 51px;
+}
+#ag_tag .divOuter {
+border-style: solid;
+border-color: rgb(215, 210, 204);
+border-width: 1px;
+}
+
+#ag_tag .divOuter table {
+margin: 0px;
+border-width:1px;
+}
+
+/*Widget*/
+.ag_tag .imgSettings
+{
+	font-size: 12px;
+	display:none;
+}

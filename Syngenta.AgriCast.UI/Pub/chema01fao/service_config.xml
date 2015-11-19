@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>chema01fao</name>
+	<extNavigation></extNavigation>
+	<secured>false</secured>
+	<allowedRoles></allowedRoles>
+	<emailSettings>
+		<senderName>SyngentaAIS-glbsip02o</senderName>
+		<senderAddress>support@syngenta-ais.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Agri-Cast (Template Cast Open) Feedback chema01fao</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="de-DE" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="de-DE">Deutsch (DE)</culture>
+			<!-- Deutsch -->
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric</Units>
+		<custom>
+			<Wind>kmh</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="CH">Switzerland</area>
+		</allowedCountries>
+	</locationSearch>
+
+  <servicePages file="../base_glbsip02o.xml" />
+</service>
+
+
+

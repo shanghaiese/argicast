@@ -1,0 +1,18 @@
+﻿@import '../base_CSSstandard.css';
+
+/*Specific width*/
+.main, .pageheader, .page, #container, .footer, .container{width: 700px;}
+.tblSeriesHeaderStyles_5{text-align:center;width:76px;}
+.tblWidth_5{width:668px;}
+.iconDivClass{width:510px;margin-left: 145px;}
+.chartDiv {padding-left: 100px;}
+
+/*specific styling */
+.tables{margin-top:10px;}
+.LegendPadding, .DetailsRating{text-align: center;}
+#SparayWindowGroundSprayingRestrictionsfrance, #GroundSprayingColoursLegend{text-align: left;}
+
+.blockOverlay{background-color: rgb(255, 255, 255) !important}
+
+
+

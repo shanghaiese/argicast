@@ -1,0 +1,148 @@
+﻿/* Common */
+.show
+{
+    display: block;
+}
+.hide
+{
+    display: none;
+}
+
+.Error
+{
+    font-size: 14px; 
+    font-weight: 600;
+    color: Red;
+}
+.Success
+{
+    font-size: 14px;
+    font-weight: 600;
+    color: Green;    
+}
+
+
+/* Header */
+.ui-header
+{
+    background: white;
+}
+.ui-header .searchBox
+{
+    color: Black;
+}
+.ui-input-search
+{
+    background: white;
+    color: Black;
+}
+.ui-header .ui-btn
+{
+    background: grey;
+}
+
+/* Content */
+.ui-content .topBar
+{
+    margin: -15px;
+    padding: 0 0 0 0;
+}
+.ui-body-c
+{
+    background: white;
+}
+.mainMenu
+{
+    text-align: center;
+}
+.ui-content .tableFull
+{
+    margin: -15px;
+    padding: 0 0 0 0;
+}
+.changeLocation
+{
+    border-bottom: 0px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    vertical-align:middle;
+}
+
+
+/* Footer */
+.ui-footer
+{
+    background: grey;
+}
+.ui-footer #btnBack
+{
+    float: left;
+    margin: 0.5em 0px 1em;
+    padding: 0 0 0 0;
+}
+.ui-footer .ui-controlgroup
+{
+    float: right;
+}
+
+/* DayForeCast user control */
+.sprayWindow tbody td
+{
+    padding: 2px 5px;
+    border: solid 1px black;
+    background-color: #c2c6c7;
+}
+.sprayWindow tbody tr
+{
+    font-size: small;
+}
+
+.sprayWindow tfoot
+{
+    font-size: xx-small;
+}
+.sprayWindow .textLeft
+{
+    margin-left: -15px;
+}
+.sprayWindow .textRight div
+{
+    margin-right: -15px;
+}
+.sprayWindow .textRight
+{
+    text-align: right;
+}
+.sprayWindow .firstCell div:first-child
+{
+    margin-left: -15px;
+}
+.sprayWindow .firstCell div:last-child
+{
+    float: right;
+    margin-top: -11px;
+    margin-right: -15px;
+}
+
+#chartView
+{
+    /* UAT Tracker 523	Chart is not displayed any more Begin */
+    /*display: none;*/
+    display: block;
+    /* UAT Tracker 523	Chart is not displayed any more End */
+}
+@media only screen and (orientation:portrait)
+{
+   #chartView
+    {
+        display: block;
+		overflow:auto;
+    }
+}
+@media only screen and (orientation:landscape)
+{
+    #chartView
+    {
+        display: block;
+    }
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <name>cocp01fao</name>
+  <extNavigation></extNavigation>
+	<secured>true</secured>
+	<allowedRoles>AIS</allowedRoles>
+  <emailSettings>
+    <senderName>Syngenta Agricast</senderName>
+    <senderAddress>cliente.crm@syngenta.com</senderAddress>
+    <!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+    <subject>Syngenta Agricast Feedback</subject>
+    <defaultBody></defaultBody>
+  </emailSettings>
+  <cultureSettings default="en-GB" useIPCulture="true" useBrowserLang="true">
+    <allowedCultureCodes>
+      <!-- Español (CO) -->
+      <culture code="es-ES">Español (ES)			</culture>
+    </allowedCultureCodes>
+  </cultureSettings>
+  <unitsSettings>
+    <Units>metric,imperial</Units>
+    <custom>
+      <Wind>kmh,mph,beau  fort</Wind>
+    </custom>
+  </unitsSettings>
+  <locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+    <allowedCountries>
+      <area code="CO">Colombia</area>
+      <area code="CR">Costa Rica</area>
+      <area code="EC">Ecuador</area>
+      <area code="SV">El Salvador</area>
+      <area code="GT">Guatemala</area>
+      <area code="HN">Honduras</area>
+      <area code="MX">Mexico</area>
+      <area code="NI">Nicaragua</area>
+      <area code="PA">Panama</area>
+      <area code="PE">Peru</area>
+      <area code="VE">Venezuela</area>
+    </allowedCountries>
+  </locationSearch>
+
+  <servicePages file="../base_glbsips02fwo.xml" />
+
+
+</service>
+
+
+

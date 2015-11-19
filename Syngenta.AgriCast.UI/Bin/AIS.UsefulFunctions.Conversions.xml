@@ -1,0 +1,1203 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AIS.UsefulFunctions.Conversions</name>
+    </assembly>
+    <members>
+        <member name="T:AIS.UsefulFunctions.Conversions.MinutesToHours">
+            <summary>
+            Conversion from minutes to hours
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MinutesToHours.Calculate(System.Decimal)">
+            <summary>
+            Calculates the value in hours for a given number of minutes
+            </summary>
+            <param name="minutes">Number of minutes</param>
+            <returns>Amount of hours</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MinutesToHours.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MinutesToHours.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MinutesToHoursCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MinutesToHoursCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the number of hours from a given number of minutes
+            </summary>
+            <param name="minutes">The number of minutes</param>
+            <returns>The amount of hours</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MinutesToHoursCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.DegreesToRadians">
+            <summary>
+            Conversion from Degrees to Radians
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesToRadians.Calculate(System.Double)">
+            <summary>
+            Conversion from Degrees to Radians
+            </summary>
+            <param name="degrees">angle in decimal degrees</param>
+            <returns>angle in radians</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesToRadians.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesToRadians.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KilometerToMile">
+            <summary>
+            Conversion for kilometre to mile
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerToMile.Calculate(System.Decimal)">
+            <summary>
+            Converts a value in kilometres to a value in miles
+            </summary>
+            <param name="km">Distance in kilometres</param>
+            <returns>Distance in miles</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerToMile.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerToMile.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KilometerToMileCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerToMileCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates a distance in miles from the given number of kilometres.
+            </summary>
+            <param name="km"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerToMileCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification details</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToKnots">
+            <summary>
+            Conversion for Meter Per Second to Knots
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKnots.Calculate(System.Decimal)">
+            <summary>
+            Calculates a speed in knots from a speed in Meters per second
+            </summary>
+            <param name="meterPerSecond">Speed in meters per second</param>
+            <returns>Speed in knots</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKnots.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKnots.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToKnotsCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKnotsCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates a speed in knots from a speed in Meters per second
+            </summary>
+            <param name="meterPerSecond">Speed in Meters per second</param>
+            <returns>Speed in Knots</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKnotsCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MegaJouleToWattHour">
+            <summary>
+            Converts Megajoules to Watthours
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MegaJouleToWattHour.Calculate(System.Decimal)">
+            <summary>
+            Calculates a value in Watthours from MegaJoules
+            </summary>
+            <param name="mj">The amount of energy in MegaJoules</param>
+            <returns>The amount of energy in Watthours</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MegaJouleToWattHour.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MegaJouleToWattHour.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MegaJouleToWattHourCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MegaJouleToWattHourCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates energey in Watthours based on MegaJoules
+            </summary>
+            <param name="mj">Energy in MegaJoules</param>
+            <returns>Energy in Watthours</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MegaJouleToWattHourCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.WindVectorToWindSpeed">
+            <summary>
+            Conversion for a Wind Vector to a Wind Speed
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindSpeed.Calculate(System.Decimal,System.Decimal)">
+            <summary>
+            Calculates the wind speed based on the components of a wind vector
+            </summary>
+            <param name="zonal">Zonal Component</param>
+            <param name="meridional">Meridional Component</param>
+            <returns>The wind speed</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindSpeed.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindSpeed.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.WindVectorToWindSpeedCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindSpeedCLR.Calculate(System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculate a wind speed based on the components of a wind vector
+            </summary>
+            <param name="zonal">Zonal Component</param>
+            <param name="meridional">Meridional Component</param>
+            <returns>The wind speed</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindSpeedCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KilometerPerHourToMeterPerSecond">
+            <summary>
+            Converts Kilometers per Hour to Meters per Second
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerPerHourToMeterPerSecond.Calculate(System.Decimal)">
+            <summary>
+            Calculates the speed in meters per second for a given speed in kilometers per hour
+            </summary>
+            <param name="kph">Speed in kilometres per hour</param>
+            <returns>Speed in meters per second</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerPerHourToMeterPerSecond.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerPerHourToMeterPerSecond.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KilometerPerHourToMeterPerSecondCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerPerHourToMeterPerSecondCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates a speed in metres per second for a given speed in kilometres per hour
+            </summary>
+            <param name="kph">Speed in kilometres per hour</param>
+            <returns>Speed in metres per second</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KilometerPerHourToMeterPerSecondCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToKilometerPerHour">
+            <summary>
+            Conversion of Meters Per Second to Kilometer Per Hour
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKilometerPerHour.Calculate(System.Decimal)">
+            <summary>
+            Calculates the wind speed in kilometers per hour based on the wind speed in meters per second
+            </summary>
+            <param name="meterPerSecond">Wind speed in meters per second</param>
+            <returns>Wind speed in kilometers per hour</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKilometerPerHour.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKilometerPerHour.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToKilometerPerHourCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function reference the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKilometerPerHourCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates a wind speed in Kilometers Per Hour from the wind speed in Meters Per Second
+            </summary>
+            <param name="meterPerSecond">Wind speed in meters per second</param>
+            <returns>Wind speed in Kilometers per hour</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToKilometerPerHourCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheit">
+            <summary>
+            Conversion for Celsius to Fahrenheit
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheit.Calculate(System.Decimal)">
+            <summary>
+            Calculates the Fahrenheit value for a given Celsius value
+            </summary>
+            <param name="celsius">The value in Celsius to be converted</param>
+            <returns>The Fahrenheit value</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheit.Calculate(System.Double)">
+            <summary>
+            Calculates the Fahrenheit value for a given Celsius value
+            </summary>
+            <param name="celsius">The value in Celsius to be converted</param>
+            <returns>The Fahrenheit value</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheit.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheit.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheitCLR">
+            <summary>
+            Common Language Runtime version of the above, to return a Fahrenheit value for a given Celsius value
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheitCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Return one Fahrenheit value from a given Celsius value
+            </summary>
+            <param name="celsius">The value to convert</param>
+            <returns>The Fahrenheit value of the inputted Celsius value</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToFahrenheitCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.HoursToMinutes">
+            <summary>
+            Conversion for hours to minutes
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.HoursToMinutes.Calculate(System.Decimal)">
+            <summary>
+            Returns the number of minutes based on the given number of hours.
+            </summary>
+            <param name="hours">The number of hours to be converted</param>
+            <returns>The number of minutes</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.HoursToMinutes.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.HoursToMinutes.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.HoursToMinutesCLR">
+            <summary>
+            Common Language Runtime Version of the above function. Converts a number of hours to minutes
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.HoursToMinutesCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Converts a number of hours to the number of minutes
+            </summary>
+            <param name="hours">The number of hours to convert</param>
+            <returns>The number of minutes</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.HoursToMinutesCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.WattHourToMegaJoule">
+            <summary>
+            Conversion for Watthours to MegaJoules
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WattHourToMegaJoule.Calculate(System.Decimal)">
+            <summary>
+            Calculates the number of MegaJoules of energy based on the number of Watthours of energy.
+            </summary>
+            <param name="wh">The number of Watthours</param>
+            <returns>The number of MegaJoules</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WattHourToMegaJoule.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WattHourToMegaJoule.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.WattHourToMegaJouleCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WattHourToMegaJouleCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the number of MegaJoules of energy based on the number of Watthours of energy.
+            </summary>
+            <param name="wh">The number of Watthours</param>
+            <returns>The number of MegaJoules</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WattHourToMegaJouleCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MillimetreToInch">
+            <summary>
+            Conversion of millimetre to inches
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MillimetreToInch.Calculate(System.Decimal)">
+            <summary>
+            Calculates a value in inches from a value given in millimetres
+            </summary>
+            <param name="mm">Length in millimetres</param>
+            <returns>Length in inches</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MillimetreToInch.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MillimetreToInch.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MillimetreToInchCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MillimetreToInchCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the value in inches for a value given in millimetres
+            </summary>
+            <param name="mm">Length in millimetres</param>
+            <returns>Length in inches</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MillimetreToInchCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.GetBearingBetween">
+            <summary>
+            Calculates the bearing of one point from another, based on latitude and longitude
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetBearingBetween.Calculate(System.Decimal,System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Calculates the bearing between two points
+            </summary>
+            <param name="latitude1">Latitude of the first location</param>
+            <param name="longitude1">Longitude of the first location</param>
+            <param name="latitude2">Latitude of the second location</param>
+            <param name="longitude2">Longitude of the second location</param>
+            <returns>The bearing in degrees between the two points</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetBearingBetween.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetBearingBetween.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.GetBearingBetweenCLR">
+            <summary>
+            Common Language Runtime Version of the above function.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetBearingBetweenCLR.Calculate(System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the bearing between two points
+            </summary>
+            <param name="latitude1">Latitude of the first location</param>
+            <param name="longitude1">Longitude of the first location</param>
+            <param name="latitude2">Latitude of the second location</param>
+            <param name="longitude2">Longitude of the second location</param>
+            <returns>The bearing between two points</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetBearingBetweenCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.OctaToPercent">
+            <summary>
+            Conversion from octa to percent
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.OctaToPercent.Calculate(System.Decimal)">
+            <summary>
+            Calculates the percentage cloud cover based on the number of octas of cloud cover
+            </summary>
+            <param name="octa">Number of octas of cloud cover</param>
+            <returns>Percentage cloud cover</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.OctaToPercent.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.OctaToPercent.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.DerivedCalculations.OctaToPercentCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.OctaToPercentCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the percentage cloud cover based on the number of octas of cloud cover
+            </summary>
+            <param name="octa">The number of octas of cloud cover</param>
+            <returns>The percentage cloud cover</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.DerivedCalculations.OctaToPercentCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.PercentToOcta">
+            <summary>
+            Conversion of Percent to Octa
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PercentToOcta.Calculate(System.Decimal)">
+            <summary>
+            Calculates the number of octas cloud cover based on the percentage cloud cover
+            </summary>
+            <param name="percent">The percentage cloud cover</param>
+            <returns>The number of octas cloud cover</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PercentToOcta.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PercentToOcta.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.PercentToOctaCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PercentToOctaCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculate the number of octas cloud cover based on the percentage cloud cover
+            </summary>
+            <param name="percent">The percentage cloud cover</param>
+            <returns>The number of octas cloud cover</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PercentToOctaCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Verison and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToBeaufort">
+            <summary>
+            Conversion of Meter per Second to Beaufort
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToBeaufort.Calculate(System.Decimal)">
+            <summary>
+            Calculates the wind speed in Beaufort based on the wind speed in Meters per Second
+            </summary>
+            <param name="meterPerSecond">Wind speed in Meter Per Second</param>
+            <returns>Beaufort Wind Force</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToBeaufort.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToBeaufort.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToBeaufortCLR">
+            <summary>
+            Common Language Runtime version of the above function. This references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToBeaufortCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the Beaufort Wind Force based on the wind speed in Meters per second
+            </summary>
+            <param name="meterPerSecond">Wind speed in Meters Per Second</param>
+            <returns>Beaufort Wind Force</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToBeaufortCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KelvinToVapourPressure">
+            <summary>
+            Converts air pressure in K into vapour pressure
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KelvinToVapourPressure.Calculate(System.Double)">
+            <summary>
+            Calculate teh vapour pressure for an air with a specific temperature
+            </summary>
+            <param name="kelvin">Temperature in K</param>
+            <returns>the vapour pressure</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KelvinToVapourPressure.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KelvinToVapourPressure.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KelvinToVapourPressureCLR">
+            <summary>
+            Converts air pressure in K into vapour pressure
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KelvinToVapourPressureCLR.Calculate(System.Data.SqlTypes.SqlDouble)">
+            <summary>
+            Calculate teh vapour pressure for an air with a specific temperature
+            </summary>
+            <param name="kelvin">Temperature in K</param>
+            <returns>the vapour pressure</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KelvinToVapourPressureCLR.Version">
+            <summary>
+            Version
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.DegreesMinutesSecondToDecimal">
+            <summary>
+            Convert an angular measurement in degrees, minutes and seconds to decimal degrees
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesMinutesSecondToDecimal.Calculate(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Performs a calculation to degress from direction, degrees, minutes and seconds
+            </summary>
+            <param name="direction">A single character representing North, South, East or West (N,S,E,W)</param>
+            <param name="degrees">The number of degrees. 360 degrees in an entire revolution.</param>
+            <param name="minutes">The number of minutes. 60 minutes in a degree.</param>
+            <param name="seconds">The number of seconds. 60 seconds in a minute.</param>
+            <returns></returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesMinutesSecondToDecimal.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesMinutesSecondToDecimal.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.DegreesMinutesSecondToDecimalCLR">
+            <summary>
+            Common Language Runtime version of the above, calculates the decimal degrees for a given direction, degrees,
+            minutes and seconds.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesMinutesSecondToDecimalCLR.Calculate(System.String,System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32,System.Data.SqlTypes.SqlInt32)">
+            <summary>
+            Calculates one value in decimal degrees for a given direction, degrees, minutes and seconds. 
+            </summary>
+            <param name="direction">A single character representing North, South, East or West (N,S,E,W)</param>
+            <param name="degrees">The number of degrees. 360 degrees in an entire revolution</param>
+            <param name="minutes">The number of minutes. 60 minutes in a degree</param>
+            <param name="seconds">The number of seconds. 60 seconds in a minute</param>
+            <returns></returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.DegreesMinutesSecondToDecimalCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToMilePerHour">
+            <summary>
+            Conversion of Meter Per Second to Mile Per Hour
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToMilePerHour.Calculate(System.Decimal)">
+            <summary>
+            Calculates a value in Miles per hour based on a value in Meters per Second
+            </summary>
+            <param name="meterPerSecond">Speed in Meters Per Second</param>
+            <returns>Speed in Miles Per Hour</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToMilePerHour.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToMilePerHour.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.MeterPerSecondToMilePerHourCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToMilePerHourCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates a value in miles per hour from a value given in meters per second
+            </summary>
+            <param name="meterPerSecond">Speed in meters per second</param>
+            <returns>Speed in miles per hour</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.MeterPerSecondToMilePerHourCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KnotsToMeterPerSecond">
+            <summary>
+            Conversion for Knots to Meters Per Second
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KnotsToMeterPerSecond.Calculate(System.Decimal)">
+            <summary>
+            Calculates the speed in Meters Per Second from knots
+            </summary>
+            <param name="knots">The speed in Knots</param>
+            <returns>The speed in Meters Per Second</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KnotsToMeterPerSecond.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KnotsToMeterPerSecond.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.KnotsToMeterPerSecondCLR">
+            <summary>
+            Common Language Runtime version of the above function. This makes reference to the above function.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KnotsToMeterPerSecondCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates a speed in Meters Per Second based on the speed in Knots.
+            </summary>
+            <param name="knots">The speed in Knots</param>
+            <returns>The speed in Meters Per Second</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.KnotsToMeterPerSecondCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.PascalToHectoPascal">
+            <summary>
+            Conversion of Pascal to HectoPascal
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PascalToHectoPascal.Calculate(System.Decimal)">
+            <summary>
+            Converts a pressure in Pascals to HectoPascal
+            </summary>
+            <param name="pascal">Pressure in Pascals</param>
+            <returns>Pressure in HectoPascals</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PascalToHectoPascal.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PascalToHectoPascal.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.PascalToHectoPascalCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PascalToHectoPascalCLR.Calculate(System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the pressue in HectoPascals from an input given in Pascals
+            </summary>
+            <param name="pascal">Pressure in Pascals</param>
+            <returns>The value in HectoPascals</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.PascalToHectoPascalCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.GetDistance">
+            <summary>
+            Get geographic distance between two geographical points
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetDistance.Calculate(System.Decimal,System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Get geographic distance between two geographical points
+            </summary>
+            <param name="latitude1">first latitude</param>
+            <param name="longitude1">first longitude</param>
+            <param name="latitude2">second latitude</param>
+            <param name="longitude2">second longitude</param>
+            <returns>distance in km</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetDistance.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetDistance.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.GetDistanceCLR">
+            <summary>
+            CLR class for getting the geographic distance between two geographical points
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetDistanceCLR.Calculate(System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Get geographic distance between two geographical points
+            </summary>
+            <param name="latitude1">first latitude</param>
+            <param name="longitude1">first longitude</param>
+            <param name="latitude2">second latitude</param>
+            <param name="longitude2">second longitude</param>
+            <returns>distance in km</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.GetDistanceCLR.Version">
+            <summary>
+            Get the version string for this CLR module
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.RadiansToDegrees">
+            <summary>
+            Conversion from radians to degrees
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.RadiansToDegrees.Calculate(System.Double)">
+            <summary>
+            Conversion from Celsius to Degrees
+            </summary>
+            <param name="radians">angle in radians</param>
+            <returns>angle in decimal degrees</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.RadiansToDegrees.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.RadiansToDegrees.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.WindVectorToWindDirection">
+            <summary>
+            Conversion for a Wind Vector to a Wind Direction
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindDirection.Calculate(System.Decimal,System.Decimal)">
+            <summary>
+            Calculates the degrees of wind direction between 0 and 360 for a wind vector
+            </summary>
+            <param name="zonal">Zonal component of Wind Vector</param>
+            <param name="meridional">Meridional component of Wind Vector</param>
+            <returns>Degrees of direction of the wind</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindDirection.ConvertToDegrees(System.Double)">
+            <summary>
+            Converts a radian value to degrees
+            </summary>
+            <param name="radians">The radian value</param>
+            <returns>The degree value</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindDirection.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindDirection.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.WindVectorToWindDirectionCLR">
+            <summary>
+            Common Language Runtime version of the above function. This function references the above calculation.
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindDirectionCLR.Calculate(System.Data.SqlTypes.SqlDecimal,System.Data.SqlTypes.SqlDecimal)">
+            <summary>
+            Calculates the wind direction in degrees from the wind vector
+            </summary>
+            <param name="zonal">Zonal component of the wind vector</param>
+            <param name="meridional">Meridional component of the wind vector</param>
+            <returns>The degree direction of the wind</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.WindVectorToWindDirectionCLR.Version">
+            <summary>
+            Contains version and modification information
+            </summary>
+            <returns>Version and modification information</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.CelsiusToKelvin">
+            <summary>
+            Conversion from Celsius to Kelvin
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToKelvin.Calculate(System.Double)">
+            <summary>
+            Conversion from Celsius to Kelvin
+            </summary>
+            <param name="temperature">temperature in Celsius</param>
+            <returns>temperature in Kelvin</returns>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToKelvin.GetWeatherRequirement(Syngenta.AIS.ModelLibrary.WeatherData.SerieGenericHashSetCollection,System.DateTime,System.DateTime,System.Double,System.Double,System.DateTime@,System.DateTime@)">
+            <summary>
+            Create the list of mandatory weather information
+            </summary>
+            <param name="series">dictionnary of weather serties (keep the unicity)</param>
+            <param name="startDate">Start date, that will be modified</param>
+            <param name="endDate">End date, that will be modified</param>
+            <param name="latitude">Latitude of the point</param>
+            <param name="longitude">longitude of the point</param>
+            <param name="newStartDate">New start date (output)</param>
+            <param name="newEndDate">New end date (output)</param>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToKelvin.Version">
+            <summary>
+            version string of this module
+            </summary>
+            <returns>version string</returns>
+        </member>
+        <member name="T:AIS.UsefulFunctions.Conversions.CelsiusToKelvinCLR">
+            <summary>
+            CLR class for CelsiusToKelvin
+            </summary>
+        </member>
+        <member name="M:AIS.UsefulFunctions.Conversions.CelsiusToKelvinCLR.Calculate(System.Data.SqlTypes.SqlDouble)">
+            <summary>
+            CLR Conversion from Celsius to Kelvin
+            </summary>
+            <param name="temperature">temperature in Celsius</param>
+            <returns>temperature in Kelvin</returns>
+        </member>
+    </members>
+</doc>

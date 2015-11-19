@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="variables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="variable" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="variable">
+    <xs:complexType>
+
+      <xs:attribute name="name" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="TempAir_dMin"></xs:enumeration>
+            <xs:enumeration value="TempAir_dMax"></xs:enumeration>
+            <xs:enumeration value="GlobalRadiation_dSum"></xs:enumeration>
+            <xs:enumeration value="Precip_dSum"></xs:enumeration>
+            <xs:enumeration value="HumidityRel_dMin"></xs:enumeration>
+            <xs:enumeration value="HumidityRel_dMax"></xs:enumeration>
+            <xs:enumeration value="WindSpeed_dAvg"></xs:enumeration>
+            <xs:enumeration value="WindSpeed_dMax"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
+      <xs:attribute name="aggregationFunction" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="max"></xs:enumeration>
+            <xs:enumeration value="min"></xs:enumeration>
+            <xs:enumeration value="sum"></xs:enumeration>
+            <xs:enumeration value="avg"></xs:enumeration>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

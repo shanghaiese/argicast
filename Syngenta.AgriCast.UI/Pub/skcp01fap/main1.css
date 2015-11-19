@@ -1,0 +1,6 @@
+﻿@import '../base_CSSstandardP.css';
+#tools select {display:block}
+#imgFB, #imgEmail,#imgFav,#btnExcel
+{
+	display: none;
+}

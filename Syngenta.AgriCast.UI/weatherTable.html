@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+<div ng-app="product">
+
+    <div class="container" ng-controller="productController">
+        <nav class="navbar navbar-default" role="navigation">
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" ng-model="search.id" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+            </div>
+        </nav>
+        <table class="table">
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+            <tbody>
+            <!--filter:{id:search}-->
+            <tr >
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript" src="../../vendor/angular/angularjs.js"></script>
+<script type="text/javascript" src="app/index.js"></script>
+</body>
+</html>

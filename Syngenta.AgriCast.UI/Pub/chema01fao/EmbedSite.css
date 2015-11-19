@@ -1,0 +1,79 @@
+﻿@import '../base_EmbdedCSSwide.css';
+
+#ag_tag #cngLoc:Link, #ag_tag #cngLoc:Active, #ag_tag #cngLoc:Hover 
+{
+    font-family: Arial;
+    font-style: normal;
+    color: #0093cf;
+    font-size: 11px;
+}
+
+#ag_tag #cngStat:Link, #ag_tag #cngStat:Active, #ag_tag #cngStat:Hover
+{
+    font-family: Arial;
+    font-style: normal;
+    color: #0093cf;
+    font-size: 11px;
+}
+#ag_tag .widgetForecastText
+{
+    font-family: Arial;
+    font-style: normal;
+    font-size: 12px;
+    color: #666666;
+}
+#ag_tag .widgetForecastLocation
+{
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 12px;
+    color: #666666;
+}
+
+#ag_tag #tdLocText
+{
+    padding-bottom: 15px;
+    padding-left: 5px;
+     text-align: left;
+}
+
+#ag_tag #ag_ChangeLoc, #ag_tag #ag_divLocSearch
+{
+    margin-bottom: 15px;
+}
+
+#ag_tag #ag_ChangeLoc
+{
+    text-align: left;
+    padding-left: 5px;
+    padding-top:5px;
+    
+}
+
+#ag_tag
+{
+    text-align:left;
+}
+
+#ag_tag .iconDivClass
+{
+    margin-left: 115px;
+	width: 780px;
+}
+#ag_tag .iconHeaderTableClass
+{
+    width: 785px;
+}
+#ag_tag .chartDiv
+{
+    margin-left: 85px;
+}
+#ag_tag .chart-float-legend
+{
+    width: 80px;
+}
+.ag_tag .imgSettings
+{
+	font-size: 12px;
+	display:none;
+}

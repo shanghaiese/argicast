@@ -1,0 +1,314 @@
+﻿
+.iconDivClass
+{
+    /*Maps issue in chrome and fiefox*/
+    margin-left: 235px; /* 135px originally */
+    text-align: center;
+    width: 480px;
+    height: 80px;
+    position: relative;
+    top: 70px;
+    z-index: 1000;
+}
+
+.section
+{
+    position: relative;
+    padding: 0 10px;
+    font: normal 75%/1.5 sans-serif;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    padding-left: 0px;
+}
+.section-logos
+{
+    /*border-bottom: 1.5px solid #A0A0A0;*/
+    width: 100%;
+}
+.section-logos .logo-mysyngenta
+{
+    float: left;
+    margin-top: 3px;
+    margin-right: 47px;
+}
+
+.section-logos .mySyngenta1
+{
+    display: block;
+    padding-top: 10px;
+    float: left;
+    color: #AAB400;
+    font-weight: normal;
+    font-size: 16px;
+    font-family: Sans-Serif;
+}
+.section-logos .mySyngenta2
+{
+    display: block;
+    padding-top: 11px;
+    float: left;
+    color: #5F7800;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Sans-Serif;
+}
+.section-logos .logo-syngenta
+{
+    float: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.section-logos .SiteName
+{
+    display: block;
+    padding-top: 11px;
+    float: left;
+    color: #5f7800;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Sans-Serif;
+    margin-left: 100px;
+}
+.section-nav-meta
+{
+    padding-top: 2px;
+    padding-bottom: 0px;
+}
+.section-nav-meta .info
+{
+    display: block;
+    float: right;
+    background: url("images/icons.png") no-repeat left -600px;
+    height: 18px;
+    width: 18px;
+    text-indent: -9999px;
+    outline: none;
+    margin-left: 21px;
+}
+.section-nav-meta ul
+{
+    float: right;
+    margin-top: 3px;
+}
+.section-nav-meta li a
+{
+    display: inline-block;
+    color: #666;
+    background: url("images/icons.png") no-repeat left 3px;
+    padding-left: 9px;
+    margin-left: 18px;
+}
+.inline
+{
+    list-style: none;
+    margin-left: 0;
+    font-size: 11px;
+    margin-bottom: 0px;
+}
+.inline li
+{
+    display: inline;
+    margin-left: 0;
+}
+.inline dt
+{
+    clear: left;
+    float: left;
+}
+.inline dd
+{
+    margin-left: 0;
+}
+.clearfix:after
+{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+* html .clearfix
+{
+    height: 1%;
+}
+* + html .clearfix
+{
+    display: inline-block;
+}
+.section-logos
+{
+    border-bottom: 1.5px solid #A0A0A0;
+     padding-bottom:23px;
+}
+
+/*Commented on 21 dec*/
+/*div.menu
+{
+    /*background-color:rgb(23,115,45);
+    background-color: rgb(255,255,255);
+    border-bottom: 3px solid rgb(23,115,45);
+}
+
+div.menu ul
+{
+    list-style: none;
+    position: relative;
+    display: block; // right:40px;   
+    height: 24px;
+    overflow: hidden;
+}
+
+div.menu ul li
+{
+    background: transparent url(images/greenleft.jpg) left top no-repeat;
+    float: left;
+    text-align: center;
+    display: block;
+    height: 24px;
+    margin-right: 3px;
+}
+div.menu ul li a
+{
+    background: transparent url(images/rightgreen.jpg) right top no-repeat;
+    border-right: 1px #ffffff solid;
+    color: #ffffff; //#0093cf;
+    display: block;
+    font-family: Verdana,Arial,sans-serif;
+    font-weight: bold !important;
+    height: 14px;
+    padding: 5px 10px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+    background-color: transparent !important;
+    text-decoration: underline;
+}
+
+div.menu ul li.active
+{
+    background-image: url(images/LeftWhite.gif);
+    background-color: transparent !important;
+}
+div.menu ul li.active a
+{
+    background-image: url(images/RightWhite.gif);
+    background-color: transparent !important;
+    color: rgb(0,0,0);
+}
+div.menu ul li.active a:hover
+{
+    background-color: transparent !important;
+}
+div.menu ul li a:visited
+{
+    background-color: transparent !important;
+}
+/* End of comments*/
+.footerline
+{
+    background-color: #5F7800;
+    float: left;
+    font-family: Arial !important;
+    font-size: 11px;
+    height: 2px;
+    width: 960px;
+    float: left;
+    /*only for ie 7*/
+    *color:#5F7800;
+    *height: 3px;
+}
+.footerTextDiv
+{
+    color: #333333;
+    float: left;
+    font-family: Arial !important;
+    font-size: 11px;
+    padding: 0px 0px 0px 0px;
+    *margin-top:-10px;
+}
+
+/*div.menu
+{
+    color: #333333;
+    float: left;
+    font-family: Arial !important;
+    font-size: 11px;
+    padding-bottom: 30px;
+}
+div.menu ul
+{
+    color: #333333;
+    float: left;
+    display: block;
+    font-family: Arial !important;
+    font-size: 11px;
+    page-break-before: avoid;
+    unicode-bidi: embed;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+div.menu ul li
+{
+    color: #333333;
+    float: left;
+    display: inline;
+    font-family: Arial !important;
+    font-size: 11px;
+    list-style-image: none;
+    list-style-type: none;
+}*/
+/*Navigation Style*/
+div.menu
+{
+    padding-bottom: 30px;
+    font-family: Arial !important;
+    font-size: 11px;
+    background-color: #ffffff;
+}
+
+div.menu ul
+{
+    list-style-type: none;
+    overflow: hidden;
+    height: auto !important;
+}
+
+div.menu ul li
+{
+    float: left;
+    border-right: 1px solid #AAA;
+    height: auto !important;
+}
+
+div.menu ul li a
+{
+    border-right: none !important;
+    color: #000000 !important;
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    margin: 0px !important;
+    padding: 7px 10px !important;
+}
+div.menu ul li.active a
+{
+    color: #FFFFFF !important;
+    font-weight: normal;
+    background-color: #AAB400;
+}
+div.menu ul li.active a:hover
+{
+    font-weight: normal !important;
+}
+
+div.menu ul li a:hover
+{
+    background: #AAB400 !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+}

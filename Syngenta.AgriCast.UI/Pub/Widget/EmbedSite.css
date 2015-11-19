@@ -1,0 +1,110 @@
+﻿body {
+}
+#ag_tag
+{
+    text-align:left;
+	margin-left:10px;
+	margin-right:8px;
+	margin-top:20px;
+	background-color:#FAFAFA;
+}
+#ag_tag .widgetForecastText 
+{
+    color:#666666;
+    font-size:15px !important;
+    font-weight:lighter;
+	font-family:Arial;
+     
+}
+#ag_tag  .widgetForecastLocation
+{
+    color:#666666;
+    font-size:15px !important;
+    font-weight:bolder;
+	font-family:Arial;
+     
+}
+
+#ag_tag #cngLoc:link
+{
+    font-size:12px;    
+	font-family:Arial;
+	color:#5f7800;
+}
+
+#ag_tag #ChangeLoc
+{
+    margin-bottom:5px;
+}
+#ag_tag .div_days
+{
+    margin-right:2px;
+}
+
+#ag_tag .wid_tdTemp
+{
+font-size:11px;
+}
+/*--------------------------------------------------------------------------*/
+.ag_tag
+{
+    text-align:left;
+	margin-left:10px;
+	margin-right:8px;	
+	background-color:#FAFAFA;
+	margin-top:10px !important;
+    width:215px !important;
+
+}
+.ag_tag .widgetForecastText 
+{
+    color:#666666;
+    font-size:15px !important;
+    font-weight:lighter;
+	font-family:Arial;
+     display:none;
+}
+.ag_tag  .widgetForecastLocation
+{
+    color:#666666;
+    font-size:15px !important;
+    font-weight:bolder;
+	font-family:Arial;
+     
+}
+
+.ag_tag .cngLoc:link
+{
+    font-size:12px;    
+	font-family:Arial;
+	color:#5f7800;
+}
+
+.ag_tag .ChangeLoc
+{
+    margin-bottom:5px;
+}
+.ag_tag .div_days
+{
+    margin-right:2px;
+}
+
+.ag_tag .wid_tdTemp
+{
+font-size:11px;
+}
+.ag_tag .widgetColon{
+    display: none;
+}
+.ag_tag .imgSettings{
+    display: none;
+}
+.ag_tag .ag_close
+{
+	float:right;
+	clear:none;
+	background-image:url("/../Images/minus1.png");
+	width:20px;
+	height:20px;
+	
+}

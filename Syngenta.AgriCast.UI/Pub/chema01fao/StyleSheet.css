@@ -1,0 +1,10 @@
+﻿@import '../base_CSSwide.css';
+
+#ToolBar {
+display: none;
+}
+
+.footer 
+{
+display: block;
+}

@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Syngenta.AgriCast.Common.DataAccess.CommonData" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAACAAAAAAAAAAAAIAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\CommonData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.DataAccess.DBConnections" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\DBConnections.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.DataAccess.TranslateData">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DataAccess\TranslateData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.DTO.DataPointInfo" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMAAAABCUAAAACAAAACABgEAAIAAAAAAJAAgAAAAAQA=</HashCode>
+      <FileName>DTO\DataPointInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.DTO.LocationInfo" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IGAARAAADAgEAAAAAAAAAABESAAQAAgQACBAAAAAABE=</HashCode>
+      <FileName>DTO\LocationInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.DTO.ServiceInfo" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAAAAEAAAAAIBAABAAAAQIAAAAAAAAACABgBAA=</HashCode>
+      <FileName>DTO\ServiceInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.DTO.UserInfo">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAQAAAIAAAAAgiAAAAAAAAgQAAAAAAAAA=</HashCode>
+      <FileName>DTO\UserInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.ModuleInfo" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAwAAAAAAAAAAAAAAAAQAAAAAAAAAAAgAACAAAAA=</HashCode>
+      <FileName>DTO\ModuleInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.RewriteContext" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAABAACAAAIAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RewriteContextInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.RewriteModule" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAIAQCAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>RewriteModule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.RewriteModuleSectionHandler" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAACBAIAAQACAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>RewriteModuleSectionHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.Toolbar" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KyEQhHkBBkAIKACDEqMAQJIBKwGCAJAACACgBKMBEM4=</HashCode>
+      <FileName>Toolbar.ascx.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.Presenter.Controls" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenter\Controls.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.Presenter.ServicePresenter" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAABAAAAAAAAAAAAAAAAACAACAAAQAAAAAoCAA=</HashCode>
+      <FileName>Presenter\ServicePresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.Presenter.ToolBarPresenter" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAIAAAAAAAEAAAAIAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Presenter\ToolBarPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.Service.CommonUtil" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQAAAAAAAAAAAAAAAAAAAAAEAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Service\CommonUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.Service.ServiceHandler" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAgCIARAAACQgAAABAABBAABAAAAAAQYAAAAAIAAA=</HashCode>
+      <FileName>Service\ServiceHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Syngenta.AgriCast.Common.Service.ToolBarService" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAACABAAAAAAAAAEAAAAIAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\ToolBarService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="service" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAAAAAAAABABAAAAIABIAACAAAEEAAAAACCAAAAEAg=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceEmailSettings" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAABAAAAAAAAABBAAAAAACAAAAIAAAAACAAAAAEAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceCultureSettings" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAEAAAAAAAEAAgAAgAQAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceCultureSettingsCulture" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAACAAAEAAAgAAAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceUnitsSettings" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAIAAAAAAAAAAAAEAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePage" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAISCAGAAAgAAAQKgAAABAAEJEQwAgAUAIAAAAEAg=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageSeries" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAMAAAAIAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageSeriesWeather" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABQAAAAIAAAAAAAAAAEEAAAAAAAg=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageSeriesWeatherSerie" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAgCAAGGACAIAQAKAAAAAAAAAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageSeriesWeatherSerie1" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAgCAAGGACAIAQAKAAAAAAAAAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageSeriesWeatherSerie2" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAgCAAGGACAIAQAKAAAAAAAAAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageTblDaysRows" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACQAAEAAIAEAAAaIAEAAAAAAEAAAgAAAAQAAAAIA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageTblDaysRowsSeries" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageTblDaysRowsSeriesLegend" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAABAAAIAAAAAAAAAEAAAAAABAAAAAAEA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageTblDaysRowsSeriesSerie" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAgCAAGGACAIAQAKAAAAAAAAAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePagePageSettings" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAABAAAhAAAAYBAAgQAAAAQAAAiABAAAIAgAAAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageLocationSearch" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAAAAAAAIAAIAAIAABAAEEAAAAAAAEAAQAABI=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageLocationSearchArea" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAACAAAEAAAgAAAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageNearbyDataPoint" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAABAAAAAAIAAAAAAAAAGABAAIAAgQAQAAJA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageIcon" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACAAAAAAMAEwCQaIFEIAAAAAGAAAAAAAgAAAABgA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageChart" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACQAAEAAIBEQCQaIBEAQAIAAEAIAgAAQAAJAACAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageChartPrimaryAxis" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAEAAAAAAABCAIAAAAAAAAACAAAAAAAgAAAIA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageChartSecondaryAxis" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAEAAAAAAABCAIAAAAAAAAACAAAAAAAgAAAIA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageChartSerie" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAgBAAQAIAgABCAAAAUAAiAAACAAgAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageLegend" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAABAAAIAAAAAAAAAEAAAAAABAAAAAAEA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageTblSeriesRows" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAACQAAEAAIAEAAAaIAEAAAAAAEAAAgAAAAAAAABgA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="serviceServicePageTblSeriesRowsSerie" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAgCAAGGACAIAQAKAAAAAAAAAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service\service.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Syngenta.AgriCast.Common.View.IToolbar">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAQAEgAAAAIAACCEgIAAAAAAAAAAAAAAAAABAABAEo=</HashCode>
+      <FileName>View\IToolbar.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

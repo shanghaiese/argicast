@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>atcp01fao</name>
+	<extNavigation></extNavigation>
+	<secured>true</secured>
+	<allowedRoles>AIS</allowedRoles>
+	<emailSettings>
+		<senderName>Syngenta Spritzwetter-Services</senderName>
+		<senderAddress>internet.marketing@syngenta.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Syngenta Spritzwetter-Services</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="de-DE" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="de-DE">Deutsch (DE)			</culture>
+			<!-- Deutsch -->			
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric</Units>
+		<custom>
+			<Wind>kmh,mph</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="false" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="AT">Austria</area>
+		</allowedCountries>
+	</locationSearch>
+
+	<servicePages file="../base_glbsips02fwo.xml" />
+
+
+</service>
+
+
+

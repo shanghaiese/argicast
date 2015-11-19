@@ -1,0 +1,118 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Syngenta.AgriCast.UI", "Syngenta.AgriCast.UI\", "{302F92F7-8EFF-425F-BD1F-2BDC90A52DBF}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""
+		SccAuxPath = ""
+		SccLocalPath = ""
+		SccProvider = ""
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		ProjectReferences = "{A4EA9B62-B531-4F29-B61A-5105FA1007EC}|Syngenta.AgriCast.AgriInfo.dll;{0A736F77-3E83-4B1E-A45A-5A250F8B969A}|Syngenta.AgriCast.Charting.dll;{42A1092D-8754-47F8-8566-FCE9D7D99F99}|Syngenta.AgriCast.Common.dll;{49CEBC23-5A69-42AA-9BC0-81FBBA3CB0FD}|Syngenta.AgriCast.ExceptionLogger.dll;{F6A02431-167E-4347-BC43-65532C31CDB7}|log4net.dll;{07A30B8A-E034-4E44-AD44-AF090B581A55}|Syngenta.Agricast.Modals.dll;{9921FA6C-899C-4254-9807-B990A5280FD8}|Syngenta.Data.Access.dll;{FCA3CF86-CD31-403F-9BC4-906D1926DA8D}|Syngenta.AgriCast.Icon.dll;{D78862FA-290B-496C-A2EB-916F19C530D3}|Syngenta.AgriCast.LocationSearch.dll;{54B348B0-5048-41C4-81FD-EC1CC8794A67}|Syngenta.AgriCast.Tables.dll;{F4E2C081-3A05-48D7-BD49-31DD769048C7}|Syngenta.AgriCast.WebService.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/Syngenta.AgriCast.UI"
+		Debug.AspNetCompiler.PhysicalPath = "Syngenta.AgriCast.UI\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Syngenta.AgriCast.UI\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Syngenta.AgriCast.UI"
+		Release.AspNetCompiler.PhysicalPath = "Syngenta.AgriCast.UI\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Syngenta.AgriCast.UI\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "27196"
+		VWDDynamicPort = "false"
+		VWDVirtualPath = "/Syngenta.AgriCast.UI"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.AgriInfo", "Syngenta.AgriCast.AgriInfo\Syngenta.AgriCast.AgriInfo.csproj", "{A4EA9B62-B531-4F29-B61A-5105FA1007EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.Charting", "Syngenta.AgriCast.Charting\Syngenta.AgriCast.Charting.csproj", "{0A736F77-3E83-4B1E-A45A-5A250F8B969A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.Common", "Syngenta.AgriCast.Common\Syngenta.AgriCast.Common.csproj", "{42A1092D-8754-47F8-8566-FCE9D7D99F99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.Icon", "Syngenta.AgriCast.Icon\Syngenta.AgriCast.Icon.csproj", "{FCA3CF86-CD31-403F-9BC4-906D1926DA8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.LocationSearch", "Syngenta.AgriCast.LocationSearch\Syngenta.AgriCast.LocationSearch.csproj", "{D78862FA-290B-496C-A2EB-916F19C530D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.ExceptionLogger", "Syngenta.AgriCast.ExceptionLogger\Syngenta.AgriCast.ExceptionLogger.csproj", "{49CEBC23-5A69-42AA-9BC0-81FBBA3CB0FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.log4net", "Syngenta.AgriCast.Log4Net\Syngenta.AgriCast.log4net.csproj", "{F6A02431-167E-4347-BC43-65532C31CDB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.Agricast.Modals", "Syngenta.Agricast.Modals\Syngenta.Agricast.Modals.csproj", "{07A30B8A-E034-4E44-AD44-AF090B581A55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.Tables", "Syngenta.AgriCast.Tables\Syngenta.AgriCast.Tables.csproj", "{54B348B0-5048-41C4-81FD-EC1CC8794A67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.AgriCast.WebService", "Syngenta.AgriCast.WebService\Syngenta.AgriCast.WebService.csproj", "{F4E2C081-3A05-48D7-BD49-31DD769048C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syngenta.Data.Access", "Syngenta.Data.Access\Syngenta.Data.Access.csproj", "{9921FA6C-899C-4254-9807-B990A5280FD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{92F30EFE-8C89-4A05-8A7E-42023FCA4D8C}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{302F92F7-8EFF-425F-BD1F-2BDC90A52DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302F92F7-8EFF-425F-BD1F-2BDC90A52DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302F92F7-8EFF-425F-BD1F-2BDC90A52DBF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{302F92F7-8EFF-425F-BD1F-2BDC90A52DBF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{A4EA9B62-B531-4F29-B61A-5105FA1007EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4EA9B62-B531-4F29-B61A-5105FA1007EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4EA9B62-B531-4F29-B61A-5105FA1007EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4EA9B62-B531-4F29-B61A-5105FA1007EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A736F77-3E83-4B1E-A45A-5A250F8B969A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A736F77-3E83-4B1E-A45A-5A250F8B969A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A736F77-3E83-4B1E-A45A-5A250F8B969A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A736F77-3E83-4B1E-A45A-5A250F8B969A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A1092D-8754-47F8-8566-FCE9D7D99F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A1092D-8754-47F8-8566-FCE9D7D99F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A1092D-8754-47F8-8566-FCE9D7D99F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A1092D-8754-47F8-8566-FCE9D7D99F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA3CF86-CD31-403F-9BC4-906D1926DA8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA3CF86-CD31-403F-9BC4-906D1926DA8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA3CF86-CD31-403F-9BC4-906D1926DA8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA3CF86-CD31-403F-9BC4-906D1926DA8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78862FA-290B-496C-A2EB-916F19C530D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78862FA-290B-496C-A2EB-916F19C530D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78862FA-290B-496C-A2EB-916F19C530D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78862FA-290B-496C-A2EB-916F19C530D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49CEBC23-5A69-42AA-9BC0-81FBBA3CB0FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49CEBC23-5A69-42AA-9BC0-81FBBA3CB0FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49CEBC23-5A69-42AA-9BC0-81FBBA3CB0FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49CEBC23-5A69-42AA-9BC0-81FBBA3CB0FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A02431-167E-4347-BC43-65532C31CDB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A02431-167E-4347-BC43-65532C31CDB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A02431-167E-4347-BC43-65532C31CDB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A02431-167E-4347-BC43-65532C31CDB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07A30B8A-E034-4E44-AD44-AF090B581A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07A30B8A-E034-4E44-AD44-AF090B581A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07A30B8A-E034-4E44-AD44-AF090B581A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07A30B8A-E034-4E44-AD44-AF090B581A55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54B348B0-5048-41C4-81FD-EC1CC8794A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54B348B0-5048-41C4-81FD-EC1CC8794A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54B348B0-5048-41C4-81FD-EC1CC8794A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54B348B0-5048-41C4-81FD-EC1CC8794A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4E2C081-3A05-48D7-BD49-31DD769048C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4E2C081-3A05-48D7-BD49-31DD769048C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4E2C081-3A05-48D7-BD49-31DD769048C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4E2C081-3A05-48D7-BD49-31DD769048C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9921FA6C-899C-4254-9807-B990A5280FD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9921FA6C-899C-4254-9807-B990A5280FD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9921FA6C-899C-4254-9807-B990A5280FD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9921FA6C-899C-4254-9807-B990A5280FD8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

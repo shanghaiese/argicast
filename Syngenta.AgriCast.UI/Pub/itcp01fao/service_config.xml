@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>itcp01fao</name>
+	<extNavigation></extNavigation>
+	<secured>true</secured>
+	<allowedRoles>AIS</allowedRoles>
+	<emailSettings>
+		<senderName>SyngentaAIS-itcp01fao</senderName>
+		<senderAddress>support@syngenta-ais.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Agri-Cast (Template Cast Open) Feedback</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="it-IT" useIPCulture="false" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="it-IT">Italiano(IT)			</culture>
+			<!-- Italiano -->			
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric</Units>
+		<custom>
+			<Wind>kmh</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="false" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="IT">Italy</area>
+		</allowedCountries>
+	</locationSearch>
+  <servicePage name="3daywidget" trnsTag="All_Tabweathercast" defaultPage="false" widgetOnly="true">
+    <pageSettings  allowFavorites="false"  allowPrintPage="false" allowEmail="false" allowExportToExcel="false" allowFeedback="false" >
+    </pageSettings>
+    <nearbyDataPoint name="NearbyDataPoint" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+    </nearbyDataPoint>
+    <icon name="iconsDaily" plotColumnHeader="false" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="daily" imageSetName="" transparency="90" width="70" height="70">
+      <series>
+        <serie name="TempAir_C" trnsTag="" aggregationFunction="avg"/>
+        <serie name="Cloudcover_Pct" trnsTag="" aggregationFunction="avg"/>
+        <serie name="ThunderstormProbability_Pct" trnsTag="" aggregationFunction="max"/>
+        <serie name="PrecipitationProbability_Pct" trnsTag="" aggregationFunction="max"/>
+        <serie name="PrecipitationType" trnsTag="" aggregationFunction="avg"/>
+        <serie name="PrecipAmount_mm" trnsTag="" aggregationFunction="avg"/>
+        <serie name="Winddirection_Deg" trnsTag="" aggregationFunction="dev"/>
+        <serie name="WindSpeed_ms" trnsTag="" aggregationFunction="avg"/>
+        <serie name="Visibility_km" trnsTag="" aggregationFunction="min"/>
+      </series>
+    </icon>
+    <tblSeriesRows name="vew_daily" trnsTag="All_TabDetailWeather" dataSource="glbStnFcst" startDate="0" endDate="3" temporalAggregation="daily" ruleset="" colorPaletteName="" feedback="false">
+      <series>
+
+        <serie name="TempAir_C_DaytimeMax" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName="pal_sip_temperature"/>
+        <serie name="TempAir_C_NighttimeMin" trnsTag="temperature_min" aggregationFunction="min" colorPaletteName="pal_sip_temperature"/>
+
+      </series>
+    </tblSeriesRows>
+  </servicePage>
+	<servicePages file="../base_glbsips02fwo.xml" />
+
+
+</service>
+
+
+

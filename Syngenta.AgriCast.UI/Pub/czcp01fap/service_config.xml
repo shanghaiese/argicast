@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>czcp01fap</name>
+   <extNavigation>CZ</extNavigation>
+	<secured>true</secured>
+	<allowedRoles>AIS</allowedRoles>
+	<emailSettings>
+		<senderName>SyngentaAIS-czcp01fap</senderName>
+		<senderAddress>support@syngenta-ais.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Syngenta Weather </subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="cs-CZ" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+      <culture code="cs-CZ">Česky (CZ)			</culture>
+      <!-- česky (CZ) -->
+      <culture code="en-GB">English (UK)			</culture>
+      <!-- English (GB) -->
+      <culture code="de-DE">Deutsch (DE)			</culture>
+      <!-- Deutsch -->
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric</Units>
+		<custom>
+			<Wind>kmh,beaufort</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+    <allowedCountries>
+      <area code="CZ">Czech Republic</area>
+    </allowedCountries>
+	</locationSearch>
+
+  <servicePages file="../base_glbsips03fwp.xml" />
+</service>
+
+
+

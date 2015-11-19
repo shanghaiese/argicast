@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+  <name>becps02fwo</name>
+  <extNavigation></extNavigation>
+  <secured>false</secured>
+  <allowedRoles>becps02fwo</allowedRoles>
+  <emailSettings>
+    <senderName>SyngentaAIS-becps02fwo</senderName>
+    <senderAddress>support@syngenta-ais.com</senderAddress>
+    <!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+    <subject>Agri-Cast (Template Cast Open) Feedback</subject>
+    <defaultBody></defaultBody>
+  </emailSettings>
+  <cultureSettings default="nl-NL" useIPCulture="true" useBrowserLang="true">
+    <allowedCultureCodes>
+      <culture code="nl-NL">Netherlands (NL)</culture>
+    </allowedCultureCodes>
+  </cultureSettings>
+  <unitsSettings>
+    <Units>metric,imperial</Units>
+    <custom>
+      <Wind>kmh,mph</Wind>
+    </custom>
+  </unitsSettings>
+  <locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+    <allowedCountries>
+      <area code="BE">Belgium</area>
+      <area code="LU">Luxembourg</area>
+      <area code="NL">Netherlands</area>
+      <area code="AN">Netherlands Antilles</area>
+    </allowedCountries>
+  </locationSearch>
+
+  <servicePages file="../base_glbsips02fwo.xml" />
+
+
+</service>

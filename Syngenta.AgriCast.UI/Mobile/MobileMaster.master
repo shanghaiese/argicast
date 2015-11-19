@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MobileMaster.master.cs"
+    Inherits="Mobile_MobileMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <% if (Request.Url.Host.Contains("localhost"))
+       { %>
+    <link href="Styles/jquery.mobile-1.1.0.css" rel="stylesheet" type="text/css" />
+    <%}
+       else
+       { %>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.css" />
+    <%} %>
+    <script src="../../Mobile/Scripts/jquery-1.7.min.js"></script>
+    <script src="../../Mobile/Scripts/mobilejs.js" type="text/javascript"></script>
+    <script src="../../Mobile/Scripts/jquery.mobile-1.0.min.js"></script>
+    <link href="../Mobile/Styles/agricast-mob.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <title style="ui-title">Weather Home Page</title>
+</head>
+<body>
+    <div data-role="page">
+        <div data-role="header">
+            <h1>
+                &nbsp;</h1>
+            <div class="ui-btn-right">
+                <a href="http://www.syngenta.com" style="text-decoration: none;">
+                    <img id="Img1" src="../Mobile/Images/syngenta-icon.gif" alt="SyngentaLogo" runat="server" />
+                </a>
+            </div>
+        </div>
+        <div data-role="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div data-role="footer" style="height: 30px;">
+            <a id="btnBack" runat="server" href='javascript:back();' data-role="button" data-icon="arrow-l"
+                data-direction="reverse" style="margin-top: 0px;top:0px">Back</a>
+            <div data-role="controlgroup" data-type="horizontal" style="text-align: right; margin: 0px;">
+                <a id="lnkTnC" href="http://www.syngenta.com/global/corporate/en/about-syngenta/Pages/terms-and-conditions.aspx"
+                    rel="external" data-role="button" runat="server" name="T&Cs">T&Cs</a> <a id="lnkDisclaimer"
+                        href="Disclaimer.aspx" data-role="button" runat="server" name="Disclaimer">Disclaimer</a>
+                <a id="lnkFullSite" href="Default.aspx" onclick="setCookie('fullsite');" rel="external"
+                    data-role="button" runat="server" name="Full Site">Full Site</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

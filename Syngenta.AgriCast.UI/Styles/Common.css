@@ -1,0 +1,1069 @@
+﻿
+/* LocationSearch   
+----------------------------------------------------------*/
+
+.container
+{
+	height: auto;
+	width: 100%;
+	border: 1px solid rgb(239, 237, 234);
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	margin: 5px 0px 10px 0px;
+	z-index: 15 !ie; 
+} 
+.label100 
+{ 
+	width: 100px; 
+	margin-top: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+}
+
+.label150
+{
+	width: 150px;
+	margin-top: 5px;
+	font-weight: 700;
+	font-size: 12px;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+}
+.label50
+{
+	margin-top: 5px; 
+	width: 50px;
+	text-align: center;
+	font-weight: 700;
+	float: left;
+	padding-top: 5px;
+}
+.label110
+{
+	width: 110px;
+	margin-top: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px;
+	float: left;
+	display: none;
+}
+.dropDown
+{
+	width: auto;
+	float: left;
+	margin-right: 5px;
+}
+
+.searchbox
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+	padding-top: 0px;
+}
+.searchInput
+{
+	width: 245px;
+} 
+ 
+#divStnName .split
+{
+	box-sizing: border-box;
+	float: left;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	width: 20%;
+	text-align: right;
+	margin-right:5px;
+}
+#divStnName #StnName
+{
+	text-align: left;
+	width: 77%;
+}
+
+#divStnName
+{
+	width:100%;
+	float:left;
+	}
+#mapImage
+{
+	height: 350px;	
+	width:98%;	
+	margin:10px;
+}
+
+.loading
+{
+	background: white url("~/../../Images/vsli1.gif") right center no-repeat;
+	background-size: 7%;
+}
+#ddlCountry, #ddlCulture, #ddlUnits
+{
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	
+}
+#gvStations, #gvLocation, #gvFavorites
+{
+	float:left;
+	margin-left: 10px;
+	font-size: 12px;
+	border: 1px solid #d7d2cc; 
+	
+}
+#gvStations
+{
+	margin-bottom:10px;
+	
+}
+.smallFont
+{
+    font-size:9px;
+}
+
+/*Autosuggest
+--------------------------------------------------------------*/
+
+.ac_input
+{
+	width: 200px;
+}
+.ac_results
+{
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	position: absolute;
+	overflow: hidden;
+	/*IM01135146 - Location Search - Cant select from auto suggest option - Begin */
+	z-index:5000;/*changed to 5000 from 100
+	/*IM01135146 - Location Search - Cant select from auto suggest option - End*/
+}
+
+.ac_results ul
+{
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	
+}
+
+.ac_results iframe
+{
+	display: none; /*sorry for IE5*/
+	display: /**/ block; /*sorry for IE5*/
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	filter: mask();
+	width: 3000px;
+	height: 3000px;
+}
+
+.ac_results li
+{
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	font: menu;
+	font-size: 12px;
+	overflow: hidden;
+}
+.ac_loading
+{
+	background: white url('~/../../images/vsli1.gif') right center no-repeat;
+	background-size: 7%;
+}
+
+.ac_odd
+{
+	background-color: #eee;
+}
+
+.ac_over
+{
+	background-color: #0A246A;
+	color: white;
+}
+
+/* Common   
+----------------------------------------------------------*/
+
+.show
+{
+	display: block;
+}
+.hide
+{
+	display: none;
+	margin: 0px;
+	padding: 4px;
+}
+.split
+{
+	box-sizing: border-box;
+	/*-moz-box-sizing: border-box;  
+	 -webkit-box-sizing: border-box; */
+	float: left;
+}
+
+.box
+{
+	padding: 0px 5px 10px 5px;
+}
+
+.labelCustom
+{
+	margin-top: 7px;
+	width: 30px;
+	text-align: center;
+	float: left;
+	padding-top: 5px;
+	padding-right: 5px;
+	color: Black;
+}
+.DropdownCustom
+{
+	width: auto;
+	margin-top: 10px;
+}
+#tools, .Right
+{
+	float: right;
+
+}
+/* Fix chrome issue - controls not aligned in a row*/
+#tools
+{
+	width:44%; 
+}
+.tabRight
+{
+  float: right;
+  margin-bottom:11px;  
+}
+.Left
+{
+  float: left;
+  margin-top:10px;
+  margin-bottom:5px;
+}
+
+div #tools .dropDown
+{
+	width: 100px;
+	float: left;
+	margin-right: 5px;
+}
+
+.textBox
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+
+	margin-left: 15px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-color: #d4d0c8;
+}
+
+.textBox:hover
+{
+	width: 250px;
+	float: left;
+	padding-right: 10px;
+	/*margin-top: 5px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-color: black;*/
+}
+
+div #email, #favorites, #divStations, #divLocation, #feedback
+{
+	height: auto;
+	width: 100%;
+	border: 1px solid #d7d2cc;
+	float: left;
+	/* IM01246268 - New Agricast - horizontal alignement of the tool boxes - Begin */
+	margin: 5px 5px 5px 0px;
+	/* IM01246268 - New Agricast - horizontal alignement of the tool boxes - END */
+	position: relative;
+	border-radius: 1em;
+	/*box-shadow: -3px -3px 5px #888;
+	-moz-box-shadow: -3px -3px #888;
+	-webkit-box-shadow: -3px -3px #888;*/
+	font-size: 12px;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
+	/* behavior: url(ie-css3.htc); */
+	/* Cannot input the email - Begin */
+	z-index: 9999;
+    /* Cannot input the email - End */
+}
+
+
+#ToolBar
+{
+	float: left !ie;
+}
+
+#email .textBox
+{
+	width: 300px;
+	padding-right: 10px;
+	float: none;
+}
+
+#feedback .textBox
+{
+	width: 300px;
+	padding-right: 10px;
+	float: none;
+}
+
+.close
+{
+	width: 7px;
+	height: 7px;
+	float: right;
+	position: relative;
+	border-radius: 1em;
+	font-size: 0;
+	font-weight: bolder; /*box-shadow: 1px 1px 2px black;*/ /*background-color:rgb(245,49,44);*/
+	color: White;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px;
+	background-image: url('~/../../images/close.png');
+}
+
+img
+{
+	cursor: pointer;
+}
+.imgArrow
+{
+	cursor: default;
+	float:left;
+	padding-bottom:10px;
+}
+
+.button
+{
+	/*height: 29px; 	text-align: center; 	border-radius: .5em; 	border: 1px solid rgba(0,0,0,0.1); 	position: relative; 	font-size: 11px; 	font-weight: 700; 	margin: 0 5px 0 5px;*/
+	width: auto;
+	height: 21px;
+	color: #fff !important; 
+	padding: 0px 5px;
+	font-family: Helvetica !important;
+	font-size: 10px !important;
+	font-weight: bold !important;
+	margin-bottom: 5px;
+	margin-left: 20px;
+	vertical-align: middle !important;
+	border: 0px !important;
+	background-image: url("~/../../images/button.gif") !important;
+	background-repeat: repeat-x !important;
+	background-color: transparent !important;
+}
+#btnSearch
+{
+	height: 19px !important;
+	margin-left: 5px !important; 
+}
+/*.avoidscroll
+{
+	overflow-x:hidden;
+	overflow-y:auto;	
+}*/
+
+#gvStations tbody tr td,#gvLocation tbody tr td,#gvFavorites tbody tr td
+{
+	padding-left:5px;
+}
+
+.floatleft
+{
+	float:left;
+}
+.comments
+{
+	max-height: 300px;
+	max-width: 500px;
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+.highlight:hover :last-child
+{
+	background-color: white;
+}
+
+div table tr:hover
+{
+	background-color: LightGrey;
+	cursor: pointer;
+}
+
+/*div table tr:first-child
+{
+	background-color: #ffffff;
+}*/
+
+/*#Im1
+{
+	margin-left: 168px;
+}*/
+/* ERROR MESSAGE 
+----------------------------------------------------------*/
+.Error
+{
+	font-size: 14px;
+	font-weight: 600;
+	color: Red;
+}
+.Success
+{
+	font-size: 14px;
+	font-weight: 600;
+	color: Green;
+}
+
+
+
+/* Charting   
+----------------------------------------------------------*/
+#divFcChart
+{
+	width: auto;
+	height: auto;
+	margin-left: 107px;
+	float: left;
+	margin-bottom: 10px;
+}
+
+/* Detailed Weather   
+----------------------------------------------------------*/
+
+.tables
+{
+	clear: both;
+	height: auto;
+	width: 100%;
+	border: 1px solid #d7d2cc;
+	background-color: White;
+	position: relative;
+	padding: 3px 3px 3px 3px;
+	
+	font-size: 11px;
+	text-align: center;
+}
+
+.tableRow
+{
+	text-align: center;
+	/* width: 37px; */ /* jerrey: alignment issue */
+}
+.tableRowHourly
+{
+	text-align: center;
+	width: 24px;
+}
+
+.tables tr th:first-child
+{
+	width: 135px;
+	border: 1px solid #d7d2cc;
+}
+.tables tr td:first-child
+{
+	text-align: left;
+}
+.tables tr th
+{
+	background-color: rgb(239, 237, 234);
+	border: 1px solid #d7d2cc;
+}
+
+.tables tbody tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.tables tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.tablesGap
+{
+	clear: both;
+	height: auto;
+	width: auto;
+	border: 1px solid #d7d2cc;
+	background-color: White;
+	position: relative;
+	padding: 3px 3px 3px 3px;
+	
+	font-size: 11px;
+	text-align: center;
+}
+
+
+.tablesGap tr th:first-child
+{
+	width: 138px;
+	border: 1px solid #d7d2cc;
+}
+.tablesGap tr td:first-child
+{
+	text-align: left;
+	border: 1px solid #d7d2cc;
+}
+.tablesGap tr th
+{
+	background-color: rgb(239, 237, 234);
+	border: 1px solid #d7d2cc;
+}
+
+
+.tablesGap tbody tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.tablesGap tr:first-child
+{
+	background-color: rgb(239, 237, 234);
+}
+.restrictTable tr:hover, .iconHeaderTableClass tr:hover, .tables tr:hover, th:hover, .tablesGap tr:hover, #gvFavorites tr:hover,.iconColumnClass img,.legendColourCell img
+{
+	background: none;
+	cursor: default;
+}
+
+.label250
+{
+	width: 250px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-weight: 700;
+	padding-left: 15px;
+	padding-top: 5px; /*float: left;	*/
+	font-size: 12px;
+	font-family: Verdana;
+}
+
+/*Details Minimise issue*/
+
+.DetailsRating
+{
+	width: 100%;
+	float: left;
+}
+/* Agri Info   
+----------------------------------------------------------*/
+
+.labelPlain
+{
+	width: 95px;
+	margin-top: 5px;
+	padding-left: 4px;
+	padding-top: 0px;
+	float: left;
+}
+
+.right
+{
+	float: right;
+}
+.tree
+{
+	width: 95%;
+	height: auto;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	padding-right: 0px;
+	padding-left: 4px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+
+.treeContainer
+{
+	width: 260px;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.textBoxTree
+{
+	width: 100px;
+	_float: left;
+	padding-right: 10px;
+	margin-top: 0px;
+}
+.labelTreeH1
+{
+	width: 90%;
+	margin-top: 5px;
+	font-weight: 700;
+	/*padding-left: -2px;*/
+	padding-top: 5px;
+	margin-right: 0px;
+	float: left;
+}
+.dropDownTree
+{
+	width: 115px;
+	_float: left;
+	margin-right: 5px;
+}
+.chartDiv
+{
+	float:left; 
+	/* UAT Tracker - 521 - glbsip03 - 5-in-1 chart still not to big enough*/
+	/*padding-left: 108px;*/
+	/*Issue reporte by Sandy : Fri 10/26/2012 5:44 PM*/
+    padding-left: 103px;
+    
+    /*IE-7 chart alignment issue*/
+    *margin-top:-100px;
+}
+.buttonTree
+{
+	margin-top: 5px;
+	/* padding-left: -2px; */
+	padding-top: 7px;
+	margin-right: 0px;
+	padding-right: 4px;
+	float: left;
+}
+.divHide
+{
+	display: none;
+}
+.divShow
+{
+	visibility: visible;
+}
+
+#divAgICharts
+{
+	width: 65%;
+	float: left;
+	*width: 70%;
+}
+/*#divClose
+{
+	min-height: 350px;
+}*/
+div.tree ul li
+{
+	float: next;
+	list-style-type: none;
+}
+div.tree ul li label
+{
+	margin-right: 10px;
+}
+div.tree ul
+{
+	float: left;
+	list-style-type: none;
+	padding: 0px;
+	width: 100%;
+}
+a.trigger
+{
+	text-decoration: none;
+	top: 0px;
+	left: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 2px;
+	padding-right: 10px;
+	background: #efedea url(images/BackArrow.png) 85% 55% no-repeat;
+	display: block;
+	width: 1%;
+	float: left; /*border-bottom-right-radius:20px; border-top-right-radius:20px; -moz-border-radius-topright: 20px; -webkit-border-top-right-radius: 20px; -moz-border-radius-bottomright: 20px; -webkit-border-bottom-right-radius: 20px; -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px;*/
+}
+
+
+a.trigger:hover
+{
+	text-decoration: none;
+	top: 80px;
+	left: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 2px;
+	padding-right: 10px;
+	background: #bbbbbb url(images/BackArrow.png) 85% 55% no-repeat; /*border-bottom-right-radius:20px; border-top-right-radius:20px; -moz-border-radius-topright: 20px; -webkit-border-top-right-radius: 20px; -moz-border-radius-bottomright: 20px; -webkit-border-bottom-right-radius: 20px; -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px;*/
+	display: block;
+}
+
+a.active.trigger
+{
+	background: #efedea url(images/NextArrow.png) 85% 55% no-repeat;
+	color: #fff;
+}
+
+a.ApplyToChart
+{
+	/*background: rgb(239, 237, 234) url(images/chart.png) 95% 35% no-repeat; 	background-size: 25%;*/
+	color: #696969;
+	width: 30px;
+	text-decoration: none;
+	padding: 0px 0px 0px 5px;
+	font-size: 12px;
+	font-weight: 700;
+}
+a.Cancel
+{
+	/*background: rgb(239, 237, 234) url(images/btn_cancel_big.png) 85% 25% no-repeat;*/
+	width: 40px;
+	text-decoration: none;
+	color: #696969;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.iconHeaderTableClass
+{
+        /*chrome - map view issue*/
+    margin-left: -90px; /* 10px originally */
+ /*end of change*/
+ 
+	width: 770px;
+	/*border: 0.5px solid black;*/
+}
+
+.iconColumnClass
+{
+	text-align: center;
+	font-weight: 700;
+	font-size: 12px;
+	cursor:default;
+}
+
+
+.iconDivClass
+{
+	margin-left: 135px;
+	text-align: center;
+	width: 570px;
+}
+
+.DivAltitude
+{
+	
+	height: auto;
+	background-color: rgb(239, 237, 234);
+	float: left;
+	position: relative;
+	padding-right: 0px;
+	padding-left: 4px;
+	padding-top: 2px;
+	padding-bottom: 4px;
+}
+/*Legend
+--------------------------------------------------------------*/
+
+#restrictLegend
+{
+	margin: 3px 0 0 0;
+	padding-left: 0;
+	width: 100%;
+}
+table.restrictTable
+{
+	border: 1px solid #d7d2cc;
+	font-size: x-small;
+	width: 100%;
+	
+}
+table.restrictTable th
+{
+	padding: 4px;
+	text-align: left;
+}
+table.restrictTable td 
+{
+	padding: 2px 5px 2px 5px;
+}
+table.restrictTable td, table.restrictTable th
+{
+	border-right: 1px solid #c5c5a1;
+}
+.legendColourCell
+{
+	text-align: center;
+}
+.legendLetterCell
+{
+	text-align: center;
+	width: auto;
+}
+.legendTableHeader, th:hover
+{
+	background: rgb(239, 237, 234);
+	font-weight: 700;
+	border-top: none;
+}
+.legendColourCell img
+{
+	cursor: default;
+}
+.Legend
+{
+    width:100%;
+    float:left;
+    padding-top:0px;
+}
+.NewtdLeft
+{
+     width:150px;  
+     margin-left: 5px;
+}
+.Newtd
+{
+     margin-left: 5px;
+}
+#tblEmail tr:hover, #tblFavorites tr:hover, #tblFeedback tr:hover
+{
+	background: none;
+	cursor: default;
+}
+#PageFooter_footNav li
+{
+    padding-top:10px;
+    float:left;
+    width:100%;
+    padding-bottom:10px;
+}
+.tablesGap tr td, .tablesGap tr th
+{
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left: 5px;
+}
+.tables tr td, .tables tr th
+{
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left: 5px;
+}
+
+/* Agricast CR - R6 - Add wind icons and legend for Humidity - Begin */
+.float-icon-legend {
+    color: #666;
+    cursor: pointer;
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    margin-bottom: -382px;
+   
+	overflow: hidden;
+    position: relative;
+    top: -382px;
+    width: 100%;
+}
+.float-icon-legend table tr:hover {
+	background: none;
+}
+.float-icon-legend table tr td {
+    text-align: center;
+}
+
+.float-icon-legend .chart-float-icons {
+    float: left;
+    font-size:10px;
+    margin-left: 37px; 
+    /* margin-top: 230px; */
+    margin-top: 215px; /* for published */
+    line-height:1em;
+}
+.float-icon-legend .chart-float-icons strong {
+    color: #333;
+    font-weight: 900;	
+}
+.float-icon-legend .chart-float-icons table.incomplete-data {
+	position: relative;
+	top: -13px;
+}
+
+.float-icon-legend .chart-float-legend {
+    float: left;
+    border-color: #d7d2cc;
+    border-style: solid;
+    border-width: 1px 0 1px 1px;
+    height: 360px;
+	/*margin-left: 1px\0/IE9;  for IE9 */
+	width: 102px;
+}
+.float-icon-legend .chart-float-legend table {
+	height: 100%;
+	width: 100%;
+}
+
+:root .float-icon-legend .chart-float-legend {
+    margin-left: 1px\0/IE9;
+}    
+/* Agricast CR - R6 - Add wind icons and legend for Humidity - End */
+
+/* Alignment issue - Start */
+.alignToChart {
+	/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - Begin */
+	left: -1px;
+	/*top: -6px;*/
+	
+	/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - End */
+	width: 912px;
+}
+/* Alignment issue - End */
+
+/* UAT Tracker - 517 ui-datepicker-div is visible on Chrome - Begin */
+#ui-datepicker-div {
+    display:none;
+}
+/* UAT Tracker - 517 ui-datepicker-div is visible on Chrome - End */
+
+/*Login Page IE 7 issue*/
+.input-ie7 
+{
+    *margin-left: -100px;
+}
+/* alignment issue for agriInfo chart - jerrey - Start */
+.paddingLeftFixed {
+    padding-left: 15px;
+}
+/* alignment issue for agriInfo chart - jerrey - End */
+
+/*Below styles are mandatory for all publications*/
+/*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/
+/*This style is needed for aligning the table cells wrt to chart*/
+/*Header cell width is calculated as below
+headercell width = (chart width - 85px)/number of days for which the tables arec onfigured
+in ths pub, header cell width = (465-85)/3 = 154px*/
+/*CSS classnames are format is "tblSeriesHeaderStyles_{numberofdays for tables}. this will be used when we have tbls configured in two diff service pages*/
+
+.tblSeriesHeaderStyles_5
+{
+     text-align:center;
+     width:154px;
+         
+}
+
+.tblWidth_5
+{
+     width:912px;
+}
+ /*IM01170843- New Agricast - embeded JS - vew daily table columns width - END*/
+ 
+ /*IM01246263 - New Agricast - Add a new translation tag  - BEGIN*/
+ #range
+ {
+     margin-left:15px;
+ }
+ /*IM01246263 - New Agricast - Add a new translation tag - END*/
+ /* BWM - Jerrey - Start */
+ .legend-table  
+ {
+     /*margin-left:120px; */ /* IM01321106 ;- NEw Agricast - BWM (decp02iap)- centering the legend below the chart - Jerrey */
+     margin: 0px auto;
+     position: relative; top: -30px; 
+ }
+ .legend-table tr:hover { background: none; cursor:default;}
+ .legend-table td { padding:3px; }
+ .legend-table td.legend-icon-cell { text-align:right;}
+ .legend-table td.legend-text-cell { text-align:left;}
+ /* BWM - Jerrey - End */
+ 
+ /*IM01289946-New Agricast - Add a * on mandatory fields-BEGIN*/
+ .mandatory
+ {
+     color:Red;
+     font-size:medium;
+ }
+ .favName
+ {
+     width:50px;
+ }
+ #tblwindicons
+ {
+ 	font-size:12px;
+ }
+ /*IM01289946-New Agricast - Add a * on mandatory fields-ENd*/
+ 
+ #tblwinddirectionlegend1
+ {
+ 	border-spacing: 1px; 
+ 	width: 100%; 
+ 	border-top: 1px solid #d7d2cc;
+    border-bottom: 1px solid #d7d2cc;
+ }
+/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - Begin */
+.alignTableToChart
+{
+	border: 1px solid #d7d2cc;
+	padding: 0px;
+	clear:right;
+	height:auto;
+	/*height: 224px;
+	height: 212px\9;
+	_height: 224px;
+	*height: 224px;*/
+}
+	.alignTableToChart div
+	{
+		padding: 0px;
+	}
+@media \0screen { .alignTableToChart {height: auto;} }
+/* IM01417008 - INF-GLOB-SPTL2 request - Jerrey - End */
+ #MainContent_lbl_Banner
+{display: none;}
+ /* IM01915009 - New Agricast - Label for advertisement banner is now displayed - 20140620 - Start */
+ #ctl00_MainContent_lbl_Banner
+{display: none;}
+ /* IM01915009 - New Agricast - Label for advertisement banner is now displayed - 20140620 - End */
+#ads
+{
+	padding: 0px;
+}
+#ads div
+{
+	padding: 0px;
+}
+
+/* IM01769909 - New Agricast - "Loading" sign not stylable - Shery - 20140410 - Start */
+.blockUI {
+    
+}
+
+
+.blockOverlay  {
+
+}
+
+.blockPage {
+
+    
+}
+
+.blockMsg  {
+ 
+}
+/* IM01769909 - New Agricast - "Loading" sign not stylable - Shery - 20140410 - End */

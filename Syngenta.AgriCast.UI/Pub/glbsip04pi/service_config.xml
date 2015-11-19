@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>glbsip04pi</name>
+	<extNavigation>FR</extNavigation>
+	<secured>true</secured>
+	<allowedRoles>AIS</allowedRoles>
+	<emailSettings>
+		<senderName>support@syngenta-ais.com</senderName>
+		<senderAddress>sandeep.rayasa@syngenta.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Agri-Cast (Template Cast Open) Feedback</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="en-GB" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="en-GB">English (UK)			</culture>
+			<!-- English (GB) -->
+			<culture code="de-DE">Deutsch (DE)			</culture>
+			<!-- Deutsch -->
+			<culture code="fr-FR">Français (FR)			</culture>
+			<!-- Français -->
+			<culture code="it-IT">Italiano(IT)			</culture>
+			<!-- Italiano -->
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric,imperial</Units>
+		<custom>
+			<Wind>kmh,mph,beaufort</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="AF">Afghanistan</area>
+			<area code="AX">Åland Islands</area>
+			<area code="AL">Albania</area>
+			<area code="DZ">Algeria</area>
+			<area code="AS">American Samoa</area>
+			<area code="AD">Andorra</area>
+			<area code="AO">Angola</area>
+			<area code="AI">Anguilla</area>
+			<area code="AQ">Antarctica</area>
+			<area code="AG">Antigua and Barbuda</area>
+			<area code="AR">Argentina</area>
+			<area code="AM">Armenia</area>
+			<area code="AW">Aruba</area>
+			<area code="AU">Australia</area>
+			<area code="AT">Austria</area>
+			<area code="AZ">Azerbaijan</area>
+			<area code="BS">Bahamas</area>
+			<area code="BH">Bahrain</area>
+			<area code="BD">Bangladesh</area>
+			<area code="BB">Barbados</area>
+			<area code="BY">Belarus</area>
+			<area code="BE">Belgium</area>
+			<area code="BZ">Belize</area>
+			<area code="BJ">Benin</area>
+			<area code="BM">Bermuda</area>
+			<area code="BT">Bhutan</area>
+			<area code="BO">Bolivia</area>
+			<area code="BA">Bosnia and Herzegovina</area>
+			<area code="BW">Botswana</area>
+			<area code="BV">Bouvet Island</area>
+			<area code="BR">Brazil</area>
+			<area code="IO">British Indian Ocean Territory</area>
+			<area code="BN">Brunei Darussalam</area>
+			<area code="BG">Bulgaria</area>
+			<area code="BF">Burkina Faso</area>
+			<area code="BI">Burundi</area>
+			<area code="KH">Cambodia</area>
+			<area code="CM">Cameroon</area>
+			<area code="CA">Canada</area>
+			<area code="CV">Cape Verde</area>
+			<area code="KY">Cayman Islands</area>
+			<area code="CF">Central African Republic</area>
+			<area code="TD">Chad</area>
+			<area code="CL">Chile</area>
+			<area code="CN">China</area>
+			<area code="CX">Christmas Island</area>
+			<area code="CC">Cocos (Keeling) Islands</area>
+			<area code="CO">Colombia</area>
+			<area code="KM">Comoros</area>
+			<area code="CG">Congo</area>
+			<area code="CD">Congo, the Democratic Republic of the</area>
+			<area code="CK">Cook Islands</area>
+			<area code="CR">Costa Rica</area>
+			<area code="CI">Côte d'Ivoire</area>
+			<area code="HR">Croatia</area>
+			<area code="CU">Cuba</area>
+			<area code="CY">Cyprus</area>
+			<area code="CZ">Czech Republic</area>
+			<area code="DK">Denmark</area>
+			<area code="DJ">Djibouti</area>
+			<area code="DM">Dominica</area>
+			<area code="DO">Dominican Republic</area>
+			<area code="EC">Ecuador</area>
+			<area code="EG">Egypt</area>
+			<area code="SV">El Salvador</area>
+			<area code="GQ">Equatorial Guinea</area>
+			<area code="ER">Eritrea</area>
+			<area code="EE">Estonia</area>
+			<area code="ET">Ethiopia</area>
+			<area code="FK">Falkland Islands (Malvinas)</area>
+			<area code="FO">Faroe Islands</area>
+			<area code="FJ">Fiji</area>
+			<area code="FI">Finland</area>
+			<area code="FR">France</area>
+			<area code="GF">French Guiana</area>
+			<area code="PF">French Polynesia</area>
+			<area code="TF">French Southern Territories</area>
+			<area code="GA">Gabon</area>
+			<area code="GM">Gambia</area>
+			<area code="GE">Georgia</area>
+			<area code="DE">Germany</area>
+			<area code="GH">Ghana</area>
+			<area code="GI">Gibraltar</area>
+			<area code="GR">Greece</area>
+			<area code="GL">Greenland</area>
+			<area code="GD">Grenada</area>
+			<area code="GP">Guadeloupe</area>
+			<area code="GU">Guam</area>
+			<area code="GT">Guatemala</area>
+			<area code="GG">Guernsey</area>
+			<area code="GN">Guinea</area>
+			<area code="GW">Guinea-Bissau</area>
+			<area code="GY">Guyana</area>
+			<area code="HT">Haiti</area>
+			<area code="HM">Heard Island and McDonald Islands</area>
+			<area code="VA">Holy See (Vatican City State)</area>
+			<area code="HN">Honduras</area>
+			<area code="HK">Hong Kong</area>
+			<area code="HU">Hungary</area>
+			<area code="IS">Iceland</area>
+			<area code="IN">India</area>
+			<area code="ID">Indonesia</area>
+			<area code="IR">Iran, Islamic Republic of</area>
+			<area code="IQ">Iraq</area>
+			<area code="IE">Ireland</area>
+			<area code="IM">Isle of Man</area>
+			<area code="IL">Israel</area>
+			<area code="IT">Italy</area>
+			<area code="JM">Jamaica</area>
+			<area code="JP">Japan</area>
+			<area code="JE">Jersey</area>
+			<area code="JO">Jordan</area>
+			<area code="KZ">Kazakhstan</area>
+			<area code="KE">Kenya</area>
+			<area code="KI">Kiribati</area>
+			<area code="KP">Korea, Democratic People's Republic of</area>
+			<area code="KR">Korea, Republic of</area>
+			<area code="KW">Kuwait</area>
+			<area code="KG">Kyrgyzstan</area>
+			<area code="LA">Lao People's Democratic Republic</area>
+			<area code="LV">Latvia</area>
+			<area code="LB">Lebanon</area>
+			<area code="LS">Lesotho</area>
+			<area code="LR">Liberia</area>
+			<area code="LY">Libyan Arab Jamahiriya</area>
+			<area code="LI">Liechtenstein</area>
+			<area code="LT">Lithuania</area>
+			<area code="LU">Luxembourg</area>
+			<area code="MO">Macao</area>
+			<area code="MK">Macedonia, the former Yugoslav Republic of</area>
+			<area code="MG">Madagascar</area>
+			<area code="MW">Malawi</area>
+			<area code="MY">Malaysia</area>
+			<area code="MV">Maldives</area>
+			<area code="ML">Mali</area>
+			<area code="MT">Malta</area>
+			<area code="MH">Marshall Islands</area>
+			<area code="MQ">Martinique</area>
+			<area code="MR">Mauritania</area>
+			<area code="MU">Mauritius</area>
+			<area code="YT">Mayotte</area>
+			<area code="MX">Mexico</area>
+			<area code="FM">Micronesia, Federated States of</area>
+			<area code="MD">Moldova, Republic of</area>
+			<area code="MC">Monaco</area>
+			<area code="MN">Mongolia</area>
+			<area code="MS">Montserrat</area>
+			<area code="MA">Morocco</area>
+			<area code="MZ">Mozambique</area>
+			<area code="MM">Myanmar</area>
+			<area code="NA">Namibia</area>
+			<area code="NR">Nauru</area>
+			<area code="NP">Nepal</area>
+			<area code="NL">Netherlands</area>
+			<area code="AN">Netherlands Antilles</area>
+			<area code="NC">New Caledonia</area>
+			<area code="NZ">New Zealand</area>
+			<area code="NI">Nicaragua</area>
+			<area code="NE">Niger</area>
+			<area code="NG">Nigeria</area>
+			<area code="NU">Niue</area>
+			<area code="NF">Norfolk Island</area>
+			<area code="MP">Northern Mariana Islands</area>
+			<area code="NO">Norway</area>
+			<area code="OM">Oman</area>
+			<area code="PK">Pakistan</area>
+			<area code="PW">Palau</area>
+			<area code="PS">Palestinian Territory, Occupied</area>
+			<area code="PA">Panama</area>
+			<area code="PG">Papua New Guinea</area>
+			<area code="PY">Paraguay</area>
+			<area code="PE">Peru</area>
+			<area code="PH">Philippines</area>
+			<area code="PN">Pitcairn</area>
+			<area code="PL">Poland</area>
+			<area code="PT">Portugal</area>
+			<area code="PR">Puerto Rico</area>
+			<area code="QA">Qatar</area>
+			<area code="RE">Réunion</area>
+			<area code="RO">Romania</area>
+			<area code="RU">Russian Federation</area>
+			<area code="RW">Rwanda</area>
+			<area code="SH">Saint Helena</area>
+			<area code="KN">Saint Kitts and Nevis</area>
+			<area code="LC">Saint Lucia</area>
+			<area code="PM">Saint Pierre and Miquelon</area>
+			<area code="VC">Saint Vincent and the Grenadines</area>
+			<area code="WS">Samoa</area>
+			<area code="SM">San Marino</area>
+			<area code="ST">Sao Tome and Principe</area>
+			<area code="SA">Saudi Arabia</area>
+			<area code="SN">Senegal</area>
+			<area code="RS">Serbia</area>
+			<area code="SC">Seychelles</area>
+			<area code="SL">Sierra Leone</area>
+			<area code="SG">Singapore</area>
+			<area code="SK">Slovakia</area>
+			<area code="SI">Slovenia</area>
+			<area code="SB">Solomon Islands</area>
+			<area code="SO">Somalia</area>
+			<area code="ZA">South Africa</area>
+			<area code="GS">South Georgia and the South Sandwich Islands</area>
+			<area code="ES">Spain</area>
+			<area code="LK">Sri Lanka</area>
+			<area code="SD">Sudan</area>
+			<area code="SR">Suriname</area>
+			<area code="SJ">Svalbard and Jan Mayen</area>
+			<area code="SZ">Swaziland</area>
+			<area code="SE">Sweden</area>
+			<area code="CH">Switzerland</area>
+			<area code="SY">Syrian Arab Republic</area>
+			<area code="TW">Taiwan, Province of China</area>
+			<area code="TJ">Tajikistan</area>
+			<area code="TZ">Tanzania, United Republic of</area>
+			<area code="TH">Thailand</area>
+			<area code="TL">Timor-Leste</area>
+			<area code="TG">Togo</area>
+			<area code="TK">Tokelau</area>
+			<area code="TO">Tonga</area>
+			<area code="TT">Trinidad and Tobago</area>
+			<area code="TN">Tunisia</area>
+			<area code="TR">Turkey</area>
+			<area code="TM">Turkmenistan</area>
+			<area code="TC">Turks and Caicos Islands</area>
+			<area code="TV">Tuvalu</area>
+			<area code="UG">Uganda</area>
+			<area code="UA">Ukraine</area>
+			<area code="AE">United Arab Emirates</area>
+			<area code="GB">United Kingdom</area>
+			<area code="US">United States</area>
+			<area code="UM">United States Minor Outlying Islands</area>
+			<area code="UY">Uruguay</area>
+			<area code="UZ">Uzbekistan</area>
+			<area code="VU">Vanuatu</area>
+			<area code="VE">Venezuela</area>
+			<area code="VN">Viet Nam</area>
+			<area code="VG">Virgin Islands, British</area>
+			<area code="VI">Virgin Islands, U.S.</area>
+			<area code="WF">Wallis and Futuna</area>
+			<area code="EH">Western Sahara</area>
+			<area code="YE">Yemen</area>
+			<area code="ZM">Zambia</area>
+			<area code="ZW">Zimbabwe</area>
+		</allowedCountries>
+	</locationSearch>
+
+	<servicePages file="../base_glbsip04pi.xml" />
+</service>
+
+
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>decp04fao</name>
+	<extNavigation></extNavigation>
+	<secured>true</secured>
+	<allowedRoles>AIS</allowedRoles>
+	<emailSettings>
+		<senderName>Syngenta Spritzwetter-Services</senderName>
+		<senderAddress>internet.marketing@syngenta.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>Syngenta Spritzwetter-Services</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="en-GB" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="de-DE">Deutsch (DE)			</culture>
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+      <Units>metric</Units>
+      <custom>
+         <Wind>kmh</Wind>
+      </custom>
+   </unitsSettings>
+   <locationSearch name="Search" defaultLocation="" useIPLocation="false" provider="AIS" resultCount="10" showMap="true">
+      <allowedCountries>
+         <area code="DE">Germany</area>
+      </allowedCountries>
+   </locationSearch>
+
+  <servicePage name="weathercast" trnsTag="All_TabWeatherCast" defaultPage="true">
+    <pageSettings  allowFavorites="false" allowPrintPage="true" allowEmail="true" allowExportToExcel="false" allowFeedback="true" >
+    </pageSettings>
+    <nearbyDataPoint name="NearbyDataPoint_s" defaultDataSource="glbStnFcst" maxAllowedDistance="100" maxAllowedAltitude="250" resultCount="10" >
+    </nearbyDataPoint>
+
+    
+    <tblDaysRows name="vew_spraygrnd_s" trnsTag="ResSprayGround" dataSource="glbStnFcst" startDate="0" endDate="5" temporalAggregation="Hourly" ruleset="SW_GroundSprayClomazone" colorPaletteName="pal_sip_window" feedback="false">
+      <series>
+        <serie name="PrecipAmount_mm" trnsTag="precipitation" aggregationFunction="sum" colorPaletteName=""  />
+        <serie name="RelHumidity" trnsTag="relhumidity" aggregationFunction="avg"  colorPaletteName="" />
+        <serie name="WindSpeedMax_ms" trnsTag="relhumidity" aggregationFunction="max"  colorPaletteName="" />
+        <serie name="WindSpeed_ms" trnsTag="relhumidity" aggregationFunction="max" colorPaletteName=""  />
+        <serie name="TempAir_C" trnsTag="temperature_max" aggregationFunction="max" colorPaletteName=""  />
+        <!--<legend name="ClomazoneSprayWindowText.htm" trnsTag="" htmlPath="Pub\decp04fao\ClomazoneSprayWindowText.htm" />-->
+        <legend name="SprayingrestrictionsLegend" trnsTag="SprayingrestrictionsLegend" htmlPath="legends\SparayWindowGroundSprayingRestrictions.htm" />
+        <legend name="SprayingcoloursLegend" trnsTag="Spraying.SIPcoloursLegend" htmlPath="legends\GroundSprayingColoursLegend.htm" />
+      </series>
+      
+    </tblDaysRows>
+   
+  </servicePage>
+  </service>
+
+
+

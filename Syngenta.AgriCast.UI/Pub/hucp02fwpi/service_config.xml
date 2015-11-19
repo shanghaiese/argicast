@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service>
+	<name>hucp02fwpi</name>
+	<extNavigation>FR</extNavigation>
+	<secured>true</secured>
+	<allowedRoles>glbsip04pi,internal</allowedRoles>
+	<emailSettings>
+		<senderName>SyngentaAIS-hucp02fwpi</senderName>
+		<senderAddress>support@syngenta-ais.com</senderAddress>
+		<!--This should be a combination of translation tag and variable name to be substituded at runtime-->
+		<subject>hucp02fwpi Feedback</subject>
+		<defaultBody></defaultBody>
+	</emailSettings>
+	<cultureSettings default="hu-HU" useIPCulture="true" useBrowserLang="true">
+		<allowedCultureCodes>
+			<culture code="hu-HU">Magyar (HU)			</culture>
+			<!-- Magyar (HU) -->
+		</allowedCultureCodes>
+	</cultureSettings>
+	<unitsSettings>
+		<Units>metric,imperial</Units>
+		<custom>
+			<Wind>kmh,mph,beaufort</Wind>
+		</custom>
+	</unitsSettings>
+	<locationSearch name="Search" defaultLocation="" useIPLocation="true" provider="AIS" resultCount="10" showMap="true">
+		<allowedCountries>
+			<area code="HU">Hungary</area>
+		</allowedCountries>
+	</locationSearch>
+
+	<servicePages file="../base_glbsips03fwp.xml" />
+
+
+</service>
+
+
+
